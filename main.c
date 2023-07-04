@@ -143,9 +143,9 @@ static void (*nullVector)(void) __attribute__((__noreturn__));
 
 static void leaveBootloader(void)
 {   
-#ifdef ONBOARD_LED
-    PORTD&=~(1<<4);
-    DDRD &=~(1<<4);
+#ifdef ONBOARD_LED_ENABLE
+    ONBOARD_LED_PORT&=~(1<<ONBOARD_LED_bp);
+    ONBOARD_LED_DDR &=~(1<<ONBOARD_LED_bp);
 #endif
     DBG1(0x01, 0, 0);
     bootLoaderExit();
