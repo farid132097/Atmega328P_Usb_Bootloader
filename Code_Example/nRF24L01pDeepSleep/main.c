@@ -19,18 +19,21 @@ int main(void){
   nRF24L01P_Init();
   Sleep_Init();
   
+  for(uint16_t i=0;i<5000;i++){
+    uint8_t buf[32];
+	nRF24L01P_WakeUp();
+    nRF24L01P_Transmit_Basic(buf,10);
+	nRF24L01P_Deep_Sleep();
+  }
   while(1){
       
-	  if(WDT_Get_Ticks()<10){
 	    uint8_t buf[32];
 	    PORTD |=(1<<4);
 	    nRF24L01P_WakeUp();
 	    nRF24L01P_Transmit_Basic(buf,10);
 	    nRF24L01P_Deep_Sleep();
-	  }else{
 	    PORTD &=~(1<<4);
 	    Deep_Sleep();
-	  }
 	
   }
 }
