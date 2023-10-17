@@ -27,10 +27,10 @@ int main(void){
   }
   while(1){
       
-	    uint8_t buf[32];
+	    uint8_t buf[32]="Bello world\r\n";
 	    PORTD |=(1<<4);
 	    nRF24L01P_WakeUp();
-	    nRF24L01P_Transmit_Basic(buf,10);
+	    nRF24L01P_Transmit_Basic(buf,13);
 	    nRF24L01P_Deep_Sleep();
 	    PORTD &=~(1<<4);
 	    Deep_Sleep();

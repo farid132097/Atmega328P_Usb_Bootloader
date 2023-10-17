@@ -12,7 +12,7 @@
 #define nRF24L01P_CE_PORT          PORTD
 #define nRF24L01P_CE_bp            7
 
-#define nRF24L01P_PACKET_LEN       16
+#define nRF24L01P_PACKET_LEN       32
 
 typedef struct nrf24l01p_address_t{
   uint8_t              Own           ;

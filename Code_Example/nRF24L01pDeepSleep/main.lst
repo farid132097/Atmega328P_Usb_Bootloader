@@ -6,115 +6,149 @@
    6               	__tmp_reg__ = 0
    7               	__zero_reg__ = 1
   15               	.Ltext0:
-  16               	.global	main
-  18               	main:
-  19               	.LFB6:
-  20               	.LM1:
-  21 0000 EF92      		push r14
-  22 0002 FF92      		push r15
-  23 0004 0F93      		push r16
-  24 0006 1F93      		push r17
-  25 0008 DF93      		push r29
-  26 000a CF93      		push r28
-  27 000c CDB7      		in r28,__SP_L__
-  28 000e DEB7      		in r29,__SP_H__
-  29 0010 A097      		sbiw r28,32
-  30 0012 0FB6      		in __tmp_reg__,__SREG__
-  31 0014 F894      		cli
-  32 0016 DEBF      		out __SP_H__,r29
-  33 0018 0FBE      		out __SREG__,__tmp_reg__
-  34 001a CDBF      		out __SP_L__,r28
-  35               	/* prologue: function */
-  36               	/* frame size = 32 */
-  37               	.LM2:
-  38 001c 549A      		sbi 42-32,4
-  39               	.LM3:
-  40 001e 5C98      		cbi 43-32,4
-  41               	.LM4:
-  42 0020 8AB1      		in r24,42-32
-  43 0022 837F      		andi r24,lo8(-13)
-  44 0024 8AB9      		out 42-32,r24
-  45               	.LM5:
-  46 0026 8BB1      		in r24,43-32
-  47 0028 8C60      		ori r24,lo8(12)
-  48 002a 8BB9      		out 43-32,r24
-  49               	.LM6:
-  50 002c 0E94 0000 		call nRF24L01P_Init
-  51               	.LM7:
-  52 0030 0E94 0000 		call Sleep_Init
-  53 0034 00E0      		ldi r16,lo8(0)
-  54 0036 10E0      		ldi r17,hi8(0)
-  55               	.LVL0:
-  56               	.LBB2:
-  57               	.LBB3:
-  58               	.LM8:
-  59 0038 7E01      		movw r14,r28
-  60 003a 0894      		sec
-  61 003c E11C      		adc r14,__zero_reg__
-  62 003e F11C      		adc r15,__zero_reg__
-  63               	.L2:
-  64               	.LM9:
-  65 0040 0E94 0000 		call nRF24L01P_WakeUp
-  66               	.LM10:
-  67 0044 C701      		movw r24,r14
-  68 0046 6AE0      		ldi r22,lo8(10)
-  69 0048 0E94 0000 		call nRF24L01P_Transmit_Basic
-  70               	.LM11:
-  71 004c 0E94 0000 		call nRF24L01P_Deep_Sleep
-  72               	.LBE3:
-  73               	.LM12:
-  74 0050 0F5F      		subi r16,lo8(-(1))
-  75 0052 1F4F      		sbci r17,hi8(-(1))
-  76 0054 83E1      		ldi r24,hi8(5000)
-  77 0056 0838      		cpi r16,lo8(5000)
-  78 0058 1807      		cpc r17,r24
-  79 005a 01F4      		brne .L2
-  80               	.LBE2:
-  81               	.LBB4:
-  82               	.LM13:
-  83 005c 8E01      		movw r16,r28
-  84               	.LVL1:
-  85 005e 0F5F      		subi r16,lo8(-(1))
-  86 0060 1F4F      		sbci r17,hi8(-(1))
-  87               	.L6:
-  88               	.LM14:
-  89 0062 5C9A      		sbi 43-32,4
-  90               	.LM15:
-  91 0064 0E94 0000 		call nRF24L01P_WakeUp
-  92               	.LM16:
-  93 0068 C801      		movw r24,r16
-  94 006a 6AE0      		ldi r22,lo8(10)
-  95 006c 0E94 0000 		call nRF24L01P_Transmit_Basic
-  96               	.LM17:
-  97 0070 0E94 0000 		call nRF24L01P_Deep_Sleep
-  98               	.LM18:
-  99 0074 5C98      		cbi 43-32,4
- 100               	.LM19:
- 101 0076 0E94 0000 		call Deep_Sleep
- 102 007a 00C0      		rjmp .L6
- 103               	.LBE4:
- 104               	.LFE6:
- 106               	.global	last_val
- 107               	.global	last_val
- 108               		.section .bss
- 111               	last_val:
- 112 0000 0000 0000 		.skip 4,0
- 113               	.global	state
- 114               	.global	state
- 117               	state:
- 118 0004 00        		.skip 1,0
- 143               	.Letext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 4265 6C6C 		.string	"Bello world\r\n"
+  18      6F20 776F 
+  18      726C 640D 
+  18      0A00 
+  19 000e 0000 0000 		.skip 18,0
+  19      0000 0000 
+  19      0000 0000 
+  19      0000 0000 
+  19      0000 
+  20               		.text
+  21               	.global	main
+  23               	main:
+  24               	.LFB6:
+  25               	.LM1:
+  26 0000 DF92      		push r13
+  27 0002 EF92      		push r14
+  28 0004 FF92      		push r15
+  29 0006 0F93      		push r16
+  30 0008 1F93      		push r17
+  31 000a DF93      		push r29
+  32 000c CF93      		push r28
+  33 000e CDB7      		in r28,__SP_L__
+  34 0010 DEB7      		in r29,__SP_H__
+  35 0012 A097      		sbiw r28,32
+  36 0014 0FB6      		in __tmp_reg__,__SREG__
+  37 0016 F894      		cli
+  38 0018 DEBF      		out __SP_H__,r29
+  39 001a 0FBE      		out __SREG__,__tmp_reg__
+  40 001c CDBF      		out __SP_L__,r28
+  41               	/* prologue: function */
+  42               	/* frame size = 32 */
+  43               	.LM2:
+  44 001e 549A      		sbi 42-32,4
+  45               	.LM3:
+  46 0020 5C98      		cbi 43-32,4
+  47               	.LM4:
+  48 0022 8AB1      		in r24,42-32
+  49 0024 837F      		andi r24,lo8(-13)
+  50 0026 8AB9      		out 42-32,r24
+  51               	.LM5:
+  52 0028 8BB1      		in r24,43-32
+  53 002a 8C60      		ori r24,lo8(12)
+  54 002c 8BB9      		out 43-32,r24
+  55               	.LM6:
+  56 002e 0E94 0000 		call nRF24L01P_Init
+  57               	.LM7:
+  58 0032 0E94 0000 		call Sleep_Init
+  59 0036 00E0      		ldi r16,lo8(0)
+  60 0038 10E0      		ldi r17,hi8(0)
+  61               	.LVL0:
+  62               	.LBB2:
+  63               	.LBB3:
+  64               	.LM8:
+  65 003a 7E01      		movw r14,r28
+  66 003c 0894      		sec
+  67 003e E11C      		adc r14,__zero_reg__
+  68 0040 F11C      		adc r15,__zero_reg__
+  69               	.L2:
+  70               	.LM9:
+  71 0042 0E94 0000 		call nRF24L01P_WakeUp
+  72               	.LM10:
+  73 0046 C701      		movw r24,r14
+  74 0048 6AE0      		ldi r22,lo8(10)
+  75 004a 0E94 0000 		call nRF24L01P_Transmit_Basic
+  76               	.LM11:
+  77 004e 0E94 0000 		call nRF24L01P_Deep_Sleep
+  78               	.LBE3:
+  79               	.LM12:
+  80 0052 0F5F      		subi r16,lo8(-(1))
+  81 0054 1F4F      		sbci r17,hi8(-(1))
+  82 0056 83E1      		ldi r24,hi8(5000)
+  83 0058 0838      		cpi r16,lo8(5000)
+  84 005a 1807      		cpc r17,r24
+  85 005c 01F4      		brne .L2
+  86               	.LBE2:
+  87               	.LBB4:
+  88               	.LM13:
+  89 005e 8E01      		movw r16,r28
+  90               	.LVL1:
+  91 0060 0F5F      		subi r16,lo8(-(1))
+  92 0062 1F4F      		sbci r17,hi8(-(1))
+  93 0064 92E1      		ldi r25,lo8(18)
+  94 0066 D92E      		mov r13,r25
+  95 0068 8FE0      		ldi r24,lo8(15)
+  96 006a E82E      		mov r14,r24
+  97 006c F12C      		mov r15,__zero_reg__
+  98 006e EC0E      		add r14,r28
+  99 0070 FD1E      		adc r15,r29
+ 100               	.L8:
+ 101 0072 D801      		movw r26,r16
+ 102 0074 E0E0      		ldi r30,lo8(.LC0)
+ 103 0076 F0E0      		ldi r31,hi8(.LC0)
+ 104 0078 8EE0      		ldi r24,lo8(14)
+ 105               	.L3:
+ 106 007a 0190      		ld r0,Z+
+ 107 007c 0D92      		st X+,r0
+ 108 007e 8150      		subi r24,lo8(-(-1))
+ 109 0080 01F4      		brne .L3
+ 110 0082 F701      		movw r30,r14
+ 111 0084 8D2D      		mov r24,r13
+ 112 0086 1192      		st Z+,__zero_reg__
+ 113 0088 8A95      	        dec r24
+ 114 008a 01F4      		brne .-6
+ 115               	.LM14:
+ 116 008c 5C9A      		sbi 43-32,4
+ 117               	.LM15:
+ 118 008e 0E94 0000 		call nRF24L01P_WakeUp
+ 119               	.LM16:
+ 120 0092 C801      		movw r24,r16
+ 121 0094 6DE0      		ldi r22,lo8(13)
+ 122 0096 0E94 0000 		call nRF24L01P_Transmit_Basic
+ 123               	.LM17:
+ 124 009a 0E94 0000 		call nRF24L01P_Deep_Sleep
+ 125               	.LM18:
+ 126 009e 5C98      		cbi 43-32,4
+ 127               	.LM19:
+ 128 00a0 0E94 0000 		call Deep_Sleep
+ 129 00a4 00C0      		rjmp .L8
+ 130               	.LBE4:
+ 131               	.LFE6:
+ 133               	.global	last_val
+ 134               	.global	last_val
+ 135               		.section .bss
+ 138               	last_val:
+ 139 0000 0000 0000 		.skip 4,0
+ 140               	.global	state
+ 141               	.global	state
+ 144               	state:
+ 145 0004 00        		.skip 1,0
+ 170               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccsApsoK.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccsApsoK.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccsApsoK.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccsApsoK.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccsApsoK.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccsApsoK.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccsApsoK.s:18     .text:00000000 main
-C:\Users\FARIDU~1\AppData\Local\Temp/ccsApsoK.s:111    .bss:00000000 last_val
-C:\Users\FARIDU~1\AppData\Local\Temp/ccsApsoK.s:117    .bss:00000004 state
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJKp75O.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJKp75O.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJKp75O.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJKp75O.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJKp75O.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJKp75O.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJKp75O.s:23     .text:00000000 main
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJKp75O.s:138    .bss:00000000 last_val
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJKp75O.s:144    .bss:00000004 state
 
 UNDEFINED SYMBOLS
 nRF24L01P_Init
@@ -123,4 +157,5 @@ nRF24L01P_WakeUp
 nRF24L01P_Transmit_Basic
 nRF24L01P_Deep_Sleep
 Deep_Sleep
+__do_copy_data
 __do_clear_bss
