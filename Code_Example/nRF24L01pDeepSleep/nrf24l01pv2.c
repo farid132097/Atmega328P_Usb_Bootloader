@@ -38,6 +38,8 @@ typedef struct nrf24l01p_t{
   nrf24l01p_address_t  Address       ;
   nrf24l01p_config_t   Config        ;
   nrf24l01p_packet_t   Packet        ;
+  uint16_t             ErrorTicks    ;
+  uint8_t              Error         ;
 } nrf24l01p_t;
 
 nrf24l01p_t nRF24L01P_type;
@@ -57,6 +59,8 @@ void nRF24L01P_Struct_Init(void){
   nRF24L01P->Config.RetryOccured=0;
   nRF24L01P->Packet.PID=0;
   nRF24L01P->Packet.ACKReq=1;
+  nRF24L01P->ErrorTicks=0;
+  nRF24L01P->Error=0;
 }
 
 void nRF24L01P_CSN_High(void){
@@ -87,7 +91,7 @@ void nRF24L01P_Enable_GPIO(void){
 void nRF24L01P_Disable_GPIO(void){
   DDRB |= (1<<4);                              
   PORTB&=~((1<<5)|(1<<4)|(1<<3)|(1<<2));
-  nRF24L01P_CSN_High();   ////////////////////////test//////
+  nRF24L01P_CSN_High(); 
   nRF24L01P_CE_Low() ;  
 }
 
@@ -111,18 +115,45 @@ void nRF24L01P_Disable(void){
   nRF24L01P_Disable_GPIO();
 }
 
-uint8_t nRF24L01P_SPI_Transfer(uint8_t data){
-  SPDR = data;
-  uint16_t ticks=0;
-  while(!(SPSR & (1 << SPIF))){
-    _delay_us(1);
-    ticks++;
-    if(ticks>5000){
-      //add error management
-	  break;
-    }
+void nRF24L01P_Error_Clear(void){
+  nRF24L01P->ErrorTicks=0;
+  nRF24L01P->Error=0;
+}
+
+uint8_t nRF24L01P_Get_Error(void){
+  return nRF24L01P->Error;
+}
+
+uint8_t nRF24L01P_Error_Timeout(void){
+  _delay_us(1);
+  nRF24L01P->ErrorTicks++;
+  if(nRF24L01P->ErrorTicks>1000){
+    nRF24L01P->ErrorTicks=0;
+    nRF24L01P->Error=0x10;
   }
-  return SPDR;
+  return nRF24L01P->Error;
+}
+
+uint8_t nRF24L01P_SPI_Transfer(uint8_t data){
+  uint8_t sts=0;
+  if(nRF24L01P->Error==0){
+    SPDR = data;
+    nRF24L01P_Error_Clear();
+    while(!(SPSR & (1 << SPIF))){
+      if(nRF24L01P_Error_Timeout()){
+	    sts=0;
+	    break;
+	  }
+    }
+    if(nRF24L01P->Error==0){
+      sts=SPDR;
+    }else{
+      sts=0;
+    }
+  }else{
+    sts=0;
+  }
+  return sts;
 }
 
 uint16_t nRF24L01P_Calcuate_CRC(uint16_t crc, uint8_t data){
@@ -148,110 +179,141 @@ uint16_t nRF24L01P_Calcuate_CRC_Block(uint8_t *buf, uint8_t len){
 
 
 void nRF24L01P_ReadWrite_Register(uint8_t reg, uint8_t rw, uint8_t *data, uint8_t len){
-  nRF24L01P_CSN_Low();
-  if(rw==0){
-    reg|=0x20;
-	nRF24L01P_SPI_Transfer(reg);
-	for(uint8_t i=0;i<len;i++){
-	  nRF24L01P_SPI_Transfer(data[i]);
-	}
-  }else{
-    nRF24L01P_SPI_Transfer(reg);
-    for(uint8_t i=0;i<len;i++){
-      data[i]=nRF24L01P_SPI_Transfer(0xFF);
+  if(nRF24L01P->Error==0){
+    nRF24L01P_CSN_Low();
+    if(rw==0){
+      reg|=0x20;
+	  nRF24L01P_SPI_Transfer(reg);
+	  for(uint8_t i=0;i<len;i++){
+	    nRF24L01P_SPI_Transfer(data[i]);
+	  }
+    }else{
+      nRF24L01P_SPI_Transfer(reg);
+      for(uint8_t i=0;i<len;i++){
+        data[i]=nRF24L01P_SPI_Transfer(0xFF);
+      }
     }
+    nRF24L01P_CSN_High();
   }
-  nRF24L01P_CSN_High();
 }
 
 void nRF24L01P_Flush_Transmit_Buffer(void){
-  nRF24L01P_ReadWrite_Register(0xE1,0,nRF24L01P->TempBuf,0);
+  if(nRF24L01P->Error==0){
+    nRF24L01P_ReadWrite_Register(0xE1,0,nRF24L01P->TempBuf,0);
+  }
 }
 
 void nRF24L01P_Write_Data_To_Transmit_Buffer(uint8_t *data){
-  nRF24L01P_ReadWrite_Register(0xA0,0,data,32);
+  if(nRF24L01P->Error==0){
+    nRF24L01P_ReadWrite_Register(0xA0,0,data,32);
+  }
 }
 
 uint8_t nRF24L01P_Transmit_Buffer_Empty(void){
-  nRF24L01P->TempBuf[0]=0;
-  nRF24L01P_ReadWrite_Register(0x17,1,nRF24L01P->TempBuf,1);
-  if(nRF24L01P->TempBuf[0] & (1<<4)){
-    return 1;
+  if(nRF24L01P->Error==0){
+    nRF24L01P->TempBuf[0]=0;
+    nRF24L01P_ReadWrite_Register(0x17,1,nRF24L01P->TempBuf,1);
+    if(nRF24L01P->TempBuf[0] & (1<<4)){
+      return 1;
+    }else{
+      return 0;
+    }
   }else{
     return 0;
   }
 }
 
 void nRF24L01P_Wait_Till_Transmission_Completes(void){
-  while(!nRF24L01P_Transmit_Buffer_Empty()){
-    _delay_us(100);
+  if(nRF24L01P->Error==0){
+    while(!nRF24L01P_Transmit_Buffer_Empty()){
+      _delay_us(100);
+    }
   }
 }
 
 void nRF24L01P_Flush_Receive_Buffer(void){
-  nRF24L01P_ReadWrite_Register(0xE2,0,nRF24L01P->TempBuf,0);
+  if(nRF24L01P->Error==0){
+    nRF24L01P_ReadWrite_Register(0xE2,0,nRF24L01P->TempBuf,0);
+  }
 }
 
 void nRF24L01P_Read_Data_From_Receive_Buffer(uint8_t *data){
-  nRF24L01P_ReadWrite_Register(0x61,1,data,32);
+  if(nRF24L01P->Error==0){
+    nRF24L01P_ReadWrite_Register(0x61,1,data,32);
+  }
 }
 
 uint8_t nRF24L01P_Receive_Buffer_Not_Empty(void){
-  nRF24L01P->TempBuf[0]=0;
-  nRF24L01P_ReadWrite_Register(0x17,1,nRF24L01P->TempBuf,1);
-  if((nRF24L01P->TempBuf[0] & (1<<0))==0){
-    return 1;
+  if(nRF24L01P->Error==0){
+    nRF24L01P->TempBuf[0]=0;
+    nRF24L01P_ReadWrite_Register(0x17,1,nRF24L01P->TempBuf,1);
+    if((nRF24L01P->TempBuf[0] & (1<<0))==0){
+      return 1;
+    }else{
+      return 0;
+    }
   }else{
     return 0;
   }
 }
 
 uint8_t nRF24L01P_Get_Mode(void){
-  nRF24L01P_ReadWrite_Register(0x00,1,nRF24L01P->TempBuf,1);
-  if(nRF24L01P->TempBuf[0] & (1<<1)){
-    if(nRF24L01P->TempBuf[0] & (1<<0)){
-	  nRF24L01P->Mode=0x01;
-	  return 1; //rx mode
-	}else{
-	  nRF24L01P->Mode=0x02;
-	  return 2; //tx mode
-	}
+  if(nRF24L01P->Error==0){
+    nRF24L01P_ReadWrite_Register(0x00,1,nRF24L01P->TempBuf,1);
+    if(nRF24L01P->TempBuf[0] & (1<<1)){
+      if(nRF24L01P->TempBuf[0] & (1<<0)){
+	    nRF24L01P->Mode=0x01;
+	    return 1; //rx mode
+	  }else{
+	    nRF24L01P->Mode=0x02;
+	    return 2; //tx mode
+	  }
+    }else{
+      nRF24L01P->Mode=0x00;
+      return 0;   //pwr down
+    }
   }else{
-    nRF24L01P->Mode=0x00;
-    return 0;   //pwr down
+    return 0;
   }
 }
   
 void nRF24L01P_Set_Mode_Sleep(void){
+  if(nRF24L01P->Error==0){
     nRF24L01P->TempBuf[0]=0x00;
     nRF24L01P_ReadWrite_Register(0x00,0,nRF24L01P->TempBuf,1);
     nRF24L01P->Mode=0x00;
+  }
 }
 
 void nRF24L01P_Set_Mode_Tx(void){
+  if(nRF24L01P->Error==0){
     nRF24L01P->TempBuf[0]=0x72;
     nRF24L01P_CE_Low();
     nRF24L01P_ReadWrite_Register(0x00,0,nRF24L01P->TempBuf,1);
 	nRF24L01P_Flush_Transmit_Buffer();
 	nRF24L01P->Mode=0x02;
-  
+  }
 }
 
 void nRF24L01P_Set_Mode_Rx(void){
+  if(nRF24L01P->Error==0){
     nRF24L01P->TempBuf[0]=0x73;
     nRF24L01P_CE_High();
     nRF24L01P_ReadWrite_Register(0x00,0,nRF24L01P->TempBuf,1);
 	nRF24L01P->Mode=0x01;
+  }
 }
 
 void nRF24L01P_ReadModifyWrite(uint8_t reg, uint8_t bit_pos, uint8_t bit_val){
-  nRF24L01P_ReadWrite_Register(reg,1,nRF24L01P->TempBuf,1);
-  if(bit_val){
-    nRF24L01P->TempBuf[0]|=(1<<bit_pos);
-  }else{
-    nRF24L01P->TempBuf[0]&=~(1<<bit_pos);
+  if(nRF24L01P->Error==0){
+    nRF24L01P_ReadWrite_Register(reg,1,nRF24L01P->TempBuf,1);
+    if(bit_val){
+      nRF24L01P->TempBuf[0]|=(1<<bit_pos);
+    }else{
+      nRF24L01P->TempBuf[0]&=~(1<<bit_pos);
+    }
+    nRF24L01P_ReadWrite_Register(reg,0,nRF24L01P->TempBuf,1);
   }
-  nRF24L01P_ReadWrite_Register(reg,0,nRF24L01P->TempBuf,1);
 }
 
 uint8_t nRF24L01P_Get_Channel(void){
