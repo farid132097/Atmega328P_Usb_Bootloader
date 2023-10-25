@@ -182,7 +182,8 @@ uchar ispTransmit_hw(uchar send_byte) {
 uchar ispEnterProgrammingMode() {
 	uchar check;
 	uchar count = 32;
-
+    uchar sck_option=USBASP_ISP_SCK_8;
+	
 	while (count--) {
 		ispTransmit(0xAC);
 		ispTransmit(0x53);
@@ -201,7 +202,11 @@ uchar ispEnterProgrammingMode() {
 		ispDelay();
 		ISP_OUT &= ~(1 << ISP_RST); /* RST low */
 		ispDelay();
-
+        
+		if(count<=20){
+		  ispSetSCKOption(sck_option);
+		}
+		 
 		if (ispTransmit == ispTransmit_hw) {
 			spiHWenable();
 		}
