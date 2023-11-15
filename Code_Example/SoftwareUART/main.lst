@@ -1,0 +1,101 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 4865 6C6C 		.string	"Hello World! -> Software Serial test"
+  18      6F20 576F 
+  18      726C 6421 
+  18      202D 3E20 
+  18      536F 6674 
+  19               		.text
+  20               	.global	main
+  22               	main:
+  23               	.LFB6:
+  24               	.LM1:
+  25 0000 CF93      		push r28
+  26 0002 DF93      		push r29
+  27               	/* prologue: function */
+  28               	/* frame size = 0 */
+  29               	.LM2:
+  30 0004 0E94 0000 		call debug_init
+  31               	.LM3:
+  32 0008 549A      		sbi 42-32,4
+  33               	.LM4:
+  34 000a 5C98      		cbi 43-32,4
+  35               	.LM5:
+  36               	/* #APP */
+  37               	 ;  14 "main.c" 1
+  38 000c 7894      		sei
+  39               	 ;  0 "" 2
+  40               	/* #NOAPP */
+  41               	.LBB12:
+  42               	.LBB13:
+  43               	.LBB14:
+  44               	.LBB15:
+  45               	.LM6:
+  46 000e CCE2      		ldi r28,lo8(300)
+  47 0010 D1E0      		ldi r29,hi8(300)
+  48               	.LVL0:
+  49               	.L3:
+  50               	.LBE15:
+  51               	.LBE14:
+  52               	.LBE13:
+  53               	.LBE12:
+  54               	.LM7:
+  55 0012 5C9A      		sbi 43-32,4
+  56               	.LM8:
+  57 0014 80E0      		ldi r24,lo8(.LC0)
+  58 0016 90E0      		ldi r25,hi8(.LC0)
+  59               	.LVL1:
+  60 0018 0E94 0000 		call debug_tx_text_nl
+  61               	.LVL2:
+  62               	.LM9:
+  63 001c 5C98      		cbi 43-32,4
+  64 001e 80E1      		ldi r24,lo8(10000)
+  65 0020 97E2      		ldi r25,hi8(10000)
+  66               	.LVL3:
+  67               	.L2:
+  68               	.LBB19:
+  69               	.LBB18:
+  70               	.LBB17:
+  71               	.LBB16:
+  72               	.LM10:
+  73 0022 FE01      		movw r30,r28
+  74               	.LVL4:
+  75               	/* #APP */
+  76               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  77 0024 3197      		1: sbiw r30,1
+  78 0026 01F4      		brne 1b
+  79               	 ;  0 "" 2
+  80               	/* #NOAPP */
+  81               	.LBE16:
+  82               	.LBE17:
+  83               	.LM11:
+  84 0028 0197      		sbiw r24,1
+  85               	.LM12:
+  86 002a 01F4      		brne .L2
+  87 002c 00C0      		rjmp .L3
+  88               	.LBE18:
+  89               	.LBE19:
+  90               	.LFE6:
+ 116               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\FARIDU~1\AppData\Local\Temp/ccgEiS0B.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccgEiS0B.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccgEiS0B.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccgEiS0B.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccgEiS0B.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccgEiS0B.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccgEiS0B.s:22     .text:00000000 main
+
+UNDEFINED SYMBOLS
+debug_init
+debug_tx_text_nl
+__do_copy_data
