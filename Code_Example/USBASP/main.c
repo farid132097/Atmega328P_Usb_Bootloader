@@ -304,6 +304,7 @@ int main(void) {
 	uchar i, j;
 
 	/* no pullups on USB and ISP pins */
+	
 	PORTD = 0;
 	PORTB = 0;
 	/* all outputs except PD2 = INT0 */
@@ -327,7 +328,7 @@ int main(void) {
 	PORTC = 0xfe;
 	
 	DDRD |=(1<<4);
-	PORTD|=(1<<4);
+	PORTD&=~(1<<4);
 
 	/* init timer */
 	clockInit();
