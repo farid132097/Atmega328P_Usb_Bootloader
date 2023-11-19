@@ -5,12 +5,26 @@
 #include <avr/interrupt.h>
 #include "debug.h"
 
+#ifdef  DEBUG_USE_TIMER0
+uint16_t TIM0_BAUD_9600[3] = {1230, 1180, 590};
+uint16_t TIM0_BAUD_19200[3]= { 590,  570, 230};
+uint16_t TIM0_BAUD_38400[3]= { 32,  36,  10};
+#endif
 
-//#define  DEBUG_GPIO_SWITCH_DEBUGGING
 
-uint16_t BAUD_9600[3] ={1230,1180,590};
-uint16_t BAUD_19200[3]={590,570,230};
-uint16_t BAUD_38400[3]={280,270,70};
+#ifdef  DEBUG_USE_TIMER1
+uint16_t TIM1_BAUD_9600[3] = {1230, 1180, 590};
+uint16_t TIM1_BAUD_19200[3]= { 590,  570, 230};
+uint16_t TIM1_BAUD_38400[3]= { 280,  270,  70};
+#endif
+
+
+#ifdef  DEBUG_USE_TIMER2
+uint16_t TIM2_BAUD_9600[3] = {1230, 1180, 590};
+uint16_t TIM2_BAUD_19200[3]= { 590,  570, 230};
+uint16_t TIM2_BAUD_38400[3]= { 280,  270,  70};
+#endif
+
 
 typedef struct debug_t{
   volatile uint8_t   error;
@@ -86,6 +100,55 @@ void debug_timings_init(void){
   #endif
 }
 
+void debug_timer_start(void){
+  #ifdef DEBUG_USE_TIMER0
+  TIFR0 =0xff;
+  TIMSK0=0x00;
+  TCNT0 =10;
+  TCCR0B=(1<<CS02);
+  TIFR0 =(1<<TOV0);
+  TIMSK0=(1<<TOIE0);
+  #endif
+
+  #ifdef DEBUG_USE_TIMER1
+  TIFR1 =0xff;
+  TIMSK1=0x00;
+  TCNT1 =53000;
+  TCCR1B=(1<<CS10);
+  TIFR1 =(1<<TOV1);
+  TIMSK1=(1<<TOIE1);
+  #endif
+  
+  #ifdef DEBUG_USE_TIMER2
+  TIFR2 =0xff;
+  TIMSK2=0x00;
+  TCNT2 =10;
+  TCCR2B=(1<<CS22);
+  TIFR2 =(1<<TOV2);
+  TIMSK2=(1<<TOIE2);
+  #endif
+}
+
+void debug_timer_stop(void){
+  #ifdef DEBUG_USE_TIMER0
+  TIMSK0=0;
+  TCCR0B=0;
+  TCNT0 =0;
+  #endif
+  
+  #ifdef DEBUG_USE_TIMER1
+  TIMSK1=0;
+  TCCR1B=0;
+  TCNT1 =0;
+  #endif
+  
+  #ifdef DEBUG_USE_TIMER2
+  TIMSK2=0;
+  TCCR2B=0;
+  TCNT2 =0;
+  #endif
+}
+
 void debug_gpio_init(void){
   DEBUG_TX_DDR |= (1<<DEBUG_TX_bp);
   DEBUG_TX_PORT|= (1<<DEBUG_TX_bp);
@@ -131,17 +194,24 @@ void debug_delay(uint16_t val){
   
   #ifdef DEBUG_USE_TIMER0
   TCNT0=0;
-  TCCR0B=(1<<CS00);
+    #ifdef DEBUG_BAUD_RATE_9600
+	#endif
+	
+	#ifdef DEBUG_BAUD_RATE_19200
+	#endif
+	
+	#ifdef DEBUG_BAUD_RATE_38400
+	TCCR0B=(1<<CS01);
+	#endif
   while(TCNT0<val){}
   TCCR0B=0;
-  TCNT0=0;
   #endif
   
   #ifdef DEBUG_USE_TIMER1
   TCNT1=0;
   TCCR1B=(1<<CS10);
   while(TCNT1<val){}
-  TCCR1B=0x00;
+  TCCR1B=0;
   #endif
   
   #ifdef DEBUG_USE_TIMER2
@@ -149,9 +219,142 @@ void debug_delay(uint16_t val){
   TCCR2B=(1<<CS20);
   while(TCNT2<val){}
   TCCR2B=0;
-  TCNT2=0;
   #endif
 }
+
+
+void debug_delay_index_0(void){
+  #ifdef  DEBUG_USE_TIMER0
+    #ifdef DEBUG_BAUD_RATE_9600
+    debug_delay(TIM0_BAUD_9600[0]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_19200
+    debug_delay(TIM0_BAUD_19200[0]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_38400
+    debug_delay(TIM0_BAUD_38400[0]);
+    #endif
+  #endif
+
+  #ifdef  DEBUG_USE_TIMER1
+    #ifdef DEBUG_BAUD_RATE_9600
+    debug_delay(TIM1_BAUD_9600[0]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_19200
+    debug_delay(TIM1_BAUD_19200[0]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_38400
+    debug_delay(TIM1_BAUD_38400[0]);
+    #endif
+  #endif
+  
+  #ifdef  DEBUG_USE_TIMER2
+    #ifdef DEBUG_BAUD_RATE_9600
+    debug_delay(TIM2_BAUD_9600[0]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_19200
+    debug_delay(TIM2_BAUD_19200[0]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_38400
+    debug_delay(TIM2_BAUD_38400[0]);
+    #endif
+  #endif
+}
+
+void debug_delay_index_1(void){
+  #ifdef  DEBUG_USE_TIMER0
+    #ifdef DEBUG_BAUD_RATE_9600
+    debug_delay(TIM0_BAUD_9600[1]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_19200
+    debug_delay(TIM0_BAUD_19200[1]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_38400
+    debug_delay(TIM0_BAUD_38400[1]);
+    #endif
+  #endif
+
+  #ifdef  DEBUG_USE_TIMER1
+    #ifdef DEBUG_BAUD_RATE_9600
+    debug_delay(TIM1_BAUD_9600[1]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_19200
+    debug_delay(TIM1_BAUD_19200[1]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_38400
+    debug_delay(TIM1_BAUD_38400[1]);
+    #endif
+  #endif
+  
+  #ifdef  DEBUG_USE_TIMER2
+    #ifdef DEBUG_BAUD_RATE_9600
+    debug_delay(TIM2_BAUD_9600[1]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_19200
+    debug_delay(TIM2_BAUD_19200[1]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_38400
+    debug_delay(TIM2_BAUD_38400[1]);
+    #endif
+  #endif
+}
+
+void debug_delay_index_2(void){
+  #ifdef  DEBUG_USE_TIMER0
+    #ifdef DEBUG_BAUD_RATE_9600
+    debug_delay(TIM0_BAUD_9600[2]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_19200
+    debug_delay(TIM0_BAUD_19200[2]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_38400
+    debug_delay(TIM0_BAUD_38400[2]);
+    #endif
+  #endif
+
+  #ifdef  DEBUG_USE_TIMER1
+    #ifdef DEBUG_BAUD_RATE_9600
+    debug_delay(TIM1_BAUD_9600[2]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_19200
+    debug_delay(TIM1_BAUD_19200[2]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_38400
+    debug_delay(TIM1_BAUD_38400[2]);
+    #endif
+  #endif
+  
+  #ifdef  DEBUG_USE_TIMER2
+    #ifdef DEBUG_BAUD_RATE_9600
+    debug_delay(TIM2_BAUD_9600[2]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_19200
+    debug_delay(TIM2_BAUD_19200[2]);
+    #endif
+	
+    #ifdef DEBUG_BAUD_RATE_38400
+    debug_delay(TIM2_BAUD_38400[2]);
+    #endif
+  #endif
+}
+
 
 void debug_tx_byte(uint8_t val){
   uint8_t buf[10]={0,0,0,0,0,0,0,0,0,1};
@@ -167,17 +370,7 @@ void debug_tx_byte(uint8_t val){
   for(uint8_t i=0;i<10;i++){
     debug_tx_set(buf[i]);
 	
-	#ifdef DEBUG_BAUD_RATE_9600
-	debug_delay(BAUD_9600[0]);
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_19200
-	debug_delay(BAUD_19200[0]);
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	debug_delay(BAUD_38400[0]);
-	#endif
+	debug_delay_index_0();    //tx one bit
   }
   SREG=sreg;
 }
@@ -185,17 +378,8 @@ void debug_tx_byte(uint8_t val){
 uint8_t debug_rx_byte(void){
   if(debug_rx_get()==0){
     uint8_t val=0, sts=0;
-	#ifdef DEBUG_BAUD_RATE_9600
-	debug_delay(BAUD_9600[2]);
-	#endif
 	
-	#ifdef DEBUG_BAUD_RATE_19200
-	debug_delay(BAUD_19200[2]);
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	debug_delay(BAUD_38400[2]);
-	#endif
+	debug_delay_index_2();    //half bit
 	
 	for(uint8_t i=0;i<10;i++){
 	  if(i==0){
@@ -207,17 +391,7 @@ uint8_t debug_rx_byte(void){
 		  sts=1;
 		}
 		
-		#ifdef DEBUG_BAUD_RATE_9600
-	    debug_delay(BAUD_9600[1]);
-	    #endif
-	
-	    #ifdef DEBUG_BAUD_RATE_19200
-	    debug_delay(BAUD_19200[1]);
-	    #endif
-	
-	    #ifdef DEBUG_BAUD_RATE_38400
-	    debug_delay(BAUD_38400[1]);
-	    #endif
+		debug_delay_index_1(); //one bit
 		
       }
 	  else if(i>=1 && i<=8){
@@ -234,17 +408,7 @@ uint8_t debug_rx_byte(void){
 		  val>>=1;
 		}
 		
-		#ifdef DEBUG_BAUD_RATE_9600
-	    debug_delay(BAUD_9600[1]);
-	    #endif
-	
-	    #ifdef DEBUG_BAUD_RATE_19200
-	    debug_delay(BAUD_19200[1]);
-	    #endif
-	
-	    #ifdef DEBUG_BAUD_RATE_38400
-	    debug_delay(BAUD_38400[1]);
-	    #endif
+		debug_delay_index_1(); //one bit
 		
 	  }
 	  else if(i==9){
@@ -505,23 +669,12 @@ ISR(ISR_PCINT_VECT){
 	if(debug.bufindex>DEBUG_RX_BUF_SIZE){
 	  debug.bufindex=0;
 	}
-	
-	TCCR1A=0x00;
-    TCCR1B=0x00;
-    TCCR1C=0x00;
-    TIFR1 =0xff;
-    TIMSK1=0x00;
-    TCNT1 =53000;
-    TCCR1B=(1<<CS10);
-    TIFR1 =(1<<TOV1);
-    TIMSK1=(1<<TOIE1);
+    debug_timer_start();
   }
 }
 
 ISR(TIMER1_OVF_vect){
-  TIMSK1=0;
-  TCCR1B=0;
-  TCNT1 =0;
+  debug_timer_stop();
   #ifdef DEBUG_GPIO_SWITCH_DEBUGGING
   DEBUG_TEST_PORT|= (1<<DEBUG_TEST_bp);
   DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
