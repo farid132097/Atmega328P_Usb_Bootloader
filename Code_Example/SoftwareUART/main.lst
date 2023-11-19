@@ -10,45 +10,104 @@
   18               	main:
   19               	.LFB6:
   20               	.LM1:
-  21               	/* prologue: function */
-  22               	/* frame size = 0 */
-  23               	.LM2:
-  24 0000 0E94 0000 		call debug_init
-  25               	.LM3:
-  26 0004 549A      		sbi 42-32,4
-  27               	.LM4:
-  28 0006 5C98      		cbi 43-32,4
-  29               	.LM5:
-  30               	/* #APP */
-  31               	 ;  14 "main.c" 1
-  32 0008 7894      		sei
-  33               	 ;  0 "" 2
-  34               	/* #NOAPP */
-  35               	.L6:
-  36               	.LM6:
-  37 000a 0E94 0000 		call debug_rx_byte
-  38 000e 8823      		tst r24
-  39 0010 01F0      		breq .L6
-  40               	.LM7:
-  41 0012 81E6      		ldi r24,lo8(97)
-  42 0014 0E94 0000 		call debug_tx_byte
-  43               	.LM8:
-  44 0018 0E94 0000 		call debug_rx_byte_clear
-  45 001c 00C0      		rjmp .L6
-  46               	.LFE6:
-  72               	.Letext0:
+  21 0000 1F93      		push r17
+  22 0002 CF93      		push r28
+  23 0004 DF93      		push r29
+  24               	/* prologue: function */
+  25               	/* frame size = 0 */
+  26               	.LM2:
+  27 0006 0E94 0000 		call debug_init
+  28               	.LM3:
+  29 000a 549A      		sbi 42-32,4
+  30               	.LM4:
+  31 000c 5C98      		cbi 43-32,4
+  32               	.LM5:
+  33               	/* #APP */
+  34               	 ;  14 "main.c" 1
+  35 000e 7894      		sei
+  36               	 ;  0 "" 2
+  37               	/* #NOAPP */
+  38               	.LBB25:
+  39               	.LBB26:
+  40               	.LBB27:
+  41               	.LBB28:
+  42               	.LBB29:
+  43               	.LBB30:
+  44               	.LM6:
+  45 0010 CCE2      		ldi r28,lo8(300)
+  46 0012 D1E0      		ldi r29,hi8(300)
+  47               	.LVL0:
+  48               	.L5:
+  49               	.LBE30:
+  50               	.LBE29:
+  51               	.LBE28:
+  52               	.LBE27:
+  53               	.LBE26:
+  54               	.LBE25:
+  55               	.LM7:
+  56 0014 0E94 0000 		call debug_databsy_get
+  57               	.LVL1:
+  58 0018 8823      		tst r24
+  59 001a 01F4      		brne .L2
+  60 001c 0E94 0000 		call debug_buf_index_get
+  61 0020 8823      		tst r24
+  62 0022 01F0      		breq .L2
+  63 0024 10E0      		ldi r17,lo8(0)
+  64 0026 00C0      		rjmp .L3
+  65               	.L4:
+  66               	.LBB36:
+  67               	.LM8:
+  68 0028 812F      		mov r24,r17
+  69 002a 0E94 0000 		call debug_buf_get
+  70 002e 0E94 0000 		call debug_tx_byte
+  71               	.LM9:
+  72 0032 1F5F      		subi r17,lo8(-(1))
+  73               	.L3:
+  74 0034 0E94 0000 		call debug_buf_index_get
+  75 0038 1817      		cp r17,r24
+  76 003a 00F0      		brlo .L4
+  77               	.LBE36:
+  78               	.LM10:
+  79 003c 0E94 0000 		call debug_flush_buf
+  80               	.L2:
+  81               	.LBB37:
+  82               	.LBB35:
+  83               	.LBB34:
+  84               	.LBB33:
+  85               	.LBB32:
+  86               	.LBB31:
+  87               	.LM11:
+  88 0040 CE01      		movw r24,r28
+  89               	.LVL2:
+  90               	/* #APP */
+  91               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  92 0042 0197      		1: sbiw r24,1
+  93 0044 01F4      		brne 1b
+  94               	 ;  0 "" 2
+  95               	/* #NOAPP */
+  96 0046 00C0      		rjmp .L5
+  97               	.LBE31:
+  98               	.LBE32:
+  99               	.LBE33:
+ 100               	.LBE34:
+ 101               	.LBE35:
+ 102               	.LBE37:
+ 103               	.LFE6:
+ 129               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:2      *ABS*:0000003f __SREG__
-C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:3      *ABS*:0000003e __SP_H__
-C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:4      *ABS*:0000003d __SP_L__
-C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:5      *ABS*:00000034 __CCP__
-C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:18     .text:00000000 main
+C:\Users\FARIDU~1\AppData\Local\Temp/ccvOrnoW.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccvOrnoW.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccvOrnoW.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccvOrnoW.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccvOrnoW.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccvOrnoW.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccvOrnoW.s:18     .text:00000000 main
 
 UNDEFINED SYMBOLS
 debug_init
-debug_rx_byte
+debug_databsy_get
+debug_buf_index_get
+debug_buf_get
 debug_tx_byte
-debug_rx_byte_clear
+debug_flush_buf

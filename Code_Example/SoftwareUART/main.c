@@ -16,14 +16,14 @@ int main(void){
   
   while(1){
     
-    //PORTD |= (1<<4);
-	//debug_tx_text_nl("Hello World! -> Software Serial test");
-	//PORTD &=~(1<<4);
-	if(debug_rx_byte()!=0){
-	  debug_tx_byte('a');
-	  debug_rx_byte_clear();
+	if( (debug_databsy_get()==0) && (debug_buf_index_get()!=0) ){
+	  for(uint8_t i=0;i<debug_buf_index_get();i++){
+	    debug_tx_byte(debug_buf_get(i));
+	  }
+	  debug_flush_buf();
 	}
-	//_delay_ms(OffDelay);
+	_delay_us(100);
+	
 	
   }
 }
