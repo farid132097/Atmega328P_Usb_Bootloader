@@ -4,33 +4,38 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
-#define  DEBUG_TX_DDR     DDRC
-#define  DEBUG_TX_PORT    PORTC
-#define  DEBUG_TX_PIN     PINC
-#define  DEBUG_TX_bp      5U
+#define  DEBUG_TX_DDR     DDRD
+#define  DEBUG_TX_PORT    PORTD
+#define  DEBUG_TX_PIN     PIND
+#define  DEBUG_TX_bp      6U
 
 #define  DEBUG_RX_DDR     DDRD
 #define  DEBUG_RX_PORT    PORTD
 #define  DEBUG_RX_PIN     PIND
-#define  DEBUG_RX_bp      0U 
+#define  DEBUG_RX_bp      5U 
 
-#define  DEBUG_BAUD_RATE  38400
+#define  DEBUG_BAUD_RATE  57600
 #define  DEBUG_BAUD_TIME  (1000000/DEBUG_BAUD_RATE)
 
 #define  DEBUG_LP_CNT_LMT 100
 
 //#define  DEBUG_USE_DELAY
-#define  DEBUG_USE_TIMER0
-//#define  DEBUG_USE_TIMER1
+//#define  DEBUG_USE_TIMER0
+#define  DEBUG_USE_TIMER1
 //#define  DEBUG_USE_TIMER2
 
 
-#define  DEBUG_TIMER_DELAY_TICKS 85  /*Calculated for 115200*/
+//#define  DEBUG_TIMER_DELAY_TICKS 85   /*Calculated for 115200*/
+#define  DEBUG_TIMER_DELAY_TICKS  1230  /*Calculated for 9600*/
+#define  DEBUG_TIMER_HDELAY_TICKS 605   /*Calculated for 9600*/
 
+#define  DEBUG_RX_DELAY_TICKS  1180     /*Calculated for 9600*/
+#define  DEBUG_RX_HDELAY_TICKS 590      /*Calculated for 9600*/
 
 
 typedef struct debug_t{
   volatile uint8_t   error;
+  volatile uint8_t   dr;
   uint8_t            digits[8];
   uint8_t            input_num_digits;
   uint16_t           count;
@@ -44,6 +49,7 @@ debug_t debug;
 
 void debug_struct_init(void){
   debug.error=0;
+  debug.dr=0;
   for(uint8_t i=0;i<8;i++){
     debug.digits[i]=0;
   }
@@ -79,6 +85,10 @@ void debug_timings_init(void){
   TIFR2=0x00;
   #define DEBUG_TIMER2_DELAY_TICKS DEBUG_TIMER_DELAY_TICKS
   #endif
+  
+  PCICR |=(1<<PCIE2);
+  PCMSK2|=(1<<PCINT21);
+  sei();
 }
 
 void debug_gpio_init(void){
@@ -104,24 +114,34 @@ void debug_tx_set(uint8_t pin_state){
   }
 }
 
-void debug_bit_delay(void){
+
+
+uint8_t debug_rx_get(void){
+  if(DEBUG_RX_PIN & (1<<DEBUG_RX_bp)){
+    return 1;
+  }else{
+    return 0;
+  }
+}
+
+void debug_delay(uint16_t val){
   #ifdef DEBUG_USE_DELAY
-  _delay_us(DEBUG_BAUD_TIME);
+  _delay_us(val);
   #endif
   
   #ifdef DEBUG_USE_TIMER0
   TCNT0=0;
-  while(TCNT0<DEBUG_TIMER0_DELAY_TICKS){}
+  while(TCNT0<val){}
   #endif
   
   #ifdef DEBUG_USE_TIMER1
   TCNT1=0;
-  while(TCNT1<DEBUG_TIMER1_DELAY_TICKS){}
+  while(TCNT1<val){}
   #endif
   
   #ifdef DEBUG_USE_TIMER2
   TCNT2=0;
-  while(TCNT2<DEBUG_TIMER2_DELAY_TICKS){}
+  while(TCNT2<val){}
   #endif
 }
 
@@ -140,11 +160,23 @@ void debug_tx_byte(uint8_t val){
   }
   for(uint8_t i=0;i<10;i++){
     debug_tx_set(buf[i]);
-	debug_bit_delay();
+	debug_delay(DEBUG_TIMER_DELAY_TICKS);
   }
   if(sreg & (1<<7)){
     sei();
   }
+}
+
+uint8_t debug_rx_byte(void){
+  return debug.dr;
+}
+
+void debug_rx_byte_clear(void){
+  debug.dr=0;
+}
+
+void debug_rx_byte_set(uint8_t val){
+  debug.dr=val;
 }
 
 void debug_tx_hex(uint32_t val){
@@ -367,6 +399,43 @@ void debug_init(void){
 }
 
 
+ISR(PCINT2_vect){
+  if(debug_rx_get()==0){
+	uint8_t val=0, sts=0;
+	debug_delay(DEBUG_RX_HDELAY_TICKS);
+	for(uint8_t i=0;i<10;i++){
+	  if(i==0){
+		if(debug_rx_get()==0){
+		  debug_tx_set(0);
+		  debug_tx_set(1);
+		  sts=1;
+		}
+		debug_delay(DEBUG_RX_DELAY_TICKS);
+      }
+	  else if(i>=1 && i<=8){
+		val|=debug_rx_get();
+		debug_tx_set(0);
+		debug_tx_set(1);
+		if(i!=8){
+		  val<<=1;
+		}
+		debug_delay(DEBUG_RX_DELAY_TICKS);
+	  }
+	  else if(i==9){
+		if(debug_rx_get()==1){
+		  sts&=1;
+		  if(sts==1){
+			debug_rx_byte_set(val);
+		  }else{
+			debug_rx_byte_clear();
+		  }
+		}else{
+		  debug_rx_byte_clear();
+		}
+	  }
+	}
+  }
+}
   
   
   
