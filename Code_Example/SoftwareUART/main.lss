@@ -236,18 +236,18 @@ void debug_struct_init(void){
   TIFR1 =0xff;
  132:	8f ef       	ldi	r24, 0xFF	; 255
  134:	86 bb       	out	0x16, r24	; 22
-  TCCR2B=0x00;
-  TIMSK2=0x00;
-  TIFR2 =0xff;
+  sei();
+  #define ISR_PCINT_VECT PCINT0_vect
   #endif
   
+  #ifdef DEBUG_RX_DDRC
   PCICR |=(1<<PCIE1);
  136:	e8 e6       	ldi	r30, 0x68	; 104
  138:	f0 e0       	ldi	r31, 0x00	; 0
  13a:	80 81       	ld	r24, Z
  13c:	82 60       	ori	r24, 0x02	; 2
  13e:	80 83       	st	Z, r24
-  PCMSK1|=(1<<PCINT12);
+  PCMSK1|=(1<<DEBUG_RX_bp);
  140:	ec e6       	ldi	r30, 0x6C	; 108
  142:	f0 e0       	ldi	r31, 0x00	; 0
  144:	80 81       	ld	r24, Z
@@ -257,6 +257,11 @@ void debug_struct_init(void){
  14a:	d9 9a       	sbi	0x1b, 1	; 27
   sei();
  14c:	78 94       	sei
+  PCMSK2|=(1<<DEBUG_RX_bp);
+  PCIFR |=(1<<PCIF2);
+  sei();
+  #define ISR_PCINT_VECT PCINT2_vect
+  #endif
 }
  14e:	08 95       	ret
 
@@ -1579,7 +1584,7 @@ void debug_init(void){
 00000748 <__vector_4>:
 
 
-ISR(PCINT1_vect){
+ISR(ISR_PCINT_VECT){
  748:	1f 92       	push	r1
  74a:	0f 92       	push	r0
  74c:	0f b6       	in	r0, 0x3f	; 63

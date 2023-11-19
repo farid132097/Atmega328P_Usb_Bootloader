@@ -61,11 +61,29 @@ void debug_timings_init(void){
   TIFR2 =0xff;
   #endif
   
+  #ifdef DEBUG_RX_DDRB
+  PCICR |=(1<<PCIE0);
+  PCMSK0|=(1<<DEBUG_RX_bp);
+  PCIFR |=(1<<PCIF0);
+  sei();
+  #define ISR_PCINT_VECT PCINT0_vect
+  #endif
   
+  #ifdef DEBUG_RX_DDRC
   PCICR |=(1<<PCIE1);
-  PCMSK1|=(1<<PCINT12);
+  PCMSK1|=(1<<DEBUG_RX_bp);
   PCIFR |=(1<<PCIF1);
   sei();
+  #define ISR_PCINT_VECT PCINT1_vect
+  #endif
+  
+  #ifdef DEBUG_RX_DDRD
+  PCICR |=(1<<PCIE2);
+  PCMSK2|=(1<<DEBUG_RX_bp);
+  PCIFR |=(1<<PCIF2);
+  sei();
+  #define ISR_PCINT_VECT PCINT2_vect
+  #endif
 }
 
 void debug_gpio_init(void){
@@ -478,7 +496,7 @@ void debug_init(void){
 }
 
 
-ISR(PCINT1_vect){
+ISR(ISR_PCINT_VECT){
   debug.databsy=1;
   uint8_t val=debug_rx_byte();
   if(debug.error==0){

@@ -87,7 +87,7 @@
   97 0060 D99A      		sbi 59-32,1
   98               	.LM21:
   99               	/* #APP */
- 100               	 ;  67 "debug.c" 1
+ 100               	 ;  76 "debug.c" 1
  101 0062 7894      		sei
  102               	 ;  0 "" 2
  103               	/* epilogue start */
@@ -280,7 +280,7 @@
  304               	.LVL6:
  305               	.LM57:
  306               	/* #APP */
- 307               	 ;  147 "debug.c" 1
+ 307               	 ;  166 "debug.c" 1
  308 0114 F894      		cli
  309               	 ;  0 "" 2
  310               	/* #NOAPP */
@@ -1664,60 +1664,60 @@
  2133               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 debug.c
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:18     .text:00000000 debug_struct_init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:18     .text:00000000 debug_struct_init
                             *COM*:0000002d debug
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:68     .text:00000038 debug_timings_init
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:111    .text:00000066 debug_gpio_init
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:131    .text:00000070 debug_tx_high
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:145    .text:00000074 debug_tx_low
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:159    .text:00000078 debug_tx_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:187    .text:00000084 debug_rx_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:208    .text:00000096 debug_delay
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:238    .text:000000ba debug_tx_byte
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1760   .data:0000000e BAUD_38400
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:393    .text:00000170 debug_rx_byte
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:578    .text:00000246 debug_rx_byte_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:592    .text:0000024c debug_rx_byte_clear
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:606    .text:00000252 debug_rx_byte_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:621    .text:00000258 debug_tx_hex
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:762    .text:0000030c debug_tx_bin
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:882    .text:000003b8 debug_tx_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:900    .text:000003c6 debug_tx_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:915    .text:000003ce debug_tx_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:930    .text:000003d6 debug_tx_text
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:971    .text:000003fc debug_tx_text_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:989    .text:00000406 debug_tx_text_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1007   .text:00000410 debug_tx_text_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1025   .text:0000041a debug_determine_digit_numbers
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1115   .text:00000498 debug_tx_number_digits
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1158   .text:000004ba debug_tx_number
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1206   .text:000004f6 debug_tx_number_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1224   .text:00000500 debug_tx_number_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1246   .text:0000050a debug_tx_number_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1266   .text:00000518 debug_tx_number_hex_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1284   .text:00000522 debug_tx_number_hex_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1302   .text:0000052c debug_tx_number_hex_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1322   .text:0000053a debug_tx_parameter_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1355   .text:00000560 debug_tx_parameter_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1388   .text:00000586 debug_tx_parameter_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1421   .text:000005ac debug_tx_parameter_hex_nl
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1454   .text:000005d2 debug_tx_parameter_hex_sp
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1487   .text:000005f8 Debug_tx_parameter_hex_cm
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1520   .text:0000061e debug_buf_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1540   .text:0000062a debug_buf_index_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1554   .text:00000630 debug_flush_buf
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1584   .text:0000064a debug_databsy_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1598   .text:00000650 debug_init
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1616   .text:0000065e __vector_4
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1714   .text:00000704 __vector_13
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1746   .data:00000002 BAUD_9600
-C:\Users\FARIDU~1\AppData\Local\Temp/cc1u1Teb.s:1753   .data:00000008 BAUD_19200
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:68     .text:00000038 debug_timings_init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:111    .text:00000066 debug_gpio_init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:131    .text:00000070 debug_tx_high
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:145    .text:00000074 debug_tx_low
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:159    .text:00000078 debug_tx_set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:187    .text:00000084 debug_rx_get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:208    .text:00000096 debug_delay
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:238    .text:000000ba debug_tx_byte
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1760   .data:0000000e BAUD_38400
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:393    .text:00000170 debug_rx_byte
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:578    .text:00000246 debug_rx_byte_get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:592    .text:0000024c debug_rx_byte_clear
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:606    .text:00000252 debug_rx_byte_set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:621    .text:00000258 debug_tx_hex
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:762    .text:0000030c debug_tx_bin
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:882    .text:000003b8 debug_tx_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:900    .text:000003c6 debug_tx_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:915    .text:000003ce debug_tx_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:930    .text:000003d6 debug_tx_text
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:971    .text:000003fc debug_tx_text_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:989    .text:00000406 debug_tx_text_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1007   .text:00000410 debug_tx_text_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1025   .text:0000041a debug_determine_digit_numbers
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1115   .text:00000498 debug_tx_number_digits
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1158   .text:000004ba debug_tx_number
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1206   .text:000004f6 debug_tx_number_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1224   .text:00000500 debug_tx_number_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1246   .text:0000050a debug_tx_number_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1266   .text:00000518 debug_tx_number_hex_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1284   .text:00000522 debug_tx_number_hex_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1302   .text:0000052c debug_tx_number_hex_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1322   .text:0000053a debug_tx_parameter_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1355   .text:00000560 debug_tx_parameter_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1388   .text:00000586 debug_tx_parameter_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1421   .text:000005ac debug_tx_parameter_hex_nl
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1454   .text:000005d2 debug_tx_parameter_hex_sp
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1487   .text:000005f8 Debug_tx_parameter_hex_cm
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1520   .text:0000061e debug_buf_get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1540   .text:0000062a debug_buf_index_get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1554   .text:00000630 debug_flush_buf
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1584   .text:0000064a debug_databsy_get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1598   .text:00000650 debug_init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1616   .text:0000065e __vector_4
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1714   .text:00000704 __vector_13
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1746   .data:00000002 BAUD_9600
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJEn1fl.s:1753   .data:00000008 BAUD_19200
 
 UNDEFINED SYMBOLS
 __udivmodsi4

@@ -4,6 +4,8 @@
 #define  DEBUG_TX_PIN     PINC
 #define  DEBUG_TX_bp      5U
 
+/*Must edit DEBUG_RX_XXXX definition*/
+#define  DEBUG_RX_DDRC
 #define  DEBUG_RX_DDR     DDRC
 #define  DEBUG_RX_PORT    PORTC
 #define  DEBUG_RX_PIN     PINC
@@ -13,6 +15,8 @@
 #define  DEBUG_TEST_PORT  PORTC
 #define  DEBUG_TEST_PIN   PINC
 #define  DEBUG_TEST_bp    3U
+
+
 
 #define  DEBUG_BAUD_RATE_38400
 
