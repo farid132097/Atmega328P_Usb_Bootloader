@@ -126,7 +126,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x774
+.text           0x00000000      0x76e
  *(.vectors)
  .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vectors
@@ -207,67 +207,67 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x000000a2                __vector_16
                 0x000000a2                __vector_18
                 0x000000a2                __vector_20
- .text          0x000000a6       0x18 main.o
+ .text          0x000000a6       0x1e main.o
                 0x000000a6                main
- .text          0x000000be      0x66e debug.o
-                0x00000626                debug_get_count
-                0x000004ca                debug_tx_number_cm
-                0x000003d0                debug_tx_text_cm
-                0x000003da                debug_determine_digit_numbers
-                0x000000be                debug_struct_init
-                0x000005de                debug_loop_counter_inc
-                0x000004d8                debug_tx_number_hex_nl
-                0x00000206                debug_rx_byte
-                0x000004ec                debug_tx_number_hex_cm
-                0x000004fa                debug_tx_parameter_nl
-                0x000004c0                debug_tx_number_sp
-                0x000003bc                debug_tx_text_nl
-                0x00000122                debug_tx_set
-                0x00000396                debug_tx_text
-                0x0000011e                debug_tx_low
-                0x00000546                debug_tx_parameter_cm
-                0x0000020c                debug_rx_byte_clear
-                0x0000063a                debug_get_loop_counter_ovf
-                0x00000658                __vector_5
-                0x0000047a                debug_tx_number
-                0x00000212                debug_rx_byte_set
-                0x000002cc                debug_tx_bin
-                0x00000140                debug_delay
-                0x00000386                debug_tx_sp
-                0x000005b8                debug_tx_parameter_hex_cm
-                0x0000064a                debug_init
-                0x00000110                debug_gpio_init
-                0x000003c6                debug_tx_text_sp
-                0x00000378                debug_tx_nl
-                0x0000011a                debug_tx_high
-                0x000004b6                debug_tx_number_nl
-                0x00000520                debug_tx_parameter_sp
-                0x00000592                debug_tx_parameter_hex_sp
-                0x0000015a                debug_tx_byte
-                0x000004e2                debug_tx_number_hex_sp
-                0x0000038e                debug_tx_cm
-                0x00000630                debug_get_loop_counter
-                0x0000056c                debug_tx_parameter_hex_nl
-                0x00000218                debug_tx_hex
-                0x000000e4                debug_timings_init
-                0x00000458                debug_tx_number_digits
-                0x0000012e                debug_rx_get
- .text          0x0000072c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .text          0x0000072c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text          0x0000072c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text          0x0000072c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x0000072c                . = ALIGN (0x2)
+ .text          0x000000c4      0x662 debug.o
+                0x0000062c                debug_get_count
+                0x000004d0                debug_tx_number_cm
+                0x000003d6                debug_tx_text_cm
+                0x000003e0                debug_determine_digit_numbers
+                0x000000c4                debug_struct_init
+                0x000005e4                debug_loop_counter_inc
+                0x000004de                debug_tx_number_hex_nl
+                0x0000020c                debug_rx_byte
+                0x000004f2                debug_tx_number_hex_cm
+                0x00000500                debug_tx_parameter_nl
+                0x000004c6                debug_tx_number_sp
+                0x000003c2                debug_tx_text_nl
+                0x00000128                debug_tx_set
+                0x0000039c                debug_tx_text
+                0x00000124                debug_tx_low
+                0x0000054c                debug_tx_parameter_cm
+                0x00000212                debug_rx_byte_clear
+                0x00000640                debug_get_loop_counter_ovf
+                0x0000065e                __vector_5
+                0x00000480                debug_tx_number
+                0x00000218                debug_rx_byte_set
+                0x000002d2                debug_tx_bin
+                0x00000146                debug_delay
+                0x0000038c                debug_tx_sp
+                0x000005be                debug_tx_parameter_hex_cm
+                0x00000650                debug_init
+                0x00000116                debug_gpio_init
+                0x000003cc                debug_tx_text_sp
+                0x0000037e                debug_tx_nl
+                0x00000120                debug_tx_high
+                0x000004bc                debug_tx_number_nl
+                0x00000526                debug_tx_parameter_sp
+                0x00000598                debug_tx_parameter_hex_sp
+                0x00000160                debug_tx_byte
+                0x000004e8                debug_tx_number_hex_sp
+                0x00000394                debug_tx_cm
+                0x00000636                debug_get_loop_counter
+                0x00000572                debug_tx_parameter_hex_nl
+                0x0000021e                debug_tx_hex
+                0x000000ea                debug_timings_init
+                0x0000045e                debug_tx_number_digits
+                0x00000134                debug_rx_get
+ .text          0x00000726        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x00000726        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000726        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000726        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000726                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000072c       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x0000072c                __udivmodsi4
- .text.libgcc   0x00000770        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000770        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000770        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x00000770                . = ALIGN (0x2)
+ .text.libgcc   0x00000726       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000726                __udivmodsi4
+ .text.libgcc   0x0000076a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000076a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000076a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x0000076a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000770        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000770                exit
-                0x00000770                _exit
+ .fini9         0x0000076a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000076a                exit
+                0x0000076a                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -286,11 +286,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000770        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000076a        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000774                _etext = .
+                0x0000076e                _etext = .
 
-.data           0x00800100        0x2 load address 0x00000774
+.data           0x00800100        0x2 load address 0x0000076e
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -323,8 +323,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  COMMON         0x00800102       0x11 debug.o
                 0x00800102                debug
                 0x00800113                PROVIDE (__bss_end, .)
-                0x00000774                __data_load_start = LOADADDR (.data)
-                0x00000776                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000076e                __data_load_start = LOADADDR (.data)
+                0x00000770                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800113        0x0
                 0x00800113                PROVIDE (__noinit_start, .)
@@ -397,21 +397,21 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .debug_pubnames
                 0x0000001b      0x3bd debug.o
 
-.debug_info     0x00000000      0xad5
+.debug_info     0x00000000      0xa4d
  *(.debug_info)
  .debug_info    0x00000000       0x76 main.o
- .debug_info    0x00000076      0xa5f debug.o
+ .debug_info    0x00000076      0x9d7 debug.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x30c
+.debug_abbrev   0x00000000      0x2f6
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0x41 main.o
- .debug_abbrev  0x00000041      0x2cb debug.o
+ .debug_abbrev  0x00000041      0x2b5 debug.o
 
-.debug_line     0x00000000      0x91d
+.debug_line     0x00000000      0x8fd
  *(.debug_line)
- .debug_line    0x00000000       0x80 main.o
- .debug_line    0x00000080      0x89d debug.o
+ .debug_line    0x00000000       0x88 main.o
+ .debug_line    0x00000088      0x875 debug.o
 
 .debug_frame    0x00000000      0x2d0
  *(.debug_frame)
@@ -434,8 +434,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 OUTPUT(main.elf elf32-avr)
 LOAD linker stubs
 
-.debug_ranges   0x00000000       0x30
- .debug_ranges  0x00000000       0x30 debug.o
+.debug_ranges   0x00000000       0x18
+ .debug_ranges  0x00000000       0x18 debug.o
 
 Cross Reference Table
 
@@ -504,6 +504,7 @@ debug_struct_init                                 debug.o
 debug_timings_init                                debug.o
 debug_tx_bin                                      debug.o
 debug_tx_byte                                     debug.o
+                                                  main.o
 debug_tx_cm                                       debug.o
 debug_tx_hex                                      debug.o
 debug_tx_high                                     debug.o

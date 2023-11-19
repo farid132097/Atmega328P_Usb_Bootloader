@@ -30,21 +30,25 @@
   38 000e 8823      		tst r24
   39 0010 01F0      		breq .L6
   40               	.LM7:
-  41 0012 0E94 0000 		call debug_rx_byte_clear
-  42 0016 00C0      		rjmp .L6
-  43               	.LFE6:
-  69               	.Letext0:
+  41 0012 81E6      		ldi r24,lo8(97)
+  42 0014 0E94 0000 		call debug_tx_byte
+  43               	.LM8:
+  44 0018 0E94 0000 		call debug_rx_byte_clear
+  45 001c 00C0      		rjmp .L6
+  46               	.LFE6:
+  72               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\farid\AppData\Local\Temp/cca1mvBg.s:2      *ABS*:0000003f __SREG__
-C:\Users\farid\AppData\Local\Temp/cca1mvBg.s:3      *ABS*:0000003e __SP_H__
-C:\Users\farid\AppData\Local\Temp/cca1mvBg.s:4      *ABS*:0000003d __SP_L__
-C:\Users\farid\AppData\Local\Temp/cca1mvBg.s:5      *ABS*:00000034 __CCP__
-C:\Users\farid\AppData\Local\Temp/cca1mvBg.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\farid\AppData\Local\Temp/cca1mvBg.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\farid\AppData\Local\Temp/cca1mvBg.s:18     .text:00000000 main
+C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:2      *ABS*:0000003f __SREG__
+C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:3      *ABS*:0000003e __SP_H__
+C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:4      *ABS*:0000003d __SP_L__
+C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:5      *ABS*:00000034 __CCP__
+C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\farid\AppData\Local\Temp/cclhCK8i.s:18     .text:00000000 main
 
 UNDEFINED SYMBOLS
 debug_init
 debug_rx_byte
+debug_tx_byte
 debug_rx_byte_clear

@@ -406,16 +406,16 @@ ISR(PCINT2_vect){
 	for(uint8_t i=0;i<10;i++){
 	  if(i==0){
 		if(debug_rx_get()==0){
-		  debug_tx_set(0);
-		  debug_tx_set(1);
+		  /*debug_tx_set(0);
+		  debug_tx_set(1);*/
 		  sts=1;
 		}
 		debug_delay(DEBUG_RX_DELAY_TICKS);
       }
 	  else if(i>=1 && i<=8){
 		val|=debug_rx_get();
-		debug_tx_set(0);
-		debug_tx_set(1);
+		/*debug_tx_set(0);
+		debug_tx_set(1);*/
 		if(i!=8){
 		  val<<=1;
 		}

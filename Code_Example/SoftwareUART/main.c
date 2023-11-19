@@ -20,7 +20,7 @@ int main(void){
 	//debug_tx_text_nl("Hello World! -> Software Serial test");
 	//PORTD &=~(1<<4);
 	if(debug_rx_byte()!=0){
-	  //debug_tx_byte('a');
+	  debug_tx_byte('a');
 	  debug_rx_byte_clear();
 	}
 	//_delay_ms(OffDelay);
