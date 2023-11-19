@@ -9,8 +9,6 @@
 int main(void){
   
   debug_init();
-  DDRD  |= (1<<4);
-  PORTD &=~(1<<4);
   sei();
   
   

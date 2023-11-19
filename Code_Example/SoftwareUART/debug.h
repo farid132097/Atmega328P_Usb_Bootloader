@@ -14,8 +14,7 @@
 #define  DEBUG_TEST_PIN   PINC
 #define  DEBUG_TEST_bp    3U
 
-#define  DEBUG_BAUD_RATE  57600
-#define  DEBUG_BAUD_TIME  (1000000/DEBUG_BAUD_RATE)
+#define  DEBUG_BAUD_RATE_38400
 
 
 //#define  DEBUG_USE_DELAY
@@ -23,30 +22,7 @@
 #define  DEBUG_USE_TIMER1
 //#define  DEBUG_USE_TIMER2
 
-
-//#define  DEBUG_TIMER_DELAY_TICKS 85   /*Calculated for 115200*/
-#define  DEBUG_TIMER_DELAY_TICKS  1230  /*Calculated for 9600*/
-#define  DEBUG_TIMER_HDELAY_TICKS 605   /*Calculated for 9600*/
-
-#define  DEBUG_RX_DELAY_TICKS  1180     /*Calculated for 9600*/
-#define  DEBUG_RX_HDELAY_TICKS 590      /*Calculated for 9600*/
-
-
 #define  DEBUG_RX_BUF_SIZE 32
-
-typedef struct debug_t{
-  volatile uint8_t   error;
-  volatile uint8_t   datareg;
-  volatile uint8_t   databsy;
-  volatile uint8_t   buf[DEBUG_RX_BUF_SIZE];
-  volatile uint8_t   bufindex;
-  uint8_t            digits[8];
-  uint8_t            input_num_digits;
-  uint16_t           count;
-  uint16_t           loop_counter;
-  uint8_t            loop_counter_sts;
-  uint8_t            reset_sts;
-}debug_t;
 
 
 void     debug_struct_init(void);
