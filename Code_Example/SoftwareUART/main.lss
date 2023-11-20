@@ -3,29 +3,29 @@ main.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000014  00800100  00000870  00000904  2**0
+  0 .data         00000014  00800100  000008e2  00000976  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000870  00000000  00000000  00000094  2**1
+  1 .text         000008e2  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000002d  00800114  00800114  00000918  2**0
+  2 .bss          0000002d  00800114  00800114  0000098a  2**0
                   ALLOC
-  3 .debug_aranges 00000040  00000000  00000000  00000918  2**0
+  3 .debug_aranges 00000040  00000000  00000000  0000098a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_pubnames 00000497  00000000  00000000  00000958  2**0
+  4 .debug_pubnames 00000497  00000000  00000000  000009ca  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000d4f  00000000  00000000  00000def  2**0
+  5 .debug_info   00000d6f  00000000  00000000  00000e61  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000003c4  00000000  00000000  00001b3e  2**0
+  6 .debug_abbrev 000003ac  00000000  00000000  00001bd0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000c1e  00000000  00000000  00001f02  2**0
+  7 .debug_line   00000c0c  00000000  00000000  00001f7c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000340  00000000  00000000  00002b20  2**2
+  8 .debug_frame  00000340  00000000  00000000  00002b88  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000521  00000000  00000000  00002e60  2**0
+  9 .debug_str    00000526  00000000  00000000  00002ec8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000065c  00000000  00000000  00003381  2**0
+ 10 .debug_loc    00000628  00000000  00000000  000033ee  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000120  00000000  00000000  000039dd  2**0
+ 11 .debug_ranges 000000f0  00000000  00000000  00003a16  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -36,7 +36,7 @@ Disassembly of section .text:
    8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
    c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
   10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  14:	0c 94 c3 03 	jmp	0x786	; 0x786 <__vector_5>
+  14:	0c 94 f6 03 	jmp	0x7ec	; 0x7ec <__vector_5>
   18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
   1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
   20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
@@ -44,7 +44,7 @@ Disassembly of section .text:
   28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
   2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
   30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  34:	0c 94 02 04 	jmp	0x804	; 0x804 <__vector_13>
+  34:	0c 94 37 04 	jmp	0x86e	; 0x86e <__vector_13>
   38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
   3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
   40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
@@ -70,7 +70,7 @@ Disassembly of section .text:
   74:	11 e0       	ldi	r17, 0x01	; 1
   76:	a0 e0       	ldi	r26, 0x00	; 0
   78:	b1 e0       	ldi	r27, 0x01	; 1
-  7a:	e0 e7       	ldi	r30, 0x70	; 112
+  7a:	e2 ee       	ldi	r30, 0xE2	; 226
   7c:	f8 e0       	ldi	r31, 0x08	; 8
   7e:	02 c0       	rjmp	.+4      	; 0x84 <.do_copy_data_start>
 
@@ -97,7 +97,7 @@ Disassembly of section .text:
   96:	b1 07       	cpc	r27, r17
   98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
   9a:	0e 94 53 00 	call	0xa6	; 0xa6 <main>
-  9e:	0c 94 36 04 	jmp	0x86c	; 0x86c <_exit>
+  9e:	0c 94 6f 04 	jmp	0x8de	; 0x8de <_exit>
 
 000000a2 <__bad_interrupt>:
   a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -114,7 +114,7 @@ int main(void){
   aa:	df 93       	push	r29
   
   debug_init();
-  ac:	0e 94 bc 03 	call	0x778	; 0x778 <debug_init>
+  ac:	0e 94 ef 03 	call	0x7de	; 0x7de <debug_init>
   sei();
   b0:	78 94       	sei
     milliseconds can be achieved.
@@ -130,10 +130,10 @@ _delay_loop_2(uint16_t __count)
   while(1){
     
 	if( (debug_databsy_get()==0) && (debug_buf_index_get()!=0) ){
-  b6:	0e 94 b9 03 	call	0x772	; 0x772 <debug_databsy_get>
+  b6:	0e 94 ec 03 	call	0x7d8	; 0x7d8 <debug_databsy_get>
   ba:	88 23       	and	r24, r24
   bc:	91 f4       	brne	.+36     	; 0xe2 <main+0x3c>
-  be:	0e 94 a9 03 	call	0x752	; 0x752 <debug_buf_index_get>
+  be:	0e 94 dc 03 	call	0x7b8	; 0x7b8 <debug_buf_index_get>
   c2:	88 23       	and	r24, r24
   c4:	71 f0       	breq	.+28     	; 0xe2 <main+0x3c>
   c6:	10 e0       	ldi	r17, 0x00	; 0
@@ -141,8 +141,8 @@ _delay_loop_2(uint16_t __count)
 	  for(uint8_t i=0;i<debug_buf_index_get();i++){
 	    debug_tx_byte(debug_buf_get(i));
   ca:	81 2f       	mov	r24, r17
-  cc:	0e 94 a3 03 	call	0x746	; 0x746 <debug_buf_get>
-  d0:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
+  cc:	0e 94 d6 03 	call	0x7ac	; 0x7ac <debug_buf_get>
+  d0:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
   
   
   while(1){
@@ -150,13 +150,13 @@ _delay_loop_2(uint16_t __count)
 	if( (debug_databsy_get()==0) && (debug_buf_index_get()!=0) ){
 	  for(uint8_t i=0;i<debug_buf_index_get();i++){
   d4:	1f 5f       	subi	r17, 0xFF	; 255
-  d6:	0e 94 a9 03 	call	0x752	; 0x752 <debug_buf_index_get>
+  d6:	0e 94 dc 03 	call	0x7b8	; 0x7b8 <debug_buf_index_get>
   da:	18 17       	cp	r17, r24
   dc:	b0 f3       	brcs	.-20     	; 0xca <main+0x24>
 	    debug_tx_byte(debug_buf_get(i));
 	  }
 	  debug_flush_buf();
-  de:	0e 94 ac 03 	call	0x758	; 0x758 <debug_flush_buf>
+  de:	0e 94 df 03 	call	0x7be	; 0x7be <debug_flush_buf>
   e2:	ce 01       	movw	r24, r28
   e4:	01 97       	sbiw	r24, 0x01	; 1
   e6:	f1 f7       	brne	.-4      	; 0xe4 <main+0x3e>
@@ -220,1726 +220,1669 @@ void debug_struct_init(void){
  120:	08 95       	ret
 
 00000122 <debug_timings_init>:
-
-void debug_timings_init(void){
-  #ifdef DEBUG_USE_TIMER0
-  TCCR0A=0x00;
- 122:	14 bc       	out	0x24, r1	; 36
-  TCCR0B=0x00;
- 124:	15 bc       	out	0x25, r1	; 37
   TIMSK0=0x00;
- 126:	10 92 6e 00 	sts	0x006E, r1
   TIFR0 =0xff;
- 12a:	8f ef       	ldi	r24, 0xFF	; 255
- 12c:	85 bb       	out	0x15, r24	; 21
+  #endif
+  
+  #ifdef DEBUG_USE_TIMER1
+  TCCR1A=0x00;
+ 122:	10 92 80 00 	sts	0x0080, r1
+  TCCR1B=0x00;
+ 126:	10 92 81 00 	sts	0x0081, r1
+  TCCR1C=0x00;
+ 12a:	10 92 82 00 	sts	0x0082, r1
+  TIMSK1=0x00;
+ 12e:	10 92 6f 00 	sts	0x006F, r1
+  TIFR1 =0xff;
+ 132:	8f ef       	ldi	r24, 0xFF	; 255
+ 134:	86 bb       	out	0x16, r24	; 22
   sei();
   #define ISR_PCINT_VECT PCINT1_vect
   #endif
   
   #ifdef DEBUG_RX_DDRD
   PCICR |=(1<<PCIE2);
- 12e:	e8 e6       	ldi	r30, 0x68	; 104
- 130:	f0 e0       	ldi	r31, 0x00	; 0
- 132:	80 81       	ld	r24, Z
- 134:	84 60       	ori	r24, 0x04	; 4
- 136:	80 83       	st	Z, r24
+ 136:	e8 e6       	ldi	r30, 0x68	; 104
+ 138:	f0 e0       	ldi	r31, 0x00	; 0
+ 13a:	80 81       	ld	r24, Z
+ 13c:	84 60       	ori	r24, 0x04	; 4
+ 13e:	80 83       	st	Z, r24
   PCMSK2|=(1<<DEBUG_RX_bp);
- 138:	ed e6       	ldi	r30, 0x6D	; 109
- 13a:	f0 e0       	ldi	r31, 0x00	; 0
- 13c:	80 81       	ld	r24, Z
- 13e:	80 62       	ori	r24, 0x20	; 32
- 140:	80 83       	st	Z, r24
+ 140:	ed e6       	ldi	r30, 0x6D	; 109
+ 142:	f0 e0       	ldi	r31, 0x00	; 0
+ 144:	80 81       	ld	r24, Z
+ 146:	80 62       	ori	r24, 0x20	; 32
+ 148:	80 83       	st	Z, r24
   PCIFR |=(1<<PCIF2);
- 142:	da 9a       	sbi	0x1b, 2	; 27
+ 14a:	da 9a       	sbi	0x1b, 2	; 27
   sei();
- 144:	78 94       	sei
+ 14c:	78 94       	sei
   #define ISR_PCINT_VECT PCINT2_vect
   #endif
 }
- 146:	08 95       	ret
+ 14e:	08 95       	ret
 
-00000148 <debug_timer_start>:
-
-void debug_timer_start(void){
-  #ifdef DEBUG_USE_TIMER0
-  TIFR0 =0xff;
- 148:	8f ef       	ldi	r24, 0xFF	; 255
- 14a:	85 bb       	out	0x15, r24	; 21
-  TIMSK0=0x00;
- 14c:	ee e6       	ldi	r30, 0x6E	; 110
- 14e:	f0 e0       	ldi	r31, 0x00	; 0
- 150:	10 82       	st	Z, r1
-  TCNT0 =10;
- 152:	8a e0       	ldi	r24, 0x0A	; 10
- 154:	86 bd       	out	0x26, r24	; 38
-  TCCR0B=(1<<CS02);
- 156:	84 e0       	ldi	r24, 0x04	; 4
- 158:	85 bd       	out	0x25, r24	; 37
-  TIFR0 =(1<<TOV0);
- 15a:	81 e0       	ldi	r24, 0x01	; 1
- 15c:	85 bb       	out	0x15, r24	; 21
+00000150 <debug_timer_start>:
   TIMSK0=(1<<TOIE0);
- 15e:	80 83       	st	Z, r24
-  TCNT2 =10;
+  #define TIMER_OVF_VECT TIMER0_OVF_vect
+  #endif
+
+  #ifdef DEBUG_USE_TIMER1
+  TIFR1 =0xff;
+ 150:	8f ef       	ldi	r24, 0xFF	; 255
+ 152:	86 bb       	out	0x16, r24	; 22
+  TIMSK1=0x00;
+ 154:	ef e6       	ldi	r30, 0x6F	; 111
+ 156:	f0 e0       	ldi	r31, 0x00	; 0
+ 158:	10 82       	st	Z, r1
+  TCNT1 =53000;
+ 15a:	88 e0       	ldi	r24, 0x08	; 8
+ 15c:	9f ec       	ldi	r25, 0xCF	; 207
+ 15e:	90 93 85 00 	sts	0x0085, r25
+ 162:	80 93 84 00 	sts	0x0084, r24
+  TCCR1B=(1<<CS10);
+ 166:	81 e0       	ldi	r24, 0x01	; 1
+ 168:	80 93 81 00 	sts	0x0081, r24
+  TIFR1 =(1<<TOV1);
+ 16c:	86 bb       	out	0x16, r24	; 22
+  TIMSK1=(1<<TOIE1);
+ 16e:	80 83       	st	Z, r24
   TCCR2B=(1<<CS22);
   TIFR2 =(1<<TOV2);
   TIMSK2=(1<<TOIE2);
+  #define TIMER_OVF_VECT TIMER2_OVF_vect
   #endif
 }
- 160:	08 95       	ret
+ 170:	08 95       	ret
 
-00000162 <debug_timer_stop>:
-
-void debug_timer_stop(void){
-  #ifdef DEBUG_USE_TIMER0
-  TIMSK0=0;
- 162:	10 92 6e 00 	sts	0x006E, r1
+00000172 <debug_timer_stop>:
   TCCR0B=0;
- 166:	15 bc       	out	0x25, r1	; 37
   TCNT0 =0;
- 168:	16 bc       	out	0x26, r1	; 38
+  #endif
+  
+  #ifdef DEBUG_USE_TIMER1
+  TIMSK1=0;
+ 172:	10 92 6f 00 	sts	0x006F, r1
+  TCCR1B=0;
+ 176:	10 92 81 00 	sts	0x0081, r1
+  TCNT1 =0;
+ 17a:	10 92 85 00 	sts	0x0085, r1
+ 17e:	10 92 84 00 	sts	0x0084, r1
   #ifdef DEBUG_USE_TIMER2
   TIMSK2=0;
   TCCR2B=0;
   TCNT2 =0;
   #endif
 }
- 16a:	08 95       	ret
+ 182:	08 95       	ret
 
-0000016c <debug_gpio_init>:
+00000184 <debug_gpio_init>:
 
 void debug_gpio_init(void){
   DEBUG_TX_DDR |= (1<<DEBUG_TX_bp);
- 16c:	56 9a       	sbi	0x0a, 6	; 10
+ 184:	56 9a       	sbi	0x0a, 6	; 10
   DEBUG_TX_PORT|= (1<<DEBUG_TX_bp);
- 16e:	5e 9a       	sbi	0x0b, 6	; 11
+ 186:	5e 9a       	sbi	0x0b, 6	; 11
   DEBUG_RX_DDR &=~(1<<DEBUG_RX_bp);
- 170:	55 98       	cbi	0x0a, 5	; 10
+ 188:	55 98       	cbi	0x0a, 5	; 10
   DEBUG_RX_PORT|= (1<<DEBUG_RX_bp);
- 172:	5d 9a       	sbi	0x0b, 5	; 11
+ 18a:	5d 9a       	sbi	0x0b, 5	; 11
   
   #ifdef DEBUG_GPIO_SWITCH_DEBUGGING
   DEBUG_TEST_DDR|=(1<<DEBUG_TEST_bp);
- 174:	51 9a       	sbi	0x0a, 1	; 10
+ 18c:	51 9a       	sbi	0x0a, 1	; 10
   DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
- 176:	59 98       	cbi	0x0b, 1	; 11
+ 18e:	59 98       	cbi	0x0b, 1	; 11
   #endif
 }
- 178:	08 95       	ret
+ 190:	08 95       	ret
 
-0000017a <debug_tx_high>:
+00000192 <debug_tx_high>:
 
 void debug_tx_high(void){
   DEBUG_TX_PORT|= (1<<DEBUG_TX_bp);
- 17a:	5e 9a       	sbi	0x0b, 6	; 11
+ 192:	5e 9a       	sbi	0x0b, 6	; 11
 }
- 17c:	08 95       	ret
+ 194:	08 95       	ret
 
-0000017e <debug_tx_low>:
+00000196 <debug_tx_low>:
 
 void debug_tx_low(void){
   DEBUG_TX_PORT&=~(1<<DEBUG_TX_bp);
- 17e:	5e 98       	cbi	0x0b, 6	; 11
+ 196:	5e 98       	cbi	0x0b, 6	; 11
 }
- 180:	08 95       	ret
+ 198:	08 95       	ret
 
-00000182 <debug_tx_set>:
+0000019a <debug_tx_set>:
 
 void debug_tx_set(uint8_t pin_state){
   if(pin_state==1){
- 182:	81 30       	cpi	r24, 0x01	; 1
- 184:	11 f4       	brne	.+4      	; 0x18a <debug_tx_set+0x8>
+ 19a:	81 30       	cpi	r24, 0x01	; 1
+ 19c:	11 f4       	brne	.+4      	; 0x1a2 <debug_tx_set+0x8>
   DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
   #endif
 }
 
 void debug_tx_high(void){
   DEBUG_TX_PORT|= (1<<DEBUG_TX_bp);
- 186:	5e 9a       	sbi	0x0b, 6	; 11
- 188:	08 95       	ret
+ 19e:	5e 9a       	sbi	0x0b, 6	; 11
+ 1a0:	08 95       	ret
 }
 
 void debug_tx_low(void){
   DEBUG_TX_PORT&=~(1<<DEBUG_TX_bp);
- 18a:	5e 98       	cbi	0x0b, 6	; 11
- 18c:	08 95       	ret
+ 1a2:	5e 98       	cbi	0x0b, 6	; 11
+ 1a4:	08 95       	ret
 
-0000018e <debug_rx_get>:
+000001a6 <debug_rx_get>:
 }
 
 
 
 uint8_t debug_rx_get(void){
   if(DEBUG_RX_PIN & (1<<DEBUG_RX_bp)){
- 18e:	89 b1       	in	r24, 0x09	; 9
- 190:	90 e0       	ldi	r25, 0x00	; 0
- 192:	25 e0       	ldi	r18, 0x05	; 5
- 194:	96 95       	lsr	r25
- 196:	87 95       	ror	r24
- 198:	2a 95       	dec	r18
- 19a:	e1 f7       	brne	.-8      	; 0x194 <debug_rx_get+0x6>
+ 1a6:	89 b1       	in	r24, 0x09	; 9
+ 1a8:	90 e0       	ldi	r25, 0x00	; 0
+ 1aa:	25 e0       	ldi	r18, 0x05	; 5
+ 1ac:	96 95       	lsr	r25
+ 1ae:	87 95       	ror	r24
+ 1b0:	2a 95       	dec	r18
+ 1b2:	e1 f7       	brne	.-8      	; 0x1ac <debug_rx_get+0x6>
     return 1;
   }else{
     return 0;
   }
 }
- 19c:	81 70       	andi	r24, 0x01	; 1
- 19e:	08 95       	ret
+ 1b4:	81 70       	andi	r24, 0x01	; 1
+ 1b6:	08 95       	ret
 
-000001a0 <debug_delay>:
+000001b8 <debug_delay>:
 
 void debug_delay(uint16_t val){
- 1a0:	9c 01       	movw	r18, r24
-  #ifdef DEBUG_USE_DELAY
-  _delay_us(val);
+ 1b8:	9c 01       	movw	r18, r24
+  while(TCNT0<val){}
+  TCCR0B=0;
   #endif
   
-  #ifdef DEBUG_USE_TIMER0
-  TCNT0=0;
- 1a2:	16 bc       	out	0x26, r1	; 38
-	
-	#ifdef DEBUG_BAUD_RATE_19200
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	TCCR0B=(1<<CS01);
- 1a4:	82 e0       	ldi	r24, 0x02	; 2
- 1a6:	85 bd       	out	0x25, r24	; 37
-	#endif
-  while(TCNT0<val){}
- 1a8:	86 b5       	in	r24, 0x26	; 38
- 1aa:	90 e0       	ldi	r25, 0x00	; 0
- 1ac:	82 17       	cp	r24, r18
- 1ae:	93 07       	cpc	r25, r19
- 1b0:	d8 f3       	brcs	.-10     	; 0x1a8 <debug_delay+0x8>
-  TCCR0B=0;
- 1b2:	15 bc       	out	0x25, r1	; 37
+  #ifdef DEBUG_USE_TIMER1
+  TCNT1=0;
+ 1ba:	10 92 85 00 	sts	0x0085, r1
+ 1be:	10 92 84 00 	sts	0x0084, r1
+  TCCR1B=(1<<CS10);
+ 1c2:	81 e0       	ldi	r24, 0x01	; 1
+ 1c4:	80 93 81 00 	sts	0x0081, r24
+  while(TCNT1<val){}
+ 1c8:	80 91 84 00 	lds	r24, 0x0084
+ 1cc:	90 91 85 00 	lds	r25, 0x0085
+ 1d0:	82 17       	cp	r24, r18
+ 1d2:	93 07       	cpc	r25, r19
+ 1d4:	c8 f3       	brcs	.-14     	; 0x1c8 <debug_delay+0x10>
+  TCCR1B=0;
+ 1d6:	10 92 81 00 	sts	0x0081, r1
   TCNT2=0;
   TCCR2B=(1<<CS20);
   while(TCNT2<val){}
   TCCR2B=0;
   #endif
 }
- 1b4:	08 95       	ret
+ 1da:	08 95       	ret
 
-000001b6 <debug_delay_index_0>:
+000001dc <debug_delay_index_0>:
     #ifdef DEBUG_BAUD_RATE_19200
-    debug_delay(TIM0_BAUD_19200[0]);
+    debug_delay(TIM1_BAUD_19200[0]);
     #endif
 	
     #ifdef DEBUG_BAUD_RATE_38400
-    debug_delay(TIM0_BAUD_38400[0]);
- 1b6:	20 91 0e 01 	lds	r18, 0x010E
- 1ba:	30 91 0f 01 	lds	r19, 0x010F
-  #ifdef DEBUG_USE_DELAY
-  _delay_us(val);
+    debug_delay(TIM1_BAUD_38400[0]);
+ 1dc:	20 91 0e 01 	lds	r18, 0x010E
+ 1e0:	30 91 0f 01 	lds	r19, 0x010F
+  while(TCNT0<val){}
+  TCCR0B=0;
   #endif
   
-  #ifdef DEBUG_USE_TIMER0
-  TCNT0=0;
- 1be:	16 bc       	out	0x26, r1	; 38
-	
-	#ifdef DEBUG_BAUD_RATE_19200
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	TCCR0B=(1<<CS01);
- 1c0:	82 e0       	ldi	r24, 0x02	; 2
- 1c2:	85 bd       	out	0x25, r24	; 37
-	#endif
-  while(TCNT0<val){}
- 1c4:	86 b5       	in	r24, 0x26	; 38
- 1c6:	90 e0       	ldi	r25, 0x00	; 0
- 1c8:	82 17       	cp	r24, r18
- 1ca:	93 07       	cpc	r25, r19
- 1cc:	d8 f3       	brcs	.-10     	; 0x1c4 <debug_delay_index_0+0xe>
-  TCCR0B=0;
- 1ce:	15 bc       	out	0x25, r1	; 37
+  #ifdef DEBUG_USE_TIMER1
+  TCNT1=0;
+ 1e4:	10 92 85 00 	sts	0x0085, r1
+ 1e8:	10 92 84 00 	sts	0x0084, r1
+  TCCR1B=(1<<CS10);
+ 1ec:	81 e0       	ldi	r24, 0x01	; 1
+ 1ee:	80 93 81 00 	sts	0x0081, r24
+  while(TCNT1<val){}
+ 1f2:	80 91 84 00 	lds	r24, 0x0084
+ 1f6:	90 91 85 00 	lds	r25, 0x0085
+ 1fa:	82 17       	cp	r24, r18
+ 1fc:	93 07       	cpc	r25, r19
+ 1fe:	c8 f3       	brcs	.-14     	; 0x1f2 <debug_delay_index_0+0x16>
+  TCCR1B=0;
+ 200:	10 92 81 00 	sts	0x0081, r1
 	
     #ifdef DEBUG_BAUD_RATE_38400
     debug_delay(TIM2_BAUD_38400[0]);
     #endif
   #endif
 }
- 1d0:	08 95       	ret
+ 204:	08 95       	ret
 
-000001d2 <debug_delay_index_1>:
+00000206 <debug_delay_index_1>:
     #ifdef DEBUG_BAUD_RATE_19200
-    debug_delay(TIM0_BAUD_19200[1]);
+    debug_delay(TIM1_BAUD_19200[1]);
     #endif
 	
     #ifdef DEBUG_BAUD_RATE_38400
-    debug_delay(TIM0_BAUD_38400[1]);
- 1d2:	20 91 10 01 	lds	r18, 0x0110
- 1d6:	30 91 11 01 	lds	r19, 0x0111
-  #ifdef DEBUG_USE_DELAY
-  _delay_us(val);
+    debug_delay(TIM1_BAUD_38400[1]);
+ 206:	20 91 10 01 	lds	r18, 0x0110
+ 20a:	30 91 11 01 	lds	r19, 0x0111
+  while(TCNT0<val){}
+  TCCR0B=0;
   #endif
   
-  #ifdef DEBUG_USE_TIMER0
-  TCNT0=0;
- 1da:	16 bc       	out	0x26, r1	; 38
-	
-	#ifdef DEBUG_BAUD_RATE_19200
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	TCCR0B=(1<<CS01);
- 1dc:	82 e0       	ldi	r24, 0x02	; 2
- 1de:	85 bd       	out	0x25, r24	; 37
-	#endif
-  while(TCNT0<val){}
- 1e0:	86 b5       	in	r24, 0x26	; 38
- 1e2:	90 e0       	ldi	r25, 0x00	; 0
- 1e4:	82 17       	cp	r24, r18
- 1e6:	93 07       	cpc	r25, r19
- 1e8:	d8 f3       	brcs	.-10     	; 0x1e0 <debug_delay_index_1+0xe>
-  TCCR0B=0;
- 1ea:	15 bc       	out	0x25, r1	; 37
+  #ifdef DEBUG_USE_TIMER1
+  TCNT1=0;
+ 20e:	10 92 85 00 	sts	0x0085, r1
+ 212:	10 92 84 00 	sts	0x0084, r1
+  TCCR1B=(1<<CS10);
+ 216:	81 e0       	ldi	r24, 0x01	; 1
+ 218:	80 93 81 00 	sts	0x0081, r24
+  while(TCNT1<val){}
+ 21c:	80 91 84 00 	lds	r24, 0x0084
+ 220:	90 91 85 00 	lds	r25, 0x0085
+ 224:	82 17       	cp	r24, r18
+ 226:	93 07       	cpc	r25, r19
+ 228:	c8 f3       	brcs	.-14     	; 0x21c <debug_delay_index_1+0x16>
+  TCCR1B=0;
+ 22a:	10 92 81 00 	sts	0x0081, r1
 	
     #ifdef DEBUG_BAUD_RATE_38400
     debug_delay(TIM2_BAUD_38400[1]);
     #endif
   #endif
 }
- 1ec:	08 95       	ret
+ 22e:	08 95       	ret
 
-000001ee <debug_delay_index_2>:
+00000230 <debug_delay_index_2>:
     #ifdef DEBUG_BAUD_RATE_19200
-    debug_delay(TIM0_BAUD_19200[2]);
+    debug_delay(TIM1_BAUD_19200[2]);
     #endif
 	
     #ifdef DEBUG_BAUD_RATE_38400
-    debug_delay(TIM0_BAUD_38400[2]);
- 1ee:	20 91 12 01 	lds	r18, 0x0112
- 1f2:	30 91 13 01 	lds	r19, 0x0113
-  #ifdef DEBUG_USE_DELAY
-  _delay_us(val);
+    debug_delay(TIM1_BAUD_38400[2]);
+ 230:	20 91 12 01 	lds	r18, 0x0112
+ 234:	30 91 13 01 	lds	r19, 0x0113
+  while(TCNT0<val){}
+  TCCR0B=0;
   #endif
   
-  #ifdef DEBUG_USE_TIMER0
-  TCNT0=0;
- 1f6:	16 bc       	out	0x26, r1	; 38
-	
-	#ifdef DEBUG_BAUD_RATE_19200
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	TCCR0B=(1<<CS01);
- 1f8:	82 e0       	ldi	r24, 0x02	; 2
- 1fa:	85 bd       	out	0x25, r24	; 37
-	#endif
-  while(TCNT0<val){}
- 1fc:	86 b5       	in	r24, 0x26	; 38
- 1fe:	90 e0       	ldi	r25, 0x00	; 0
- 200:	82 17       	cp	r24, r18
- 202:	93 07       	cpc	r25, r19
- 204:	d8 f3       	brcs	.-10     	; 0x1fc <debug_delay_index_2+0xe>
-  TCCR0B=0;
- 206:	15 bc       	out	0x25, r1	; 37
+  #ifdef DEBUG_USE_TIMER1
+  TCNT1=0;
+ 238:	10 92 85 00 	sts	0x0085, r1
+ 23c:	10 92 84 00 	sts	0x0084, r1
+  TCCR1B=(1<<CS10);
+ 240:	81 e0       	ldi	r24, 0x01	; 1
+ 242:	80 93 81 00 	sts	0x0081, r24
+  while(TCNT1<val){}
+ 246:	80 91 84 00 	lds	r24, 0x0084
+ 24a:	90 91 85 00 	lds	r25, 0x0085
+ 24e:	82 17       	cp	r24, r18
+ 250:	93 07       	cpc	r25, r19
+ 252:	c8 f3       	brcs	.-14     	; 0x246 <debug_delay_index_2+0x16>
+  TCCR1B=0;
+ 254:	10 92 81 00 	sts	0x0081, r1
 	
     #ifdef DEBUG_BAUD_RATE_38400
     debug_delay(TIM2_BAUD_38400[2]);
     #endif
   #endif
 }
- 208:	08 95       	ret
+ 258:	08 95       	ret
 
-0000020a <debug_tx_byte>:
-
-
-void debug_tx_byte(uint8_t val){
- 20a:	df 93       	push	r29
- 20c:	cf 93       	push	r28
- 20e:	cd b7       	in	r28, 0x3d	; 61
- 210:	de b7       	in	r29, 0x3e	; 62
- 212:	2a 97       	sbiw	r28, 0x0a	; 10
- 214:	0f b6       	in	r0, 0x3f	; 63
- 216:	f8 94       	cli
- 218:	de bf       	out	0x3e, r29	; 62
- 21a:	0f be       	out	0x3f, r0	; 63
- 21c:	cd bf       	out	0x3d, r28	; 61
-  uint8_t buf[10]={0,0,0,0,0,0,0,0,0,1};
- 21e:	fe 01       	movw	r30, r28
- 220:	31 96       	adiw	r30, 0x01	; 1
- 222:	9a e0       	ldi	r25, 0x0A	; 10
- 224:	df 01       	movw	r26, r30
- 226:	1d 92       	st	X+, r1
- 228:	9a 95       	dec	r25
- 22a:	e9 f7       	brne	.-6      	; 0x226 <debug_tx_byte+0x1c>
- 22c:	91 e0       	ldi	r25, 0x01	; 1
- 22e:	9a 87       	std	Y+10, r25	; 0x0a
- 230:	fe 01       	movw	r30, r28
- 232:	32 96       	adiw	r30, 0x02	; 2
- 234:	20 e0       	ldi	r18, 0x00	; 0
- 236:	30 e0       	ldi	r19, 0x00	; 0
-  for(uint8_t i=0;i<8;i++){
-    if(val & (1<<i)){
- 238:	48 2f       	mov	r20, r24
- 23a:	50 e0       	ldi	r21, 0x00	; 0
-	  buf[i+1]=1;
- 23c:	61 e0       	ldi	r22, 0x01	; 1
+0000025a <debug_tx_byte>:
 
 
 void debug_tx_byte(uint8_t val){
+ 25a:	df 93       	push	r29
+ 25c:	cf 93       	push	r28
+ 25e:	cd b7       	in	r28, 0x3d	; 61
+ 260:	de b7       	in	r29, 0x3e	; 62
+ 262:	2a 97       	sbiw	r28, 0x0a	; 10
+ 264:	0f b6       	in	r0, 0x3f	; 63
+ 266:	f8 94       	cli
+ 268:	de bf       	out	0x3e, r29	; 62
+ 26a:	0f be       	out	0x3f, r0	; 63
+ 26c:	cd bf       	out	0x3d, r28	; 61
+  uint8_t buf[10]={0,0,0,0,0,0,0,0,0,1};
+ 26e:	fe 01       	movw	r30, r28
+ 270:	31 96       	adiw	r30, 0x01	; 1
+ 272:	9a e0       	ldi	r25, 0x0A	; 10
+ 274:	df 01       	movw	r26, r30
+ 276:	1d 92       	st	X+, r1
+ 278:	9a 95       	dec	r25
+ 27a:	e9 f7       	brne	.-6      	; 0x276 <debug_tx_byte+0x1c>
+ 27c:	91 e0       	ldi	r25, 0x01	; 1
+ 27e:	9a 87       	std	Y+10, r25	; 0x0a
+ 280:	fe 01       	movw	r30, r28
+ 282:	32 96       	adiw	r30, 0x02	; 2
+ 284:	20 e0       	ldi	r18, 0x00	; 0
+ 286:	30 e0       	ldi	r19, 0x00	; 0
+  for(uint8_t i=0;i<8;i++){
+    if(val & (1<<i)){
+ 288:	48 2f       	mov	r20, r24
+ 28a:	50 e0       	ldi	r21, 0x00	; 0
+	  buf[i+1]=1;
+ 28c:	61 e0       	ldi	r22, 0x01	; 1
+
+
+void debug_tx_byte(uint8_t val){
   uint8_t buf[10]={0,0,0,0,0,0,0,0,0,1};
   for(uint8_t i=0;i<8;i++){
     if(val & (1<<i)){
- 23e:	ca 01       	movw	r24, r20
- 240:	02 2e       	mov	r0, r18
- 242:	02 c0       	rjmp	.+4      	; 0x248 <debug_tx_byte+0x3e>
- 244:	95 95       	asr	r25
- 246:	87 95       	ror	r24
- 248:	0a 94       	dec	r0
- 24a:	e2 f7       	brpl	.-8      	; 0x244 <debug_tx_byte+0x3a>
- 24c:	80 ff       	sbrs	r24, 0
- 24e:	02 c0       	rjmp	.+4      	; 0x254 <debug_tx_byte+0x4a>
+ 28e:	ca 01       	movw	r24, r20
+ 290:	02 2e       	mov	r0, r18
+ 292:	02 c0       	rjmp	.+4      	; 0x298 <debug_tx_byte+0x3e>
+ 294:	95 95       	asr	r25
+ 296:	87 95       	ror	r24
+ 298:	0a 94       	dec	r0
+ 29a:	e2 f7       	brpl	.-8      	; 0x294 <debug_tx_byte+0x3a>
+ 29c:	80 ff       	sbrs	r24, 0
+ 29e:	02 c0       	rjmp	.+4      	; 0x2a4 <debug_tx_byte+0x4a>
 	  buf[i+1]=1;
- 250:	60 83       	st	Z, r22
- 252:	01 c0       	rjmp	.+2      	; 0x256 <debug_tx_byte+0x4c>
+ 2a0:	60 83       	st	Z, r22
+ 2a2:	01 c0       	rjmp	.+2      	; 0x2a6 <debug_tx_byte+0x4c>
 	}else{
 	  buf[i+1]=0;
- 254:	10 82       	st	Z, r1
- 256:	2f 5f       	subi	r18, 0xFF	; 255
- 258:	3f 4f       	sbci	r19, 0xFF	; 255
- 25a:	31 96       	adiw	r30, 0x01	; 1
+ 2a4:	10 82       	st	Z, r1
+ 2a6:	2f 5f       	subi	r18, 0xFF	; 255
+ 2a8:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2aa:	31 96       	adiw	r30, 0x01	; 1
 }
 
 
 void debug_tx_byte(uint8_t val){
   uint8_t buf[10]={0,0,0,0,0,0,0,0,0,1};
   for(uint8_t i=0;i<8;i++){
- 25c:	28 30       	cpi	r18, 0x08	; 8
- 25e:	31 05       	cpc	r19, r1
- 260:	71 f7       	brne	.-36     	; 0x23e <debug_tx_byte+0x34>
+ 2ac:	28 30       	cpi	r18, 0x08	; 8
+ 2ae:	31 05       	cpc	r19, r1
+ 2b0:	71 f7       	brne	.-36     	; 0x28e <debug_tx_byte+0x34>
 	  buf[i+1]=1;
 	}else{
 	  buf[i+1]=0;
 	}
   }
   uint8_t sreg=SREG;
- 262:	6f b7       	in	r22, 0x3f	; 63
+ 2b2:	6f b7       	in	r22, 0x3f	; 63
   cli();
- 264:	f8 94       	cli
+ 2b4:	f8 94       	cli
     #ifdef DEBUG_BAUD_RATE_19200
-    debug_delay(TIM0_BAUD_19200[0]);
+    debug_delay(TIM1_BAUD_19200[0]);
     #endif
 	
     #ifdef DEBUG_BAUD_RATE_38400
-    debug_delay(TIM0_BAUD_38400[0]);
- 266:	20 91 0e 01 	lds	r18, 0x010E
- 26a:	30 91 0f 01 	lds	r19, 0x010F
- 26e:	fe 01       	movw	r30, r28
- 270:	31 96       	adiw	r30, 0x01	; 1
-	
-	#ifdef DEBUG_BAUD_RATE_19200
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	TCCR0B=(1<<CS01);
- 272:	72 e0       	ldi	r23, 0x02	; 2
+    debug_delay(TIM1_BAUD_38400[0]);
+ 2b6:	20 91 0e 01 	lds	r18, 0x010E
+ 2ba:	30 91 0f 01 	lds	r19, 0x010F
+ 2be:	fe 01       	movw	r30, r28
+ 2c0:	31 96       	adiw	r30, 0x01	; 1
+  TCCR0B=0;
+  #endif
+  
+  #ifdef DEBUG_USE_TIMER1
+  TCNT1=0;
+  TCCR1B=(1<<CS10);
+ 2c2:	71 e0       	ldi	r23, 0x01	; 1
 	  buf[i+1]=0;
 	}
   }
   uint8_t sreg=SREG;
   cli();
   for(uint8_t i=0;i<10;i++){
- 274:	ae 01       	movw	r20, r28
- 276:	45 5f       	subi	r20, 0xF5	; 245
- 278:	5f 4f       	sbci	r21, 0xFF	; 255
+ 2c4:	ae 01       	movw	r20, r28
+ 2c6:	45 5f       	subi	r20, 0xF5	; 245
+ 2c8:	5f 4f       	sbci	r21, 0xFF	; 255
 void debug_tx_low(void){
   DEBUG_TX_PORT&=~(1<<DEBUG_TX_bp);
 }
 
 void debug_tx_set(uint8_t pin_state){
   if(pin_state==1){
- 27a:	80 81       	ld	r24, Z
- 27c:	81 30       	cpi	r24, 0x01	; 1
- 27e:	11 f4       	brne	.+4      	; 0x284 <debug_tx_byte+0x7a>
+ 2ca:	80 81       	ld	r24, Z
+ 2cc:	81 30       	cpi	r24, 0x01	; 1
+ 2ce:	11 f4       	brne	.+4      	; 0x2d4 <debug_tx_byte+0x7a>
   DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
   #endif
 }
 
 void debug_tx_high(void){
   DEBUG_TX_PORT|= (1<<DEBUG_TX_bp);
- 280:	5e 9a       	sbi	0x0b, 6	; 11
- 282:	01 c0       	rjmp	.+2      	; 0x286 <debug_tx_byte+0x7c>
+ 2d0:	5e 9a       	sbi	0x0b, 6	; 11
+ 2d2:	01 c0       	rjmp	.+2      	; 0x2d6 <debug_tx_byte+0x7c>
 }
 
 void debug_tx_low(void){
   DEBUG_TX_PORT&=~(1<<DEBUG_TX_bp);
- 284:	5e 98       	cbi	0x0b, 6	; 11
-  #ifdef DEBUG_USE_DELAY
-  _delay_us(val);
+ 2d4:	5e 98       	cbi	0x0b, 6	; 11
+  while(TCNT0<val){}
+  TCCR0B=0;
   #endif
   
-  #ifdef DEBUG_USE_TIMER0
-  TCNT0=0;
- 286:	16 bc       	out	0x26, r1	; 38
-	
-	#ifdef DEBUG_BAUD_RATE_19200
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	TCCR0B=(1<<CS01);
- 288:	75 bd       	out	0x25, r23	; 37
-	#endif
-  while(TCNT0<val){}
- 28a:	86 b5       	in	r24, 0x26	; 38
- 28c:	90 e0       	ldi	r25, 0x00	; 0
- 28e:	82 17       	cp	r24, r18
- 290:	93 07       	cpc	r25, r19
- 292:	d8 f3       	brcs	.-10     	; 0x28a <debug_tx_byte+0x80>
-  TCCR0B=0;
- 294:	15 bc       	out	0x25, r1	; 37
- 296:	31 96       	adiw	r30, 0x01	; 1
+  #ifdef DEBUG_USE_TIMER1
+  TCNT1=0;
+ 2d6:	10 92 85 00 	sts	0x0085, r1
+ 2da:	10 92 84 00 	sts	0x0084, r1
+  TCCR1B=(1<<CS10);
+ 2de:	70 93 81 00 	sts	0x0081, r23
+  while(TCNT1<val){}
+ 2e2:	80 91 84 00 	lds	r24, 0x0084
+ 2e6:	90 91 85 00 	lds	r25, 0x0085
+ 2ea:	82 17       	cp	r24, r18
+ 2ec:	93 07       	cpc	r25, r19
+ 2ee:	c8 f3       	brcs	.-14     	; 0x2e2 <debug_tx_byte+0x88>
+  TCCR1B=0;
+ 2f0:	10 92 81 00 	sts	0x0081, r1
+ 2f4:	31 96       	adiw	r30, 0x01	; 1
 	  buf[i+1]=0;
 	}
   }
   uint8_t sreg=SREG;
   cli();
   for(uint8_t i=0;i<10;i++){
- 298:	e4 17       	cp	r30, r20
- 29a:	f5 07       	cpc	r31, r21
- 29c:	71 f7       	brne	.-36     	; 0x27a <debug_tx_byte+0x70>
+ 2f6:	e4 17       	cp	r30, r20
+ 2f8:	f5 07       	cpc	r31, r21
+ 2fa:	39 f7       	brne	.-50     	; 0x2ca <debug_tx_byte+0x70>
     debug_tx_set(buf[i]);
 	
 	debug_delay_index_0();    //tx one bit
   }
   SREG=sreg;
- 29e:	6f bf       	out	0x3f, r22	; 63
+ 2fc:	6f bf       	out	0x3f, r22	; 63
 }
- 2a0:	2a 96       	adiw	r28, 0x0a	; 10
- 2a2:	0f b6       	in	r0, 0x3f	; 63
- 2a4:	f8 94       	cli
- 2a6:	de bf       	out	0x3e, r29	; 62
- 2a8:	0f be       	out	0x3f, r0	; 63
- 2aa:	cd bf       	out	0x3d, r28	; 61
- 2ac:	cf 91       	pop	r28
- 2ae:	df 91       	pop	r29
- 2b0:	08 95       	ret
+ 2fe:	2a 96       	adiw	r28, 0x0a	; 10
+ 300:	0f b6       	in	r0, 0x3f	; 63
+ 302:	f8 94       	cli
+ 304:	de bf       	out	0x3e, r29	; 62
+ 306:	0f be       	out	0x3f, r0	; 63
+ 308:	cd bf       	out	0x3d, r28	; 61
+ 30a:	cf 91       	pop	r28
+ 30c:	df 91       	pop	r29
+ 30e:	08 95       	ret
 
-000002b2 <debug_rx_byte>:
+00000310 <debug_rx_byte>:
 }
 
 
 
 uint8_t debug_rx_get(void){
   if(DEBUG_RX_PIN & (1<<DEBUG_RX_bp)){
- 2b2:	4d 9b       	sbis	0x09, 5	; 9
- 2b4:	4b c0       	rjmp	.+150    	; 0x34c <debug_rx_byte+0x9a>
-		  debug.error=0x02;
-		}
-	  }
-	}
+ 310:	4d 9b       	sbis	0x09, 5	; 9
+ 312:	54 c0       	rjmp	.+168    	; 0x3bc <debug_rx_byte+0xac>
+	#ifdef DEBUG_GPIO_SWITCH_DEBUGGING
+	DEBUG_TEST_PORT|=(1<<DEBUG_TEST_bp);
+    DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
+    #endif
   }else{
-    debug.error=0x03;
- 2b6:	83 e0       	ldi	r24, 0x03	; 3
- 2b8:	80 93 14 01 	sts	0x0114, r24
- 2bc:	44 c0       	rjmp	.+136    	; 0x346 <debug_rx_byte+0x94>
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	TCCR0B=(1<<CS01);
-	#endif
-  while(TCNT0<val){}
- 2be:	86 b5       	in	r24, 0x26	; 38
- 2c0:	90 e0       	ldi	r25, 0x00	; 0
- 2c2:	82 17       	cp	r24, r18
- 2c4:	93 07       	cpc	r25, r19
- 2c6:	d8 f3       	brcs	.-10     	; 0x2be <debug_rx_byte+0xc>
-  TCCR0B=0;
- 2c8:	15 bc       	out	0x25, r1	; 37
+    debug.error=0x02;
+ 314:	82 e0       	ldi	r24, 0x02	; 2
+ 316:	80 93 14 01 	sts	0x0114, r24
+ 31a:	4d c0       	rjmp	.+154    	; 0x3b6 <debug_rx_byte+0xa6>
+  #endif
+  
+  #ifdef DEBUG_USE_TIMER1
+  TCNT1=0;
+  TCCR1B=(1<<CS10);
+  while(TCNT1<val){}
+ 31c:	80 91 84 00 	lds	r24, 0x0084
+ 320:	90 91 85 00 	lds	r25, 0x0085
+ 324:	82 17       	cp	r24, r18
+ 326:	93 07       	cpc	r25, r19
+ 328:	c8 f3       	brcs	.-14     	; 0x31c <debug_rx_byte+0xc>
+  TCCR1B=0;
+ 32a:	10 92 81 00 	sts	0x0081, r1
+uint8_t debug_rx_byte(void){
+  if(debug_rx_get()==0){
+    uint8_t val=0, dval=0, st=1, sp=0;
+	debug_delay_index_2();    //half bit
+	#ifdef DEBUG_GPIO_SWITCH_DEBUGGING
+	DEBUG_TEST_PORT|=(1<<DEBUG_TEST_bp);
+ 32e:	59 9a       	sbi	0x0b, 1	; 11
+    DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
+ 330:	59 98       	cbi	0x0b, 1	; 11
+}
+
+
+
+uint8_t debug_rx_get(void){
+  if(DEBUG_RX_PIN & (1<<DEBUG_RX_bp)){
+ 332:	69 b1       	in	r22, 0x09	; 9
     #ifdef DEBUG_BAUD_RATE_19200
-    debug_delay(TIM0_BAUD_19200[1]);
+    debug_delay(TIM1_BAUD_19200[1]);
     #endif
 	
     #ifdef DEBUG_BAUD_RATE_38400
-    debug_delay(TIM0_BAUD_38400[1]);
- 2ca:	60 91 10 01 	lds	r22, 0x0110
- 2ce:	70 91 11 01 	lds	r23, 0x0111
- 2d2:	30 e0       	ldi	r19, 0x00	; 0
- 2d4:	40 e0       	ldi	r20, 0x00	; 0
- 2d6:	20 e0       	ldi	r18, 0x00	; 0
-			debug.datareg=0;
-			debug.error=0x01;
-		  }
-		}else{
-		  debug.datareg=0;
-		  debug.error=0x02;
- 2d8:	52 e0       	ldi	r21, 0x02	; 2
-		  if(sts==1){
-			debug.datareg=val;
-			debug.error=0x00;
-		  }else{
-			debug.datareg=0;
-			debug.error=0x01;
- 2da:	e1 e0       	ldi	r30, 0x01	; 1
-    uint8_t val=0, sts=0;
-	
-	debug_delay_index_2();    //half bit
-	
-	for(uint8_t i=0;i<10;i++){
-	  if(i==0){
- 2dc:	22 23       	and	r18, r18
- 2de:	51 f4       	brne	.+20     	; 0x2f4 <debug_rx_byte+0x42>
-}
-
-
-
-uint8_t debug_rx_get(void){
-  if(DEBUG_RX_PIN & (1<<DEBUG_RX_bp)){
- 2e0:	4d 9b       	sbis	0x09, 5	; 9
- 2e2:	3c c0       	rjmp	.+120    	; 0x35c <debug_rx_byte+0xaa>
-  #ifdef DEBUG_USE_DELAY
-  _delay_us(val);
-  #endif
-  
-  #ifdef DEBUG_USE_TIMER0
-  TCNT0=0;
- 2e4:	16 bc       	out	0x26, r1	; 38
-	
-	#ifdef DEBUG_BAUD_RATE_19200
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	TCCR0B=(1<<CS01);
- 2e6:	55 bd       	out	0x25, r21	; 37
-	#endif
-  while(TCNT0<val){}
- 2e8:	86 b5       	in	r24, 0x26	; 38
- 2ea:	90 e0       	ldi	r25, 0x00	; 0
- 2ec:	86 17       	cp	r24, r22
- 2ee:	97 07       	cpc	r25, r23
- 2f0:	d8 f3       	brcs	.-10     	; 0x2e8 <debug_rx_byte+0x36>
- 2f2:	12 c0       	rjmp	.+36     	; 0x318 <debug_rx_byte+0x66>
-		}
-		
-		debug_delay_index_1(); //one bit
-		
-      }
-	  else if(i>=1 && i<=8){
- 2f4:	82 2f       	mov	r24, r18
- 2f6:	81 50       	subi	r24, 0x01	; 1
- 2f8:	88 30       	cpi	r24, 0x08	; 8
- 2fa:	80 f4       	brcc	.+32     	; 0x31c <debug_rx_byte+0x6a>
-}
-
-
-
-uint8_t debug_rx_get(void){
-  if(DEBUG_RX_PIN & (1<<DEBUG_RX_bp)){
- 2fc:	4d 99       	sbic	0x09, 5	; 9
-		debug_delay_index_1(); //one bit
-		
-      }
-	  else if(i>=1 && i<=8){
-	    if(debug_rx_get()){
-		  val|=0x80;
- 2fe:	30 68       	ori	r19, 0x80	; 128
-		}else{
-		  val|=0x00;
-		}
-		#ifdef DEBUG_GPIO_SWITCH_DEBUGGING
-		DEBUG_TEST_PORT|=(1<<DEBUG_TEST_bp);
- 300:	59 9a       	sbi	0x0b, 1	; 11
-		DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
- 302:	59 98       	cbi	0x0b, 1	; 11
-		#endif
-		if(i!=8){
- 304:	28 30       	cpi	r18, 0x08	; 8
- 306:	09 f0       	breq	.+2      	; 0x30a <debug_rx_byte+0x58>
-		  val>>=1;
- 308:	36 95       	lsr	r19
-  #ifdef DEBUG_USE_DELAY
-  _delay_us(val);
-  #endif
-  
-  #ifdef DEBUG_USE_TIMER0
-  TCNT0=0;
- 30a:	16 bc       	out	0x26, r1	; 38
-	
-	#ifdef DEBUG_BAUD_RATE_19200
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	TCCR0B=(1<<CS01);
- 30c:	55 bd       	out	0x25, r21	; 37
-	#endif
-  while(TCNT0<val){}
- 30e:	86 b5       	in	r24, 0x26	; 38
- 310:	90 e0       	ldi	r25, 0x00	; 0
- 312:	86 17       	cp	r24, r22
- 314:	97 07       	cpc	r25, r23
- 316:	d8 f3       	brcs	.-10     	; 0x30e <debug_rx_byte+0x5c>
+    debug_delay(TIM1_BAUD_38400[1]);
+ 334:	40 91 10 01 	lds	r20, 0x0110
+ 338:	50 91 11 01 	lds	r21, 0x0111
+ 33c:	30 e0       	ldi	r19, 0x00	; 0
+ 33e:	20 e0       	ldi	r18, 0x00	; 0
   TCCR0B=0;
- 318:	15 bc       	out	0x25, r1	; 37
- 31a:	12 c0       	rjmp	.+36     	; 0x340 <debug_rx_byte+0x8e>
-		}
-		
-		debug_delay_index_1(); //one bit
-		
-	  }
-	  else if(i==9){
- 31c:	29 30       	cpi	r18, 0x09	; 9
- 31e:	81 f4       	brne	.+32     	; 0x340 <debug_rx_byte+0x8e>
+  #endif
+  
+  #ifdef DEBUG_USE_TIMER1
+  TCNT1=0;
+  TCCR1B=(1<<CS10);
+ 340:	71 e0       	ldi	r23, 0x01	; 1
+  while(TCNT0<val){}
+  TCCR0B=0;
+  #endif
+  
+  #ifdef DEBUG_USE_TIMER1
+  TCNT1=0;
+ 342:	10 92 85 00 	sts	0x0085, r1
+ 346:	10 92 84 00 	sts	0x0084, r1
+  TCCR1B=(1<<CS10);
+ 34a:	70 93 81 00 	sts	0x0081, r23
+  while(TCNT1<val){}
+ 34e:	80 91 84 00 	lds	r24, 0x0084
+ 352:	90 91 85 00 	lds	r25, 0x0085
+ 356:	84 17       	cp	r24, r20
+ 358:	95 07       	cpc	r25, r21
+ 35a:	c8 f3       	brcs	.-14     	; 0x34e <debug_rx_byte+0x3e>
+  TCCR1B=0;
+ 35c:	10 92 81 00 	sts	0x0081, r1
+    #endif
+	st=debug_rx_get();
+	for(uint8_t i=0;i<8;i++){
+	  debug_delay_index_1();
+	  #ifdef DEBUG_GPIO_SWITCH_DEBUGGING
+	  DEBUG_TEST_PORT|=(1<<DEBUG_TEST_bp);
+ 360:	59 9a       	sbi	0x0b, 1	; 11
+      DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
+ 362:	59 98       	cbi	0x0b, 1	; 11
 }
 
 
 
 uint8_t debug_rx_get(void){
   if(DEBUG_RX_PIN & (1<<DEBUG_RX_bp)){
- 320:	4d 9b       	sbis	0x09, 5	; 9
- 322:	20 c0       	rjmp	.+64     	; 0x364 <debug_rx_byte+0xb2>
-		
+ 364:	4d 99       	sbic	0x09, 5	; 9
+	  #ifdef DEBUG_GPIO_SWITCH_DEBUGGING
+	  DEBUG_TEST_PORT|=(1<<DEBUG_TEST_bp);
+      DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
+      #endif
+	  if(debug_rx_get()){
+	    val|=0x80;
+ 366:	30 68       	ori	r19, 0x80	; 128
+	  }else{
+	    dval|=0x80;
 	  }
-	  else if(i==9){
-		if(debug_rx_get()==1){
-		  #ifdef DEBUG_GPIO_SWITCH_DEBUGGING
-		  DEBUG_TEST_PORT|=(1<<DEBUG_TEST_bp);
- 324:	59 9a       	sbi	0x0b, 1	; 11
-		  DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
- 326:	59 98       	cbi	0x0b, 1	; 11
-		  #endif
-		  sts&=1;
- 328:	41 70       	andi	r20, 0x01	; 1
-		  if(sts==1){
- 32a:	41 30       	cpi	r20, 0x01	; 1
- 32c:	29 f4       	brne	.+10     	; 0x338 <debug_rx_byte+0x86>
-			debug.datareg=val;
- 32e:	30 93 15 01 	sts	0x0115, r19
-			debug.error=0x00;
- 332:	10 92 14 01 	sts	0x0114, r1
- 336:	04 c0       	rjmp	.+8      	; 0x340 <debug_rx_byte+0x8e>
-		  }else{
-			debug.datareg=0;
- 338:	10 92 15 01 	sts	0x0115, r1
-			debug.error=0x01;
- 33c:	e0 93 14 01 	sts	0x0114, r30
-  if(debug_rx_get()==0){
-    uint8_t val=0, sts=0;
-	
-	debug_delay_index_2();    //half bit
-	
-	for(uint8_t i=0;i<10;i++){
- 340:	2f 5f       	subi	r18, 0xFF	; 255
- 342:	2a 30       	cpi	r18, 0x0A	; 10
- 344:	59 f6       	brne	.-106    	; 0x2dc <debug_rx_byte+0x2a>
+	  if(i<7){
+ 368:	27 30       	cpi	r18, 0x07	; 7
+ 36a:	09 f0       	breq	.+2      	; 0x36e <debug_rx_byte+0x5e>
+	    val>>=1;
+ 36c:	36 95       	lsr	r19
+	#ifdef DEBUG_GPIO_SWITCH_DEBUGGING
+	DEBUG_TEST_PORT|=(1<<DEBUG_TEST_bp);
+    DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
+    #endif
+	st=debug_rx_get();
+	for(uint8_t i=0;i<8;i++){
+ 36e:	2f 5f       	subi	r18, 0xFF	; 255
+ 370:	28 30       	cpi	r18, 0x08	; 8
+ 372:	39 f7       	brne	.-50     	; 0x342 <debug_rx_byte+0x32>
+  while(TCNT0<val){}
+  TCCR0B=0;
+  #endif
+  
+  #ifdef DEBUG_USE_TIMER1
+  TCNT1=0;
+ 374:	10 92 85 00 	sts	0x0085, r1
+ 378:	10 92 84 00 	sts	0x0084, r1
+  TCCR1B=(1<<CS10);
+ 37c:	81 e0       	ldi	r24, 0x01	; 1
+ 37e:	80 93 81 00 	sts	0x0081, r24
+  while(TCNT1<val){}
+ 382:	80 91 84 00 	lds	r24, 0x0084
+ 386:	90 91 85 00 	lds	r25, 0x0085
+ 38a:	84 17       	cp	r24, r20
+ 38c:	95 07       	cpc	r25, r21
+ 38e:	c8 f3       	brcs	.-14     	; 0x382 <debug_rx_byte+0x72>
+  TCCR1B=0;
+ 390:	10 92 81 00 	sts	0x0081, r1
+	    val>>=1;
 	  }
 	}
+	debug_delay_index_1();
+	#ifdef DEBUG_GPIO_SWITCH_DEBUGGING
+	DEBUG_TEST_PORT|=(1<<DEBUG_TEST_bp);
+ 394:	59 9a       	sbi	0x0b, 1	; 11
+    DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
+ 396:	59 98       	cbi	0x0b, 1	; 11
+}
+
+
+
+uint8_t debug_rx_get(void){
+  if(DEBUG_RX_PIN & (1<<DEBUG_RX_bp)){
+ 398:	89 b1       	in	r24, 0x09	; 9
+	#ifdef DEBUG_GPIO_SWITCH_DEBUGGING
+	DEBUG_TEST_PORT|=(1<<DEBUG_TEST_bp);
+    DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
+    #endif
+	sp=debug_rx_get();
+	if( (st==0) && (sp==1) ){
+ 39a:	65 fd       	sbrc	r22, 5
+ 39c:	07 c0       	rjmp	.+14     	; 0x3ac <debug_rx_byte+0x9c>
+ 39e:	85 ff       	sbrs	r24, 5
+ 3a0:	05 c0       	rjmp	.+10     	; 0x3ac <debug_rx_byte+0x9c>
+	  debug.datareg=val;
+ 3a2:	30 93 15 01 	sts	0x0115, r19
+	  debug.error=0x00;
+ 3a6:	10 92 14 01 	sts	0x0114, r1
+ 3aa:	03 c0       	rjmp	.+6      	; 0x3b2 <debug_rx_byte+0xa2>
+	}else{
+	  debug.error=0x01;
+ 3ac:	81 e0       	ldi	r24, 0x01	; 1
+ 3ae:	80 93 14 01 	sts	0x0114, r24
+	}
+	
+	#ifdef DEBUG_GPIO_SWITCH_DEBUGGING
+	DEBUG_TEST_PORT|=(1<<DEBUG_TEST_bp);
+ 3b2:	59 9a       	sbi	0x0b, 1	; 11
+    DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
+ 3b4:	59 98       	cbi	0x0b, 1	; 11
+    #endif
   }else{
-    debug.error=0x03;
+    debug.error=0x02;
   }
   return debug.datareg;
- 346:	80 91 15 01 	lds	r24, 0x0115
+ 3b6:	80 91 15 01 	lds	r24, 0x0115
 }
- 34a:	08 95       	ret
+ 3ba:	08 95       	ret
     #ifdef DEBUG_BAUD_RATE_19200
-    debug_delay(TIM0_BAUD_19200[2]);
+    debug_delay(TIM1_BAUD_19200[2]);
     #endif
 	
     #ifdef DEBUG_BAUD_RATE_38400
-    debug_delay(TIM0_BAUD_38400[2]);
- 34c:	20 91 12 01 	lds	r18, 0x0112
- 350:	30 91 13 01 	lds	r19, 0x0113
-  #ifdef DEBUG_USE_DELAY
-  _delay_us(val);
+    debug_delay(TIM1_BAUD_38400[2]);
+ 3bc:	20 91 12 01 	lds	r18, 0x0112
+ 3c0:	30 91 13 01 	lds	r19, 0x0113
+  while(TCNT0<val){}
+  TCCR0B=0;
   #endif
   
-  #ifdef DEBUG_USE_TIMER0
-  TCNT0=0;
- 354:	16 bc       	out	0x26, r1	; 38
-	
-	#ifdef DEBUG_BAUD_RATE_19200
-	#endif
-	
-	#ifdef DEBUG_BAUD_RATE_38400
-	TCCR0B=(1<<CS01);
- 356:	82 e0       	ldi	r24, 0x02	; 2
- 358:	85 bd       	out	0x25, r24	; 37
- 35a:	b1 cf       	rjmp	.-158    	; 0x2be <debug_rx_byte+0xc>
-	
-	for(uint8_t i=0;i<10;i++){
-	  if(i==0){
-		if(debug_rx_get()==0){
-		  #ifdef DEBUG_GPIO_SWITCH_DEBUGGING
-		  DEBUG_TEST_PORT|=(1<<DEBUG_TEST_bp);
- 35c:	59 9a       	sbi	0x0b, 1	; 11
-		  DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
- 35e:	59 98       	cbi	0x0b, 1	; 11
- 360:	41 e0       	ldi	r20, 0x01	; 1
- 362:	c0 cf       	rjmp	.-128    	; 0x2e4 <debug_rx_byte+0x32>
-		  }else{
-			debug.datareg=0;
-			debug.error=0x01;
-		  }
-		}else{
-		  debug.datareg=0;
- 364:	10 92 15 01 	sts	0x0115, r1
-		  debug.error=0x02;
- 368:	50 93 14 01 	sts	0x0114, r21
- 36c:	e9 cf       	rjmp	.-46     	; 0x340 <debug_rx_byte+0x8e>
+  #ifdef DEBUG_USE_TIMER1
+  TCNT1=0;
+ 3c4:	10 92 85 00 	sts	0x0085, r1
+ 3c8:	10 92 84 00 	sts	0x0084, r1
+  TCCR1B=(1<<CS10);
+ 3cc:	81 e0       	ldi	r24, 0x01	; 1
+ 3ce:	80 93 81 00 	sts	0x0081, r24
+ 3d2:	a4 cf       	rjmp	.-184    	; 0x31c <debug_rx_byte+0xc>
 
-0000036e <debug_rx_byte_get>:
+000003d4 <debug_rx_byte_get>:
   }
   return debug.datareg;
 }
 
 uint8_t debug_rx_byte_get(void){
   return debug.datareg;
- 36e:	80 91 15 01 	lds	r24, 0x0115
+ 3d4:	80 91 15 01 	lds	r24, 0x0115
 }
- 372:	08 95       	ret
+ 3d8:	08 95       	ret
 
-00000374 <debug_rx_byte_clear>:
+000003da <debug_rx_byte_clear>:
 
 void debug_rx_byte_clear(void){
   debug.datareg=0;
- 374:	10 92 15 01 	sts	0x0115, r1
+ 3da:	10 92 15 01 	sts	0x0115, r1
 }
- 378:	08 95       	ret
+ 3de:	08 95       	ret
 
-0000037a <debug_rx_byte_set>:
+000003e0 <debug_rx_byte_set>:
 
 void debug_rx_byte_set(uint8_t val){
   debug.datareg=val;
- 37a:	80 93 15 01 	sts	0x0115, r24
+ 3e0:	80 93 15 01 	sts	0x0115, r24
 }
- 37e:	08 95       	ret
+ 3e4:	08 95       	ret
 
-00000380 <debug_tx_hex>:
+000003e6 <debug_tx_hex>:
 
 void debug_tx_hex(uint32_t val){
- 380:	bf 92       	push	r11
- 382:	cf 92       	push	r12
- 384:	df 92       	push	r13
- 386:	ef 92       	push	r14
- 388:	ff 92       	push	r15
- 38a:	0f 93       	push	r16
- 38c:	1f 93       	push	r17
- 38e:	cf 93       	push	r28
- 390:	df 93       	push	r29
- 392:	7b 01       	movw	r14, r22
- 394:	8c 01       	movw	r16, r24
+ 3e6:	bf 92       	push	r11
+ 3e8:	cf 92       	push	r12
+ 3ea:	df 92       	push	r13
+ 3ec:	ef 92       	push	r14
+ 3ee:	ff 92       	push	r15
+ 3f0:	0f 93       	push	r16
+ 3f2:	1f 93       	push	r17
+ 3f4:	cf 93       	push	r28
+ 3f6:	df 93       	push	r29
+ 3f8:	7b 01       	movw	r14, r22
+ 3fa:	8c 01       	movw	r16, r24
   uint16_t hex_digit, index=0, loop_counter=0;
   if(val <= 0xFF){
- 396:	8f ef       	ldi	r24, 0xFF	; 255
- 398:	e8 16       	cp	r14, r24
- 39a:	f1 04       	cpc	r15, r1
- 39c:	01 05       	cpc	r16, r1
- 39e:	11 05       	cpc	r17, r1
- 3a0:	09 f0       	breq	.+2      	; 0x3a4 <debug_tx_hex+0x24>
- 3a2:	30 f4       	brcc	.+12     	; 0x3b0 <debug_tx_hex+0x30>
- 3a4:	c8 e0       	ldi	r28, 0x08	; 8
- 3a6:	d0 e0       	ldi	r29, 0x00	; 0
- 3a8:	52 e0       	ldi	r21, 0x02	; 2
- 3aa:	c5 2e       	mov	r12, r21
- 3ac:	d1 2c       	mov	r13, r1
- 3ae:	14 c0       	rjmp	.+40     	; 0x3d8 <debug_tx_hex+0x58>
+ 3fc:	8f ef       	ldi	r24, 0xFF	; 255
+ 3fe:	e8 16       	cp	r14, r24
+ 400:	f1 04       	cpc	r15, r1
+ 402:	01 05       	cpc	r16, r1
+ 404:	11 05       	cpc	r17, r1
+ 406:	09 f0       	breq	.+2      	; 0x40a <debug_tx_hex+0x24>
+ 408:	30 f4       	brcc	.+12     	; 0x416 <debug_tx_hex+0x30>
+ 40a:	c8 e0       	ldi	r28, 0x08	; 8
+ 40c:	d0 e0       	ldi	r29, 0x00	; 0
+ 40e:	52 e0       	ldi	r21, 0x02	; 2
+ 410:	c5 2e       	mov	r12, r21
+ 412:	d1 2c       	mov	r13, r1
+ 414:	14 c0       	rjmp	.+40     	; 0x43e <debug_tx_hex+0x58>
     index=8;
     loop_counter=2;
   }else if(val <= 0xFFFF){
- 3b0:	80 e0       	ldi	r24, 0x00	; 0
- 3b2:	e8 16       	cp	r14, r24
- 3b4:	80 e0       	ldi	r24, 0x00	; 0
- 3b6:	f8 06       	cpc	r15, r24
- 3b8:	81 e0       	ldi	r24, 0x01	; 1
- 3ba:	08 07       	cpc	r16, r24
- 3bc:	80 e0       	ldi	r24, 0x00	; 0
- 3be:	18 07       	cpc	r17, r24
- 3c0:	30 f0       	brcs	.+12     	; 0x3ce <debug_tx_hex+0x4e>
- 3c2:	c0 e2       	ldi	r28, 0x20	; 32
- 3c4:	d0 e0       	ldi	r29, 0x00	; 0
- 3c6:	48 e0       	ldi	r20, 0x08	; 8
- 3c8:	c4 2e       	mov	r12, r20
- 3ca:	d1 2c       	mov	r13, r1
- 3cc:	05 c0       	rjmp	.+10     	; 0x3d8 <debug_tx_hex+0x58>
- 3ce:	c0 e1       	ldi	r28, 0x10	; 16
- 3d0:	d0 e0       	ldi	r29, 0x00	; 0
- 3d2:	34 e0       	ldi	r19, 0x04	; 4
- 3d4:	c3 2e       	mov	r12, r19
- 3d6:	d1 2c       	mov	r13, r1
+ 416:	80 e0       	ldi	r24, 0x00	; 0
+ 418:	e8 16       	cp	r14, r24
+ 41a:	80 e0       	ldi	r24, 0x00	; 0
+ 41c:	f8 06       	cpc	r15, r24
+ 41e:	81 e0       	ldi	r24, 0x01	; 1
+ 420:	08 07       	cpc	r16, r24
+ 422:	80 e0       	ldi	r24, 0x00	; 0
+ 424:	18 07       	cpc	r17, r24
+ 426:	30 f0       	brcs	.+12     	; 0x434 <debug_tx_hex+0x4e>
+ 428:	c0 e2       	ldi	r28, 0x20	; 32
+ 42a:	d0 e0       	ldi	r29, 0x00	; 0
+ 42c:	48 e0       	ldi	r20, 0x08	; 8
+ 42e:	c4 2e       	mov	r12, r20
+ 430:	d1 2c       	mov	r13, r1
+ 432:	05 c0       	rjmp	.+10     	; 0x43e <debug_tx_hex+0x58>
+ 434:	c0 e1       	ldi	r28, 0x10	; 16
+ 436:	d0 e0       	ldi	r29, 0x00	; 0
+ 438:	34 e0       	ldi	r19, 0x04	; 4
+ 43a:	c3 2e       	mov	r12, r19
+ 43c:	d1 2c       	mov	r13, r1
     loop_counter=4;     
   }else{
     index=32;
     loop_counter=8;
   }
   debug_tx_byte('0');
- 3d8:	80 e3       	ldi	r24, 0x30	; 48
- 3da:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
+ 43e:	80 e3       	ldi	r24, 0x30	; 48
+ 440:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
   debug_tx_byte('x');
- 3de:	88 e7       	ldi	r24, 0x78	; 120
- 3e0:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
- 3e4:	bb 24       	eor	r11, r11
- 3e6:	17 c0       	rjmp	.+46     	; 0x416 <debug_tx_hex+0x96>
+ 444:	88 e7       	ldi	r24, 0x78	; 120
+ 446:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
+ 44a:	bb 24       	eor	r11, r11
+ 44c:	17 c0       	rjmp	.+46     	; 0x47c <debug_tx_hex+0x96>
 	for(uint8_t i=0;i<loop_counter;i++){
 	  index-=4;
- 3e8:	24 97       	sbiw	r28, 0x04	; 4
+ 44e:	24 97       	sbiw	r28, 0x04	; 4
 	  hex_digit=(uint8_t)((val>>index) & 0x0F);
- 3ea:	d8 01       	movw	r26, r16
- 3ec:	c7 01       	movw	r24, r14
- 3ee:	0c 2e       	mov	r0, r28
- 3f0:	04 c0       	rjmp	.+8      	; 0x3fa <debug_tx_hex+0x7a>
- 3f2:	b6 95       	lsr	r27
- 3f4:	a7 95       	ror	r26
- 3f6:	97 95       	ror	r25
- 3f8:	87 95       	ror	r24
- 3fa:	0a 94       	dec	r0
- 3fc:	d2 f7       	brpl	.-12     	; 0x3f2 <debug_tx_hex+0x72>
- 3fe:	90 e0       	ldi	r25, 0x00	; 0
- 400:	8f 70       	andi	r24, 0x0F	; 15
- 402:	90 70       	andi	r25, 0x00	; 0
+ 450:	d8 01       	movw	r26, r16
+ 452:	c7 01       	movw	r24, r14
+ 454:	0c 2e       	mov	r0, r28
+ 456:	04 c0       	rjmp	.+8      	; 0x460 <debug_tx_hex+0x7a>
+ 458:	b6 95       	lsr	r27
+ 45a:	a7 95       	ror	r26
+ 45c:	97 95       	ror	r25
+ 45e:	87 95       	ror	r24
+ 460:	0a 94       	dec	r0
+ 462:	d2 f7       	brpl	.-12     	; 0x458 <debug_tx_hex+0x72>
+ 464:	90 e0       	ldi	r25, 0x00	; 0
+ 466:	8f 70       	andi	r24, 0x0F	; 15
+ 468:	90 70       	andi	r25, 0x00	; 0
 	  if(hex_digit>9){
- 404:	8a 30       	cpi	r24, 0x0A	; 10
- 406:	91 05       	cpc	r25, r1
- 408:	10 f0       	brcs	.+4      	; 0x40e <debug_tx_hex+0x8e>
+ 46a:	8a 30       	cpi	r24, 0x0A	; 10
+ 46c:	91 05       	cpc	r25, r1
+ 46e:	10 f0       	brcs	.+4      	; 0x474 <debug_tx_hex+0x8e>
 	    hex_digit+=55;
- 40a:	c7 96       	adiw	r24, 0x37	; 55
- 40c:	01 c0       	rjmp	.+2      	; 0x410 <debug_tx_hex+0x90>
+ 470:	c7 96       	adiw	r24, 0x37	; 55
+ 472:	01 c0       	rjmp	.+2      	; 0x476 <debug_tx_hex+0x90>
 	  }else {
 	    hex_digit+=48;
- 40e:	c0 96       	adiw	r24, 0x30	; 48
+ 474:	c0 96       	adiw	r24, 0x30	; 48
 	  }
 	  debug_tx_byte((uint8_t)hex_digit);
- 410:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
+ 476:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
     index=32;
     loop_counter=8;
   }
   debug_tx_byte('0');
   debug_tx_byte('x');
 	for(uint8_t i=0;i<loop_counter;i++){
- 414:	b3 94       	inc	r11
- 416:	8b 2d       	mov	r24, r11
- 418:	90 e0       	ldi	r25, 0x00	; 0
- 41a:	8c 15       	cp	r24, r12
- 41c:	9d 05       	cpc	r25, r13
- 41e:	20 f3       	brcs	.-56     	; 0x3e8 <debug_tx_hex+0x68>
+ 47a:	b3 94       	inc	r11
+ 47c:	8b 2d       	mov	r24, r11
+ 47e:	90 e0       	ldi	r25, 0x00	; 0
+ 480:	8c 15       	cp	r24, r12
+ 482:	9d 05       	cpc	r25, r13
+ 484:	20 f3       	brcs	.-56     	; 0x44e <debug_tx_hex+0x68>
 	  }else {
 	    hex_digit+=48;
 	  }
 	  debug_tx_byte((uint8_t)hex_digit);
 	}
 }
- 420:	df 91       	pop	r29
- 422:	cf 91       	pop	r28
- 424:	1f 91       	pop	r17
- 426:	0f 91       	pop	r16
- 428:	ff 90       	pop	r15
- 42a:	ef 90       	pop	r14
- 42c:	df 90       	pop	r13
- 42e:	cf 90       	pop	r12
- 430:	bf 90       	pop	r11
- 432:	08 95       	ret
+ 486:	df 91       	pop	r29
+ 488:	cf 91       	pop	r28
+ 48a:	1f 91       	pop	r17
+ 48c:	0f 91       	pop	r16
+ 48e:	ff 90       	pop	r15
+ 490:	ef 90       	pop	r14
+ 492:	df 90       	pop	r13
+ 494:	cf 90       	pop	r12
+ 496:	bf 90       	pop	r11
+ 498:	08 95       	ret
 
-00000434 <debug_tx_bin>:
+0000049a <debug_tx_bin>:
 
 void debug_tx_bin(uint32_t val){
- 434:	af 92       	push	r10
- 436:	bf 92       	push	r11
- 438:	cf 92       	push	r12
- 43a:	df 92       	push	r13
- 43c:	ef 92       	push	r14
- 43e:	ff 92       	push	r15
- 440:	0f 93       	push	r16
- 442:	1f 93       	push	r17
- 444:	cf 93       	push	r28
- 446:	df 93       	push	r29
- 448:	7b 01       	movw	r14, r22
- 44a:	8c 01       	movw	r16, r24
+ 49a:	af 92       	push	r10
+ 49c:	bf 92       	push	r11
+ 49e:	cf 92       	push	r12
+ 4a0:	df 92       	push	r13
+ 4a2:	ef 92       	push	r14
+ 4a4:	ff 92       	push	r15
+ 4a6:	0f 93       	push	r16
+ 4a8:	1f 93       	push	r17
+ 4aa:	cf 93       	push	r28
+ 4ac:	df 93       	push	r29
+ 4ae:	7b 01       	movw	r14, r22
+ 4b0:	8c 01       	movw	r16, r24
   uint8_t loop_counter=0;
   if(val <= 0xFF){
- 44c:	6f 3f       	cpi	r22, 0xFF	; 255
- 44e:	71 05       	cpc	r23, r1
- 450:	81 05       	cpc	r24, r1
- 452:	91 05       	cpc	r25, r1
- 454:	09 f0       	breq	.+2      	; 0x458 <debug_tx_bin+0x24>
- 456:	18 f4       	brcc	.+6      	; 0x45e <debug_tx_bin+0x2a>
- 458:	e7 e0       	ldi	r30, 0x07	; 7
- 45a:	de 2e       	mov	r13, r30
- 45c:	0d c0       	rjmp	.+26     	; 0x478 <debug_tx_bin+0x44>
+ 4b2:	6f 3f       	cpi	r22, 0xFF	; 255
+ 4b4:	71 05       	cpc	r23, r1
+ 4b6:	81 05       	cpc	r24, r1
+ 4b8:	91 05       	cpc	r25, r1
+ 4ba:	09 f0       	breq	.+2      	; 0x4be <debug_tx_bin+0x24>
+ 4bc:	18 f4       	brcc	.+6      	; 0x4c4 <debug_tx_bin+0x2a>
+ 4be:	e7 e0       	ldi	r30, 0x07	; 7
+ 4c0:	de 2e       	mov	r13, r30
+ 4c2:	0d c0       	rjmp	.+26     	; 0x4de <debug_tx_bin+0x44>
     loop_counter=7;
   }else if(val <= 0xFFFF){
- 45e:	60 30       	cpi	r22, 0x00	; 0
- 460:	30 e0       	ldi	r19, 0x00	; 0
- 462:	73 07       	cpc	r23, r19
- 464:	31 e0       	ldi	r19, 0x01	; 1
- 466:	83 07       	cpc	r24, r19
- 468:	30 e0       	ldi	r19, 0x00	; 0
- 46a:	93 07       	cpc	r25, r19
- 46c:	18 f0       	brcs	.+6      	; 0x474 <debug_tx_bin+0x40>
- 46e:	7f e1       	ldi	r23, 0x1F	; 31
- 470:	d7 2e       	mov	r13, r23
- 472:	02 c0       	rjmp	.+4      	; 0x478 <debug_tx_bin+0x44>
- 474:	6f e0       	ldi	r22, 0x0F	; 15
- 476:	d6 2e       	mov	r13, r22
+ 4c4:	60 30       	cpi	r22, 0x00	; 0
+ 4c6:	30 e0       	ldi	r19, 0x00	; 0
+ 4c8:	73 07       	cpc	r23, r19
+ 4ca:	31 e0       	ldi	r19, 0x01	; 1
+ 4cc:	83 07       	cpc	r24, r19
+ 4ce:	30 e0       	ldi	r19, 0x00	; 0
+ 4d0:	93 07       	cpc	r25, r19
+ 4d2:	18 f0       	brcs	.+6      	; 0x4da <debug_tx_bin+0x40>
+ 4d4:	7f e1       	ldi	r23, 0x1F	; 31
+ 4d6:	d7 2e       	mov	r13, r23
+ 4d8:	02 c0       	rjmp	.+4      	; 0x4de <debug_tx_bin+0x44>
+ 4da:	6f e0       	ldi	r22, 0x0F	; 15
+ 4dc:	d6 2e       	mov	r13, r22
     loop_counter=15;     
   }else{
     loop_counter=31;
   }
   
   debug_tx_byte('0');
- 478:	80 e3       	ldi	r24, 0x30	; 48
- 47a:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
+ 4de:	80 e3       	ldi	r24, 0x30	; 48
+ 4e0:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
   debug_tx_byte('b');
- 47e:	82 e6       	ldi	r24, 0x62	; 98
- 480:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
- 484:	c0 e0       	ldi	r28, 0x00	; 0
- 486:	d0 e0       	ldi	r29, 0x00	; 0
+ 4e4:	82 e6       	ldi	r24, 0x62	; 98
+ 4e6:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
+ 4ea:	c0 e0       	ldi	r28, 0x00	; 0
+ 4ec:	d0 e0       	ldi	r29, 0x00	; 0
 	  }
 	  debug_tx_byte((uint8_t)hex_digit);
 	}
 }
 
 void debug_tx_bin(uint32_t val){
- 488:	cd 2c       	mov	r12, r13
- 48a:	dd 24       	eor	r13, r13
+ 4ee:	cd 2c       	mov	r12, r13
+ 4f0:	dd 24       	eor	r13, r13
     loop_counter=31;
   }
   
   debug_tx_byte('0');
   debug_tx_byte('b');
   for(int i=loop_counter; i>=0; i--){
- 48c:	56 01       	movw	r10, r12
- 48e:	08 94       	sec
- 490:	a1 1c       	adc	r10, r1
- 492:	b1 1c       	adc	r11, r1
+ 4f2:	56 01       	movw	r10, r12
+ 4f4:	08 94       	sec
+ 4f6:	a1 1c       	adc	r10, r1
+ 4f8:	b1 1c       	adc	r11, r1
     if( (val>>i) & 1){
- 494:	c6 01       	movw	r24, r12
- 496:	8c 1b       	sub	r24, r28
- 498:	9d 0b       	sbc	r25, r29
- 49a:	a8 01       	movw	r20, r16
- 49c:	97 01       	movw	r18, r14
- 49e:	04 c0       	rjmp	.+8      	; 0x4a8 <debug_tx_bin+0x74>
- 4a0:	56 95       	lsr	r21
- 4a2:	47 95       	ror	r20
- 4a4:	37 95       	ror	r19
- 4a6:	27 95       	ror	r18
- 4a8:	8a 95       	dec	r24
- 4aa:	d2 f7       	brpl	.-12     	; 0x4a0 <debug_tx_bin+0x6c>
- 4ac:	da 01       	movw	r26, r20
- 4ae:	c9 01       	movw	r24, r18
- 4b0:	81 70       	andi	r24, 0x01	; 1
- 4b2:	90 70       	andi	r25, 0x00	; 0
- 4b4:	89 2b       	or	r24, r25
- 4b6:	11 f0       	breq	.+4      	; 0x4bc <debug_tx_bin+0x88>
+ 4fa:	c6 01       	movw	r24, r12
+ 4fc:	8c 1b       	sub	r24, r28
+ 4fe:	9d 0b       	sbc	r25, r29
+ 500:	a8 01       	movw	r20, r16
+ 502:	97 01       	movw	r18, r14
+ 504:	04 c0       	rjmp	.+8      	; 0x50e <debug_tx_bin+0x74>
+ 506:	56 95       	lsr	r21
+ 508:	47 95       	ror	r20
+ 50a:	37 95       	ror	r19
+ 50c:	27 95       	ror	r18
+ 50e:	8a 95       	dec	r24
+ 510:	d2 f7       	brpl	.-12     	; 0x506 <debug_tx_bin+0x6c>
+ 512:	da 01       	movw	r26, r20
+ 514:	c9 01       	movw	r24, r18
+ 516:	81 70       	andi	r24, 0x01	; 1
+ 518:	90 70       	andi	r25, 0x00	; 0
+ 51a:	89 2b       	or	r24, r25
+ 51c:	11 f0       	breq	.+4      	; 0x522 <debug_tx_bin+0x88>
       debug_tx_byte( 49 );   
- 4b8:	81 e3       	ldi	r24, 0x31	; 49
- 4ba:	01 c0       	rjmp	.+2      	; 0x4be <debug_tx_bin+0x8a>
+ 51e:	81 e3       	ldi	r24, 0x31	; 49
+ 520:	01 c0       	rjmp	.+2      	; 0x524 <debug_tx_bin+0x8a>
     }else{
       debug_tx_byte( 48 );         
- 4bc:	80 e3       	ldi	r24, 0x30	; 48
- 4be:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
- 4c2:	21 96       	adiw	r28, 0x01	; 1
+ 522:	80 e3       	ldi	r24, 0x30	; 48
+ 524:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
+ 528:	21 96       	adiw	r28, 0x01	; 1
     loop_counter=31;
   }
   
   debug_tx_byte('0');
   debug_tx_byte('b');
   for(int i=loop_counter; i>=0; i--){
- 4c4:	ca 15       	cp	r28, r10
- 4c6:	db 05       	cpc	r29, r11
- 4c8:	29 f7       	brne	.-54     	; 0x494 <debug_tx_bin+0x60>
+ 52a:	ca 15       	cp	r28, r10
+ 52c:	db 05       	cpc	r29, r11
+ 52e:	29 f7       	brne	.-54     	; 0x4fa <debug_tx_bin+0x60>
       debug_tx_byte( 49 );   
     }else{
       debug_tx_byte( 48 );         
     }
   }
 }
- 4ca:	df 91       	pop	r29
- 4cc:	cf 91       	pop	r28
- 4ce:	1f 91       	pop	r17
- 4d0:	0f 91       	pop	r16
- 4d2:	ff 90       	pop	r15
- 4d4:	ef 90       	pop	r14
- 4d6:	df 90       	pop	r13
- 4d8:	cf 90       	pop	r12
- 4da:	bf 90       	pop	r11
- 4dc:	af 90       	pop	r10
- 4de:	08 95       	ret
+ 530:	df 91       	pop	r29
+ 532:	cf 91       	pop	r28
+ 534:	1f 91       	pop	r17
+ 536:	0f 91       	pop	r16
+ 538:	ff 90       	pop	r15
+ 53a:	ef 90       	pop	r14
+ 53c:	df 90       	pop	r13
+ 53e:	cf 90       	pop	r12
+ 540:	bf 90       	pop	r11
+ 542:	af 90       	pop	r10
+ 544:	08 95       	ret
 
-000004e0 <debug_tx_nl>:
+00000546 <debug_tx_nl>:
 
 void debug_tx_nl(void){
   debug_tx_byte('\r');
- 4e0:	8d e0       	ldi	r24, 0x0D	; 13
- 4e2:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
+ 546:	8d e0       	ldi	r24, 0x0D	; 13
+ 548:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
   debug_tx_byte('\n');
- 4e6:	8a e0       	ldi	r24, 0x0A	; 10
- 4e8:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
+ 54c:	8a e0       	ldi	r24, 0x0A	; 10
+ 54e:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
 }
- 4ec:	08 95       	ret
+ 552:	08 95       	ret
 
-000004ee <debug_tx_sp>:
+00000554 <debug_tx_sp>:
 
 void debug_tx_sp(void){
   debug_tx_byte(' ');
- 4ee:	80 e2       	ldi	r24, 0x20	; 32
- 4f0:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
+ 554:	80 e2       	ldi	r24, 0x20	; 32
+ 556:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
 }
- 4f4:	08 95       	ret
+ 55a:	08 95       	ret
 
-000004f6 <debug_tx_cm>:
+0000055c <debug_tx_cm>:
 
 void debug_tx_cm(void){
   debug_tx_byte(',');
- 4f6:	8c e2       	ldi	r24, 0x2C	; 44
- 4f8:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
+ 55c:	8c e2       	ldi	r24, 0x2C	; 44
+ 55e:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
 }
- 4fc:	08 95       	ret
+ 562:	08 95       	ret
 
-000004fe <debug_tx_text>:
+00000564 <debug_tx_text>:
 
 void debug_tx_text(char *str){
- 4fe:	1f 93       	push	r17
- 500:	cf 93       	push	r28
- 502:	df 93       	push	r29
- 504:	ec 01       	movw	r28, r24
- 506:	10 e0       	ldi	r17, 0x00	; 0
- 508:	03 c0       	rjmp	.+6      	; 0x510 <debug_tx_text+0x12>
+ 564:	1f 93       	push	r17
+ 566:	cf 93       	push	r28
+ 568:	df 93       	push	r29
+ 56a:	ec 01       	movw	r28, r24
+ 56c:	10 e0       	ldi	r17, 0x00	; 0
+ 56e:	03 c0       	rjmp	.+6      	; 0x576 <debug_tx_text+0x12>
     uint8_t i=0;
     while(str[i]!='\0'){
         debug_tx_byte(str[i]);
- 50a:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
+ 570:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
         i++;
- 50e:	1f 5f       	subi	r17, 0xFF	; 255
+ 574:	1f 5f       	subi	r17, 0xFF	; 255
   debug_tx_byte(',');
 }
 
 void debug_tx_text(char *str){
     uint8_t i=0;
     while(str[i]!='\0'){
- 510:	fe 01       	movw	r30, r28
- 512:	e1 0f       	add	r30, r17
- 514:	f1 1d       	adc	r31, r1
- 516:	80 81       	ld	r24, Z
- 518:	88 23       	and	r24, r24
- 51a:	b9 f7       	brne	.-18     	; 0x50a <debug_tx_text+0xc>
+ 576:	fe 01       	movw	r30, r28
+ 578:	e1 0f       	add	r30, r17
+ 57a:	f1 1d       	adc	r31, r1
+ 57c:	80 81       	ld	r24, Z
+ 57e:	88 23       	and	r24, r24
+ 580:	b9 f7       	brne	.-18     	; 0x570 <debug_tx_text+0xc>
         debug_tx_byte(str[i]);
         i++;
     }
 }
- 51c:	df 91       	pop	r29
- 51e:	cf 91       	pop	r28
- 520:	1f 91       	pop	r17
- 522:	08 95       	ret
+ 582:	df 91       	pop	r29
+ 584:	cf 91       	pop	r28
+ 586:	1f 91       	pop	r17
+ 588:	08 95       	ret
 
-00000524 <debug_tx_text_nl>:
+0000058a <debug_tx_text_nl>:
 
 void debug_tx_text_nl(char *str){
   debug_tx_text(str);
- 524:	0e 94 7f 02 	call	0x4fe	; 0x4fe <debug_tx_text>
+ 58a:	0e 94 b2 02 	call	0x564	; 0x564 <debug_tx_text>
   debug_tx_nl();
- 528:	0e 94 70 02 	call	0x4e0	; 0x4e0 <debug_tx_nl>
+ 58e:	0e 94 a3 02 	call	0x546	; 0x546 <debug_tx_nl>
 }
- 52c:	08 95       	ret
+ 592:	08 95       	ret
 
-0000052e <debug_tx_text_sp>:
+00000594 <debug_tx_text_sp>:
 
 void debug_tx_text_sp(char *str){
   debug_tx_text(str);
- 52e:	0e 94 7f 02 	call	0x4fe	; 0x4fe <debug_tx_text>
+ 594:	0e 94 b2 02 	call	0x564	; 0x564 <debug_tx_text>
   debug_tx_sp();
- 532:	0e 94 77 02 	call	0x4ee	; 0x4ee <debug_tx_sp>
+ 598:	0e 94 aa 02 	call	0x554	; 0x554 <debug_tx_sp>
 }
- 536:	08 95       	ret
+ 59c:	08 95       	ret
 
-00000538 <debug_tx_text_cm>:
+0000059e <debug_tx_text_cm>:
 
 void debug_tx_text_cm(char *str){
   debug_tx_text(str);
- 538:	0e 94 7f 02 	call	0x4fe	; 0x4fe <debug_tx_text>
+ 59e:	0e 94 b2 02 	call	0x564	; 0x564 <debug_tx_text>
   debug_tx_cm();
- 53c:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <debug_tx_cm>
+ 5a2:	0e 94 ae 02 	call	0x55c	; 0x55c <debug_tx_cm>
 }
- 540:	08 95       	ret
+ 5a6:	08 95       	ret
 
-00000542 <debug_determine_digit_numbers>:
+000005a8 <debug_determine_digit_numbers>:
 
 void debug_determine_digit_numbers(uint32_t num){
- 542:	bf 92       	push	r11
- 544:	cf 92       	push	r12
- 546:	df 92       	push	r13
- 548:	ef 92       	push	r14
- 54a:	ff 92       	push	r15
- 54c:	0f 93       	push	r16
- 54e:	1f 93       	push	r17
- 550:	6b 01       	movw	r12, r22
- 552:	7c 01       	movw	r14, r24
+ 5a8:	bf 92       	push	r11
+ 5aa:	cf 92       	push	r12
+ 5ac:	df 92       	push	r13
+ 5ae:	ef 92       	push	r14
+ 5b0:	ff 92       	push	r15
+ 5b2:	0f 93       	push	r16
+ 5b4:	1f 93       	push	r17
+ 5b6:	6b 01       	movw	r12, r22
+ 5b8:	7c 01       	movw	r14, r24
   uint8_t i=0;
   if(num==0){
- 554:	61 15       	cp	r22, r1
- 556:	71 05       	cpc	r23, r1
- 558:	81 05       	cpc	r24, r1
- 55a:	91 05       	cpc	r25, r1
- 55c:	31 f4       	brne	.+12     	; 0x56a <debug_determine_digit_numbers+0x28>
+ 5ba:	61 15       	cp	r22, r1
+ 5bc:	71 05       	cpc	r23, r1
+ 5be:	81 05       	cpc	r24, r1
+ 5c0:	91 05       	cpc	r25, r1
+ 5c2:	31 f4       	brne	.+12     	; 0x5d0 <debug_determine_digit_numbers+0x28>
     debug.digits[0]=0;
- 55e:	10 92 38 01 	sts	0x0138, r1
+ 5c4:	10 92 38 01 	sts	0x0138, r1
     debug.input_num_digits=1;
- 562:	81 e0       	ldi	r24, 0x01	; 1
- 564:	80 93 40 01 	sts	0x0140, r24
- 568:	23 c0       	rjmp	.+70     	; 0x5b0 <debug_determine_digit_numbers+0x6e>
- 56a:	bb 24       	eor	r11, r11
+ 5c8:	81 e0       	ldi	r24, 0x01	; 1
+ 5ca:	80 93 40 01 	sts	0x0140, r24
+ 5ce:	23 c0       	rjmp	.+70     	; 0x616 <debug_determine_digit_numbers+0x6e>
+ 5d0:	bb 24       	eor	r11, r11
   }else{
     while(num!=0){
       debug.digits[i]=num%10;
- 56c:	0b 2d       	mov	r16, r11
- 56e:	10 e0       	ldi	r17, 0x00	; 0
- 570:	0c 5e       	subi	r16, 0xEC	; 236
- 572:	1e 4f       	sbci	r17, 0xFE	; 254
- 574:	c7 01       	movw	r24, r14
- 576:	b6 01       	movw	r22, r12
- 578:	2a e0       	ldi	r18, 0x0A	; 10
- 57a:	30 e0       	ldi	r19, 0x00	; 0
- 57c:	40 e0       	ldi	r20, 0x00	; 0
- 57e:	50 e0       	ldi	r21, 0x00	; 0
- 580:	0e 94 14 04 	call	0x828	; 0x828 <__udivmodsi4>
- 584:	f8 01       	movw	r30, r16
- 586:	64 a3       	std	Z+36, r22	; 0x24
+ 5d2:	0b 2d       	mov	r16, r11
+ 5d4:	10 e0       	ldi	r17, 0x00	; 0
+ 5d6:	0c 5e       	subi	r16, 0xEC	; 236
+ 5d8:	1e 4f       	sbci	r17, 0xFE	; 254
+ 5da:	c7 01       	movw	r24, r14
+ 5dc:	b6 01       	movw	r22, r12
+ 5de:	2a e0       	ldi	r18, 0x0A	; 10
+ 5e0:	30 e0       	ldi	r19, 0x00	; 0
+ 5e2:	40 e0       	ldi	r20, 0x00	; 0
+ 5e4:	50 e0       	ldi	r21, 0x00	; 0
+ 5e6:	0e 94 4d 04 	call	0x89a	; 0x89a <__udivmodsi4>
+ 5ea:	f8 01       	movw	r30, r16
+ 5ec:	64 a3       	std	Z+36, r22	; 0x24
       num/=10;
- 588:	c7 01       	movw	r24, r14
- 58a:	b6 01       	movw	r22, r12
- 58c:	2a e0       	ldi	r18, 0x0A	; 10
- 58e:	30 e0       	ldi	r19, 0x00	; 0
- 590:	40 e0       	ldi	r20, 0x00	; 0
- 592:	50 e0       	ldi	r21, 0x00	; 0
- 594:	0e 94 14 04 	call	0x828	; 0x828 <__udivmodsi4>
- 598:	c9 01       	movw	r24, r18
- 59a:	da 01       	movw	r26, r20
- 59c:	6c 01       	movw	r12, r24
- 59e:	7d 01       	movw	r14, r26
+ 5ee:	c7 01       	movw	r24, r14
+ 5f0:	b6 01       	movw	r22, r12
+ 5f2:	2a e0       	ldi	r18, 0x0A	; 10
+ 5f4:	30 e0       	ldi	r19, 0x00	; 0
+ 5f6:	40 e0       	ldi	r20, 0x00	; 0
+ 5f8:	50 e0       	ldi	r21, 0x00	; 0
+ 5fa:	0e 94 4d 04 	call	0x89a	; 0x89a <__udivmodsi4>
+ 5fe:	c9 01       	movw	r24, r18
+ 600:	da 01       	movw	r26, r20
+ 602:	6c 01       	movw	r12, r24
+ 604:	7d 01       	movw	r14, r26
       i++;
- 5a0:	b3 94       	inc	r11
+ 606:	b3 94       	inc	r11
   uint8_t i=0;
   if(num==0){
     debug.digits[0]=0;
     debug.input_num_digits=1;
   }else{
     while(num!=0){
- 5a2:	c1 14       	cp	r12, r1
- 5a4:	d1 04       	cpc	r13, r1
- 5a6:	e1 04       	cpc	r14, r1
- 5a8:	f1 04       	cpc	r15, r1
- 5aa:	01 f7       	brne	.-64     	; 0x56c <debug_determine_digit_numbers+0x2a>
+ 608:	c1 14       	cp	r12, r1
+ 60a:	d1 04       	cpc	r13, r1
+ 60c:	e1 04       	cpc	r14, r1
+ 60e:	f1 04       	cpc	r15, r1
+ 610:	01 f7       	brne	.-64     	; 0x5d2 <debug_determine_digit_numbers+0x2a>
       debug.digits[i]=num%10;
       num/=10;
       i++;
     }
 	debug.input_num_digits=i;
- 5ac:	b0 92 40 01 	sts	0x0140, r11
+ 612:	b0 92 40 01 	sts	0x0140, r11
   }
 }
- 5b0:	1f 91       	pop	r17
- 5b2:	0f 91       	pop	r16
- 5b4:	ff 90       	pop	r15
- 5b6:	ef 90       	pop	r14
- 5b8:	df 90       	pop	r13
- 5ba:	cf 90       	pop	r12
- 5bc:	bf 90       	pop	r11
- 5be:	08 95       	ret
+ 616:	1f 91       	pop	r17
+ 618:	0f 91       	pop	r16
+ 61a:	ff 90       	pop	r15
+ 61c:	ef 90       	pop	r14
+ 61e:	df 90       	pop	r13
+ 620:	cf 90       	pop	r12
+ 622:	bf 90       	pop	r11
+ 624:	08 95       	ret
 
-000005c0 <debug_tx_number_digits>:
+00000626 <debug_tx_number_digits>:
 
 void debug_tx_number_digits(void){
- 5c0:	1f 93       	push	r17
+ 626:	1f 93       	push	r17
   for(uint8_t i=debug.input_num_digits; i>0; i--){
- 5c2:	10 91 40 01 	lds	r17, 0x0140
- 5c6:	09 c0       	rjmp	.+18     	; 0x5da <debug_tx_number_digits+0x1a>
+ 628:	10 91 40 01 	lds	r17, 0x0140
+ 62c:	09 c0       	rjmp	.+18     	; 0x640 <debug_tx_number_digits+0x1a>
     uint8_t temp=i;
     temp-=1;
- 5c8:	11 50       	subi	r17, 0x01	; 1
+ 62e:	11 50       	subi	r17, 0x01	; 1
     temp=debug.digits[temp];
- 5ca:	e1 2f       	mov	r30, r17
- 5cc:	f0 e0       	ldi	r31, 0x00	; 0
- 5ce:	ec 5e       	subi	r30, 0xEC	; 236
- 5d0:	fe 4f       	sbci	r31, 0xFE	; 254
- 5d2:	84 a1       	ldd	r24, Z+36	; 0x24
+ 630:	e1 2f       	mov	r30, r17
+ 632:	f0 e0       	ldi	r31, 0x00	; 0
+ 634:	ec 5e       	subi	r30, 0xEC	; 236
+ 636:	fe 4f       	sbci	r31, 0xFE	; 254
+ 638:	84 a1       	ldd	r24, Z+36	; 0x24
     temp+=48;
     debug_tx_byte(temp);
- 5d4:	80 5d       	subi	r24, 0xD0	; 208
- 5d6:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
+ 63a:	80 5d       	subi	r24, 0xD0	; 208
+ 63c:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
 	debug.input_num_digits=i;
   }
 }
 
 void debug_tx_number_digits(void){
   for(uint8_t i=debug.input_num_digits; i>0; i--){
- 5da:	11 23       	and	r17, r17
- 5dc:	a9 f7       	brne	.-22     	; 0x5c8 <debug_tx_number_digits+0x8>
+ 640:	11 23       	and	r17, r17
+ 642:	a9 f7       	brne	.-22     	; 0x62e <debug_tx_number_digits+0x8>
     temp-=1;
     temp=debug.digits[temp];
     temp+=48;
     debug_tx_byte(temp);
   }
 }
- 5de:	1f 91       	pop	r17
- 5e0:	08 95       	ret
+ 644:	1f 91       	pop	r17
+ 646:	08 95       	ret
 
-000005e2 <debug_tx_number>:
+00000648 <debug_tx_number>:
 
 void debug_tx_number(int32_t num){
- 5e2:	ef 92       	push	r14
- 5e4:	ff 92       	push	r15
- 5e6:	0f 93       	push	r16
- 5e8:	1f 93       	push	r17
- 5ea:	7b 01       	movw	r14, r22
- 5ec:	8c 01       	movw	r16, r24
+ 648:	ef 92       	push	r14
+ 64a:	ff 92       	push	r15
+ 64c:	0f 93       	push	r16
+ 64e:	1f 93       	push	r17
+ 650:	7b 01       	movw	r14, r22
+ 652:	8c 01       	movw	r16, r24
   if(num<0){
- 5ee:	97 ff       	sbrs	r25, 7
- 5f0:	0b c0       	rjmp	.+22     	; 0x608 <debug_tx_number+0x26>
+ 654:	97 ff       	sbrs	r25, 7
+ 656:	0b c0       	rjmp	.+22     	; 0x66e <debug_tx_number+0x26>
     debug_tx_byte('-');
- 5f2:	8d e2       	ldi	r24, 0x2D	; 45
- 5f4:	0e 94 05 01 	call	0x20a	; 0x20a <debug_tx_byte>
+ 658:	8d e2       	ldi	r24, 0x2D	; 45
+ 65a:	0e 94 2d 01 	call	0x25a	; 0x25a <debug_tx_byte>
 	num=-num;
- 5f8:	10 95       	com	r17
- 5fa:	00 95       	com	r16
- 5fc:	f0 94       	com	r15
- 5fe:	e0 94       	com	r14
- 600:	e1 1c       	adc	r14, r1
- 602:	f1 1c       	adc	r15, r1
- 604:	01 1d       	adc	r16, r1
- 606:	11 1d       	adc	r17, r1
+ 65e:	10 95       	com	r17
+ 660:	00 95       	com	r16
+ 662:	f0 94       	com	r15
+ 664:	e0 94       	com	r14
+ 666:	e1 1c       	adc	r14, r1
+ 668:	f1 1c       	adc	r15, r1
+ 66a:	01 1d       	adc	r16, r1
+ 66c:	11 1d       	adc	r17, r1
   }
   debug_determine_digit_numbers((uint32_t)num);
- 608:	c8 01       	movw	r24, r16
- 60a:	b7 01       	movw	r22, r14
- 60c:	0e 94 a1 02 	call	0x542	; 0x542 <debug_determine_digit_numbers>
+ 66e:	c8 01       	movw	r24, r16
+ 670:	b7 01       	movw	r22, r14
+ 672:	0e 94 d4 02 	call	0x5a8	; 0x5a8 <debug_determine_digit_numbers>
   debug_tx_number_digits();
- 610:	0e 94 e0 02 	call	0x5c0	; 0x5c0 <debug_tx_number_digits>
+ 676:	0e 94 13 03 	call	0x626	; 0x626 <debug_tx_number_digits>
 }
- 614:	1f 91       	pop	r17
- 616:	0f 91       	pop	r16
- 618:	ff 90       	pop	r15
- 61a:	ef 90       	pop	r14
- 61c:	08 95       	ret
+ 67a:	1f 91       	pop	r17
+ 67c:	0f 91       	pop	r16
+ 67e:	ff 90       	pop	r15
+ 680:	ef 90       	pop	r14
+ 682:	08 95       	ret
 
-0000061e <debug_tx_number_nl>:
+00000684 <debug_tx_number_nl>:
 
 void debug_tx_number_nl(int32_t num){
   debug_tx_number(num);
- 61e:	0e 94 f1 02 	call	0x5e2	; 0x5e2 <debug_tx_number>
+ 684:	0e 94 24 03 	call	0x648	; 0x648 <debug_tx_number>
   debug_tx_nl();
- 622:	0e 94 70 02 	call	0x4e0	; 0x4e0 <debug_tx_nl>
+ 688:	0e 94 a3 02 	call	0x546	; 0x546 <debug_tx_nl>
 }
- 626:	08 95       	ret
+ 68c:	08 95       	ret
 
-00000628 <debug_tx_number_sp>:
+0000068e <debug_tx_number_sp>:
 
 void debug_tx_number_sp(int32_t num){
   debug_tx_number(num);
- 628:	0e 94 f1 02 	call	0x5e2	; 0x5e2 <debug_tx_number>
+ 68e:	0e 94 24 03 	call	0x648	; 0x648 <debug_tx_number>
   debug_tx_sp();
- 62c:	0e 94 77 02 	call	0x4ee	; 0x4ee <debug_tx_sp>
+ 692:	0e 94 aa 02 	call	0x554	; 0x554 <debug_tx_sp>
 }
- 630:	08 95       	ret
+ 696:	08 95       	ret
 
-00000632 <debug_tx_number_cm>:
+00000698 <debug_tx_number_cm>:
 
 void debug_tx_number_cm(int32_t num){
   debug_tx_number(num);
- 632:	0e 94 f1 02 	call	0x5e2	; 0x5e2 <debug_tx_number>
+ 698:	0e 94 24 03 	call	0x648	; 0x648 <debug_tx_number>
   debug_tx_text(",");
- 636:	80 e0       	ldi	r24, 0x00	; 0
- 638:	91 e0       	ldi	r25, 0x01	; 1
- 63a:	0e 94 7f 02 	call	0x4fe	; 0x4fe <debug_tx_text>
+ 69c:	80 e0       	ldi	r24, 0x00	; 0
+ 69e:	91 e0       	ldi	r25, 0x01	; 1
+ 6a0:	0e 94 b2 02 	call	0x564	; 0x564 <debug_tx_text>
 }
- 63e:	08 95       	ret
+ 6a4:	08 95       	ret
 
-00000640 <debug_tx_number_hex_nl>:
+000006a6 <debug_tx_number_hex_nl>:
 
 void debug_tx_number_hex_nl(int32_t num){
   debug_tx_hex(num);
- 640:	0e 94 c0 01 	call	0x380	; 0x380 <debug_tx_hex>
+ 6a6:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <debug_tx_hex>
   debug_tx_nl();
- 644:	0e 94 70 02 	call	0x4e0	; 0x4e0 <debug_tx_nl>
+ 6aa:	0e 94 a3 02 	call	0x546	; 0x546 <debug_tx_nl>
 }
- 648:	08 95       	ret
+ 6ae:	08 95       	ret
 
-0000064a <debug_tx_number_hex_sp>:
+000006b0 <debug_tx_number_hex_sp>:
 
 void debug_tx_number_hex_sp(int32_t num){
   debug_tx_hex(num);
- 64a:	0e 94 c0 01 	call	0x380	; 0x380 <debug_tx_hex>
+ 6b0:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <debug_tx_hex>
   debug_tx_sp();
- 64e:	0e 94 77 02 	call	0x4ee	; 0x4ee <debug_tx_sp>
+ 6b4:	0e 94 aa 02 	call	0x554	; 0x554 <debug_tx_sp>
 }
- 652:	08 95       	ret
+ 6b8:	08 95       	ret
 
-00000654 <debug_tx_number_hex_cm>:
+000006ba <debug_tx_number_hex_cm>:
 
 void debug_tx_number_hex_cm(int32_t num){
   debug_tx_hex(num);
- 654:	0e 94 c0 01 	call	0x380	; 0x380 <debug_tx_hex>
+ 6ba:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <debug_tx_hex>
   debug_tx_text(",");
- 658:	80 e0       	ldi	r24, 0x00	; 0
- 65a:	91 e0       	ldi	r25, 0x01	; 1
- 65c:	0e 94 7f 02 	call	0x4fe	; 0x4fe <debug_tx_text>
+ 6be:	80 e0       	ldi	r24, 0x00	; 0
+ 6c0:	91 e0       	ldi	r25, 0x01	; 1
+ 6c2:	0e 94 b2 02 	call	0x564	; 0x564 <debug_tx_text>
 }
- 660:	08 95       	ret
+ 6c6:	08 95       	ret
 
-00000662 <debug_tx_parameter_nl>:
+000006c8 <debug_tx_parameter_nl>:
 
 void debug_tx_parameter_nl(char *name, int32_t num){
- 662:	ef 92       	push	r14
- 664:	ff 92       	push	r15
- 666:	0f 93       	push	r16
- 668:	1f 93       	push	r17
- 66a:	7a 01       	movw	r14, r20
- 66c:	8b 01       	movw	r16, r22
+ 6c8:	ef 92       	push	r14
+ 6ca:	ff 92       	push	r15
+ 6cc:	0f 93       	push	r16
+ 6ce:	1f 93       	push	r17
+ 6d0:	7a 01       	movw	r14, r20
+ 6d2:	8b 01       	movw	r16, r22
   debug_tx_text(name);
- 66e:	0e 94 7f 02 	call	0x4fe	; 0x4fe <debug_tx_text>
+ 6d4:	0e 94 b2 02 	call	0x564	; 0x564 <debug_tx_text>
   debug_tx_sp();
- 672:	0e 94 77 02 	call	0x4ee	; 0x4ee <debug_tx_sp>
+ 6d8:	0e 94 aa 02 	call	0x554	; 0x554 <debug_tx_sp>
   debug_tx_number_nl(num);
- 676:	c8 01       	movw	r24, r16
- 678:	b7 01       	movw	r22, r14
- 67a:	0e 94 0f 03 	call	0x61e	; 0x61e <debug_tx_number_nl>
+ 6dc:	c8 01       	movw	r24, r16
+ 6de:	b7 01       	movw	r22, r14
+ 6e0:	0e 94 42 03 	call	0x684	; 0x684 <debug_tx_number_nl>
 }
- 67e:	1f 91       	pop	r17
- 680:	0f 91       	pop	r16
- 682:	ff 90       	pop	r15
- 684:	ef 90       	pop	r14
- 686:	08 95       	ret
+ 6e4:	1f 91       	pop	r17
+ 6e6:	0f 91       	pop	r16
+ 6e8:	ff 90       	pop	r15
+ 6ea:	ef 90       	pop	r14
+ 6ec:	08 95       	ret
 
-00000688 <debug_tx_parameter_sp>:
+000006ee <debug_tx_parameter_sp>:
 
 void debug_tx_parameter_sp(char *name, int32_t num){
- 688:	ef 92       	push	r14
- 68a:	ff 92       	push	r15
- 68c:	0f 93       	push	r16
- 68e:	1f 93       	push	r17
- 690:	7a 01       	movw	r14, r20
- 692:	8b 01       	movw	r16, r22
+ 6ee:	ef 92       	push	r14
+ 6f0:	ff 92       	push	r15
+ 6f2:	0f 93       	push	r16
+ 6f4:	1f 93       	push	r17
+ 6f6:	7a 01       	movw	r14, r20
+ 6f8:	8b 01       	movw	r16, r22
   debug_tx_text(name);
- 694:	0e 94 7f 02 	call	0x4fe	; 0x4fe <debug_tx_text>
+ 6fa:	0e 94 b2 02 	call	0x564	; 0x564 <debug_tx_text>
   debug_tx_sp();
- 698:	0e 94 77 02 	call	0x4ee	; 0x4ee <debug_tx_sp>
+ 6fe:	0e 94 aa 02 	call	0x554	; 0x554 <debug_tx_sp>
   debug_tx_number_sp(num);
- 69c:	c8 01       	movw	r24, r16
- 69e:	b7 01       	movw	r22, r14
- 6a0:	0e 94 14 03 	call	0x628	; 0x628 <debug_tx_number_sp>
+ 702:	c8 01       	movw	r24, r16
+ 704:	b7 01       	movw	r22, r14
+ 706:	0e 94 47 03 	call	0x68e	; 0x68e <debug_tx_number_sp>
 }
- 6a4:	1f 91       	pop	r17
- 6a6:	0f 91       	pop	r16
- 6a8:	ff 90       	pop	r15
- 6aa:	ef 90       	pop	r14
- 6ac:	08 95       	ret
+ 70a:	1f 91       	pop	r17
+ 70c:	0f 91       	pop	r16
+ 70e:	ff 90       	pop	r15
+ 710:	ef 90       	pop	r14
+ 712:	08 95       	ret
 
-000006ae <debug_tx_parameter_cm>:
+00000714 <debug_tx_parameter_cm>:
 
 void debug_tx_parameter_cm(char *name, int32_t num){
- 6ae:	ef 92       	push	r14
- 6b0:	ff 92       	push	r15
- 6b2:	0f 93       	push	r16
- 6b4:	1f 93       	push	r17
- 6b6:	7a 01       	movw	r14, r20
- 6b8:	8b 01       	movw	r16, r22
+ 714:	ef 92       	push	r14
+ 716:	ff 92       	push	r15
+ 718:	0f 93       	push	r16
+ 71a:	1f 93       	push	r17
+ 71c:	7a 01       	movw	r14, r20
+ 71e:	8b 01       	movw	r16, r22
   debug_tx_text(name);
- 6ba:	0e 94 7f 02 	call	0x4fe	; 0x4fe <debug_tx_text>
+ 720:	0e 94 b2 02 	call	0x564	; 0x564 <debug_tx_text>
   debug_tx_sp();
- 6be:	0e 94 77 02 	call	0x4ee	; 0x4ee <debug_tx_sp>
+ 724:	0e 94 aa 02 	call	0x554	; 0x554 <debug_tx_sp>
   debug_tx_number_cm(num);
- 6c2:	c8 01       	movw	r24, r16
- 6c4:	b7 01       	movw	r22, r14
- 6c6:	0e 94 19 03 	call	0x632	; 0x632 <debug_tx_number_cm>
+ 728:	c8 01       	movw	r24, r16
+ 72a:	b7 01       	movw	r22, r14
+ 72c:	0e 94 4c 03 	call	0x698	; 0x698 <debug_tx_number_cm>
 }
- 6ca:	1f 91       	pop	r17
- 6cc:	0f 91       	pop	r16
- 6ce:	ff 90       	pop	r15
- 6d0:	ef 90       	pop	r14
- 6d2:	08 95       	ret
+ 730:	1f 91       	pop	r17
+ 732:	0f 91       	pop	r16
+ 734:	ff 90       	pop	r15
+ 736:	ef 90       	pop	r14
+ 738:	08 95       	ret
 
-000006d4 <debug_tx_parameter_hex_nl>:
+0000073a <debug_tx_parameter_hex_nl>:
 
 void debug_tx_parameter_hex_nl(char *name, int32_t num){
- 6d4:	ef 92       	push	r14
- 6d6:	ff 92       	push	r15
- 6d8:	0f 93       	push	r16
- 6da:	1f 93       	push	r17
- 6dc:	7a 01       	movw	r14, r20
- 6de:	8b 01       	movw	r16, r22
+ 73a:	ef 92       	push	r14
+ 73c:	ff 92       	push	r15
+ 73e:	0f 93       	push	r16
+ 740:	1f 93       	push	r17
+ 742:	7a 01       	movw	r14, r20
+ 744:	8b 01       	movw	r16, r22
   debug_tx_text(name);
- 6e0:	0e 94 7f 02 	call	0x4fe	; 0x4fe <debug_tx_text>
+ 746:	0e 94 b2 02 	call	0x564	; 0x564 <debug_tx_text>
   debug_tx_sp();
- 6e4:	0e 94 77 02 	call	0x4ee	; 0x4ee <debug_tx_sp>
+ 74a:	0e 94 aa 02 	call	0x554	; 0x554 <debug_tx_sp>
   debug_tx_number_hex_nl(num);
- 6e8:	c8 01       	movw	r24, r16
- 6ea:	b7 01       	movw	r22, r14
- 6ec:	0e 94 20 03 	call	0x640	; 0x640 <debug_tx_number_hex_nl>
+ 74e:	c8 01       	movw	r24, r16
+ 750:	b7 01       	movw	r22, r14
+ 752:	0e 94 53 03 	call	0x6a6	; 0x6a6 <debug_tx_number_hex_nl>
 }
- 6f0:	1f 91       	pop	r17
- 6f2:	0f 91       	pop	r16
- 6f4:	ff 90       	pop	r15
- 6f6:	ef 90       	pop	r14
- 6f8:	08 95       	ret
+ 756:	1f 91       	pop	r17
+ 758:	0f 91       	pop	r16
+ 75a:	ff 90       	pop	r15
+ 75c:	ef 90       	pop	r14
+ 75e:	08 95       	ret
 
-000006fa <debug_tx_parameter_hex_sp>:
+00000760 <debug_tx_parameter_hex_sp>:
 
 void debug_tx_parameter_hex_sp(char *name, int32_t num){
- 6fa:	ef 92       	push	r14
- 6fc:	ff 92       	push	r15
- 6fe:	0f 93       	push	r16
- 700:	1f 93       	push	r17
- 702:	7a 01       	movw	r14, r20
- 704:	8b 01       	movw	r16, r22
+ 760:	ef 92       	push	r14
+ 762:	ff 92       	push	r15
+ 764:	0f 93       	push	r16
+ 766:	1f 93       	push	r17
+ 768:	7a 01       	movw	r14, r20
+ 76a:	8b 01       	movw	r16, r22
   debug_tx_text(name);
- 706:	0e 94 7f 02 	call	0x4fe	; 0x4fe <debug_tx_text>
+ 76c:	0e 94 b2 02 	call	0x564	; 0x564 <debug_tx_text>
   debug_tx_sp();
- 70a:	0e 94 77 02 	call	0x4ee	; 0x4ee <debug_tx_sp>
+ 770:	0e 94 aa 02 	call	0x554	; 0x554 <debug_tx_sp>
   debug_tx_number_hex_sp(num);
- 70e:	c8 01       	movw	r24, r16
- 710:	b7 01       	movw	r22, r14
- 712:	0e 94 25 03 	call	0x64a	; 0x64a <debug_tx_number_hex_sp>
+ 774:	c8 01       	movw	r24, r16
+ 776:	b7 01       	movw	r22, r14
+ 778:	0e 94 58 03 	call	0x6b0	; 0x6b0 <debug_tx_number_hex_sp>
 }
- 716:	1f 91       	pop	r17
- 718:	0f 91       	pop	r16
- 71a:	ff 90       	pop	r15
- 71c:	ef 90       	pop	r14
- 71e:	08 95       	ret
+ 77c:	1f 91       	pop	r17
+ 77e:	0f 91       	pop	r16
+ 780:	ff 90       	pop	r15
+ 782:	ef 90       	pop	r14
+ 784:	08 95       	ret
 
-00000720 <Debug_tx_parameter_hex_cm>:
+00000786 <Debug_tx_parameter_hex_cm>:
 
 void Debug_tx_parameter_hex_cm(char *name, int32_t num){
- 720:	ef 92       	push	r14
- 722:	ff 92       	push	r15
- 724:	0f 93       	push	r16
- 726:	1f 93       	push	r17
- 728:	7a 01       	movw	r14, r20
- 72a:	8b 01       	movw	r16, r22
+ 786:	ef 92       	push	r14
+ 788:	ff 92       	push	r15
+ 78a:	0f 93       	push	r16
+ 78c:	1f 93       	push	r17
+ 78e:	7a 01       	movw	r14, r20
+ 790:	8b 01       	movw	r16, r22
   debug_tx_text(name);
- 72c:	0e 94 7f 02 	call	0x4fe	; 0x4fe <debug_tx_text>
+ 792:	0e 94 b2 02 	call	0x564	; 0x564 <debug_tx_text>
   debug_tx_sp();
- 730:	0e 94 77 02 	call	0x4ee	; 0x4ee <debug_tx_sp>
+ 796:	0e 94 aa 02 	call	0x554	; 0x554 <debug_tx_sp>
   debug_tx_number_hex_cm(num);
- 734:	c8 01       	movw	r24, r16
- 736:	b7 01       	movw	r22, r14
- 738:	0e 94 2a 03 	call	0x654	; 0x654 <debug_tx_number_hex_cm>
+ 79a:	c8 01       	movw	r24, r16
+ 79c:	b7 01       	movw	r22, r14
+ 79e:	0e 94 5d 03 	call	0x6ba	; 0x6ba <debug_tx_number_hex_cm>
 }
- 73c:	1f 91       	pop	r17
- 73e:	0f 91       	pop	r16
- 740:	ff 90       	pop	r15
- 742:	ef 90       	pop	r14
- 744:	08 95       	ret
+ 7a2:	1f 91       	pop	r17
+ 7a4:	0f 91       	pop	r16
+ 7a6:	ff 90       	pop	r15
+ 7a8:	ef 90       	pop	r14
+ 7aa:	08 95       	ret
 
-00000746 <debug_buf_get>:
+000007ac <debug_buf_get>:
 
 
 
 uint8_t debug_buf_get(uint8_t index){
   return debug.buf[index];
- 746:	e4 e1       	ldi	r30, 0x14	; 20
- 748:	f1 e0       	ldi	r31, 0x01	; 1
- 74a:	e8 0f       	add	r30, r24
- 74c:	f1 1d       	adc	r31, r1
- 74e:	83 81       	ldd	r24, Z+3	; 0x03
+ 7ac:	e4 e1       	ldi	r30, 0x14	; 20
+ 7ae:	f1 e0       	ldi	r31, 0x01	; 1
+ 7b0:	e8 0f       	add	r30, r24
+ 7b2:	f1 1d       	adc	r31, r1
+ 7b4:	83 81       	ldd	r24, Z+3	; 0x03
 }
- 750:	08 95       	ret
+ 7b6:	08 95       	ret
 
-00000752 <debug_buf_index_get>:
+000007b8 <debug_buf_index_get>:
 
 uint8_t debug_buf_index_get(void){
   return debug.bufindex;
- 752:	80 91 37 01 	lds	r24, 0x0137
+ 7b8:	80 91 37 01 	lds	r24, 0x0137
 }
- 756:	08 95       	ret
+ 7bc:	08 95       	ret
 
-00000758 <debug_flush_buf>:
+000007be <debug_flush_buf>:
 
 void debug_flush_buf(void){
- 758:	80 e0       	ldi	r24, 0x00	; 0
- 75a:	90 e0       	ldi	r25, 0x00	; 0
+ 7be:	80 e0       	ldi	r24, 0x00	; 0
+ 7c0:	90 e0       	ldi	r25, 0x00	; 0
   for(uint8_t i=0;i<DEBUG_RX_BUF_SIZE;i++){
     debug.buf[i]=0;
- 75c:	fc 01       	movw	r30, r24
- 75e:	ec 5e       	subi	r30, 0xEC	; 236
- 760:	fe 4f       	sbci	r31, 0xFE	; 254
- 762:	13 82       	std	Z+3, r1	; 0x03
- 764:	01 96       	adiw	r24, 0x01	; 1
+ 7c2:	fc 01       	movw	r30, r24
+ 7c4:	ec 5e       	subi	r30, 0xEC	; 236
+ 7c6:	fe 4f       	sbci	r31, 0xFE	; 254
+ 7c8:	13 82       	std	Z+3, r1	; 0x03
+ 7ca:	01 96       	adiw	r24, 0x01	; 1
 uint8_t debug_buf_index_get(void){
   return debug.bufindex;
 }
 
 void debug_flush_buf(void){
   for(uint8_t i=0;i<DEBUG_RX_BUF_SIZE;i++){
- 766:	80 32       	cpi	r24, 0x20	; 32
- 768:	91 05       	cpc	r25, r1
- 76a:	c1 f7       	brne	.-16     	; 0x75c <debug_flush_buf+0x4>
+ 7cc:	80 32       	cpi	r24, 0x20	; 32
+ 7ce:	91 05       	cpc	r25, r1
+ 7d0:	c1 f7       	brne	.-16     	; 0x7c2 <debug_flush_buf+0x4>
     debug.buf[i]=0;
   }
   debug.bufindex=0;
- 76c:	10 92 37 01 	sts	0x0137, r1
+ 7d2:	10 92 37 01 	sts	0x0137, r1
 }
- 770:	08 95       	ret
+ 7d6:	08 95       	ret
 
-00000772 <debug_databsy_get>:
+000007d8 <debug_databsy_get>:
 
 uint8_t debug_databsy_get(void){
   return debug.databsy;
- 772:	80 91 16 01 	lds	r24, 0x0116
+ 7d8:	80 91 16 01 	lds	r24, 0x0116
 }
- 776:	08 95       	ret
+ 7dc:	08 95       	ret
 
-00000778 <debug_init>:
+000007de <debug_init>:
 
 void debug_init(void){
   debug_struct_init();
- 778:	0e 94 75 00 	call	0xea	; 0xea <debug_struct_init>
+ 7de:	0e 94 75 00 	call	0xea	; 0xea <debug_struct_init>
   debug_timings_init();
- 77c:	0e 94 91 00 	call	0x122	; 0x122 <debug_timings_init>
+ 7e2:	0e 94 91 00 	call	0x122	; 0x122 <debug_timings_init>
   debug_gpio_init();
- 780:	0e 94 b6 00 	call	0x16c	; 0x16c <debug_gpio_init>
+ 7e6:	0e 94 c2 00 	call	0x184	; 0x184 <debug_gpio_init>
 }
- 784:	08 95       	ret
+ 7ea:	08 95       	ret
 
-00000786 <__vector_5>:
+000007ec <__vector_5>:
 
 
 ISR(ISR_PCINT_VECT){
- 786:	1f 92       	push	r1
- 788:	0f 92       	push	r0
- 78a:	0f b6       	in	r0, 0x3f	; 63
- 78c:	0f 92       	push	r0
- 78e:	11 24       	eor	r1, r1
- 790:	2f 93       	push	r18
- 792:	3f 93       	push	r19
- 794:	4f 93       	push	r20
- 796:	5f 93       	push	r21
- 798:	6f 93       	push	r22
- 79a:	7f 93       	push	r23
- 79c:	8f 93       	push	r24
- 79e:	9f 93       	push	r25
- 7a0:	af 93       	push	r26
- 7a2:	bf 93       	push	r27
- 7a4:	ef 93       	push	r30
- 7a6:	ff 93       	push	r31
+ 7ec:	1f 92       	push	r1
+ 7ee:	0f 92       	push	r0
+ 7f0:	0f b6       	in	r0, 0x3f	; 63
+ 7f2:	0f 92       	push	r0
+ 7f4:	11 24       	eor	r1, r1
+ 7f6:	2f 93       	push	r18
+ 7f8:	3f 93       	push	r19
+ 7fa:	4f 93       	push	r20
+ 7fc:	5f 93       	push	r21
+ 7fe:	6f 93       	push	r22
+ 800:	7f 93       	push	r23
+ 802:	8f 93       	push	r24
+ 804:	9f 93       	push	r25
+ 806:	af 93       	push	r26
+ 808:	bf 93       	push	r27
+ 80a:	ef 93       	push	r30
+ 80c:	ff 93       	push	r31
   debug.databsy=1;
- 7a8:	81 e0       	ldi	r24, 0x01	; 1
- 7aa:	80 93 16 01 	sts	0x0116, r24
+ 80e:	81 e0       	ldi	r24, 0x01	; 1
+ 810:	80 93 16 01 	sts	0x0116, r24
   uint8_t val=debug_rx_byte();
- 7ae:	0e 94 59 01 	call	0x2b2	; 0x2b2 <debug_rx_byte>
- 7b2:	98 2f       	mov	r25, r24
+ 814:	0e 94 88 01 	call	0x310	; 0x310 <debug_rx_byte>
+ 818:	98 2f       	mov	r25, r24
   if(debug.error==0){
- 7b4:	80 91 14 01 	lds	r24, 0x0114
- 7b8:	88 23       	and	r24, r24
- 7ba:	99 f4       	brne	.+38     	; 0x7e2 <__vector_5+0x5c>
+ 81a:	80 91 14 01 	lds	r24, 0x0114
+ 81e:	88 23       	and	r24, r24
+ 820:	a9 f4       	brne	.+42     	; 0x84c <__vector_5+0x60>
     debug.buf[debug.bufindex]=val;
- 7bc:	e0 91 37 01 	lds	r30, 0x0137
- 7c0:	f0 e0       	ldi	r31, 0x00	; 0
- 7c2:	ec 5e       	subi	r30, 0xEC	; 236
- 7c4:	fe 4f       	sbci	r31, 0xFE	; 254
- 7c6:	93 83       	std	Z+3, r25	; 0x03
+ 822:	e0 91 37 01 	lds	r30, 0x0137
+ 826:	f0 e0       	ldi	r31, 0x00	; 0
+ 828:	ec 5e       	subi	r30, 0xEC	; 236
+ 82a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 82c:	93 83       	std	Z+3, r25	; 0x03
 	debug.bufindex++;
- 7c8:	80 91 37 01 	lds	r24, 0x0137
- 7cc:	8f 5f       	subi	r24, 0xFF	; 255
- 7ce:	80 93 37 01 	sts	0x0137, r24
+ 82e:	80 91 37 01 	lds	r24, 0x0137
+ 832:	8f 5f       	subi	r24, 0xFF	; 255
+ 834:	80 93 37 01 	sts	0x0137, r24
 	if(debug.bufindex>DEBUG_RX_BUF_SIZE){
- 7d2:	80 91 37 01 	lds	r24, 0x0137
- 7d6:	81 32       	cpi	r24, 0x21	; 33
- 7d8:	10 f0       	brcs	.+4      	; 0x7de <__vector_5+0x58>
+ 838:	80 91 37 01 	lds	r24, 0x0137
+ 83c:	81 32       	cpi	r24, 0x21	; 33
+ 83e:	10 f0       	brcs	.+4      	; 0x844 <__vector_5+0x58>
 	  debug.bufindex=0;
- 7da:	10 92 37 01 	sts	0x0137, r1
+ 840:	10 92 37 01 	sts	0x0137, r1
 	}
     debug_timer_start();
- 7de:	0e 94 a4 00 	call	0x148	; 0x148 <debug_timer_start>
+ 844:	0e 94 a8 00 	call	0x150	; 0x150 <debug_timer_start>
+	#ifdef DEBUG_GPIO_SWITCH_DEBUGGING
+    DEBUG_TEST_PORT|= (1<<DEBUG_TEST_bp);
+ 848:	59 9a       	sbi	0x0b, 1	; 11
+    DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
+ 84a:	59 98       	cbi	0x0b, 1	; 11
+    #endif
   }
 }
- 7e2:	ff 91       	pop	r31
- 7e4:	ef 91       	pop	r30
- 7e6:	bf 91       	pop	r27
- 7e8:	af 91       	pop	r26
- 7ea:	9f 91       	pop	r25
- 7ec:	8f 91       	pop	r24
- 7ee:	7f 91       	pop	r23
- 7f0:	6f 91       	pop	r22
- 7f2:	5f 91       	pop	r21
- 7f4:	4f 91       	pop	r20
- 7f6:	3f 91       	pop	r19
- 7f8:	2f 91       	pop	r18
- 7fa:	0f 90       	pop	r0
- 7fc:	0f be       	out	0x3f, r0	; 63
- 7fe:	0f 90       	pop	r0
- 800:	1f 90       	pop	r1
- 802:	18 95       	reti
+ 84c:	ff 91       	pop	r31
+ 84e:	ef 91       	pop	r30
+ 850:	bf 91       	pop	r27
+ 852:	af 91       	pop	r26
+ 854:	9f 91       	pop	r25
+ 856:	8f 91       	pop	r24
+ 858:	7f 91       	pop	r23
+ 85a:	6f 91       	pop	r22
+ 85c:	5f 91       	pop	r21
+ 85e:	4f 91       	pop	r20
+ 860:	3f 91       	pop	r19
+ 862:	2f 91       	pop	r18
+ 864:	0f 90       	pop	r0
+ 866:	0f be       	out	0x3f, r0	; 63
+ 868:	0f 90       	pop	r0
+ 86a:	1f 90       	pop	r1
+ 86c:	18 95       	reti
 
-00000804 <__vector_13>:
+0000086e <__vector_13>:
 
-ISR(TIMER1_OVF_vect){
- 804:	1f 92       	push	r1
- 806:	0f 92       	push	r0
- 808:	0f b6       	in	r0, 0x3f	; 63
- 80a:	0f 92       	push	r0
- 80c:	11 24       	eor	r1, r1
-  #endif
-}
-
-void debug_timer_stop(void){
-  #ifdef DEBUG_USE_TIMER0
-  TIMSK0=0;
- 80e:	10 92 6e 00 	sts	0x006E, r1
+ISR(TIMER_OVF_VECT){
+ 86e:	1f 92       	push	r1
+ 870:	0f 92       	push	r0
+ 872:	0f b6       	in	r0, 0x3f	; 63
+ 874:	0f 92       	push	r0
+ 876:	11 24       	eor	r1, r1
   TCCR0B=0;
- 812:	15 bc       	out	0x25, r1	; 37
   TCNT0 =0;
- 814:	16 bc       	out	0x26, r1	; 38
+  #endif
+  
+  #ifdef DEBUG_USE_TIMER1
+  TIMSK1=0;
+ 878:	10 92 6f 00 	sts	0x006F, r1
+  TCCR1B=0;
+ 87c:	10 92 81 00 	sts	0x0081, r1
+  TCNT1 =0;
+ 880:	10 92 85 00 	sts	0x0085, r1
+ 884:	10 92 84 00 	sts	0x0084, r1
 }
 
-ISR(TIMER1_OVF_vect){
+ISR(TIMER_OVF_VECT){
   debug_timer_stop();
   #ifdef DEBUG_GPIO_SWITCH_DEBUGGING
   DEBUG_TEST_PORT|= (1<<DEBUG_TEST_bp);
- 816:	59 9a       	sbi	0x0b, 1	; 11
+ 888:	59 9a       	sbi	0x0b, 1	; 11
   DEBUG_TEST_PORT&=~(1<<DEBUG_TEST_bp);
- 818:	59 98       	cbi	0x0b, 1	; 11
+ 88a:	59 98       	cbi	0x0b, 1	; 11
   #endif
   debug.databsy=0;
- 81a:	10 92 16 01 	sts	0x0116, r1
+ 88c:	10 92 16 01 	sts	0x0116, r1
 }
- 81e:	0f 90       	pop	r0
- 820:	0f be       	out	0x3f, r0	; 63
- 822:	0f 90       	pop	r0
- 824:	1f 90       	pop	r1
- 826:	18 95       	reti
+ 890:	0f 90       	pop	r0
+ 892:	0f be       	out	0x3f, r0	; 63
+ 894:	0f 90       	pop	r0
+ 896:	1f 90       	pop	r1
+ 898:	18 95       	reti
 
-00000828 <__udivmodsi4>:
- 828:	a1 e2       	ldi	r26, 0x21	; 33
- 82a:	1a 2e       	mov	r1, r26
- 82c:	aa 1b       	sub	r26, r26
- 82e:	bb 1b       	sub	r27, r27
- 830:	fd 01       	movw	r30, r26
- 832:	0d c0       	rjmp	.+26     	; 0x84e <__udivmodsi4_ep>
+0000089a <__udivmodsi4>:
+ 89a:	a1 e2       	ldi	r26, 0x21	; 33
+ 89c:	1a 2e       	mov	r1, r26
+ 89e:	aa 1b       	sub	r26, r26
+ 8a0:	bb 1b       	sub	r27, r27
+ 8a2:	fd 01       	movw	r30, r26
+ 8a4:	0d c0       	rjmp	.+26     	; 0x8c0 <__udivmodsi4_ep>
 
-00000834 <__udivmodsi4_loop>:
- 834:	aa 1f       	adc	r26, r26
- 836:	bb 1f       	adc	r27, r27
- 838:	ee 1f       	adc	r30, r30
- 83a:	ff 1f       	adc	r31, r31
- 83c:	a2 17       	cp	r26, r18
- 83e:	b3 07       	cpc	r27, r19
- 840:	e4 07       	cpc	r30, r20
- 842:	f5 07       	cpc	r31, r21
- 844:	20 f0       	brcs	.+8      	; 0x84e <__udivmodsi4_ep>
- 846:	a2 1b       	sub	r26, r18
- 848:	b3 0b       	sbc	r27, r19
- 84a:	e4 0b       	sbc	r30, r20
- 84c:	f5 0b       	sbc	r31, r21
+000008a6 <__udivmodsi4_loop>:
+ 8a6:	aa 1f       	adc	r26, r26
+ 8a8:	bb 1f       	adc	r27, r27
+ 8aa:	ee 1f       	adc	r30, r30
+ 8ac:	ff 1f       	adc	r31, r31
+ 8ae:	a2 17       	cp	r26, r18
+ 8b0:	b3 07       	cpc	r27, r19
+ 8b2:	e4 07       	cpc	r30, r20
+ 8b4:	f5 07       	cpc	r31, r21
+ 8b6:	20 f0       	brcs	.+8      	; 0x8c0 <__udivmodsi4_ep>
+ 8b8:	a2 1b       	sub	r26, r18
+ 8ba:	b3 0b       	sbc	r27, r19
+ 8bc:	e4 0b       	sbc	r30, r20
+ 8be:	f5 0b       	sbc	r31, r21
 
-0000084e <__udivmodsi4_ep>:
- 84e:	66 1f       	adc	r22, r22
- 850:	77 1f       	adc	r23, r23
- 852:	88 1f       	adc	r24, r24
- 854:	99 1f       	adc	r25, r25
- 856:	1a 94       	dec	r1
- 858:	69 f7       	brne	.-38     	; 0x834 <__udivmodsi4_loop>
- 85a:	60 95       	com	r22
- 85c:	70 95       	com	r23
- 85e:	80 95       	com	r24
- 860:	90 95       	com	r25
- 862:	9b 01       	movw	r18, r22
- 864:	ac 01       	movw	r20, r24
- 866:	bd 01       	movw	r22, r26
- 868:	cf 01       	movw	r24, r30
- 86a:	08 95       	ret
+000008c0 <__udivmodsi4_ep>:
+ 8c0:	66 1f       	adc	r22, r22
+ 8c2:	77 1f       	adc	r23, r23
+ 8c4:	88 1f       	adc	r24, r24
+ 8c6:	99 1f       	adc	r25, r25
+ 8c8:	1a 94       	dec	r1
+ 8ca:	69 f7       	brne	.-38     	; 0x8a6 <__udivmodsi4_loop>
+ 8cc:	60 95       	com	r22
+ 8ce:	70 95       	com	r23
+ 8d0:	80 95       	com	r24
+ 8d2:	90 95       	com	r25
+ 8d4:	9b 01       	movw	r18, r22
+ 8d6:	ac 01       	movw	r20, r24
+ 8d8:	bd 01       	movw	r22, r26
+ 8da:	cf 01       	movw	r24, r30
+ 8dc:	08 95       	ret
 
-0000086c <_exit>:
- 86c:	f8 94       	cli
+000008de <_exit>:
+ 8de:	f8 94       	cli
 
-0000086e <__stop_program>:
- 86e:	ff cf       	rjmp	.-2      	; 0x86e <__stop_program>
+000008e0 <__stop_program>:
+ 8e0:	ff cf       	rjmp	.-2      	; 0x8e0 <__stop_program>
