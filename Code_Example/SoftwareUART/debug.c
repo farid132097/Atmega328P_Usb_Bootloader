@@ -644,6 +644,18 @@ uint8_t debug_databsy_get(void){
   return debug.databsy;
 }
 
+uint8_t debug_data_available_rx_buf(void){
+  if( (debug_databsy_get()==0) && (debug_buf_index_get()!=0) ){
+    return 1;
+  }else{
+    return 0;
+  }
+}
+
+uint8_t debug_available_bytes_rx_buf(void){
+  return debug_buf_index_get();
+}
+
 void debug_init(void){
   debug_struct_init();
   debug_timings_init();

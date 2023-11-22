@@ -14,8 +14,8 @@ int main(void){
   
   while(1){
     
-	if( (debug_databsy_get()==0) && (debug_buf_index_get()!=0) ){
-	  for(uint8_t i=0;i<debug_buf_index_get();i++){
+	if( debug_data_available_rx_buf() ){
+	  for(uint8_t i=0;i<debug_available_bytes_rx_buf();i++){
 	    debug_tx_byte(debug_buf_get(i));
 	  }
 	  debug_flush_buf();
