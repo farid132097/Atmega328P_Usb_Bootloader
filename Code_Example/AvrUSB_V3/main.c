@@ -2,7 +2,7 @@
 #include <util/delay.h>
 #include "lowpower.h"
 #include "nrf24l01pv2.h"
-
+#include "vsns.h"
 
 uint32_t last_val=0;
 uint8_t  state=0;
@@ -29,6 +29,5 @@ int main(void){
 	    nRF24L01P_Deep_Sleep();
 	    PORTD &=~(1<<4);
 	    Deep_Sleep();
-	
-  }
+    }
 }

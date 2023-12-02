@@ -3,29 +3,29 @@ main.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000044  00800100  00000bae  00000c42  2**0
+  0 .data         00000044  00800100  00000ce2  00000d76  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000bae  00000000  00000000  00000094  2**1
+  1 .text         00000ce2  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000001e  00800144  00800144  00000c86  2**0
+  2 .bss          0000001e  00800144  00800144  00000dba  2**0
                   ALLOC
-  3 .debug_aranges 00000060  00000000  00000000  00000c86  2**0
+  3 .debug_aranges 00000080  00000000  00000000  00000dba  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_pubnames 00000650  00000000  00000000  00000ce6  2**0
+  4 .debug_pubnames 00000734  00000000  00000000  00000e3a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000010d9  00000000  00000000  00001336  2**0
+  5 .debug_info   000012c7  00000000  00000000  0000156e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000004b1  00000000  00000000  0000240f  2**0
+  6 .debug_abbrev 00000585  00000000  00000000  00002835  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000e5f  00000000  00000000  000028c0  2**0
+  7 .debug_line   0000105e  00000000  00000000  00002dba  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000003a0  00000000  00000000  00003720  2**2
+  8 .debug_frame  00000450  00000000  00000000  00003e18  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000742  00000000  00000000  00003ac0  2**0
+  9 .debug_str    000007e4  00000000  00000000  00004268  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000005dd  00000000  00000000  00004202  2**0
+ 10 .debug_loc    0000060e  00000000  00000000  00004a4c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000078  00000000  00000000  000047df  2**0
+ 11 .debug_ranges 00000078  00000000  00000000  0000505a  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -70,8 +70,8 @@ Disassembly of section .text:
   74:	11 e0       	ldi	r17, 0x01	; 1
   76:	a0 e0       	ldi	r26, 0x00	; 0
   78:	b1 e0       	ldi	r27, 0x01	; 1
-  7a:	ee ea       	ldi	r30, 0xAE	; 174
-  7c:	fb e0       	ldi	r31, 0x0B	; 11
+  7a:	e2 ee       	ldi	r30, 0xE2	; 226
+  7c:	fc e0       	ldi	r31, 0x0C	; 12
   7e:	02 c0       	rjmp	.+4      	; 0x84 <.do_copy_data_start>
 
 00000080 <.do_copy_data_loop>:
@@ -97,7 +97,7 @@ Disassembly of section .text:
   96:	b1 07       	cpc	r27, r17
   98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
   9a:	0e 94 53 00 	call	0xa6	; 0xa6 <main>
-  9e:	0c 94 d5 05 	jmp	0xbaa	; 0xbaa <_exit>
+  9e:	0c 94 6f 06 	jmp	0xcde	; 0xcde <_exit>
 
 000000a2 <__bad_interrupt>:
   a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -2401,8 +2401,273 @@ void nRF24L01P_Set_Destination_Address(uint8_t addr){
  ba6:	cf 91       	pop	r28
  ba8:	08 95       	ret
 
-00000baa <_exit>:
- baa:	f8 94       	cli
+00000baa <Vsns_ADC_Reference_Internal>:
+#define  VSNS_EN_PORT PORTD
+#define  VSNS_EN_bp   0x01
 
-00000bac <__stop_program>:
- bac:	ff cf       	rjmp	.-2      	; 0xbac <__stop_program>
+
+void Vsns_ADC_Reference_Internal(void){
+  ADMUX|=(1<<REFS0)|(1<<REFS1);
+ baa:	ec e7       	ldi	r30, 0x7C	; 124
+ bac:	f0 e0       	ldi	r31, 0x00	; 0
+ bae:	80 81       	ld	r24, Z
+ bb0:	80 6c       	ori	r24, 0xC0	; 192
+ bb2:	80 83       	st	Z, r24
+}
+ bb4:	08 95       	ret
+
+00000bb6 <Vsns_ADC_Reference_Avcc>:
+
+void Vsns_ADC_Reference_Avcc(void){
+  ADMUX&=~(1<<REFS1);
+ bb6:	ec e7       	ldi	r30, 0x7C	; 124
+ bb8:	f0 e0       	ldi	r31, 0x00	; 0
+ bba:	80 81       	ld	r24, Z
+ bbc:	8f 77       	andi	r24, 0x7F	; 127
+ bbe:	80 83       	st	Z, r24
+  ADMUX|=(1<<REFS0);
+ bc0:	80 81       	ld	r24, Z
+ bc2:	80 64       	ori	r24, 0x40	; 64
+ bc4:	80 83       	st	Z, r24
+}
+ bc6:	08 95       	ret
+
+00000bc8 <Vsns_ADC_Enable>:
+
+void Vsns_ADC_Enable(void){
+  ADCSRA|=(1<<ADEN); 
+ bc8:	ea e7       	ldi	r30, 0x7A	; 122
+ bca:	f0 e0       	ldi	r31, 0x00	; 0
+ bcc:	80 81       	ld	r24, Z
+ bce:	80 68       	ori	r24, 0x80	; 128
+ bd0:	80 83       	st	Z, r24
+}
+ bd2:	08 95       	ret
+
+00000bd4 <Vsns_ADC_Disable>:
+
+void Vsns_ADC_Disable(void){
+  ADCSRA&=~(1<<ADEN); 
+ bd4:	ea e7       	ldi	r30, 0x7A	; 122
+ bd6:	f0 e0       	ldi	r31, 0x00	; 0
+ bd8:	80 81       	ld	r24, Z
+ bda:	8f 77       	andi	r24, 0x7F	; 127
+ bdc:	80 83       	st	Z, r24
+}
+ bde:	08 95       	ret
+
+00000be0 <Vsns_ADC_Init>:
+
+void Vsns_ADC_Init(void){
+  ADCSRA =(1<<ADPS1)|(1<<ADPS2);
+ be0:	ea e7       	ldi	r30, 0x7A	; 122
+ be2:	f0 e0       	ldi	r31, 0x00	; 0
+ be4:	86 e0       	ldi	r24, 0x06	; 6
+ be6:	80 83       	st	Z, r24
+  ADCSRA|=(1<<ADEN);
+ be8:	80 81       	ld	r24, Z
+ bea:	80 68       	ori	r24, 0x80	; 128
+ bec:	80 83       	st	Z, r24
+}
+ bee:	08 95       	ret
+
+00000bf0 <Vsns_ADC_Read>:
+
+uint16_t Vsns_ADC_Read(uint8_t channel){
+  uint8_t admux=(ADMUX & 0xC0);
+ bf0:	90 91 7c 00 	lds	r25, 0x007C
+ bf4:	90 7c       	andi	r25, 0xC0	; 192
+  admux|=channel;
+ bf6:	98 2b       	or	r25, r24
+  if(ADMUX!=admux){ADMUX=admux;}
+ bf8:	80 91 7c 00 	lds	r24, 0x007C
+ bfc:	89 17       	cp	r24, r25
+ bfe:	11 f0       	breq	.+4      	; 0xc04 <Vsns_ADC_Read+0x14>
+ c00:	90 93 7c 00 	sts	0x007C, r25
+  ADCSRA|=(1<<ADSC);
+ c04:	80 91 7a 00 	lds	r24, 0x007A
+ c08:	80 64       	ori	r24, 0x40	; 64
+ c0a:	80 93 7a 00 	sts	0x007A, r24
+  while(!(ADCSRA &(1<<ADIF)));
+ c0e:	80 91 7a 00 	lds	r24, 0x007A
+ c12:	84 ff       	sbrs	r24, 4
+ c14:	fc cf       	rjmp	.-8      	; 0xc0e <Vsns_ADC_Read+0x1e>
+  ADCSRA|=(1<<ADIF);
+ c16:	80 91 7a 00 	lds	r24, 0x007A
+ c1a:	80 61       	ori	r24, 0x10	; 16
+ c1c:	80 93 7a 00 	sts	0x007A, r24
+  return ADCW;
+ c20:	20 91 78 00 	lds	r18, 0x0078
+ c24:	30 91 79 00 	lds	r19, 0x0079
+}
+ c28:	c9 01       	movw	r24, r18
+ c2a:	08 95       	ret
+
+00000c2c <Vsns_PMOS_Enable>:
+
+
+
+void Vsns_PMOS_Enable(void){
+  VSNS_EN_PORT|=(1<<VSNS_EN_bp);
+ c2c:	59 9a       	sbi	0x0b, 1	; 11
+}
+ c2e:	08 95       	ret
+
+00000c30 <Vsns_PMOS_Disable>:
+
+void Vsns_PMOS_Disable(void){
+  VSNS_EN_PORT&=~(1<<VSNS_EN_bp);
+ c30:	59 98       	cbi	0x0b, 1	; 11
+}
+ c32:	08 95       	ret
+
+00000c34 <Vsns_V_Read>:
+
+uint16_t Vsns_V_Read(void){
+ c34:	0f 93       	push	r16
+ c36:	1f 93       	push	r17
+}
+
+
+
+void Vsns_PMOS_Enable(void){
+  VSNS_EN_PORT|=(1<<VSNS_EN_bp);
+ c38:	59 9a       	sbi	0x0b, 1	; 11
+  ADMUX&=~(1<<REFS1);
+  ADMUX|=(1<<REFS0);
+}
+
+void Vsns_ADC_Enable(void){
+  ADCSRA|=(1<<ADEN); 
+ c3a:	0a e7       	ldi	r16, 0x7A	; 122
+ c3c:	10 e0       	ldi	r17, 0x00	; 0
+ c3e:	f8 01       	movw	r30, r16
+ c40:	80 81       	ld	r24, Z
+ c42:	80 68       	ori	r24, 0x80	; 128
+ c44:	80 83       	st	Z, r24
+}
+
+uint16_t Vsns_V_Read(void){
+  Vsns_PMOS_Enable();
+  Vsns_ADC_Enable();
+  Vsns_ADC_Read(0x06);
+ c46:	86 e0       	ldi	r24, 0x06	; 6
+ c48:	0e 94 f8 05 	call	0xbf0	; 0xbf0 <Vsns_ADC_Read>
+  Vsns_ADC_Read(0x06);
+ c4c:	86 e0       	ldi	r24, 0x06	; 6
+ c4e:	0e 94 f8 05 	call	0xbf0	; 0xbf0 <Vsns_ADC_Read>
+  uint32_t temp=Vsns_ADC_Read(0x06);
+ c52:	86 e0       	ldi	r24, 0x06	; 6
+ c54:	0e 94 f8 05 	call	0xbf0	; 0xbf0 <Vsns_ADC_Read>
+ c58:	a0 e0       	ldi	r26, 0x00	; 0
+ c5a:	b0 e0       	ldi	r27, 0x00	; 0
+void Vsns_ADC_Enable(void){
+  ADCSRA|=(1<<ADEN); 
+}
+
+void Vsns_ADC_Disable(void){
+  ADCSRA&=~(1<<ADEN); 
+ c5c:	f8 01       	movw	r30, r16
+ c5e:	20 81       	ld	r18, Z
+ c60:	2f 77       	andi	r18, 0x7F	; 127
+ c62:	20 83       	st	Z, r18
+void Vsns_PMOS_Enable(void){
+  VSNS_EN_PORT|=(1<<VSNS_EN_bp);
+}
+
+void Vsns_PMOS_Disable(void){
+  VSNS_EN_PORT&=~(1<<VSNS_EN_bp);
+ c64:	59 98       	cbi	0x0b, 1	; 11
+  Vsns_ADC_Read(0x06);
+  uint32_t temp=Vsns_ADC_Read(0x06);
+  Vsns_ADC_Disable();
+  Vsns_PMOS_Disable();
+  temp*=16;
+  temp*=1100;
+ c66:	bc 01       	movw	r22, r24
+ c68:	cd 01       	movw	r24, r26
+ c6a:	20 ec       	ldi	r18, 0xC0	; 192
+ c6c:	34 e4       	ldi	r19, 0x44	; 68
+ c6e:	40 e0       	ldi	r20, 0x00	; 0
+ c70:	50 e0       	ldi	r21, 0x00	; 0
+ c72:	0e 94 50 06 	call	0xca0	; 0xca0 <__mulsi3>
+ c76:	9b 01       	movw	r18, r22
+ c78:	ac 01       	movw	r20, r24
+ c7a:	8a e0       	ldi	r24, 0x0A	; 10
+ c7c:	56 95       	lsr	r21
+ c7e:	47 95       	ror	r20
+ c80:	37 95       	ror	r19
+ c82:	27 95       	ror	r18
+ c84:	8a 95       	dec	r24
+ c86:	d1 f7       	brne	.-12     	; 0xc7c <Vsns_V_Read+0x48>
+  temp/=1024;
+  return (uint16_t)temp;
+}
+ c88:	c9 01       	movw	r24, r18
+ c8a:	1f 91       	pop	r17
+ c8c:	0f 91       	pop	r16
+ c8e:	08 95       	ret
+
+00000c90 <Vsns_Init>:
+
+void Vsns_Init(void){
+  VSNS_EN_DDR |= (1<<VSNS_EN_bp);
+ c90:	39 9a       	sbi	0x07, 1	; 7
+  VSNS_EN_PORT&=~(1<<VSNS_EN_bp);
+ c92:	59 98       	cbi	0x0b, 1	; 11
+#define  VSNS_EN_PORT PORTD
+#define  VSNS_EN_bp   0x01
+
+
+void Vsns_ADC_Reference_Internal(void){
+  ADMUX|=(1<<REFS0)|(1<<REFS1);
+ c94:	ec e7       	ldi	r30, 0x7C	; 124
+ c96:	f0 e0       	ldi	r31, 0x00	; 0
+ c98:	80 81       	ld	r24, Z
+ c9a:	80 6c       	ori	r24, 0xC0	; 192
+ c9c:	80 83       	st	Z, r24
+
+void Vsns_Init(void){
+  VSNS_EN_DDR |= (1<<VSNS_EN_bp);
+  VSNS_EN_PORT&=~(1<<VSNS_EN_bp);
+  Vsns_ADC_Reference_Internal();
+ c9e:	08 95       	ret
+
+00000ca0 <__mulsi3>:
+ ca0:	62 9f       	mul	r22, r18
+ ca2:	d0 01       	movw	r26, r0
+ ca4:	73 9f       	mul	r23, r19
+ ca6:	f0 01       	movw	r30, r0
+ ca8:	82 9f       	mul	r24, r18
+ caa:	e0 0d       	add	r30, r0
+ cac:	f1 1d       	adc	r31, r1
+ cae:	64 9f       	mul	r22, r20
+ cb0:	e0 0d       	add	r30, r0
+ cb2:	f1 1d       	adc	r31, r1
+ cb4:	92 9f       	mul	r25, r18
+ cb6:	f0 0d       	add	r31, r0
+ cb8:	83 9f       	mul	r24, r19
+ cba:	f0 0d       	add	r31, r0
+ cbc:	74 9f       	mul	r23, r20
+ cbe:	f0 0d       	add	r31, r0
+ cc0:	65 9f       	mul	r22, r21
+ cc2:	f0 0d       	add	r31, r0
+ cc4:	99 27       	eor	r25, r25
+ cc6:	72 9f       	mul	r23, r18
+ cc8:	b0 0d       	add	r27, r0
+ cca:	e1 1d       	adc	r30, r1
+ ccc:	f9 1f       	adc	r31, r25
+ cce:	63 9f       	mul	r22, r19
+ cd0:	b0 0d       	add	r27, r0
+ cd2:	e1 1d       	adc	r30, r1
+ cd4:	f9 1f       	adc	r31, r25
+ cd6:	bd 01       	movw	r22, r26
+ cd8:	cf 01       	movw	r24, r30
+ cda:	11 24       	eor	r1, r1
+ cdc:	08 95       	ret
+
+00000cde <_exit>:
+ cde:	f8 94       	cli
+
+00000ce0 <__stop_program>:
+ ce0:	ff cf       	rjmp	.-2      	; 0xce0 <__stop_program>

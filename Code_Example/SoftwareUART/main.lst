@@ -41,66 +41,69 @@
   49               	.LBE26:
   50               	.LBE25:
   51               	.LM5:
-  52 0010 0E94 0000 		call debug_data_available_rx_buf
+  52 0010 0E94 0000 		call debug_databsy_get
   53               	.LVL1:
   54 0014 8823      		tst r24
-  55 0016 01F0      		breq .L2
-  56 0018 10E0      		ldi r17,lo8(0)
-  57 001a 00C0      		rjmp .L3
-  58               	.L4:
-  59               	.LBB36:
-  60               	.LM6:
-  61 001c 812F      		mov r24,r17
-  62 001e 0E94 0000 		call debug_buf_get
-  63 0022 0E94 0000 		call debug_tx_byte
-  64               	.LM7:
-  65 0026 1F5F      		subi r17,lo8(-(1))
-  66               	.L3:
-  67 0028 0E94 0000 		call debug_available_bytes_rx_buf
-  68 002c 1817      		cp r17,r24
-  69 002e 00F0      		brlo .L4
-  70               	.LBE36:
-  71               	.LM8:
-  72 0030 0E94 0000 		call debug_flush_buf
-  73               	.L2:
-  74               	.LBB37:
-  75               	.LBB35:
-  76               	.LBB34:
-  77               	.LBB33:
-  78               	.LBB32:
-  79               	.LBB31:
-  80               	.LM9:
-  81 0034 CE01      		movw r24,r28
-  82               	.LVL2:
-  83               	/* #APP */
-  84               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
-  85 0036 0197      		1: sbiw r24,1
-  86 0038 01F4      		brne 1b
-  87               	 ;  0 "" 2
-  88               	/* #NOAPP */
-  89 003a 00C0      		rjmp .L5
-  90               	.LBE31:
-  91               	.LBE32:
-  92               	.LBE33:
-  93               	.LBE34:
-  94               	.LBE35:
-  95               	.LBE37:
-  96               	.LFE6:
- 122               	.Letext0:
+  55 0016 01F4      		brne .L2
+  56 0018 0E94 0000 		call debug_buf_index_get
+  57 001c 8823      		tst r24
+  58 001e 01F0      		breq .L2
+  59 0020 10E0      		ldi r17,lo8(0)
+  60 0022 00C0      		rjmp .L3
+  61               	.L4:
+  62               	.LBB36:
+  63               	.LM6:
+  64 0024 812F      		mov r24,r17
+  65 0026 0E94 0000 		call debug_buf_get
+  66 002a 0E94 0000 		call debug_tx_byte
+  67               	.LM7:
+  68 002e 1F5F      		subi r17,lo8(-(1))
+  69               	.L3:
+  70 0030 0E94 0000 		call debug_buf_index_get
+  71 0034 1817      		cp r17,r24
+  72 0036 00F0      		brlo .L4
+  73               	.LBE36:
+  74               	.LM8:
+  75 0038 0E94 0000 		call debug_flush_buf
+  76               	.L2:
+  77               	.LBB37:
+  78               	.LBB35:
+  79               	.LBB34:
+  80               	.LBB33:
+  81               	.LBB32:
+  82               	.LBB31:
+  83               	.LM9:
+  84 003c CE01      		movw r24,r28
+  85               	.LVL2:
+  86               	/* #APP */
+  87               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  88 003e 0197      		1: sbiw r24,1
+  89 0040 01F4      		brne 1b
+  90               	 ;  0 "" 2
+  91               	/* #NOAPP */
+  92 0042 00C0      		rjmp .L5
+  93               	.LBE31:
+  94               	.LBE32:
+  95               	.LBE33:
+  96               	.LBE34:
+  97               	.LBE35:
+  98               	.LBE37:
+  99               	.LFE6:
+ 125               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\farid\AppData\Local\Temp/cchbMUlX.s:2      *ABS*:0000003f __SREG__
-C:\Users\farid\AppData\Local\Temp/cchbMUlX.s:3      *ABS*:0000003e __SP_H__
-C:\Users\farid\AppData\Local\Temp/cchbMUlX.s:4      *ABS*:0000003d __SP_L__
-C:\Users\farid\AppData\Local\Temp/cchbMUlX.s:5      *ABS*:00000034 __CCP__
-C:\Users\farid\AppData\Local\Temp/cchbMUlX.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\farid\AppData\Local\Temp/cchbMUlX.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\farid\AppData\Local\Temp/cchbMUlX.s:18     .text:00000000 main
+C:\Users\farid\AppData\Local\Temp/ccG8VlEV.s:2      *ABS*:0000003f __SREG__
+C:\Users\farid\AppData\Local\Temp/ccG8VlEV.s:3      *ABS*:0000003e __SP_H__
+C:\Users\farid\AppData\Local\Temp/ccG8VlEV.s:4      *ABS*:0000003d __SP_L__
+C:\Users\farid\AppData\Local\Temp/ccG8VlEV.s:5      *ABS*:00000034 __CCP__
+C:\Users\farid\AppData\Local\Temp/ccG8VlEV.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\farid\AppData\Local\Temp/ccG8VlEV.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\farid\AppData\Local\Temp/ccG8VlEV.s:18     .text:00000000 main
 
 UNDEFINED SYMBOLS
 debug_init
-debug_data_available_rx_buf
+debug_databsy_get
+debug_buf_index_get
 debug_buf_get
 debug_tx_byte
-debug_available_bytes_rx_buf
 debug_flush_buf

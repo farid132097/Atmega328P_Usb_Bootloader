@@ -89,7 +89,5 @@ uint8_t  debug_buf_get(uint8_t index);
 uint8_t  debug_buf_index_get(void);
 void     debug_flush_buf(void);
 uint8_t  debug_databsy_get(void);
-uint8_t  debug_data_available_rx_buf(void);
-uint8_t  debug_available_bytes_rx_buf(void);
 
 void     debug_init(void);
