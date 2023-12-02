@@ -2,12 +2,16 @@ Archive member included because of file (symbol)
 
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
                               vsns.o (__mulsi3)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                              dataconv.o (__divmodsi4)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o (exit)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
-                              main.o (__do_copy_data)
+                              nrf24l01pv2.o (__do_copy_data)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
                               main.o (__do_clear_bss)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o) (__udivmodsi4)
 
 Allocating common symbols
 Common symbol       size              file
@@ -34,6 +38,7 @@ LOAD main.o
 LOAD lowpower.o
 LOAD nrf24l01pv2.o
 LOAD vsns.o
+LOAD dataconv.o
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
@@ -129,7 +134,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xce2
+.text           0x00000000      0xfde
  *(.vectors)
  .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vectors
@@ -210,91 +215,105 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x000000a2                __vector_16
                 0x000000a2                __vector_18
                 0x000000a2                __vector_20
- .text          0x000000a6       0x7e main.o
+ .text          0x000000a6       0xa0 main.o
                 0x000000a6                main
- .text          0x00000124       0xcc lowpower.o
-                0x00000124                Deep_Sleep
-                0x00000194                __vector_6
-                0x0000016a                Sleep_Init
-                0x00000140                ADC_Disable
-                0x0000014c                Analog_Comparator_Disable
-                0x00000154                WDT_Get_Ticks
- .text          0x000001f0      0x9ba nrf24l01pv2.o
-                0x00000880                nRF24L01P_Init
-                0x00000828                nRF24L01P_Set_Destination_Address
-                0x0000058e                nRF24L01P_Set_Mode_Tx
-                0x00000b34                nRF24L01P_Transmit_With_ACK
-                0x00000304                nRF24L01P_SPI_Transfer
-                0x00000342                nRF24L01P_Calcuate_CRC
-                0x000004b8                nRF24L01P_Flush_Receive_Buffer
-                0x00000280                nRF24L01P_Enable_SPI
-                0x000005c2                nRF24L01P_Set_Mode_Rx
-                0x00000566                nRF24L01P_Set_Mode_Sleep
-                0x00000842                nRF24L01P_Set_MaxRetransmission
-                0x00000250                nRF24L01P_CSN_High
-                0x000006c4                nRF24L01P_Get_Speed
-                0x0000071a                nRF24L01P_Set_Speed
-                0x0000036e                nRF24L01P_Calcuate_CRC_Block
-                0x0000077c                nRF24L01P_Get_Tx_Power
-                0x000004f2                nRF24L01P_Receive_Buffer_Not_Empty
-                0x0000044e                nRF24L01P_Transmit_Buffer_Empty
-                0x00000290                nRF24L01P_Enable
-                0x00000254                nRF24L01P_CSN_Low
-                0x000007ae                nRF24L01P_Set_Tx_Power
-                0x000002b8                nRF24L01P_Get_Error
-                0x000002da                nRF24L01P_Error_Timeout
-                0x0000081c                nRF24L01P_Set_Own_Address
-                0x00000834                nRF24L01P_Set_Receive_Timeout
-                0x000005f2                nRF24L01P_ReadModifyWrite
-                0x00000272                nRF24L01P_Disable_GPIO
-                0x0000029e                nRF24L01P_Disable
-                0x00000a34                nRF24L01P_Transmit_Basic
-                0x0000069a                nRF24L01P_Set_Channel
-                0x0000066e                nRF24L01P_Get_Channel
-                0x000002a8                nRF24L01P_Error_Clear
-                0x00000524                nRF24L01P_Get_Mode
-                0x00000260                nRF24L01P_Enable_GPIO
-                0x0000048a                nRF24L01P_Wait_Till_Transmission_Completes
-                0x00000a92                nRF24L01P_Recieve_Basic
-                0x00000432                nRF24L01P_Write_Data_To_Transmit_Buffer
-                0x000002c4                nRF24L01P_No_Error
-                0x00000414                nRF24L01P_Flush_Transmit_Buffer
-                0x00000868                nRF24L01P_WakeUp
-                0x00000b66                nRF24L01P_Recieve_With_ACK
-                0x0000028a                nRF24L01P_Disable_SPI
-                0x000001f0                nRF24L01P_Struct_Init
-                0x00000850                nRF24L01P_Deep_Sleep
-                0x00000258                nRF24L01P_CE_High
-                0x0000025c                nRF24L01P_CE_Low
-                0x000004d6                nRF24L01P_Read_Data_From_Receive_Buffer
-                0x0000039e                nRF24L01P_ReadWrite_Register
- .text          0x00000baa       0xf6 vsns.o
-                0x00000baa                Vsns_ADC_Reference_Internal
-                0x00000bf0                Vsns_ADC_Read
-                0x00000bb6                Vsns_ADC_Reference_Avcc
-                0x00000bc8                Vsns_ADC_Enable
-                0x00000be0                Vsns_ADC_Init
-                0x00000c34                Vsns_V_Read
-                0x00000c30                Vsns_PMOS_Disable
-                0x00000c90                Vsns_Init
-                0x00000bd4                Vsns_ADC_Disable
-                0x00000c2c                Vsns_PMOS_Enable
- .text          0x00000ca0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .text          0x00000ca0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text          0x00000ca0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text          0x00000ca0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x00000ca0                . = ALIGN (0x2)
+ .text          0x00000146       0xcc lowpower.o
+                0x00000146                Deep_Sleep
+                0x000001b6                __vector_6
+                0x0000018c                Sleep_Init
+                0x00000162                ADC_Disable
+                0x0000016e                Analog_Comparator_Disable
+                0x00000176                WDT_Get_Ticks
+ .text          0x00000212      0x9ba nrf24l01pv2.o
+                0x000008a2                nRF24L01P_Init
+                0x0000084a                nRF24L01P_Set_Destination_Address
+                0x000005b0                nRF24L01P_Set_Mode_Tx
+                0x00000b56                nRF24L01P_Transmit_With_ACK
+                0x00000326                nRF24L01P_SPI_Transfer
+                0x00000364                nRF24L01P_Calcuate_CRC
+                0x000004da                nRF24L01P_Flush_Receive_Buffer
+                0x000002a2                nRF24L01P_Enable_SPI
+                0x000005e4                nRF24L01P_Set_Mode_Rx
+                0x00000588                nRF24L01P_Set_Mode_Sleep
+                0x00000864                nRF24L01P_Set_MaxRetransmission
+                0x00000272                nRF24L01P_CSN_High
+                0x000006e6                nRF24L01P_Get_Speed
+                0x0000073c                nRF24L01P_Set_Speed
+                0x00000390                nRF24L01P_Calcuate_CRC_Block
+                0x0000079e                nRF24L01P_Get_Tx_Power
+                0x00000514                nRF24L01P_Receive_Buffer_Not_Empty
+                0x00000470                nRF24L01P_Transmit_Buffer_Empty
+                0x000002b2                nRF24L01P_Enable
+                0x00000276                nRF24L01P_CSN_Low
+                0x000007d0                nRF24L01P_Set_Tx_Power
+                0x000002da                nRF24L01P_Get_Error
+                0x000002fc                nRF24L01P_Error_Timeout
+                0x0000083e                nRF24L01P_Set_Own_Address
+                0x00000856                nRF24L01P_Set_Receive_Timeout
+                0x00000614                nRF24L01P_ReadModifyWrite
+                0x00000294                nRF24L01P_Disable_GPIO
+                0x000002c0                nRF24L01P_Disable
+                0x00000a56                nRF24L01P_Transmit_Basic
+                0x000006bc                nRF24L01P_Set_Channel
+                0x00000690                nRF24L01P_Get_Channel
+                0x000002ca                nRF24L01P_Error_Clear
+                0x00000546                nRF24L01P_Get_Mode
+                0x00000282                nRF24L01P_Enable_GPIO
+                0x000004ac                nRF24L01P_Wait_Till_Transmission_Completes
+                0x00000ab4                nRF24L01P_Recieve_Basic
+                0x00000454                nRF24L01P_Write_Data_To_Transmit_Buffer
+                0x000002e6                nRF24L01P_No_Error
+                0x00000436                nRF24L01P_Flush_Transmit_Buffer
+                0x0000088a                nRF24L01P_WakeUp
+                0x00000b88                nRF24L01P_Recieve_With_ACK
+                0x000002ac                nRF24L01P_Disable_SPI
+                0x00000212                nRF24L01P_Struct_Init
+                0x00000872                nRF24L01P_Deep_Sleep
+                0x0000027a                nRF24L01P_CE_High
+                0x0000027e                nRF24L01P_CE_Low
+                0x000004f8                nRF24L01P_Read_Data_From_Receive_Buffer
+                0x000003c0                nRF24L01P_ReadWrite_Register
+ .text          0x00000bcc      0x14e vsns.o
+                0x00000bcc                Vsns_ADC_Reference_Internal
+                0x00000c18                Vsns_ADC_Read
+                0x00000bd8                Vsns_ADC_Reference_Avcc
+                0x00000bea                Vsns_ADC_Enable
+                0x00000c08                Vsns_ADC_Init
+                0x00000c5c                Vsns_V_Read
+                0x00000c58                Vsns_PMOS_Disable
+                0x00000cfc                Vsns_Init
+                0x00000bf6                Vsns_ADC_Disable
+                0x00000c54                Vsns_PMOS_Enable
+ .text          0x00000d1a      0x208 dataconv.o
+                0x00000d6e                dataconv_word_to_hex_char
+                0x00000d98                dataconv_dword_to_hex_char
+                0x00000dda                dataconv_dword_to_char
+                0x00000d1a                dataconv_nibble_to_hex_char
+                0x00000f1c                dataconv_dword_to_num_len
+                0x00000e00                dataconv_dword_to_num
+                0x00000d34                dataconv_byte_to_hex_char
+ .text          0x00000f22        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .text          0x00000f22        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .text          0x00000f22        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000f22        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000f22        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00000f22        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000f22                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00000ca0       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x00000ca0                __mulsi3
- .text.libgcc   0x00000cde        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000cde        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000cde        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x00000cde                . = ALIGN (0x2)
+ .text.libgcc   0x00000f22       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x00000f22                __mulsi3
+ .text.libgcc   0x00000f60       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                0x00000f60                __divmodsi4
+ .text.libgcc   0x00000f96        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000f96        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000f96        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000f96       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000f96                __udivmodsi4
+                0x00000fda                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000cde        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000cde                exit
-                0x00000cde                _exit
+ .fini9         0x00000fda        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000fda                exit
+                0x00000fda                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -313,60 +332,67 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000cde        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000fda        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000ce2                _etext = .
+                0x00000fde                _etext = .
 
-.data           0x00800100       0x44 load address 0x00000ce2
+.data           0x00800100       0x24 load address 0x00000fde
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
- .data          0x00800100       0x20 main.o
- .data          0x00800120        0x0 lowpower.o
- .data          0x00800120       0x24 nrf24l01pv2.o
- .data          0x00800144        0x0 vsns.o
- .data          0x00800144        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .data          0x00800144        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .data          0x00800144        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .data          0x00800144        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800100        0x0 main.o
+ .data          0x00800100        0x0 lowpower.o
+ .data          0x00800100       0x24 nrf24l01pv2.o
+ .data          0x00800124        0x0 vsns.o
+ .data          0x00800124        0x0 dataconv.o
+ .data          0x00800124        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .data          0x00800124        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .data          0x00800124        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800124        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800124        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800124        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800144                . = ALIGN (0x2)
-                0x00800144                _edata = .
-                0x00800144                PROVIDE (__data_end, .)
+                0x00800124                . = ALIGN (0x2)
+                0x00800124                _edata = .
+                0x00800124                PROVIDE (__data_end, .)
 
-.bss            0x00800144       0x1e
-                0x00800144                PROVIDE (__bss_start, .)
+.bss            0x00800124       0x1f
+                0x00800124                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800144        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
- .bss           0x00800144        0x5 main.o
-                0x00800148                state
-                0x00800144                last_val
- .bss           0x00800149        0x4 lowpower.o
-                0x00800149                WDT_Ticks
- .bss           0x0080014d        0x0 nrf24l01pv2.o
- .bss           0x0080014d        0x0 vsns.o
- .bss           0x0080014d        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .bss           0x0080014d        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x0080014d        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x0080014d        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800124        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ .bss           0x00800124        0x5 main.o
+                0x00800128                state
+                0x00800124                last_val
+ .bss           0x00800129        0x4 lowpower.o
+                0x00800129                WDT_Ticks
+ .bss           0x0080012d        0x0 nrf24l01pv2.o
+ .bss           0x0080012d        0x0 vsns.o
+ .bss           0x0080012d        0x1 dataconv.o
+                0x0080012d                dataconv_data_len
+ .bss           0x0080012e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x0080012e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .bss           0x0080012e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x0080012e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x0080012e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x0080012e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x0080014d       0x15 nrf24l01pv2.o
-                0x0080014d                nRF24L01P_type
-                0x00800160                nRF24L01P
-                0x00800162                PROVIDE (__bss_end, .)
-                0x00000ce2                __data_load_start = LOADADDR (.data)
-                0x00000d26                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080012e       0x15 nrf24l01pv2.o
+                0x0080012e                nRF24L01P_type
+                0x00800141                nRF24L01P
+                0x00800143                PROVIDE (__bss_end, .)
+                0x00000fde                __data_load_start = LOADADDR (.data)
+                0x00001002                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800162        0x0
-                0x00800162                PROVIDE (__noinit_start, .)
+.noinit         0x00800143        0x0
+                0x00800143                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800162                PROVIDE (__noinit_end, .)
-                0x00800162                _end = .
-                0x00800162                PROVIDE (__heap_start, .)
+                0x00800143                PROVIDE (__noinit_end, .)
+                0x00800143                _end = .
+                0x00800143                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -417,7 +443,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x80
+.debug_aranges  0x00000000       0xa0
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x20 main.o
@@ -427,9 +453,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000040       0x20 nrf24l01pv2.o
  .debug_aranges
                 0x00000060       0x20 vsns.o
+ .debug_aranges
+                0x00000080       0x20 dataconv.o
 
 .debug_pubnames
-                0x00000000      0x734
+                0x00000000      0x82a
  *(.debug_pubnames)
  .debug_pubnames
                 0x00000000       0x32 main.o
@@ -439,52 +467,62 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x000000bf      0x591 nrf24l01pv2.o
  .debug_pubnames
                 0x00000650       0xe4 vsns.o
+ .debug_pubnames
+                0x00000734       0xf6 dataconv.o
 
-.debug_info     0x00000000     0x12c7
+.debug_info     0x00000000     0x1650
  *(.debug_info)
- .debug_info    0x00000000       0xe0 main.o
- .debug_info    0x000000e0      0x154 lowpower.o
- .debug_info    0x00000234      0xea5 nrf24l01pv2.o
- .debug_info    0x000010d9      0x1ee vsns.o
+ .debug_info    0x00000000       0xfa main.o
+ .debug_info    0x000000fa      0x154 lowpower.o
+ .debug_info    0x0000024e      0xea5 nrf24l01pv2.o
+ .debug_info    0x000010f3      0x248 vsns.o
+ .debug_info    0x0000133b      0x315 dataconv.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x585
+.debug_abbrev   0x00000000      0x6ed
  *(.debug_abbrev)
- .debug_abbrev  0x00000000       0x94 main.o
- .debug_abbrev  0x00000094       0xd7 lowpower.o
- .debug_abbrev  0x0000016b      0x346 nrf24l01pv2.o
- .debug_abbrev  0x000004b1       0xd4 vsns.o
+ .debug_abbrev  0x00000000       0xa3 main.o
+ .debug_abbrev  0x000000a3       0xd7 lowpower.o
+ .debug_abbrev  0x0000017a      0x346 nrf24l01pv2.o
+ .debug_abbrev  0x000004c0       0xee vsns.o
+ .debug_abbrev  0x000005ae      0x13f dataconv.o
 
-.debug_line     0x00000000     0x105e
+.debug_line     0x00000000     0x12c3
  *(.debug_line)
- .debug_line    0x00000000       0xf1 main.o
- .debug_line    0x000000f1      0x16f lowpower.o
- .debug_line    0x00000260      0xbff nrf24l01pv2.o
- .debug_line    0x00000e5f      0x1ff vsns.o
+ .debug_line    0x00000000      0x129 main.o
+ .debug_line    0x00000129      0x16f lowpower.o
+ .debug_line    0x00000298      0xbff nrf24l01pv2.o
+ .debug_line    0x00000e97      0x237 vsns.o
+ .debug_line    0x000010ce      0x1f5 dataconv.o
 
-.debug_frame    0x00000000      0x450
+.debug_frame    0x00000000      0x4d0
  *(.debug_frame)
  .debug_frame   0x00000000       0x20 main.o
  .debug_frame   0x00000020       0x70 lowpower.o
  .debug_frame   0x00000090      0x310 nrf24l01pv2.o
  .debug_frame   0x000003a0       0xb0 vsns.o
+ .debug_frame   0x00000450       0x80 dataconv.o
 
-.debug_str      0x00000000      0x7e4
+.debug_str      0x00000000      0x8e0
  *(.debug_str)
- .debug_str     0x00000000       0xc6 main.o
-                                 0xfa (size before relaxing)
- .debug_str     0x000000c6       0x5b lowpower.o
+ .debug_str     0x00000000       0xcf main.o
+                                0x103 (size before relaxing)
+ .debug_str     0x000000cf       0x5b lowpower.o
                                 0x151 (size before relaxing)
- .debug_str     0x00000121      0x60c nrf24l01pv2.o
+ .debug_str     0x0000012a      0x5fd nrf24l01pv2.o
                                 0x6f5 (size before relaxing)
- .debug_str     0x0000072d       0xb7 vsns.o
+ .debug_str     0x00000727       0xb7 vsns.o
                                 0x1ac (size before relaxing)
+ .debug_str     0x000007de      0x102 dataconv.o
+                                0x1fe (size before relaxing)
 
-.debug_loc      0x00000000      0x60e
+.debug_loc      0x00000000      0x953
  *(.debug_loc)
- .debug_loc     0x00000000       0x13 lowpower.o
- .debug_loc     0x00000013      0x5ca nrf24l01pv2.o
- .debug_loc     0x000005dd       0x31 vsns.o
+ .debug_loc     0x00000000       0x1e main.o
+ .debug_loc     0x0000001e       0x13 lowpower.o
+ .debug_loc     0x00000031      0x5ca nrf24l01pv2.o
+ .debug_loc     0x000005fb       0x57 vsns.o
+ .debug_loc     0x00000652      0x301 dataconv.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -510,9 +548,11 @@ Vsns_ADC_Read                                     vsns.o
 Vsns_ADC_Reference_Avcc                           vsns.o
 Vsns_ADC_Reference_Internal                       vsns.o
 Vsns_Init                                         vsns.o
+                                                  main.o
 Vsns_PMOS_Disable                                 vsns.o
 Vsns_PMOS_Enable                                  vsns.o
 Vsns_V_Read                                       vsns.o
+                                                  main.o
 WDT_Get_Ticks                                     lowpower.o
 WDT_Ticks                                         lowpower.o
 __bad_interrupt                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -521,18 +561,22 @@ __bss_start                                       c:/winavr-20100110/bin/../lib/
 __data_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
 __data_load_start                                 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
 __data_start                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+__divmodsi4                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                                                  dataconv.o
 __do_clear_bss                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                                                  dataconv.o
                                                   nrf24l01pv2.o
                                                   lowpower.o
                                                   main.o
 __do_copy_data                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
                                                   nrf24l01pv2.o
-                                                  main.o
 __heap_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __init                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __mulsi3                                          c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
                                                   vsns.o
 __stack                                           c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__udivmodsi4                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
 __vector_1                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_10                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_11                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -562,6 +606,16 @@ __vector_9                                        c:/winavr-20100110/bin/../lib/
 __vector_default                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vectors                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 _exit                                             c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+dataconv_byte_to_hex_char                         dataconv.o
+dataconv_data_len                                 dataconv.o
+dataconv_dword_to_char                            dataconv.o
+dataconv_dword_to_hex_char                        dataconv.o
+dataconv_dword_to_num                             dataconv.o
+                                                  main.o
+dataconv_dword_to_num_len                         dataconv.o
+                                                  main.o
+dataconv_nibble_to_hex_char                       dataconv.o
+dataconv_word_to_hex_char                         dataconv.o
 exit                                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 last_val                                          main.o

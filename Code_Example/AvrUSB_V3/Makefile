@@ -80,7 +80,7 @@ OBJDIR = .
 
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC = $(TARGET).c lowpower.c nrf24l01pv2.c vsns.c
+SRC = $(TARGET).c lowpower.c nrf24l01pv2.c vsns.c dataconv.c
 
 
 # List C++ source files here. (C dependencies are automatically generated.)

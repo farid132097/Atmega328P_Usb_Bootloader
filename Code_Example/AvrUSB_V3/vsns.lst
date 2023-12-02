@@ -70,216 +70,278 @@
   84 002e 8081      		ld r24,Z
   85 0030 8F77      		andi r24,lo8(127)
   86 0032 8083      		st Z,r24
-  87               	/* epilogue start */
-  88               	.LM13:
-  89 0034 0895      		ret
-  90               	.LFE9:
-  92               	.global	Vsns_ADC_Init
-  94               	Vsns_ADC_Init:
-  95               	.LFB10:
-  96               	.LM14:
-  97               	/* prologue: function */
-  98               	/* frame size = 0 */
-  99               	.LM15:
- 100 0036 EAE7      		ldi r30,lo8(122)
- 101 0038 F0E0      		ldi r31,hi8(122)
- 102 003a 86E0      		ldi r24,lo8(6)
- 103 003c 8083      		st Z,r24
- 104               	.LM16:
- 105 003e 8081      		ld r24,Z
- 106 0040 8068      		ori r24,lo8(-128)
+  87               	.LM13:
+  88 0034 80B7      		in r24,80-32
+  89 0036 8068      		ori r24,lo8(-128)
+  90 0038 80BF      		out 80-32,r24
+  91               	/* epilogue start */
+  92               	.LM14:
+  93 003a 0895      		ret
+  94               	.LFE9:
+  96               	.global	Vsns_ADC_Init
+  98               	Vsns_ADC_Init:
+  99               	.LFB10:
+ 100               	.LM15:
+ 101               	/* prologue: function */
+ 102               	/* frame size = 0 */
+ 103               	.LM16:
+ 104 003c EAE7      		ldi r30,lo8(122)
+ 105 003e F0E0      		ldi r31,hi8(122)
+ 106 0040 86E0      		ldi r24,lo8(6)
  107 0042 8083      		st Z,r24
- 108               	/* epilogue start */
- 109               	.LM17:
- 110 0044 0895      		ret
- 111               	.LFE10:
- 113               	.global	Vsns_ADC_Read
- 115               	Vsns_ADC_Read:
- 116               	.LFB11:
- 117               	.LM18:
- 118               	.LVL0:
- 119               	/* prologue: function */
- 120               	/* frame size = 0 */
+ 108               	.LM17:
+ 109 0044 8081      		ld r24,Z
+ 110 0046 8068      		ori r24,lo8(-128)
+ 111 0048 8083      		st Z,r24
+ 112               	/* epilogue start */
+ 113               	.LM18:
+ 114 004a 0895      		ret
+ 115               	.LFE10:
+ 117               	.global	Vsns_ADC_Read
+ 119               	Vsns_ADC_Read:
+ 120               	.LFB11:
  121               	.LM19:
- 122 0046 9091 7C00 		lds r25,124
- 123               	.LVL1:
- 124 004a 907C      		andi r25,lo8(-64)
+ 122               	.LVL0:
+ 123               	/* prologue: function */
+ 124               	/* frame size = 0 */
  125               	.LM20:
- 126 004c 982B      		or r25,r24
- 127               	.LM21:
- 128 004e 8091 7C00 		lds r24,124
- 129               	.LVL2:
- 130 0052 8917      		cp r24,r25
- 131 0054 01F0      		breq .L12
- 132 0056 9093 7C00 		sts 124,r25
- 133               	.L12:
- 134               	.LM22:
- 135 005a 8091 7A00 		lds r24,122
- 136 005e 8064      		ori r24,lo8(64)
- 137 0060 8093 7A00 		sts 122,r24
- 138               	.L13:
- 139               	.LM23:
- 140 0064 8091 7A00 		lds r24,122
- 141 0068 84FF      		sbrs r24,4
- 142 006a 00C0      		rjmp .L13
+ 126 004c 9091 7C00 		lds r25,124
+ 127               	.LVL1:
+ 128 0050 907C      		andi r25,lo8(-64)
+ 129               	.LM21:
+ 130 0052 982B      		or r25,r24
+ 131               	.LM22:
+ 132 0054 8091 7C00 		lds r24,124
+ 133               	.LVL2:
+ 134 0058 8917      		cp r24,r25
+ 135 005a 01F0      		breq .L12
+ 136 005c 9093 7C00 		sts 124,r25
+ 137               	.L12:
+ 138               	.LM23:
+ 139 0060 8091 7A00 		lds r24,122
+ 140 0064 8064      		ori r24,lo8(64)
+ 141 0066 8093 7A00 		sts 122,r24
+ 142               	.L13:
  143               	.LM24:
- 144 006c 8091 7A00 		lds r24,122
- 145 0070 8061      		ori r24,lo8(16)
- 146 0072 8093 7A00 		sts 122,r24
+ 144 006a 8091 7A00 		lds r24,122
+ 145 006e 84FF      		sbrs r24,4
+ 146 0070 00C0      		rjmp .L13
  147               	.LM25:
- 148 0076 2091 7800 		lds r18,120
- 149 007a 3091 7900 		lds r19,(120)+1
- 150               	.LM26:
- 151 007e C901      		movw r24,r18
- 152               	/* epilogue start */
- 153 0080 0895      		ret
- 154               	.LFE11:
- 156               	.global	Vsns_PMOS_Enable
- 158               	Vsns_PMOS_Enable:
- 159               	.LFB12:
- 160               	.LM27:
- 161               	/* prologue: function */
- 162               	/* frame size = 0 */
- 163               	.LM28:
- 164 0082 599A      		sbi 43-32,1
- 165               	/* epilogue start */
- 166               	.LM29:
- 167 0084 0895      		ret
- 168               	.LFE12:
- 170               	.global	Vsns_PMOS_Disable
- 172               	Vsns_PMOS_Disable:
- 173               	.LFB13:
- 174               	.LM30:
- 175               	/* prologue: function */
- 176               	/* frame size = 0 */
- 177               	.LM31:
- 178 0086 5998      		cbi 43-32,1
- 179               	/* epilogue start */
- 180               	.LM32:
- 181 0088 0895      		ret
- 182               	.LFE13:
- 184               	.global	Vsns_V_Read
- 186               	Vsns_V_Read:
- 187               	.LFB14:
- 188               	.LM33:
- 189 008a 0F93      		push r16
- 190 008c 1F93      		push r17
- 191               	/* prologue: function */
- 192               	/* frame size = 0 */
- 193               	.LBB12:
- 194               	.LBB13:
- 195               	.LM34:
- 196 008e 599A      		sbi 43-32,1
- 197               	.LBE13:
- 198               	.LBE12:
- 199               	.LBB14:
- 200               	.LBB15:
- 201               	.LM35:
- 202 0090 0AE7      		ldi r16,lo8(122)
- 203 0092 10E0      		ldi r17,hi8(122)
- 204 0094 F801      		movw r30,r16
- 205 0096 8081      		ld r24,Z
- 206 0098 8068      		ori r24,lo8(-128)
- 207 009a 8083      		st Z,r24
- 208               	.LBE15:
- 209               	.LBE14:
- 210               	.LM36:
- 211 009c 86E0      		ldi r24,lo8(6)
- 212 009e 0E94 0000 		call Vsns_ADC_Read
- 213               	.LM37:
- 214 00a2 86E0      		ldi r24,lo8(6)
- 215 00a4 0E94 0000 		call Vsns_ADC_Read
- 216               	.LM38:
- 217 00a8 86E0      		ldi r24,lo8(6)
- 218 00aa 0E94 0000 		call Vsns_ADC_Read
- 219 00ae A0E0      		ldi r26,lo8(0)
- 220 00b0 B0E0      		ldi r27,hi8(0)
+ 148 0072 8091 7A00 		lds r24,122
+ 149 0076 8061      		ori r24,lo8(16)
+ 150 0078 8093 7A00 		sts 122,r24
+ 151               	.LM26:
+ 152 007c 2091 7800 		lds r18,120
+ 153 0080 3091 7900 		lds r19,(120)+1
+ 154               	.LM27:
+ 155 0084 C901      		movw r24,r18
+ 156               	/* epilogue start */
+ 157 0086 0895      		ret
+ 158               	.LFE11:
+ 160               	.global	Vsns_PMOS_Enable
+ 162               	Vsns_PMOS_Enable:
+ 163               	.LFB12:
+ 164               	.LM28:
+ 165               	/* prologue: function */
+ 166               	/* frame size = 0 */
+ 167               	.LM29:
+ 168 0088 419A      		sbi 40-32,1
+ 169               	/* epilogue start */
+ 170               	.LM30:
+ 171 008a 0895      		ret
+ 172               	.LFE12:
+ 174               	.global	Vsns_PMOS_Disable
+ 176               	Vsns_PMOS_Disable:
+ 177               	.LFB13:
+ 178               	.LM31:
+ 179               	/* prologue: function */
+ 180               	/* frame size = 0 */
+ 181               	.LM32:
+ 182 008c 4198      		cbi 40-32,1
+ 183               	/* epilogue start */
+ 184               	.LM33:
+ 185 008e 0895      		ret
+ 186               	.LFE13:
+ 188               	.global	Vsns_V_Read
+ 190               	Vsns_V_Read:
+ 191               	.LFB14:
+ 192               	.LM34:
+ 193 0090 DF92      		push r13
+ 194 0092 EF92      		push r14
+ 195 0094 FF92      		push r15
+ 196 0096 0F93      		push r16
+ 197 0098 1F93      		push r17
+ 198               	/* prologue: function */
+ 199               	/* frame size = 0 */
+ 200               	.LBB18:
+ 201               	.LBB19:
+ 202               	.LM35:
+ 203 009a 419A      		sbi 40-32,1
+ 204               	.LBE19:
+ 205               	.LBE18:
+ 206               	.LBB20:
+ 207               	.LBB21:
+ 208               	.LM36:
+ 209 009c 8091 7C00 		lds r24,124
+ 210 00a0 806C      		ori r24,lo8(-64)
+ 211 00a2 8093 7C00 		sts 124,r24
+ 212               	.LBE21:
+ 213               	.LBE20:
+ 214               	.LBB22:
+ 215               	.LBB23:
+ 216               	.LM37:
+ 217 00a6 8091 7A00 		lds r24,122
+ 218 00aa 8068      		ori r24,lo8(-128)
+ 219 00ac 8093 7A00 		sts 122,r24
+ 220 00b0 10E0      		ldi r17,lo8(0)
  221               	.LVL3:
- 222               	.LBB16:
- 223               	.LBB17:
- 224               	.LM39:
- 225 00b2 F801      		movw r30,r16
- 226 00b4 2081      		ld r18,Z
- 227 00b6 2F77      		andi r18,lo8(127)
- 228 00b8 2083      		st Z,r18
- 229               	.LBE17:
- 230               	.LBE16:
- 231               	.LBB18:
- 232               	.LBB19:
- 233               	.LM40:
- 234 00ba 5998      		cbi 43-32,1
- 235               	.LBE19:
- 236               	.LBE18:
- 237               	.LM41:
- 238 00bc BC01      		movw r22,r24
- 239 00be CD01      		movw r24,r26
- 240               	.LVL4:
- 241 00c0 20EC      		ldi r18,lo8(17600)
- 242 00c2 34E4      		ldi r19,hi8(17600)
- 243 00c4 40E0      		ldi r20,hlo8(17600)
- 244 00c6 50E0      		ldi r21,hhi8(17600)
- 245 00c8 0E94 0000 		call __mulsi3
- 246               	.LVL5:
- 247 00cc 9B01      		movw r18,r22
- 248 00ce AC01      		movw r20,r24
- 249 00d0 8AE0      		ldi r24,10
- 250 00d2 5695      	1:	lsr r21
- 251 00d4 4795      		ror r20
- 252 00d6 3795      		ror r19
- 253 00d8 2795      		ror r18
- 254 00da 8A95      		dec r24
- 255 00dc 01F4      		brne 1b
- 256               	.LVL6:
- 257               	.LM42:
- 258 00de C901      		movw r24,r18
- 259               	/* epilogue start */
- 260 00e0 1F91      		pop r17
- 261 00e2 0F91      		pop r16
- 262 00e4 0895      		ret
- 263               	.LFE14:
- 265               	.global	Vsns_Init
- 267               	Vsns_Init:
- 268               	.LFB15:
- 269               	.LM43:
- 270               	/* prologue: function */
- 271               	/* frame size = 0 */
- 272               	.LM44:
- 273 00e6 399A      		sbi 39-32,1
- 274               	.LM45:
- 275 00e8 5998      		cbi 43-32,1
- 276               	.LBB20:
- 277               	.LBB21:
- 278               	.LM46:
- 279 00ea ECE7      		ldi r30,lo8(124)
- 280 00ec F0E0      		ldi r31,hi8(124)
- 281 00ee 8081      		ld r24,Z
- 282 00f0 806C      		ori r24,lo8(-64)
- 283 00f2 8083      		st Z,r24
- 284               	/* epilogue start */
- 285               	.LBE21:
- 286               	.LBE20:
- 287               	.LM47:
- 288 00f4 0895      		ret
- 289               	.LFE15:
- 387               	.Letext0:
+ 222               	.L21:
+ 223               	.LBE23:
+ 224               	.LBE22:
+ 225               	.LBB24:
+ 226               	.LM38:
+ 227 00b2 86E0      		ldi r24,lo8(6)
+ 228 00b4 0E94 0000 		call Vsns_ADC_Read
+ 229               	.LM39:
+ 230 00b8 1F5F      		subi r17,lo8(-(1))
+ 231 00ba 1430      		cpi r17,lo8(4)
+ 232 00bc 01F4      		brne .L21
+ 233 00be DD24      		clr r13
+ 234               	.LVL4:
+ 235 00c0 EE24      		clr r14
+ 236 00c2 FF24      		clr r15
+ 237 00c4 8701      		movw r16,r14
+ 238               	.LVL5:
+ 239               	.L22:
+ 240               	.LBE24:
+ 241               	.LBB25:
+ 242               	.LM40:
+ 243 00c6 86E0      		ldi r24,lo8(6)
+ 244 00c8 0E94 0000 		call Vsns_ADC_Read
+ 245 00cc A0E0      		ldi r26,lo8(0)
+ 246 00ce B0E0      		ldi r27,hi8(0)
+ 247 00d0 E80E      		add r14,r24
+ 248 00d2 F91E      		adc r15,r25
+ 249 00d4 0A1F      		adc r16,r26
+ 250 00d6 1B1F      		adc r17,r27
+ 251               	.LM41:
+ 252 00d8 D394      		inc r13
+ 253 00da 88E0      		ldi r24,lo8(8)
+ 254 00dc D816      		cp r13,r24
+ 255 00de 01F4      		brne .L22
+ 256               	.LBE25:
+ 257               	.LBB26:
+ 258               	.LBB27:
+ 259               	.LM42:
+ 260 00e0 8091 7A00 		lds r24,122
+ 261 00e4 8F77      		andi r24,lo8(127)
+ 262 00e6 8093 7A00 		sts 122,r24
+ 263               	.LM43:
+ 264 00ea 80B7      		in r24,80-32
+ 265 00ec 8068      		ori r24,lo8(-128)
+ 266 00ee 80BF      		out 80-32,r24
+ 267               	.LBE27:
+ 268               	.LBE26:
+ 269               	.LBB28:
+ 270               	.LBB29:
+ 271               	.LM44:
+ 272 00f0 4198      		cbi 40-32,1
+ 273               	.LBE29:
+ 274               	.LBE28:
+ 275               	.LM45:
+ 276 00f2 93E0      		ldi r25,3
+ 277 00f4 1695      	1:	lsr r17
+ 278 00f6 0795      		ror r16
+ 279 00f8 F794      		ror r15
+ 280 00fa E794      		ror r14
+ 281 00fc 9A95      		dec r25
+ 282 00fe 01F4      		brne 1b
+ 283               	.LM46:
+ 284 0100 C801      		movw r24,r16
+ 285 0102 B701      		movw r22,r14
+ 286 0104 20EC      		ldi r18,lo8(17600)
+ 287 0106 34E4      		ldi r19,hi8(17600)
+ 288 0108 40E0      		ldi r20,hlo8(17600)
+ 289 010a 50E0      		ldi r21,hhi8(17600)
+ 290 010c 0E94 0000 		call __mulsi3
+ 291 0110 9B01      		movw r18,r22
+ 292 0112 AC01      		movw r20,r24
+ 293 0114 8AE0      		ldi r24,10
+ 294 0116 5695      	1:	lsr r21
+ 295 0118 4795      		ror r20
+ 296 011a 3795      		ror r19
+ 297 011c 2795      		ror r18
+ 298 011e 8A95      		dec r24
+ 299 0120 01F4      		brne 1b
+ 300               	.LM47:
+ 301 0122 C901      		movw r24,r18
+ 302               	/* epilogue start */
+ 303 0124 1F91      		pop r17
+ 304               	.LVL6:
+ 305 0126 0F91      		pop r16
+ 306 0128 FF90      		pop r15
+ 307 012a EF90      		pop r14
+ 308               	.LVL7:
+ 309 012c DF90      		pop r13
+ 310               	.LVL8:
+ 311 012e 0895      		ret
+ 312               	.LFE14:
+ 314               	.global	Vsns_Init
+ 316               	Vsns_Init:
+ 317               	.LFB15:
+ 318               	.LM48:
+ 319               	/* prologue: function */
+ 320               	/* frame size = 0 */
+ 321               	.LM49:
+ 322 0130 399A      		sbi 39-32,1
+ 323               	.LM50:
+ 324 0132 4198      		cbi 40-32,1
+ 325               	.LBB30:
+ 326               	.LBB31:
+ 327               	.LM51:
+ 328 0134 ECE7      		ldi r30,lo8(124)
+ 329 0136 F0E0      		ldi r31,hi8(124)
+ 330 0138 8081      		ld r24,Z
+ 331 013a 806C      		ori r24,lo8(-64)
+ 332 013c 8083      		st Z,r24
+ 333               	.LBE31:
+ 334               	.LBE30:
+ 335               	.LBB32:
+ 336               	.LBB33:
+ 337               	.LM52:
+ 338 013e EAE7      		ldi r30,lo8(122)
+ 339 0140 F0E0      		ldi r31,hi8(122)
+ 340 0142 86E0      		ldi r24,lo8(6)
+ 341 0144 8083      		st Z,r24
+ 342               	.LM53:
+ 343 0146 8081      		ld r24,Z
+ 344 0148 8068      		ori r24,lo8(-128)
+ 345 014a 8083      		st Z,r24
+ 346               	/* epilogue start */
+ 347               	.LBE33:
+ 348               	.LBE32:
+ 349               	.LM54:
+ 350 014c 0895      		ret
+ 351               	.LFE15:
+ 449               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 vsns.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:18     .text:00000000 Vsns_ADC_Reference_Internal
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:36     .text:0000000c Vsns_ADC_Reference_Avcc
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:58     .text:0000001e Vsns_ADC_Enable
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:76     .text:0000002a Vsns_ADC_Disable
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:94     .text:00000036 Vsns_ADC_Init
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:115    .text:00000046 Vsns_ADC_Read
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:158    .text:00000082 Vsns_PMOS_Enable
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:172    .text:00000086 Vsns_PMOS_Disable
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:186    .text:0000008a Vsns_V_Read
-C:\Users\FARIDU~1\AppData\Local\Temp/ccu43wjh.s:267    .text:000000e6 Vsns_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:18     .text:00000000 Vsns_ADC_Reference_Internal
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:36     .text:0000000c Vsns_ADC_Reference_Avcc
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:58     .text:0000001e Vsns_ADC_Enable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:76     .text:0000002a Vsns_ADC_Disable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:98     .text:0000003c Vsns_ADC_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:119    .text:0000004c Vsns_ADC_Read
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:162    .text:00000088 Vsns_PMOS_Enable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:176    .text:0000008c Vsns_PMOS_Disable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:190    .text:00000090 Vsns_V_Read
+C:\Users\FARIDU~1\AppData\Local\Temp/ccJlotWv.s:316    .text:00000130 Vsns_Init
 
 UNDEFINED SYMBOLS
 __mulsi3
