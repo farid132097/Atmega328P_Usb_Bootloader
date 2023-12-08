@@ -685,13 +685,13 @@ void nrf24l01p_set_sck_dd(uint8_t state){
   if(state){
     nRF24L01P_SCK_DDR |= (1<<nRF24L01P_SCK_bp);
      346:	25 9a       	sbi	0x04, 5	; 4
+  }
+}
 
 void nrf24l01p_set_miso_dd(uint8_t state){
   if(state){
     nRF24L01P_MISO_DDR |= (1<<nRF24L01P_MISO_bp);
-  }else{
-    nRF24L01P_MISO_DDR &=~(1<<nRF24L01P_MISO_bp);
-     348:	24 98       	cbi	0x04, 4	; 4
+     348:	24 9a       	sbi	0x04, 4	; 4
   }
 }
 
@@ -815,24 +815,22 @@ void nrf24l01p_enable(void){
      37a:	08 95       	ret
 
 0000037c <nrf24l01p_disable>:
-
-void nrf24l01p_disable(void){
-  nrf24l01p_gpio_disable();
-     37c:	0e 94 a3 01 	call	0x346	; 0x346 <nrf24l01p_gpio_disable>
   #endif
 }
 
 void nrf24l01p_spi_disable(void){
   #ifdef nRF24L01P_USE_HW_SPI
   SPCR = 0x00;                     
-     380:	1c bc       	out	0x2c, r1	; 44
+     37c:	1c bc       	out	0x2c, r1	; 44
   SPSR = 0x00;
-     382:	1d bc       	out	0x2d, r1	; 45
+     37e:	1d bc       	out	0x2d, r1	; 45
+  nrf24l01p.commen = 1;
 }
 
 void nrf24l01p_disable(void){
-  nrf24l01p_gpio_disable();
   nrf24l01p_spi_disable();
+  nrf24l01p_gpio_disable();
+     380:	0e 94 a3 01 	call	0x346	; 0x346 <nrf24l01p_gpio_disable>
   nrf24l01p.commen = 0;
      384:	10 92 0e 01 	sts	0x010E, r1
 }
@@ -1890,7 +1888,7 @@ void nrf24l01p_mode_set(uint8_t mode){
 	  nrf24l01p_mode_set_rx();
      790:	0e 94 84 03 	call	0x708	; 0x708 <nrf24l01p_mode_set_rx>
      794:	08 95       	ret
-	}else if(mode ==3 ){
+	}else if(mode == 3){
      796:	93 30       	cpi	r25, 0x03	; 3
      798:	19 f4       	brne	.+6      	; 0x7a0 <nrf24l01p_mode_set+0x32>
 	  nrf24l01p_mode_set_tx();

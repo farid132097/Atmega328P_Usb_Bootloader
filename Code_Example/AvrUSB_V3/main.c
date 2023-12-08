@@ -1,5 +1,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/interrupt.h>
+#include <avr/sleep.h>
 #include "lowpower.h"
 #include "nrf24l01p.h"
 #include "dataconv.h"

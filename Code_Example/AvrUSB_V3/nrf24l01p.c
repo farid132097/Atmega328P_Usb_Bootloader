@@ -207,7 +207,7 @@ void nrf24l01p_gpio_enable(void){
 
 void nrf24l01p_gpio_disable(void){
   nrf24l01p_set_sck_dd(1);
-  nrf24l01p_set_miso_dd(0);
+  nrf24l01p_set_miso_dd(1);
   nrf24l01p_set_mosi_dd(1);
   nrf24l01p_set_csn_dd(1);
   nrf24l01p_set_ce_dd(1);
@@ -250,8 +250,8 @@ void nrf24l01p_enable(void){
 }
 
 void nrf24l01p_disable(void){
-  nrf24l01p_gpio_disable();
   nrf24l01p_spi_disable();
+  nrf24l01p_gpio_disable();
   nrf24l01p.commen = 0;
 }
 
@@ -537,7 +537,7 @@ void nrf24l01p_mode_set(uint8_t mode){
 	  nrf24l01p_mode_set_sleep();
 	}else if(mode == 2){
 	  nrf24l01p_mode_set_rx();
-	}else if(mode ==3 ){
+	}else if(mode == 3){
 	  nrf24l01p_mode_set_tx();
 	}else{
 	  nrf24l01p_mode_set_rx();

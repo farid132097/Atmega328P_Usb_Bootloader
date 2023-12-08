@@ -206,19 +206,19 @@
  291               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 lowpower.c
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:18     .text:00000000 Deep_Sleep
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:63     .text:0000001c ADC_Disable
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:81     .text:00000028 Analog_Comparator_Disable
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:97     .text:00000030 WDT_Get_Ticks
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:225    .bss:00000000 WDT_Ticks
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:116    .text:00000046 Sleep_Init
-C:\Users\FARIDU~1\AppData\Local\Temp/cc6xE8FD.s:171    .text:00000070 __vector_6
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:18     .text:00000000 Deep_Sleep
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:63     .text:0000001c ADC_Disable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:81     .text:00000028 Analog_Comparator_Disable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:97     .text:00000030 WDT_Get_Ticks
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:225    .bss:00000000 WDT_Ticks
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:116    .text:00000046 Sleep_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccfzdAqi.s:171    .text:00000070 __vector_6
 
 UNDEFINED SYMBOLS
 __do_clear_bss
