@@ -1,12 +1,11 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include "lowpower.h"
-#include "nrf24l01pv2.h"
+#include "nrf24l01p.h"
 #include "dataconv.h"
+#include "eeprom.h"
 #include "vsns.h"
-
-uint32_t last_val=0;
-uint8_t  state=0;
+#include "led.h"
 
 
 int main(void){
@@ -17,24 +16,22 @@ int main(void){
   DDRD&=~((1<<3)|(1<<2));
   PORTD|=(1<<3)|(1<<2);
   
-  nRF24L01P_Init();
+  nrf24l01p_init();
   Sleep_Init();
   Vsns_Init();
-  
+  led_init();
   
   while(1){
-      
 	    
-	    PORTD |=(1<<4);
+	    led_on();
 		uint8_t buf[32];
 		uint16_t val=Vsns_V_Read();
 		dataconv_dword_to_num(val, buf, 0);
 		buf[dataconv_dword_to_num_len()]='\r';
 		buf[dataconv_dword_to_num_len()+1]='\n';
-	    nRF24L01P_WakeUp();
-	    nRF24L01P_Transmit_Basic(buf,dataconv_dword_to_num_len()+2);
-	    nRF24L01P_Deep_Sleep();
-	    PORTD &=~(1<<4);
+	    nrf24l01p_tx_basic(buf,dataconv_dword_to_num_len()+2);
+	    nrf24l01p_mode_set(0);
+	    led_off();
 	    Deep_Sleep();
 		
     }

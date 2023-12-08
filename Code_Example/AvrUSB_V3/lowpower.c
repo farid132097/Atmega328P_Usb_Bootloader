@@ -18,7 +18,7 @@ void ADC_Disable(void){
 }
 
 void Analog_Comparator_Disable(void){
-  ACSR   &=~ (1<<ACD) ;
+  ACSR   |= (1<<ACD) ;
 }
 
 uint32_t WDT_Get_Ticks(void){

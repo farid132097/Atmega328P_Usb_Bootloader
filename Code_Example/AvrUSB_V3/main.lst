@@ -41,103 +41,94 @@
   49 002c 8C60      		ori r24,lo8(12)
   50 002e 8BB9      		out 43-32,r24
   51               	.LM6:
-  52 0030 0E94 0000 		call nRF24L01P_Init
+  52 0030 0E94 0000 		call nrf24l01p_init
   53               	.LM7:
   54 0034 0E94 0000 		call Sleep_Init
   55               	.LM8:
   56 0038 0E94 0000 		call Vsns_Init
-  57               	.LBB2:
-  58               	.LM9:
-  59 003c 8E01      		movw r16,r28
-  60 003e 0F5F      		subi r16,lo8(-(1))
-  61 0040 1F4F      		sbci r17,hi8(-(1))
-  62               	.LM10:
-  63 0042 2DE0      		ldi r18,lo8(13)
-  64 0044 C22E      		mov r12,r18
-  65               	.LM11:
-  66 0046 92E0      		ldi r25,lo8(2)
-  67 0048 E92E      		mov r14,r25
-  68 004a F12C      		mov r15,__zero_reg__
-  69 004c EC0E      		add r14,r28
-  70 004e FD1E      		adc r15,r29
-  71 0050 8AE0      		ldi r24,lo8(10)
-  72 0052 D82E      		mov r13,r24
-  73               	.L2:
-  74               	.LM12:
-  75 0054 5C9A      		sbi 43-32,4
+  57               	.LM9:
+  58 003c 0E94 0000 		call led_init
+  59               	.LBB2:
+  60               	.LM10:
+  61 0040 8E01      		movw r16,r28
+  62 0042 0F5F      		subi r16,lo8(-(1))
+  63 0044 1F4F      		sbci r17,hi8(-(1))
+  64               	.LM11:
+  65 0046 2DE0      		ldi r18,lo8(13)
+  66 0048 C22E      		mov r12,r18
+  67               	.LM12:
+  68 004a 92E0      		ldi r25,lo8(2)
+  69 004c E92E      		mov r14,r25
+  70 004e F12C      		mov r15,__zero_reg__
+  71 0050 EC0E      		add r14,r28
+  72 0052 FD1E      		adc r15,r29
+  73 0054 8AE0      		ldi r24,lo8(10)
+  74 0056 D82E      		mov r13,r24
+  75               	.L2:
   76               	.LM13:
-  77 0056 0E94 0000 		call Vsns_V_Read
+  77 0058 0E94 0000 		call led_on
   78               	.LM14:
-  79 005a A0E0      		ldi r26,lo8(0)
-  80 005c B0E0      		ldi r27,hi8(0)
-  81               	.LVL0:
-  82 005e BC01      		movw r22,r24
-  83 0060 CD01      		movw r24,r26
-  84               	.LVL1:
-  85 0062 A801      		movw r20,r16
-  86 0064 20E0      		ldi r18,lo8(0)
-  87 0066 0E94 0000 		call dataconv_dword_to_num
-  88               	.LVL2:
-  89               	.LM15:
-  90 006a 0E94 0000 		call dataconv_dword_to_num_len
-  91 006e F801      		movw r30,r16
-  92 0070 E80F      		add r30,r24
-  93 0072 F11D      		adc r31,__zero_reg__
-  94 0074 C082      		st Z,r12
-  95               	.LM16:
-  96 0076 0E94 0000 		call dataconv_dword_to_num_len
-  97 007a F701      		movw r30,r14
-  98 007c E80F      		add r30,r24
-  99 007e F11D      		adc r31,__zero_reg__
- 100 0080 D082      		st Z,r13
- 101               	.LM17:
- 102 0082 0E94 0000 		call nRF24L01P_WakeUp
+  79 005c 0E94 0000 		call Vsns_V_Read
+  80               	.LM15:
+  81 0060 A0E0      		ldi r26,lo8(0)
+  82 0062 B0E0      		ldi r27,hi8(0)
+  83               	.LVL0:
+  84 0064 BC01      		movw r22,r24
+  85 0066 CD01      		movw r24,r26
+  86               	.LVL1:
+  87 0068 A801      		movw r20,r16
+  88 006a 20E0      		ldi r18,lo8(0)
+  89 006c 0E94 0000 		call dataconv_dword_to_num
+  90               	.LVL2:
+  91               	.LM16:
+  92 0070 0E94 0000 		call dataconv_dword_to_num_len
+  93 0074 F801      		movw r30,r16
+  94 0076 E80F      		add r30,r24
+  95 0078 F11D      		adc r31,__zero_reg__
+  96 007a C082      		st Z,r12
+  97               	.LM17:
+  98 007c 0E94 0000 		call dataconv_dword_to_num_len
+  99 0080 F701      		movw r30,r14
+ 100 0082 E80F      		add r30,r24
+ 101 0084 F11D      		adc r31,__zero_reg__
+ 102 0086 D082      		st Z,r13
  103               	.LM18:
- 104 0086 0E94 0000 		call dataconv_dword_to_num_len
- 105 008a 682F      		mov r22,r24
- 106 008c 6E5F      		subi r22,lo8(-(2))
- 107 008e C801      		movw r24,r16
- 108 0090 0E94 0000 		call nRF24L01P_Transmit_Basic
+ 104 0088 0E94 0000 		call dataconv_dword_to_num_len
+ 105 008c 682F      		mov r22,r24
+ 106 008e 6E5F      		subi r22,lo8(-(2))
+ 107 0090 C801      		movw r24,r16
+ 108 0092 0E94 0000 		call nrf24l01p_tx_basic
  109               	.LM19:
- 110 0094 0E94 0000 		call nRF24L01P_Deep_Sleep
- 111               	.LM20:
- 112 0098 5C98      		cbi 43-32,4
- 113               	.LM21:
- 114 009a 0E94 0000 		call Deep_Sleep
- 115 009e 00C0      		rjmp .L2
- 116               	.LBE2:
- 117               	.LFE6:
- 119               	.global	last_val
- 120               	.global	last_val
- 121               		.section .bss
- 124               	last_val:
- 125 0000 0000 0000 		.skip 4,0
- 126               	.global	state
- 127               	.global	state
- 130               	state:
- 131 0004 00        		.skip 1,0
- 156               	.Letext0:
+ 110 0096 80E0      		ldi r24,lo8(0)
+ 111 0098 0E94 0000 		call nrf24l01p_mode_set
+ 112               	.LM20:
+ 113 009c 0E94 0000 		call led_off
+ 114               	.LM21:
+ 115 00a0 0E94 0000 		call Deep_Sleep
+ 116 00a4 00C0      		rjmp .L2
+ 117               	.LBE2:
+ 118               	.LFE6:
+ 144               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccgAxV2G.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccgAxV2G.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccgAxV2G.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccgAxV2G.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccgAxV2G.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccgAxV2G.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccgAxV2G.s:18     .text:00000000 main
-C:\Users\FARIDU~1\AppData\Local\Temp/ccgAxV2G.s:124    .bss:00000000 last_val
-C:\Users\FARIDU~1\AppData\Local\Temp/ccgAxV2G.s:130    .bss:00000004 state
+C:\Users\FARIDU~1\AppData\Local\Temp/cc5mi7B3.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc5mi7B3.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc5mi7B3.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc5mi7B3.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc5mi7B3.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc5mi7B3.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc5mi7B3.s:18     .text:00000000 main
 
 UNDEFINED SYMBOLS
-nRF24L01P_Init
+nrf24l01p_init
 Sleep_Init
 Vsns_Init
+led_init
+led_on
 Vsns_V_Read
 dataconv_dword_to_num
 dataconv_dword_to_num_len
-nRF24L01P_WakeUp
-nRF24L01P_Transmit_Basic
-nRF24L01P_Deep_Sleep
+nrf24l01p_tx_basic
+nrf24l01p_mode_set
+led_off
 Deep_Sleep
-__do_clear_bss

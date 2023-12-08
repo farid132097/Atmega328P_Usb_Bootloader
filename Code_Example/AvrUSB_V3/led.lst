@@ -1,0 +1,60 @@
+   1               		.file	"led.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	led_init
+  18               	led_init:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 549A      		sbi 42-32,4
+  25               	.LM3:
+  26 0002 5C98      		cbi 43-32,4
+  27               	/* epilogue start */
+  28               	.LM4:
+  29 0004 0895      		ret
+  30               	.LFE6:
+  32               	.global	led_on
+  34               	led_on:
+  35               	.LFB7:
+  36               	.LM5:
+  37               	/* prologue: function */
+  38               	/* frame size = 0 */
+  39               	.LM6:
+  40 0006 5C9A      		sbi 43-32,4
+  41               	/* epilogue start */
+  42               	.LM7:
+  43 0008 0895      		ret
+  44               	.LFE7:
+  46               	.global	led_off
+  48               	led_off:
+  49               	.LFB8:
+  50               	.LM8:
+  51               	/* prologue: function */
+  52               	/* frame size = 0 */
+  53               	.LM9:
+  54 000a 5C98      		cbi 43-32,4
+  55               	/* epilogue start */
+  56               	.LM10:
+  57 000c 0895      		ret
+  58               	.LFE8:
+ 100               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 led.c
+C:\Users\FARIDU~1\AppData\Local\Temp/ccqSWVSh.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccqSWVSh.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccqSWVSh.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccqSWVSh.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccqSWVSh.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccqSWVSh.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccqSWVSh.s:18     .text:00000000 led_init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccqSWVSh.s:34     .text:00000006 led_on
+C:\Users\FARIDU~1\AppData\Local\Temp/ccqSWVSh.s:48     .text:0000000a led_off
+
+NO UNDEFINED SYMBOLS
