@@ -143,7 +143,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1310
+.text           0x00000000     0x1326
  *(.vectors)
  .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vectors
@@ -260,24 +260,24 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000bce                tpi_write_block
                 0x00000b42                tpi_send_byte
                 0x00000b22                tpi_init
- .text          0x00000bf4      0x718 main.o
-                0x00000ec2                usbFunctionSetup
+ .text          0x00000bf4      0x72e main.o
+                0x00000ed8                usbFunctionSetup
                 0x00000bf4                main
-                0x00000dd4                usbFunctionRead
-                0x00000c1c                usbFunctionWrite
- .text          0x0000130c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text          0x0000130c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text          0x0000130c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x0000130c                . = ALIGN (0x2)
+                0x00000dea                usbFunctionRead
+                0x00000c32                usbFunctionWrite
+ .text          0x00001322        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00001322        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00001322        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00001322                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000130c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000130c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000130c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x0000130c                . = ALIGN (0x2)
+ .text.libgcc   0x00001322        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00001322        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00001322        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00001322                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000130c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000130c                exit
-                0x0000130c                _exit
+ .fini9         0x00001322        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00001322                exit
+                0x00001322                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -296,11 +296,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000130c        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001322        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001310                _etext = .
+                0x00001326                _etext = .
 
-.data           0x00800100        0x2 load address 0x00001310
+.data           0x00800100        0x2 load address 0x00001326
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -359,8 +359,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  COMMON         0x00800148        0x2 tpi.o
                 0x00800148                tpi_dly_cnt
                 0x0080014a                PROVIDE (__bss_end, .)
-                0x00001310                __data_load_start = LOADADDR (.data)
-                0x00001312                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001326                __data_load_start = LOADADDR (.data)
+                0x00001328                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080014a        0x0
                 0x0080014a                PROVIDE (__noinit_start, .)

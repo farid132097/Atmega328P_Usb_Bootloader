@@ -60,8 +60,8 @@
   68               	.LBE32:
   69               	.LM7:
   70 0014 5C98      		cbi 43-32,4
-  71 0016 80E1      		ldi r24,lo8(10000)
-  72 0018 97E2      		ldi r25,hi8(10000)
+  71 0016 88E8      		ldi r24,lo8(5000)
+  72 0018 93E1      		ldi r25,hi8(5000)
   73               	.LVL2:
   74               	.L2:
   75               	.LBB33:
@@ -86,25 +86,15 @@
   94               	.LBE31:
   95               	.LBE33:
   96               	.LFE6:
-  98               	.global	val
-  99               		.section	.progmem.data,"a",@progbits
- 102               	val:
- 103 0000 16        		.byte	22
- 104 0001 0000 0000 		.skip 26999,0
- 104      0000 0000 
- 104      0000 0000 
- 104      0000 0000 
- 104      0000 0000 
- 129               	.Letext0:
+ 122               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccYM1xTv.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccYM1xTv.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccYM1xTv.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccYM1xTv.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccYM1xTv.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccYM1xTv.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccYM1xTv.s:18     .text:00000000 main
-C:\Users\FARIDU~1\AppData\Local\Temp/ccYM1xTv.s:102    .progmem.data:00000000 val
+C:\Users\farid\AppData\Local\Temp/ccWSKm85.s:2      *ABS*:0000003f __SREG__
+C:\Users\farid\AppData\Local\Temp/ccWSKm85.s:3      *ABS*:0000003e __SP_H__
+C:\Users\farid\AppData\Local\Temp/ccWSKm85.s:4      *ABS*:0000003d __SP_L__
+C:\Users\farid\AppData\Local\Temp/ccWSKm85.s:5      *ABS*:00000034 __CCP__
+C:\Users\farid\AppData\Local\Temp/ccWSKm85.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\farid\AppData\Local\Temp/ccWSKm85.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\farid\AppData\Local\Temp/ccWSKm85.s:18     .text:00000000 main
 
 NO UNDEFINED SYMBOLS

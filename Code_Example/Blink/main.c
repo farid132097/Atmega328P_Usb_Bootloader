@@ -1,11 +1,6 @@
 #include <avr/io.h>
 #include <util/delay.h>
-#include <avr/pgmspace.h>
 
-#define  OnDelay  10
-#define  OffDelay 1000
-
-uint8_t val[27000] PROGMEM={22};
 
 int main(void){
 
@@ -16,8 +11,8 @@ int main(void){
   
   while(1){
     PORTD |= (1<<4);
-	_delay_ms(OnDelay);
+	_delay_ms(10);
 	PORTD &=~(1<<4);
-	_delay_ms(OffDelay);
+	_delay_ms(500);
   }
 }

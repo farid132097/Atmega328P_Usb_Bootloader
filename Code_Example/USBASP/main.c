@@ -12,8 +12,11 @@
  * GND  -> slow (8khz SCK),
  * open -> software set speed (default is 375kHz SCK)
  */
+ 
+ 
 
 #include <avr/io.h>
+
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
 #include <avr/wdt.h>
@@ -24,6 +27,9 @@
 #include "clock.h"
 #include "tpi.h"
 #include "tpi_defs.h"
+
+
+#include <util/delay.h>
 
 static uchar replyBuffer[8];
 
@@ -311,12 +317,15 @@ int main(void) {
 	DDRD = ~(1 << 2);
 
 	/* output SE0 for USB reset */
-	DDRD = ~0;
+	//DDRD = ~0;
+	DDRD|=(1<<2)|(1<<3);
 	j = 0;
 	/* USB Reset by device only required on Watchdog Reset */
+	
+	_delay_ms(1000);
+	
 	while (--j) {
 		i = 0;
-		/* delay >10ms for USB reset */
 		while (--i)
 			;
 	}
