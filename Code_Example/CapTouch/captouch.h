@@ -78,6 +78,8 @@ int      CapTouch_Get_RawDifferentialADC(uint8_t current_channel);
 int 	 CapTouch_Get_Calibration_Value(uint8_t current_channel);
 int32_t  CapTouch_Get_Touch_Duration(uint8_t current_channel);
 uint8_t  CapTouch_Get_Touch_Response(uint8_t current_channel);
+uint8_t  CapTouch_Get_Long_Press_Reg(void);
+
 uint8_t  CapTouch_Get_Reference_Timer_Use_Flag(void);
 uint8_t  CapTouch_Get_ErrorCode(uint8_t current_channel);
 void 	 CapTouch_Get_Debug_Data(uint8_t current_channel, int *data_out);

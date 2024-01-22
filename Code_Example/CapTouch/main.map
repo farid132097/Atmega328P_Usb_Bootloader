@@ -16,7 +16,7 @@ c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
 Allocating common symbols
 Common symbol       size              file
 
-CapTouch            0x36              captouch.o
+CapTouch            0x38              captouch.o
 debug               0x2d              debug.o
 IIR_LPF             0x36              captouch.o
 
@@ -133,7 +133,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x149e
+.text           0x00000000     0x14ce
  *(.vectors)
  .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vectors
@@ -213,131 +213,132 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x000000a2                __vector_10
                 0x000000a2                __vector_18
                 0x000000a2                __vector_20
- .text          0x000000a6       0x5c main.o
+ .text          0x000000a6       0x76 main.o
                 0x000000a6                main
- .text          0x00000102      0x772 debug.o
-                0x000001e0                debug_delay_index_1
-                0x000006fe                debug_tx_parameter_bin_nl
-                0x000005f8                debug_tx_number_bin_nl
-                0x000005c8                debug_tx_number_cm
-                0x0000074a                Debug_tx_parameter_bin_cm
-                0x000004ce                debug_tx_text_cm
-                0x000004d8                debug_determine_digit_numbers
-                0x00000102                debug_struct_init
-                0x0000017a                debug_timer_stop
-                0x000007c2                debug_available_bytes_rx_buf
-                0x000005d6                debug_tx_number_hex_nl
-                0x00000770                debug_buf_get
-                0x000002ac                debug_rx_byte
-                0x00000782                debug_flush_buf
-                0x0000077c                debug_buf_index_get
-                0x000005ea                debug_tx_number_hex_cm
-                0x0000061a                debug_tx_parameter_nl
-                0x000005be                debug_tx_number_sp
-                0x000004ba                debug_tx_text_nl
-                0x00000196                debug_tx_set
-                0x000006d8                Debug_tx_parameter_hex_cm
-                0x00000494                debug_tx_text
-                0x00000602                debug_tx_number_bin_sp
-                0x00000192                debug_tx_low
-                0x00000160                debug_timer_start
-                0x00000666                debug_tx_parameter_cm
-                0x0000030a                debug_rx_byte_clear
-                0x000001d2                debug_delay_index_0
-                0x00000578                debug_tx_number
-                0x00000310                debug_rx_byte_set
-                0x000003ca                debug_tx_bin
-                0x000001b4                debug_delay
-                0x000007d6                __vector_4
-                0x000001ee                debug_delay_index_2
-                0x00000484                debug_tx_sp
-                0x000007c8                debug_init
-                0x00000184                debug_gpio_init
-                0x000004c4                debug_tx_text_sp
-                0x00000476                debug_tx_nl
-                0x0000018e                debug_tx_high
-                0x000005b4                debug_tx_number_nl
-                0x00000640                debug_tx_parameter_sp
-                0x000006b2                debug_tx_parameter_hex_sp
-                0x000001fc                debug_tx_byte
-                0x0000060c                debug_tx_number_bin_cm
-                0x000005e0                debug_tx_number_hex_sp
-                0x00000724                debug_tx_parameter_bin_sp
-                0x0000048c                debug_tx_cm
-                0x0000079c                debug_databsy_get
-                0x0000068c                debug_tx_parameter_hex_nl
-                0x00000316                debug_tx_hex
-                0x000007a2                debug_data_available_rx_buf
-                0x00000304                debug_rx_byte_get
-                0x0000013a                debug_timings_init
-                0x00000854                __vector_16
-                0x00000556                debug_tx_number_digits
-                0x000001a2                debug_rx_get
- .text          0x00000874      0xb6e captouch.o
-                0x0000098c                CapTouch_IIR_LPF_Set_Alpha
-                0x00001302                CapTouch_Get_Touch_Duration
-                0x000012de                CapTouch_Get_RawDifferentialADC
-                0x00000fee                CapTouch_Short_Pressed
-                0x00000ca0                CapTouch_Read_Delta
-                0x00000a94                CapTouch_Set_Key_Pin_Analog
-                0x00000b04                CapTouch_ADC_Wakeup
-                0x00000ae0                CapTouch_Set_Key_Pin_Output_High
-                0x000012f0                CapTouch_Get_Calibration_Value
-                0x0000095e                CapTouch_IIR_LPF_Struct_Init
-                0x00001340                CapTouch_Get_ErrorCode
-                0x0000134c                CapTouch_Get_Debug_Data
-                0x00000b1c                CapTouch_ADC_Sample
-                0x00000af6                CapTouch_ADC_Register_Config
-                0x00000b58                CapTouch_Precharge_SH_Cap
-                0x00000fa2                CapTouch_Scan_Sensors
-                0x00000d08                CapTouch_Calibration
-                0x000010e2                CapTouch_Short_Pressed_Filtered
-                0x00000b86                CapTouch_ADC_Sample1
-                0x00000bf8                CapTouch_Precharge_Button
-                0x00000e98                CapTouch_Check_Touch_Duration
-                0x000009c0                CapTouch_IIR_LPF_Get_Filtered_Value
-                0x00001094                CapTouch_Constant_Pressed
-                0x000012cc                CapTouch_Get_RawADC2
-                0x0000104e                CapTouch_Long_Pressed
-                0x000012ba                CapTouch_Get_RawADC1
-                0x00000b10                CapTouch_ADC_Sleep
-                0x0000132a                CapTouch_Get_Touch_Response
-                0x000009a6                CapTouch_IIR_LPF_Get_Alpha
-                0x00000ac8                CapTouch_Set_Key_Pin_Output_Low
-                0x000012a6                CapTouch_Set_Short_Press_Max_Time
-                0x000011a2                CapTouch_Long_Pressed_Filtered
-                0x00000874                CapTouch_Struct_Init
-                0x00000ab2                CapTouch_Set_Key_Pin_Output
-                0x000012b0                CapTouch_Set_Long_Press_Time
-                0x00000e4a                CapTouch_Check_Trigger
-                0x0000129c                CapTouch_Set_Short_Press_Min_Time
-                0x000013c8                CapTouch_Init
-                0x00000c24                CapTouch_ADC_Sample2
-                0x00001336                CapTouch_Get_Reference_Timer_Use_Flag
-                0x00000a7c                CapTouch_Set_Key_Pin_Input
-                0x00000e12                CapTouch_Response
- .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
- .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x000013e2                . = ALIGN (0x2)
+ .text          0x0000011c      0x772 debug.o
+                0x000001fa                debug_delay_index_1
+                0x00000718                debug_tx_parameter_bin_nl
+                0x00000612                debug_tx_number_bin_nl
+                0x000005e2                debug_tx_number_cm
+                0x00000764                Debug_tx_parameter_bin_cm
+                0x000004e8                debug_tx_text_cm
+                0x000004f2                debug_determine_digit_numbers
+                0x0000011c                debug_struct_init
+                0x00000194                debug_timer_stop
+                0x000007dc                debug_available_bytes_rx_buf
+                0x000005f0                debug_tx_number_hex_nl
+                0x0000078a                debug_buf_get
+                0x000002c6                debug_rx_byte
+                0x0000079c                debug_flush_buf
+                0x00000796                debug_buf_index_get
+                0x00000604                debug_tx_number_hex_cm
+                0x00000634                debug_tx_parameter_nl
+                0x000005d8                debug_tx_number_sp
+                0x000004d4                debug_tx_text_nl
+                0x000001b0                debug_tx_set
+                0x000006f2                Debug_tx_parameter_hex_cm
+                0x000004ae                debug_tx_text
+                0x0000061c                debug_tx_number_bin_sp
+                0x000001ac                debug_tx_low
+                0x0000017a                debug_timer_start
+                0x00000680                debug_tx_parameter_cm
+                0x00000324                debug_rx_byte_clear
+                0x000001ec                debug_delay_index_0
+                0x00000592                debug_tx_number
+                0x0000032a                debug_rx_byte_set
+                0x000003e4                debug_tx_bin
+                0x000001ce                debug_delay
+                0x000007f0                __vector_4
+                0x00000208                debug_delay_index_2
+                0x0000049e                debug_tx_sp
+                0x000007e2                debug_init
+                0x0000019e                debug_gpio_init
+                0x000004de                debug_tx_text_sp
+                0x00000490                debug_tx_nl
+                0x000001a8                debug_tx_high
+                0x000005ce                debug_tx_number_nl
+                0x0000065a                debug_tx_parameter_sp
+                0x000006cc                debug_tx_parameter_hex_sp
+                0x00000216                debug_tx_byte
+                0x00000626                debug_tx_number_bin_cm
+                0x000005fa                debug_tx_number_hex_sp
+                0x0000073e                debug_tx_parameter_bin_sp
+                0x000004a6                debug_tx_cm
+                0x000007b6                debug_databsy_get
+                0x000006a6                debug_tx_parameter_hex_nl
+                0x00000330                debug_tx_hex
+                0x000007bc                debug_data_available_rx_buf
+                0x0000031e                debug_rx_byte_get
+                0x00000154                debug_timings_init
+                0x0000086e                __vector_16
+                0x00000570                debug_tx_number_digits
+                0x000001bc                debug_rx_get
+ .text          0x0000088e      0xb84 captouch.o
+                0x000009ae                CapTouch_IIR_LPF_Set_Alpha
+                0x0000132c                CapTouch_Get_Touch_Duration
+                0x00001308                CapTouch_Get_RawDifferentialADC
+                0x00000fc4                CapTouch_Short_Pressed
+                0x00000cc2                CapTouch_Read_Delta
+                0x00000ab6                CapTouch_Set_Key_Pin_Analog
+                0x00000b26                CapTouch_ADC_Wakeup
+                0x00000b02                CapTouch_Set_Key_Pin_Output_High
+                0x0000131a                CapTouch_Get_Calibration_Value
+                0x00000980                CapTouch_IIR_LPF_Struct_Init
+                0x00001370                CapTouch_Get_ErrorCode
+                0x0000137c                CapTouch_Get_Debug_Data
+                0x00000b3e                CapTouch_ADC_Sample
+                0x00000b18                CapTouch_ADC_Register_Config
+                0x00000b7a                CapTouch_Precharge_SH_Cap
+                0x00001276                CapTouch_Scan_Sensors
+                0x00000d2a                CapTouch_Calibration
+                0x000010b8                CapTouch_Short_Pressed_Filtered
+                0x00000ba8                CapTouch_ADC_Sample1
+                0x00000c1a                CapTouch_Precharge_Button
+                0x00000eba                CapTouch_Check_Touch_Duration
+                0x00001360                CapTouch_Get_Long_Press_Reg
+                0x000009e2                CapTouch_IIR_LPF_Get_Filtered_Value
+                0x0000106a                CapTouch_Constant_Pressed
+                0x000012f6                CapTouch_Get_RawADC2
+                0x00001024                CapTouch_Long_Pressed
+                0x000012e4                CapTouch_Get_RawADC1
+                0x00000b32                CapTouch_ADC_Sleep
+                0x00001354                CapTouch_Get_Touch_Response
+                0x000009c8                CapTouch_IIR_LPF_Get_Alpha
+                0x00000aea                CapTouch_Set_Key_Pin_Output_Low
+                0x000012d0                CapTouch_Set_Short_Press_Max_Time
+                0x00001178                CapTouch_Long_Pressed_Filtered
+                0x0000088e                CapTouch_Struct_Init
+                0x00000ad4                CapTouch_Set_Key_Pin_Output
+                0x000012da                CapTouch_Set_Long_Press_Time
+                0x00000e6c                CapTouch_Check_Trigger
+                0x000012c6                CapTouch_Set_Short_Press_Min_Time
+                0x000013f8                CapTouch_Init
+                0x00000c46                CapTouch_ADC_Sample2
+                0x00001366                CapTouch_Get_Reference_Timer_Use_Flag
+                0x00000a9e                CapTouch_Set_Key_Pin_Input
+                0x00000e34                CapTouch_Response
+ .text          0x00001412        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .text          0x00001412        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x00001412        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .text          0x00001412        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00001412        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00001412        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00001412                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000013e2       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x000013e2                __mulsi3
- .text.libgcc   0x00001420       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00001420                __udivmodsi4
- .text.libgcc   0x00001464       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
-                0x00001464                __divmodsi4
- .text.libgcc   0x0000149a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000149a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000149a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x0000149a                . = ALIGN (0x2)
+ .text.libgcc   0x00001412       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x00001412                __mulsi3
+ .text.libgcc   0x00001450       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001450                __udivmodsi4
+ .text.libgcc   0x00001494       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                0x00001494                __divmodsi4
+ .text.libgcc   0x000014ca        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000014ca        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000014ca        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x000014ca                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000149a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000149a                exit
-                0x0000149a                _exit
+ .fini9         0x000014ca        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000014ca                exit
+                0x000014ca                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -356,11 +357,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000149a        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000014ca        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000149e                _etext = .
+                0x000014ce                _etext = .
 
-.data           0x00800100       0x32 load address 0x0000149e
+.data           0x00800100       0x32 load address 0x000014ce
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -385,7 +386,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00800132                _edata = .
                 0x00800132                PROVIDE (__data_end, .)
 
-.bss            0x00800132       0x99
+.bss            0x00800132       0x9b
                 0x00800132                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -402,19 +403,19 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(COMMON)
  COMMON         0x00800132       0x2d debug.o
                 0x00800132                debug
- COMMON         0x0080015f       0x6c captouch.o
+ COMMON         0x0080015f       0x6e captouch.o
                 0x0080015f                CapTouch
-                0x00800195                IIR_LPF
-                0x008001cb                PROVIDE (__bss_end, .)
-                0x0000149e                __data_load_start = LOADADDR (.data)
-                0x000014d0                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800197                IIR_LPF
+                0x008001cd                PROVIDE (__bss_end, .)
+                0x000014ce                __data_load_start = LOADADDR (.data)
+                0x00001500                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008001cb        0x0
-                0x008001cb                PROVIDE (__noinit_start, .)
+.noinit         0x008001cd        0x0
+                0x008001cd                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008001cb                PROVIDE (__noinit_end, .)
-                0x008001cb                _end = .
-                0x008001cb                PROVIDE (__heap_start, .)
+                0x008001cd                PROVIDE (__noinit_end, .)
+                0x008001cd                _end = .
+                0x008001cd                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -475,54 +476,54 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000040       0x20 captouch.o
 
 .debug_pubnames
-                0x00000000      0xaaf
+                0x00000000      0xacf
  *(.debug_pubnames)
  .debug_pubnames
                 0x00000000       0x1b main.o
  .debug_pubnames
                 0x0000001b      0x568 debug.o
  .debug_pubnames
-                0x00000583      0x52c captouch.o
+                0x00000583      0x54c captouch.o
 
-.debug_info     0x00000000     0x1aad
+.debug_info     0x00000000     0x1ac1
  *(.debug_info)
- .debug_info    0x00000000      0x141 main.o
- .debug_info    0x00000141      0xc54 debug.o
- .debug_info    0x00000d95      0xd18 captouch.o
+ .debug_info    0x00000000      0x11d main.o
+ .debug_info    0x0000011d      0xc54 debug.o
+ .debug_info    0x00000d71      0xd50 captouch.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x64e
+.debug_abbrev   0x00000000      0x64d
  *(.debug_abbrev)
- .debug_abbrev  0x00000000       0xc2 main.o
- .debug_abbrev  0x000000c2      0x288 debug.o
- .debug_abbrev  0x0000034a      0x304 captouch.o
+ .debug_abbrev  0x00000000       0xaa main.o
+ .debug_abbrev  0x000000aa      0x288 debug.o
+ .debug_abbrev  0x00000332      0x31b captouch.o
 
-.debug_line     0x00000000     0x149b
+.debug_line     0x00000000     0x14be
  *(.debug_line)
  .debug_line    0x00000000      0x152 main.o
  .debug_line    0x00000152      0xa9c debug.o
- .debug_line    0x00000bee      0x8ad captouch.o
+ .debug_line    0x00000bee      0x8d0 captouch.o
 
-.debug_frame    0x00000000      0x670
+.debug_frame    0x00000000      0x680
  *(.debug_frame)
  .debug_frame   0x00000000       0x20 main.o
  .debug_frame   0x00000020      0x3a0 debug.o
- .debug_frame   0x000003c0      0x2b0 captouch.o
+ .debug_frame   0x000003c0      0x2c0 captouch.o
 
-.debug_str      0x00000000      0xb77
+.debug_str      0x00000000      0xbae
  *(.debug_str)
- .debug_str     0x00000000       0xf9 main.o
-                                0x133 (size before relaxing)
- .debug_str     0x000000f9      0x4d7 debug.o
+ .debug_str     0x00000000       0xf1 main.o
+                                0x12b (size before relaxing)
+ .debug_str     0x000000f1      0x4df debug.o
                                 0x5d8 (size before relaxing)
- .debug_str     0x000005d0      0x5a7 captouch.o
-                                0x6da (size before relaxing)
+ .debug_str     0x000005d0      0x5de captouch.o
+                                0x711 (size before relaxing)
 
-.debug_loc      0x00000000      0xce2
+.debug_loc      0x00000000      0xcae
  *(.debug_loc)
- .debug_loc     0x00000000       0x5c main.o
- .debug_loc     0x0000005c      0x767 debug.o
- .debug_loc     0x000007c3      0x51f captouch.o
+ .debug_loc     0x00000000       0x28 main.o
+ .debug_loc     0x00000028      0x767 debug.o
+ .debug_loc     0x0000078f      0x51f captouch.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -550,6 +551,8 @@ CapTouch_Constant_Pressed                         captouch.o
 CapTouch_Get_Calibration_Value                    captouch.o
 CapTouch_Get_Debug_Data                           captouch.o
 CapTouch_Get_ErrorCode                            captouch.o
+CapTouch_Get_Long_Press_Reg                       captouch.o
+                                                  main.o
 CapTouch_Get_RawADC1                              captouch.o
 CapTouch_Get_RawADC2                              captouch.o
 CapTouch_Get_RawDifferentialADC                   captouch.o
@@ -564,7 +567,6 @@ CapTouch_Init                                     captouch.o
                                                   main.o
 CapTouch_Long_Pressed                             captouch.o
 CapTouch_Long_Pressed_Filtered                    captouch.o
-                                                  main.o
 CapTouch_Pins                                     captouch.o
 CapTouch_Precharge_Button                         captouch.o
 CapTouch_Precharge_SH_Cap                         captouch.o
@@ -683,6 +685,7 @@ debug_tx_number_hex_cm                            debug.o
 debug_tx_number_hex_nl                            debug.o
 debug_tx_number_hex_sp                            debug.o
 debug_tx_number_nl                                debug.o
+                                                  main.o
 debug_tx_number_sp                                debug.o
 debug_tx_parameter_bin_nl                         debug.o
 debug_tx_parameter_bin_sp                         debug.o

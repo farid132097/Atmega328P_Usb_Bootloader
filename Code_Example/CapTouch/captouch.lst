@@ -51,7 +51,7 @@
   59               	.LM13:
   60 005c 1092 0000 		sts CapTouch+49,__zero_reg__
   61               	.LM14:
-  62 0060 1092 0000 		sts CapTouch+52,__zero_reg__
+  62 0060 1092 0000 		sts CapTouch+54,__zero_reg__
   63               	.LM15:
   64 0064 1092 0000 		sts CapTouch+2,__zero_reg__
   65               	.LM16:
@@ -86,2099 +86,2117 @@
   94               	.LM25:
   95 00b8 1092 0000 		sts CapTouch+50,__zero_reg__
   96               	.LM26:
-  97 00bc 1092 0000 		sts CapTouch+53,__zero_reg__
-  98 00c0 1092 0000 		sts CapTouch+51,__zero_reg__
-  99 00c4 84E6      		ldi r24,lo8(100)
- 100 00c6 90E0      		ldi r25,hi8(100)
- 101 00c8 9093 0000 		sts (CapTouch+47)+1,r25
- 102 00cc 8093 0000 		sts CapTouch+47,r24
- 103 00d0 82E3      		ldi r24,lo8(50)
- 104 00d2 90E0      		ldi r25,hi8(50)
- 105 00d4 9093 0000 		sts (CapTouch+45)+1,r25
- 106 00d8 8093 0000 		sts CapTouch+45,r24
- 107 00dc 82E0      		ldi r24,lo8(2)
- 108 00de 90E0      		ldi r25,hi8(2)
- 109 00e0 9093 0000 		sts (CapTouch+43)+1,r25
- 110 00e4 8093 0000 		sts CapTouch+43,r24
- 111               	/* epilogue start */
- 112               	.LBE55:
- 113               	.LM27:
- 114 00e8 0895      		ret
- 115               	.LFE6:
- 117               	.global	CapTouch_IIR_LPF_Struct_Init
- 119               	CapTouch_IIR_LPF_Struct_Init:
- 120               	.LFB7:
- 121               	.LM28:
- 122               	/* prologue: function */
- 123               	/* frame size = 0 */
- 124               	.LM29:
- 125 00ea E0E0      		ldi r30,lo8(IIR_LPF)
- 126 00ec F0E0      		ldi r31,hi8(IIR_LPF)
- 127 00ee 92E0      		ldi r25,lo8(2)
- 128               	.LVL0:
- 129 00f0 80E0      		ldi r24,lo8(0)
- 130               	.LVL1:
- 131               	.LBB56:
- 132               	.LM30:
- 133 00f2 22E3      		ldi r18,lo8(50)
- 134               	.L5:
- 135 00f4 2083      		st Z,r18
- 136               	.LM31:
- 137 00f6 1182      		std Z+1,__zero_reg__
- 138 00f8 1282      		std Z+2,__zero_reg__
- 139 00fa 1382      		std Z+3,__zero_reg__
- 140 00fc 1482      		std Z+4,__zero_reg__
- 141               	.LM32:
- 142 00fe 1582      		std Z+5,__zero_reg__
- 143 0100 1682      		std Z+6,__zero_reg__
- 144 0102 1782      		std Z+7,__zero_reg__
- 145 0104 1086      		std Z+8,__zero_reg__
- 146               	.LM33:
- 147 0106 8917      		cp r24,r25
- 148 0108 01F4      		brne .L4
- 149               	.LM34:
- 150 010a 982F      		mov r25,r24
- 151 010c 9D5F      		subi r25,lo8(-(3))
- 152               	.L4:
- 153               	.LM35:
- 154 010e 8F5F      		subi r24,lo8(-(1))
- 155 0110 3996      		adiw r30,9
- 156 0112 8630      		cpi r24,lo8(6)
- 157 0114 01F4      		brne .L5
- 158               	/* epilogue start */
- 159               	.LBE56:
- 160               	.LM36:
- 161 0116 0895      		ret
- 162               	.LFE7:
- 164               	.global	CapTouch_IIR_LPF_Set_Alpha
- 166               	CapTouch_IIR_LPF_Set_Alpha:
- 167               	.LFB8:
- 168               	.LM37:
- 169               	.LVL2:
- 170               	/* prologue: function */
- 171               	/* frame size = 0 */
- 172               	.LM38:
- 173 0118 90E0      		ldi r25,lo8(0)
- 174               	.LVL3:
- 175 011a FC01      		movw r30,r24
- 176 011c 23E0      		ldi r18,3
- 177 011e EE0F      	1:	lsl r30
- 178 0120 FF1F      		rol r31
- 179 0122 2A95      		dec r18
- 180 0124 01F4      		brne 1b
- 181 0126 E80F      		add r30,r24
- 182 0128 F91F      		adc r31,r25
- 183 012a E050      		subi r30,lo8(-(IIR_LPF))
- 184 012c F040      		sbci r31,hi8(-(IIR_LPF))
- 185 012e 6083      		st Z,r22
- 186               	/* epilogue start */
- 187               	.LM39:
- 188 0130 0895      		ret
- 189               	.LFE8:
- 191               	.global	CapTouch_IIR_LPF_Get_Alpha
- 193               	CapTouch_IIR_LPF_Get_Alpha:
- 194               	.LFB9:
- 195               	.LM40:
- 196               	.LVL4:
- 197               	/* prologue: function */
- 198               	/* frame size = 0 */
- 199               	.LM41:
- 200 0132 90E0      		ldi r25,lo8(0)
- 201               	.LVL5:
- 202 0134 FC01      		movw r30,r24
- 203 0136 33E0      		ldi r19,3
- 204 0138 EE0F      	1:	lsl r30
- 205 013a FF1F      		rol r31
- 206 013c 3A95      		dec r19
- 207 013e 01F4      		brne 1b
- 208 0140 E80F      		add r30,r24
- 209 0142 F91F      		adc r31,r25
- 210 0144 E050      		subi r30,lo8(-(IIR_LPF))
- 211 0146 F040      		sbci r31,hi8(-(IIR_LPF))
- 212               	.LM42:
- 213 0148 8081      		ld r24,Z
- 214               	.LVL6:
- 215               	/* epilogue start */
- 216 014a 0895      		ret
- 217               	.LFE9:
- 219               	.global	CapTouch_IIR_LPF_Get_Filtered_Value
- 221               	CapTouch_IIR_LPF_Get_Filtered_Value:
- 222               	.LFB10:
- 223               	.LM43:
- 224               	.LVL7:
- 225 014c 6F92      		push r6
- 226 014e 7F92      		push r7
- 227 0150 8F92      		push r8
- 228 0152 9F92      		push r9
- 229 0154 AF92      		push r10
- 230 0156 BF92      		push r11
- 231 0158 CF92      		push r12
- 232 015a DF92      		push r13
- 233 015c EF92      		push r14
- 234 015e FF92      		push r15
- 235 0160 0F93      		push r16
- 236 0162 1F93      		push r17
- 237               	/* prologue: function */
- 238               	/* frame size = 0 */
- 239 0164 5A01      		movw r10,r20
- 240 0166 6B01      		movw r12,r22
- 241               	.LBB57:
- 242               	.LBB58:
- 243               	.LM44:
- 244 0168 90E0      		ldi r25,lo8(0)
- 245               	.LBE58:
- 246               	.LBE57:
- 247               	.LM45:
- 248 016a 4C01      		movw r8,r24
- 249               	.LVL8:
- 250 016c 73E0      		ldi r23,3
- 251 016e 880C      	1:	lsl r8
- 252 0170 991C      		rol r9
- 253 0172 7A95      		dec r23
- 254 0174 01F4      		brne 1b
- 255 0176 880E      		add r8,r24
- 256 0178 991E      		adc r9,r25
- 257 017a 80E0      		ldi r24,lo8(IIR_LPF)
- 258 017c 90E0      		ldi r25,hi8(IIR_LPF)
- 259 017e 880E      		add r8,r24
- 260 0180 991E      		adc r9,r25
- 261 0182 F401      		movw r30,r8
- 262 0184 2081      		ld r18,Z
- 263 0186 30E0      		ldi r19,lo8(0)
- 264               	.LVL9:
- 265 0188 40E0      		ldi r20,lo8(0)
- 266 018a 50E0      		ldi r21,hi8(0)
- 267               	.LVL10:
- 268               	.LM46:
- 269 018c 64E6      		ldi r22,lo8(100)
- 270 018e E62E      		mov r14,r22
- 271 0190 F12C      		mov r15,__zero_reg__
- 272 0192 012D      		mov r16,__zero_reg__
- 273 0194 112D      		mov r17,__zero_reg__
- 274 0196 E21A      		sub r14,r18
- 275 0198 F30A      		sbc r15,r19
- 276 019a 040B      		sbc r16,r20
- 277 019c 150B      		sbc r17,r21
- 278               	.LVL11:
- 279               	.LM47:
- 280 019e C601      		movw r24,r12
- 281 01a0 B501      		movw r22,r10
- 282 01a2 0E94 0000 		call __mulsi3
- 283               	.LVL12:
- 284 01a6 5B01      		movw r10,r22
- 285 01a8 6C01      		movw r12,r24
- 286               	.LVL13:
- 287 01aa 45E0      		ldi r20,lo8(5)
- 288 01ac 642E      		mov r6,r20
- 289 01ae 712C      		mov r7,__zero_reg__
- 290               	.LVL14:
- 291 01b0 680C      		add r6,r8
- 292 01b2 791C      		adc r7,r9
- 293 01b4 F401      		movw r30,r8
- 294 01b6 2581      		ldd r18,Z+5
- 295 01b8 3681      		ldd r19,Z+6
- 296 01ba 4781      		ldd r20,Z+7
- 297 01bc 5085      		ldd r21,Z+8
- 298 01be C801      		movw r24,r16
- 299 01c0 B701      		movw r22,r14
- 300 01c2 0E94 0000 		call __mulsi3
- 301 01c6 A60E      		add r10,r22
- 302 01c8 B71E      		adc r11,r23
- 303 01ca C81E      		adc r12,r24
- 304 01cc D91E      		adc r13,r25
- 305 01ce C601      		movw r24,r12
- 306 01d0 B501      		movw r22,r10
- 307 01d2 24E6      		ldi r18,lo8(100)
- 308 01d4 30E0      		ldi r19,hi8(100)
- 309 01d6 40E0      		ldi r20,hlo8(100)
- 310 01d8 50E0      		ldi r21,hhi8(100)
- 311 01da 0E94 0000 		call __divmodsi4
- 312 01de CA01      		movw r24,r20
- 313 01e0 F401      		movw r30,r8
- 314 01e2 2583      		std Z+5,r18
- 315 01e4 F301      		movw r30,r6
- 316 01e6 3183      		std Z+1,r19
- 317               	.LVL15:
- 318 01e8 4283      		std Z+2,r20
- 319 01ea 9383      		std Z+3,r25
- 320               	.LM48:
- 321 01ec B901      		movw r22,r18
- 322               	/* epilogue start */
- 323 01ee 1F91      		pop r17
- 324 01f0 0F91      		pop r16
- 325 01f2 FF90      		pop r15
- 326 01f4 EF90      		pop r14
- 327 01f6 DF90      		pop r13
- 328 01f8 CF90      		pop r12
- 329 01fa BF90      		pop r11
- 330 01fc AF90      		pop r10
- 331 01fe 9F90      		pop r9
- 332 0200 8F90      		pop r8
- 333 0202 7F90      		pop r7
- 334 0204 6F90      		pop r6
- 335 0206 0895      		ret
- 336               	.LFE10:
- 338               	.global	CapTouch_Set_Key_Pin_Input
- 340               	CapTouch_Set_Key_Pin_Input:
- 341               	.LFB11:
- 342               	.LM49:
- 343               	.LVL16:
- 344               	/* prologue: function */
- 345               	/* frame size = 0 */
- 346               	.LM50:
- 347 0208 97B1      		in r25,39-32
- 348 020a 21E0      		ldi r18,lo8(1)
- 349 020c 30E0      		ldi r19,hi8(1)
- 350 020e 00C0      		rjmp 2f
- 351 0210 220F      	1:	lsl r18
- 352 0212 331F      		rol r19
- 353 0214 8A95      	2:	dec r24
- 354 0216 02F4      		brpl 1b
- 355 0218 2095      		com r18
- 356 021a 2923      		and r18,r25
- 357 021c 27B9      		out 39-32,r18
- 358               	/* epilogue start */
- 359               	.LM51:
- 360 021e 0895      		ret
- 361               	.LFE11:
- 363               	.global	CapTouch_Set_Key_Pin_Analog
- 365               	CapTouch_Set_Key_Pin_Analog:
- 366               	.LFB12:
- 367               	.LM52:
- 368               	.LVL17:
- 369               	/* prologue: function */
- 370               	/* frame size = 0 */
- 371               	.LM53:
- 372 0220 97B1      		in r25,39-32
- 373 0222 21E0      		ldi r18,lo8(1)
- 374 0224 30E0      		ldi r19,hi8(1)
- 375 0226 00C0      		rjmp 2f
- 376 0228 220F      	1:	lsl r18
- 377 022a 331F      		rol r19
- 378 022c 8A95      	2:	dec r24
- 379 022e 02F4      		brpl 1b
- 380 0230 2095      		com r18
- 381 0232 9223      		and r25,r18
- 382 0234 97B9      		out 39-32,r25
- 383               	.LM54:
- 384 0236 88B1      		in r24,40-32
- 385               	.LVL18:
- 386 0238 2823      		and r18,r24
- 387 023a 28B9      		out 40-32,r18
- 388               	/* epilogue start */
- 389               	.LM55:
- 390 023c 0895      		ret
- 391               	.LFE12:
- 393               	.global	CapTouch_Set_Key_Pin_Output
- 395               	CapTouch_Set_Key_Pin_Output:
- 396               	.LFB13:
- 397               	.LM56:
- 398               	.LVL19:
- 399               	/* prologue: function */
- 400               	/* frame size = 0 */
- 401               	.LM57:
- 402 023e 97B1      		in r25,39-32
- 403 0240 21E0      		ldi r18,lo8(1)
- 404 0242 30E0      		ldi r19,hi8(1)
- 405 0244 00C0      		rjmp 2f
- 406 0246 220F      	1:	lsl r18
- 407 0248 331F      		rol r19
- 408 024a 8A95      	2:	dec r24
- 409 024c 02F4      		brpl 1b
- 410 024e 922B      		or r25,r18
- 411 0250 97B9      		out 39-32,r25
- 412               	/* epilogue start */
- 413               	.LM58:
- 414 0252 0895      		ret
- 415               	.LFE13:
- 417               	.global	CapTouch_Set_Key_Pin_Output_Low
- 419               	CapTouch_Set_Key_Pin_Output_Low:
- 420               	.LFB14:
- 421               	.LM59:
- 422               	.LVL20:
- 423               	/* prologue: function */
- 424               	/* frame size = 0 */
- 425               	.LM60:
- 426 0254 98B1      		in r25,40-32
- 427 0256 21E0      		ldi r18,lo8(1)
- 428 0258 30E0      		ldi r19,hi8(1)
- 429 025a 00C0      		rjmp 2f
- 430 025c 220F      	1:	lsl r18
- 431 025e 331F      		rol r19
- 432 0260 8A95      	2:	dec r24
- 433 0262 02F4      		brpl 1b
- 434 0264 2095      		com r18
- 435 0266 2923      		and r18,r25
- 436 0268 28B9      		out 40-32,r18
- 437               	/* epilogue start */
- 438               	.LM61:
- 439 026a 0895      		ret
- 440               	.LFE14:
- 442               	.global	CapTouch_Set_Key_Pin_Output_High
- 444               	CapTouch_Set_Key_Pin_Output_High:
- 445               	.LFB15:
- 446               	.LM62:
- 447               	.LVL21:
- 448               	/* prologue: function */
- 449               	/* frame size = 0 */
- 450               	.LM63:
- 451 026c 98B1      		in r25,40-32
- 452 026e 21E0      		ldi r18,lo8(1)
- 453 0270 30E0      		ldi r19,hi8(1)
- 454 0272 00C0      		rjmp 2f
- 455 0274 220F      	1:	lsl r18
- 456 0276 331F      		rol r19
- 457 0278 8A95      	2:	dec r24
- 458 027a 02F4      		brpl 1b
- 459 027c 922B      		or r25,r18
- 460 027e 98B9      		out 40-32,r25
- 461               	/* epilogue start */
- 462               	.LM64:
- 463 0280 0895      		ret
- 464               	.LFE15:
- 466               	.global	CapTouch_ADC_Register_Config
- 468               	CapTouch_ADC_Register_Config:
- 469               	.LFB16:
- 470               	.LM65:
- 471               	/* prologue: function */
- 472               	/* frame size = 0 */
- 473               	.LM66:
- 474 0282 80E4      		ldi r24,lo8(64)
- 475 0284 8093 7C00 		sts 124,r24
- 476               	.LM67:
- 477 0288 87E8      		ldi r24,lo8(-121)
- 478 028a 8093 7A00 		sts 122,r24
- 479               	/* epilogue start */
- 480               	.LM68:
- 481 028e 0895      		ret
- 482               	.LFE16:
- 484               	.global	CapTouch_ADC_Wakeup
- 486               	CapTouch_ADC_Wakeup:
- 487               	.LFB17:
- 488               	.LM69:
- 489               	/* prologue: function */
- 490               	/* frame size = 0 */
- 491               	.LM70:
- 492 0290 EAE7      		ldi r30,lo8(122)
- 493 0292 F0E0      		ldi r31,hi8(122)
- 494 0294 8081      		ld r24,Z
- 495 0296 8068      		ori r24,lo8(-128)
- 496 0298 8083      		st Z,r24
- 497               	/* epilogue start */
- 498               	.LM71:
- 499 029a 0895      		ret
- 500               	.LFE17:
- 502               	.global	CapTouch_ADC_Sleep
- 504               	CapTouch_ADC_Sleep:
- 505               	.LFB18:
- 506               	.LM72:
- 507               	/* prologue: function */
- 508               	/* frame size = 0 */
- 509               	.LM73:
- 510 029c EAE7      		ldi r30,lo8(122)
- 511 029e F0E0      		ldi r31,hi8(122)
- 512 02a0 8081      		ld r24,Z
- 513 02a2 8F77      		andi r24,lo8(127)
- 514 02a4 8083      		st Z,r24
- 515               	/* epilogue start */
- 516               	.LM74:
- 517 02a6 0895      		ret
- 518               	.LFE18:
- 520               	.global	CapTouch_ADC_Sample
- 522               	CapTouch_ADC_Sample:
- 523               	.LFB19:
- 524               	.LM75:
- 525               	.LVL22:
- 526               	/* prologue: function */
- 527               	/* frame size = 0 */
- 528               	.LM76:
- 529 02a8 8064      		ori r24,lo8(64)
- 530               	.LVL23:
- 531 02aa 8093 7C00 		sts 124,r24
- 532               	.LM77:
- 533 02ae 8091 7A00 		lds r24,122
- 534 02b2 8738      		cpi r24,lo8(-121)
- 535 02b4 01F0      		breq .L31
- 536               	.LM78:
- 537 02b6 87E8      		ldi r24,lo8(-121)
- 538 02b8 8093 7A00 		sts 122,r24
- 539               	.L31:
- 540               	.LM79:
- 541 02bc 8091 7A00 		lds r24,122
- 542 02c0 8064      		ori r24,lo8(64)
- 543 02c2 8093 7A00 		sts 122,r24
- 544               	.L32:
- 545               	.LM80:
- 546 02c6 8091 7A00 		lds r24,122
- 547 02ca 84FF      		sbrs r24,4
- 548 02cc 00C0      		rjmp .L32
- 549               	.LM81:
- 550 02ce 8091 7A00 		lds r24,122
- 551 02d2 8061      		ori r24,lo8(16)
- 552 02d4 8093 7A00 		sts 122,r24
- 553               	.LM82:
- 554 02d8 2091 7800 		lds r18,120
- 555 02dc 3091 7900 		lds r19,(120)+1
- 556               	.LM83:
- 557 02e0 C901      		movw r24,r18
- 558               	/* epilogue start */
- 559 02e2 0895      		ret
- 560               	.LFE19:
- 562               	.global	CapTouch_Precharge_SH_Cap
- 564               	CapTouch_Precharge_SH_Cap:
- 565               	.LFB20:
- 566               	.LM84:
- 567               	.LVL24:
- 568               	/* prologue: function */
- 569               	/* frame size = 0 */
- 570               	.LBB59:
- 571               	.LBB60:
- 572               	.LM85:
- 573 02e4 27B1      		in r18,39-32
- 574 02e6 E0E0      		ldi r30,lo8(CapTouch_Pins)
- 575 02e8 F0E0      		ldi r31,hi8(CapTouch_Pins)
- 576 02ea E80F      		add r30,r24
- 577 02ec F11D      		adc r31,__zero_reg__
- 578 02ee 81E0      		ldi r24,lo8(1)
- 579 02f0 90E0      		ldi r25,hi8(1)
- 580               	.LVL25:
- 581 02f2 0080      		ld r0,Z
- 582 02f4 00C0      		rjmp 2f
- 583 02f6 880F      	1:	lsl r24
- 584 02f8 991F      		rol r25
- 585 02fa 0A94      	2:	dec r0
- 586 02fc 02F4      		brpl 1b
- 587 02fe 282B      		or r18,r24
- 588 0300 27B9      		out 39-32,r18
- 589               	.LBE60:
- 590               	.LBE59:
- 591               	.LBB61:
- 592               	.LBB62:
- 593               	.LM86:
- 594 0302 28B1      		in r18,40-32
- 595 0304 8095      		com r24
- 596 0306 8223      		and r24,r18
- 597 0308 88B9      		out 40-32,r24
- 598               	.LBE62:
- 599               	.LBE61:
- 600               	.LBB63:
- 601               	.LM87:
- 602 030a 86E0      		ldi r24,lo8(6)
- 603 030c 0E94 0000 		call CapTouch_ADC_Sample
- 604               	/* epilogue start */
- 605               	.LBE63:
- 606               	.LM88:
- 607 0310 0895      		ret
- 608               	.LFE20:
- 610               	.global	CapTouch_ADC_Sample1
- 612               	CapTouch_ADC_Sample1:
- 613               	.LFB21:
- 614               	.LM89:
- 615               	.LVL26:
- 616 0312 AF92      		push r10
- 617 0314 BF92      		push r11
- 618 0316 CF92      		push r12
- 619 0318 DF92      		push r13
- 620 031a EF92      		push r14
- 621 031c FF92      		push r15
- 622 031e 0F93      		push r16
- 623 0320 1F93      		push r17
- 624               	/* prologue: function */
- 625               	/* frame size = 0 */
- 626               	.LM90:
- 627 0322 E82E      		mov r14,r24
- 628 0324 FF24      		clr r15
- 629 0326 F0E0      		ldi r31,lo8(CapTouch_Pins)
- 630 0328 CF2E      		mov r12,r31
- 631 032a F0E0      		ldi r31,hi8(CapTouch_Pins)
- 632 032c DF2E      		mov r13,r31
- 633 032e CE0C      		add r12,r14
- 634 0330 DF1C      		adc r13,r15
- 635 0332 F601      		movw r30,r12
- 636 0334 8081      		ld r24,Z
- 637               	.LVL27:
- 638 0336 0E94 0000 		call CapTouch_Set_Key_Pin_Analog
- 639               	.LM91:
- 640 033a 5701      		movw r10,r14
- 641 033c AA0C      		lsl r10
- 642 033e BB1C      		rol r11
- 643 0340 8501      		movw r16,r10
- 644 0342 0050      		subi r16,lo8(-(CapTouch))
- 645 0344 1040      		sbci r17,hi8(-(CapTouch))
- 646 0346 F801      		movw r30,r16
- 647 0348 1086      		std Z+8,__zero_reg__
- 648 034a 1782      		std Z+7,__zero_reg__
- 649               	.LBB64:
- 650               	.LM92:
- 651 034c F601      		movw r30,r12
- 652 034e 8081      		ld r24,Z
- 653 0350 0E94 0000 		call CapTouch_ADC_Sample
- 654 0354 AC01      		movw r20,r24
- 655 0356 F801      		movw r30,r16
- 656 0358 9087      		std Z+8,r25
- 657 035a 8783      		std Z+7,r24
- 658               	.LBE64:
- 659               	.LM93:
- 660 035c 6627      		clr r22
- 661 035e 57FD      		sbrc r21,7
- 662 0360 6095      		com r22
- 663 0362 762F      		mov r23,r22
- 664 0364 8A2D      		mov r24,r10
- 665 0366 8E0D      		add r24,r14
- 666 0368 0E94 0000 		call CapTouch_IIR_LPF_Get_Filtered_Value
- 667 036c F801      		movw r30,r16
- 668 036e 7087      		std Z+8,r23
- 669 0370 6783      		std Z+7,r22
- 670               	/* epilogue start */
- 671               	.LM94:
- 672 0372 1F91      		pop r17
- 673 0374 0F91      		pop r16
- 674 0376 FF90      		pop r15
- 675 0378 EF90      		pop r14
- 676 037a DF90      		pop r13
- 677 037c CF90      		pop r12
- 678 037e BF90      		pop r11
- 679 0380 AF90      		pop r10
- 680 0382 0895      		ret
- 681               	.LFE21:
- 683               	.global	CapTouch_Precharge_Button
- 685               	CapTouch_Precharge_Button:
- 686               	.LFB22:
- 687               	.LM95:
- 688               	.LVL28:
- 689               	/* prologue: function */
- 690               	/* frame size = 0 */
- 691               	.LBB65:
- 692               	.LBB66:
- 693               	.LM96:
- 694 0384 27B1      		in r18,39-32
- 695 0386 E0E0      		ldi r30,lo8(CapTouch_Pins)
- 696 0388 F0E0      		ldi r31,hi8(CapTouch_Pins)
- 697 038a E80F      		add r30,r24
- 698 038c F11D      		adc r31,__zero_reg__
- 699 038e 81E0      		ldi r24,lo8(1)
- 700 0390 90E0      		ldi r25,hi8(1)
- 701               	.LVL29:
- 702 0392 0080      		ld r0,Z
- 703 0394 00C0      		rjmp 2f
- 704 0396 880F      	1:	lsl r24
- 705 0398 991F      		rol r25
- 706 039a 0A94      	2:	dec r0
- 707 039c 02F4      		brpl 1b
- 708 039e 282B      		or r18,r24
- 709 03a0 27B9      		out 39-32,r18
- 710               	.LBE66:
- 711               	.LBE65:
- 712               	.LBB67:
- 713               	.LBB68:
- 714               	.LM97:
- 715 03a2 28B1      		in r18,40-32
- 716 03a4 822B      		or r24,r18
- 717 03a6 88B9      		out 40-32,r24
- 718               	.LBE68:
- 719               	.LBE67:
- 720               	.LBB69:
- 721               	.LM98:
- 722 03a8 8FE0      		ldi r24,lo8(15)
- 723 03aa 0E94 0000 		call CapTouch_ADC_Sample
- 724               	/* epilogue start */
- 725               	.LBE69:
- 726               	.LM99:
- 727 03ae 0895      		ret
- 728               	.LFE22:
- 730               	.global	CapTouch_ADC_Sample2
- 732               	CapTouch_ADC_Sample2:
- 733               	.LFB23:
- 734               	.LM100:
- 735               	.LVL30:
- 736 03b0 AF92      		push r10
- 737 03b2 BF92      		push r11
- 738 03b4 CF92      		push r12
- 739 03b6 DF92      		push r13
- 740 03b8 EF92      		push r14
- 741 03ba FF92      		push r15
- 742 03bc 0F93      		push r16
- 743 03be 1F93      		push r17
- 744               	/* prologue: function */
- 745               	/* frame size = 0 */
- 746               	.LM101:
- 747 03c0 E82E      		mov r14,r24
- 748 03c2 FF24      		clr r15
- 749 03c4 10E0      		ldi r17,lo8(CapTouch_Pins)
- 750 03c6 A12E      		mov r10,r17
- 751 03c8 10E0      		ldi r17,hi8(CapTouch_Pins)
- 752 03ca B12E      		mov r11,r17
- 753 03cc AE0C      		add r10,r14
- 754 03ce BF1C      		adc r11,r15
- 755 03d0 F501      		movw r30,r10
- 756 03d2 8081      		ld r24,Z
- 757               	.LVL31:
- 758 03d4 0E94 0000 		call CapTouch_Set_Key_Pin_Analog
- 759               	.LM102:
- 760 03d8 8701      		movw r16,r14
- 761 03da 000F      		lsl r16
- 762 03dc 111F      		rol r17
- 763 03de A0E0      		ldi r26,lo8(CapTouch)
- 764 03e0 CA2E      		mov r12,r26
- 765 03e2 A0E0      		ldi r26,hi8(CapTouch)
- 766 03e4 DA2E      		mov r13,r26
- 767 03e6 C00E      		add r12,r16
- 768 03e8 D11E      		adc r13,r17
- 769 03ea F601      		movw r30,r12
- 770 03ec 1486      		std Z+12,__zero_reg__
- 771 03ee 1386      		std Z+11,__zero_reg__
- 772               	.LBB70:
- 773               	.LM103:
- 774 03f0 F501      		movw r30,r10
- 775 03f2 8081      		ld r24,Z
- 776 03f4 0E94 0000 		call CapTouch_ADC_Sample
- 777 03f8 AC01      		movw r20,r24
- 778 03fa F601      		movw r30,r12
- 779 03fc 9487      		std Z+12,r25
- 780 03fe 8387      		std Z+11,r24
- 781               	.LBE70:
- 782               	.LM104:
- 783 0400 0E0D      		add r16,r14
- 784 0402 1F1D      		adc r17,r15
- 785 0404 6627      		clr r22
- 786 0406 57FD      		sbrc r21,7
- 787 0408 6095      		com r22
- 788 040a 762F      		mov r23,r22
- 789 040c 802F      		mov r24,r16
- 790 040e 8F5F      		subi r24,lo8(-(1))
- 791 0410 0E94 0000 		call CapTouch_IIR_LPF_Get_Filtered_Value
- 792 0414 F601      		movw r30,r12
- 793 0416 7487      		std Z+12,r23
- 794 0418 6387      		std Z+11,r22
- 795               	/* epilogue start */
- 796               	.LM105:
- 797 041a 1F91      		pop r17
- 798 041c 0F91      		pop r16
- 799 041e FF90      		pop r15
- 800 0420 EF90      		pop r14
- 801 0422 DF90      		pop r13
- 802 0424 CF90      		pop r12
- 803 0426 BF90      		pop r11
- 804 0428 AF90      		pop r10
- 805 042a 0895      		ret
- 806               	.LFE23:
- 808               	.global	CapTouch_Read_Delta
- 810               	CapTouch_Read_Delta:
- 811               	.LFB24:
- 812               	.LM106:
- 813               	.LVL32:
- 814 042c EF92      		push r14
- 815 042e FF92      		push r15
- 816 0430 0F93      		push r16
- 817 0432 1F93      		push r17
- 818               	/* prologue: function */
- 819               	/* frame size = 0 */
- 820 0434 082F      		mov r16,r24
- 821               	.LM107:
- 822 0436 0E94 0000 		call CapTouch_Precharge_SH_Cap
- 823               	.LVL33:
- 824               	.LM108:
- 825 043a 802F      		mov r24,r16
- 826 043c 0E94 0000 		call CapTouch_ADC_Sample1
- 827               	.LM109:
- 828 0440 802F      		mov r24,r16
- 829 0442 0E94 0000 		call CapTouch_Precharge_Button
- 830               	.LM110:
- 831 0446 802F      		mov r24,r16
- 832 0448 0E94 0000 		call CapTouch_ADC_Sample2
- 833               	.LM111:
- 834 044c 10E0      		ldi r17,lo8(0)
- 835 044e C801      		movw r24,r16
- 836               	.LVL34:
- 837 0450 880F      		lsl r24
- 838 0452 991F      		rol r25
- 839 0454 20E0      		ldi r18,lo8(CapTouch)
- 840 0456 E22E      		mov r14,r18
- 841 0458 20E0      		ldi r18,hi8(CapTouch)
- 842 045a F22E      		mov r15,r18
- 843 045c E80E      		add r14,r24
- 844 045e F91E      		adc r15,r25
- 845 0460 F701      		movw r30,r14
- 846 0462 4781      		ldd r20,Z+7
- 847 0464 5085      		ldd r21,Z+8
- 848               	.LVL35:
- 849               	.LM112:
- 850 0466 2385      		ldd r18,Z+11
- 851 0468 3485      		ldd r19,Z+12
- 852 046a 421B      		sub r20,r18
- 853 046c 530B      		sbc r21,r19
- 854               	.LM113:
- 855 046e 508B      		std Z+16,r21
- 856 0470 4787      		std Z+15,r20
- 857               	.LM114:
- 858 0472 800F      		add r24,r16
- 859 0474 911F      		adc r25,r17
- 860 0476 6627      		clr r22
- 861 0478 57FD      		sbrc r21,7
- 862 047a 6095      		com r22
- 863 047c 762F      		mov r23,r22
- 864               	.LVL36:
- 865 047e 8E5F      		subi r24,lo8(-(2))
- 866 0480 0E94 0000 		call CapTouch_IIR_LPF_Get_Filtered_Value
- 867               	.LVL37:
- 868 0484 F701      		movw r30,r14
- 869 0486 708B      		std Z+16,r23
- 870 0488 6787      		std Z+15,r22
- 871               	/* epilogue start */
- 872               	.LM115:
- 873 048a 1F91      		pop r17
- 874 048c 0F91      		pop r16
- 875 048e FF90      		pop r15
- 876 0490 EF90      		pop r14
- 877 0492 0895      		ret
- 878               	.LFE24:
- 880               	.global	CapTouch_Calibration
- 882               	CapTouch_Calibration:
- 883               	.LFB25:
- 884               	.LM116:
- 885 0494 CF92      		push r12
- 886 0496 DF92      		push r13
- 887 0498 EF92      		push r14
- 888 049a FF92      		push r15
- 889 049c 0F93      		push r16
- 890 049e 1F93      		push r17
- 891 04a0 DF93      		push r29
- 892 04a2 CF93      		push r28
- 893 04a4 CDB7      		in r28,__SP_L__
- 894 04a6 DEB7      		in r29,__SP_H__
- 895 04a8 2897      		sbiw r28,8
- 896 04aa 0FB6      		in __tmp_reg__,__SREG__
- 897 04ac F894      		cli
- 898 04ae DEBF      		out __SP_H__,r29
- 899 04b0 0FBE      		out __SREG__,__tmp_reg__
- 900 04b2 CDBF      		out __SP_L__,r28
- 901               	/* prologue: function */
- 902               	/* frame size = 8 */
- 903               	.LBB71:
- 904               	.LM117:
- 905 04b4 1982      		std Y+1,__zero_reg__
- 906 04b6 1A82      		std Y+2,__zero_reg__
- 907 04b8 1B82      		std Y+3,__zero_reg__
- 908 04ba 1C82      		std Y+4,__zero_reg__
- 909 04bc 1D82      		std Y+5,__zero_reg__
- 910 04be 1E82      		std Y+6,__zero_reg__
- 911 04c0 1F82      		std Y+7,__zero_reg__
- 912 04c2 1886      		std Y+8,__zero_reg__
- 913 04c4 CC24      		clr r12
- 914 04c6 DD24      		clr r13
- 915               	.LVL38:
- 916               	.L46:
- 917               	.LBE71:
- 918               	.LBB72:
- 919               	.LBB73:
- 920               	.LM118:
- 921 04c8 80E0      		ldi r24,lo8(0)
- 922 04ca 0E94 0000 		call CapTouch_Read_Delta
- 923               	.LM119:
- 924 04ce 8091 0000 		lds r24,CapTouch+15
- 925 04d2 9091 0000 		lds r25,(CapTouch+15)+1
- 926 04d6 AA27      		clr r26
- 927 04d8 97FD      		sbrc r25,7
- 928 04da A095      		com r26
- 929 04dc BA2F      		mov r27,r26
- 930 04de 2981      		ldd r18,Y+1
- 931 04e0 3A81      		ldd r19,Y+2
- 932 04e2 4B81      		ldd r20,Y+3
- 933 04e4 5C81      		ldd r21,Y+4
- 934 04e6 280F      		add r18,r24
- 935 04e8 391F      		adc r19,r25
- 936 04ea 4A1F      		adc r20,r26
- 937 04ec 5B1F      		adc r21,r27
- 938 04ee 2983      		std Y+1,r18
- 939 04f0 3A83      		std Y+2,r19
- 940 04f2 4B83      		std Y+3,r20
- 941 04f4 5C83      		std Y+4,r21
- 942               	.LM120:
- 943 04f6 81E0      		ldi r24,lo8(1)
- 944 04f8 0E94 0000 		call CapTouch_Read_Delta
- 945               	.LM121:
- 946 04fc 8091 0000 		lds r24,CapTouch+17
- 947 0500 9091 0000 		lds r25,(CapTouch+17)+1
- 948 0504 AA27      		clr r26
- 949 0506 97FD      		sbrc r25,7
- 950 0508 A095      		com r26
- 951 050a BA2F      		mov r27,r26
- 952 050c ED80      		ldd r14,Y+5
- 953 050e FE80      		ldd r15,Y+6
- 954 0510 0F81      		ldd r16,Y+7
- 955 0512 1885      		ldd r17,Y+8
- 956 0514 E80E      		add r14,r24
- 957 0516 F91E      		adc r15,r25
- 958 0518 0A1F      		adc r16,r26
- 959 051a 1B1F      		adc r17,r27
- 960 051c ED82      		std Y+5,r14
- 961 051e FE82      		std Y+6,r15
- 962 0520 0F83      		std Y+7,r16
- 963 0522 1887      		std Y+8,r17
- 964               	.LBE73:
- 965               	.LM122:
- 966 0524 0894      		sec
- 967 0526 C11C      		adc r12,__zero_reg__
- 968 0528 D11C      		adc r13,__zero_reg__
- 969 052a 80E2      		ldi r24,lo8(32)
- 970 052c C816      		cp r12,r24
- 971 052e D104      		cpc r13,__zero_reg__
- 972 0530 01F4      		brne .L46
- 973               	.LBE72:
- 974               	.LBB74:
- 975               	.LM123:
- 976 0532 6981      		ldd r22,Y+1
- 977 0534 7A81      		ldd r23,Y+2
- 978 0536 8B81      		ldd r24,Y+3
- 979 0538 9C81      		ldd r25,Y+4
- 980 053a 20E2      		ldi r18,lo8(32)
- 981 053c 30E0      		ldi r19,hi8(32)
- 982 053e 40E0      		ldi r20,hlo8(32)
- 983 0540 50E0      		ldi r21,hhi8(32)
- 984 0542 0E94 0000 		call __divmodsi4
- 985 0546 C901      		movw r24,r18
- 986               	.LM124:
- 987 0548 2091 0000 		lds r18,CapTouch+19
- 988 054c 3091 0000 		lds r19,(CapTouch+19)+1
- 989 0550 821B      		sub r24,r18
- 990 0552 930B      		sbc r25,r19
- 991 0554 9093 0000 		sts (CapTouch+3)+1,r25
- 992 0558 8093 0000 		sts CapTouch+3,r24
- 993 055c C801      		movw r24,r16
- 994 055e B701      		movw r22,r14
- 995 0560 20E2      		ldi r18,lo8(32)
- 996 0562 30E0      		ldi r19,hi8(32)
- 997 0564 40E0      		ldi r20,hlo8(32)
- 998 0566 50E0      		ldi r21,hhi8(32)
- 999 0568 0E94 0000 		call __divmodsi4
- 1000 056c 8091 0000 		lds r24,CapTouch+21
- 1001 0570 9091 0000 		lds r25,(CapTouch+21)+1
- 1002 0574 281B      		sub r18,r24
- 1003 0576 390B      		sbc r19,r25
- 1004 0578 3093 0000 		sts (CapTouch+5)+1,r19
- 1005 057c 2093 0000 		sts CapTouch+5,r18
- 1006               	/* epilogue start */
- 1007               	.LBE74:
- 1008               	.LM125:
- 1009 0580 2896      		adiw r28,8
- 1010 0582 0FB6      		in __tmp_reg__,__SREG__
- 1011 0584 F894      		cli
- 1012 0586 DEBF      		out __SP_H__,r29
- 1013 0588 0FBE      		out __SREG__,__tmp_reg__
- 1014 058a CDBF      		out __SP_L__,r28
- 1015 058c CF91      		pop r28
- 1016 058e DF91      		pop r29
- 1017 0590 1F91      		pop r17
- 1018 0592 0F91      		pop r16
- 1019 0594 FF90      		pop r15
- 1020 0596 EF90      		pop r14
- 1021 0598 DF90      		pop r13
- 1022 059a CF90      		pop r12
- 1023               	.LVL39:
- 1024 059c 0895      		ret
- 1025               	.LFE25:
- 1027               	.global	CapTouch_Response
- 1029               	CapTouch_Response:
- 1030               	.LFB26:
- 1031               	.LM126:
- 1032               	.LVL40:
- 1033 059e 0F93      		push r16
- 1034 05a0 1F93      		push r17
- 1035               	/* prologue: function */
- 1036               	/* frame size = 0 */
- 1037 05a2 082F      		mov r16,r24
- 1038               	.LM127:
- 1039 05a4 0E94 0000 		call CapTouch_Read_Delta
- 1040               	.LVL41:
- 1041               	.LM128:
- 1042 05a8 10E0      		ldi r17,lo8(0)
- 1043 05aa F801      		movw r30,r16
- 1044               	.LVL42:
- 1045 05ac EE0F      		lsl r30
- 1046 05ae FF1F      		rol r31
- 1047 05b0 E050      		subi r30,lo8(-(CapTouch))
- 1048 05b2 F040      		sbci r31,hi8(-(CapTouch))
- 1049 05b4 2381      		ldd r18,Z+3
- 1050 05b6 3481      		ldd r19,Z+4
- 1051 05b8 8785      		ldd r24,Z+15
- 1052 05ba 9089      		ldd r25,Z+16
- 1053 05bc F801      		movw r30,r16
- 1054 05be E050      		subi r30,lo8(-(CapTouch))
- 1055 05c0 F040      		sbci r31,hi8(-(CapTouch))
- 1056 05c2 8217      		cp r24,r18
- 1057 05c4 9307      		cpc r25,r19
- 1058 05c6 04F4      		brge .L50
- 1059               	.LM129:
- 1060 05c8 81E0      		ldi r24,lo8(1)
- 1061 05ca 8183      		std Z+1,r24
- 1062 05cc 00C0      		rjmp .L52
- 1063               	.L50:
- 1064               	.LM130:
- 1065 05ce 1182      		std Z+1,__zero_reg__
- 1066               	.L52:
- 1067               	/* epilogue start */
- 1068               	.LM131:
- 1069 05d0 1F91      		pop r17
- 1070 05d2 0F91      		pop r16
- 1071 05d4 0895      		ret
- 1072               	.LFE26:
- 1074               	.global	CapTouch_Check_Trigger
- 1076               	CapTouch_Check_Trigger:
- 1077               	.LFB27:
- 1078               	.LM132:
- 1079               	.LVL43:
- 1080 05d6 1F93      		push r17
- 1081               	/* prologue: function */
- 1082               	/* frame size = 0 */
- 1083 05d8 182F      		mov r17,r24
- 1084               	.LM133:
- 1085 05da 0E94 0000 		call CapTouch_Response
- 1086               	.LVL44:
- 1087               	.LM134:
- 1088 05de A12F      		mov r26,r17
- 1089 05e0 B0E0      		ldi r27,lo8(0)
- 1090 05e2 FD01      		movw r30,r26
- 1091 05e4 E050      		subi r30,lo8(-(CapTouch))
- 1092 05e6 F040      		sbci r31,hi8(-(CapTouch))
- 1093 05e8 9181      		ldd r25,Z+1
- 1094               	.LVL45:
- 1095               	.LM135:
- 1096 05ea 818D      		ldd r24,Z+25
- 1097 05ec 8823      		tst r24
- 1098 05ee 01F4      		brne .L54
- 1099 05f0 9130      		cpi r25,lo8(1)
- 1100 05f2 01F4      		brne .L55
- 1101               	.LM136:
- 1102 05f4 11AA      		std Z+49,__zero_reg__
- 1103               	.LM137:
- 1104 05f6 978B      		std Z+23,r25
- 1105 05f8 00C0      		rjmp .L56
- 1106               	.L54:
- 1107               	.LM138:
- 1108 05fa 8130      		cpi r24,lo8(1)
- 1109 05fc 01F4      		brne .L55
- 1110 05fe 9923      		tst r25
- 1111 0600 01F4      		brne .L57
- 1112               	.LM139:
- 1113 0602 84E0      		ldi r24,lo8(4)
- 1114 0604 00C0      		rjmp .L59
- 1115               	.L57:
- 1116               	.LM140:
- 1117 0606 9130      		cpi r25,lo8(1)
- 1118 0608 01F4      		brne .L55
- 1119               	.LM141:
- 1120 060a 82E0      		ldi r24,lo8(2)
- 1121               	.L59:
- 1122 060c 878B      		std Z+23,r24
- 1123 060e 00C0      		rjmp .L56
- 1124               	.L55:
- 1125               	.LM142:
- 1126 0610 FD01      		movw r30,r26
- 1127 0612 E050      		subi r30,lo8(-(CapTouch))
- 1128 0614 F040      		sbci r31,hi8(-(CapTouch))
- 1129 0616 178A      		std Z+23,__zero_reg__
- 1130               	.L56:
- 1131               	.LM143:
- 1132 0618 A050      		subi r26,lo8(-(CapTouch))
- 1133 061a B040      		sbci r27,hi8(-(CapTouch))
- 1134 061c 5996      		adiw r26,25
- 1135 061e 9C93      		st X,r25
- 1136               	/* epilogue start */
- 1137               	.LM144:
- 1138 0620 1F91      		pop r17
- 1139               	.LVL46:
- 1140 0622 0895      		ret
- 1141               	.LFE27:
- 1143               	.global	CapTouch_Check_Touch_Duration
- 1145               	CapTouch_Check_Touch_Duration:
- 1146               	.LFB28:
- 1147               	.LM145:
- 1148               	.LVL47:
- 1149 0624 CF92      		push r12
- 1150 0626 DF92      		push r13
- 1151 0628 EF92      		push r14
- 1152 062a FF92      		push r15
- 1153 062c 0F93      		push r16
- 1154 062e 1F93      		push r17
- 1155               	/* prologue: function */
- 1156               	/* frame size = 0 */
- 1157 0630 182F      		mov r17,r24
- 1158 0632 042F      		mov r16,r20
- 1159 0634 F52E      		mov r15,r21
- 1160               	.LVL48:
- 1161 0636 E62E      		mov r14,r22
- 1162               	.LVL49:
- 1163 0638 D72E      		mov r13,r23
- 1164               	.LVL50:
- 1165               	.LM146:
- 1166 063a 0E94 0000 		call CapTouch_Check_Trigger
- 1167               	.LVL51:
- 1168               	.LM147:
- 1169 063e 612F      		mov r22,r17
- 1170 0640 70E0      		ldi r23,lo8(0)
- 1171 0642 FB01      		movw r30,r22
- 1172 0644 E050      		subi r30,lo8(-(CapTouch))
- 1173 0646 F040      		sbci r31,hi8(-(CapTouch))
- 1174 0648 1789      		ldd r17,Z+23
- 1175               	.LVL52:
- 1176 064a 1130      		cpi r17,lo8(1)
- 1177 064c 01F4      		brne .L61
- 1178               	.LM148:
- 1179 064e 81E0      		ldi r24,lo8(1)
- 1180 0650 90E0      		ldi r25,hi8(1)
- 1181 0652 062E      		mov r0,r22
- 1182 0654 00C0      		rjmp 2f
- 1183 0656 880F      	1:	lsl r24
- 1184 0658 991F      		rol r25
- 1185 065a 0A94      	2:	dec r0
- 1186 065c 02F4      		brpl 1b
- 1187 065e 2091 0000 		lds r18,CapTouch+51
- 1188 0662 282B      		or r18,r24
- 1189 0664 2093 0000 		sts CapTouch+51,r18
- 1190               	.LM149:
- 1191 0668 FB01      		movw r30,r22
- 1192 066a EE0F      		lsl r30
- 1193 066c FF1F      		rol r31
- 1194 066e EE0F      		lsl r30
- 1195 0670 FF1F      		rol r31
- 1196 0672 E050      		subi r30,lo8(-(CapTouch))
- 1197 0674 F040      		sbci r31,hi8(-(CapTouch))
- 1198 0676 DF01      		movw r26,r30
- 1199 0678 9396      		adiw r26,35
- 1200 067a 03A3      		std Z+35,r16
- 1201 067c 1196      		adiw r26,1
- 1202 067e FC92      		st X,r15
- 1203 0680 1197      		sbiw r26,1
- 1204 0682 1296      		adiw r26,2
- 1205 0684 EC92      		st X,r14
- 1206 0686 1297      		sbiw r26,2
- 1207 0688 1396      		adiw r26,3
- 1208 068a DC92      		st X,r13
- 1209 068c 00C0      		rjmp .L66
- 1210               	.L61:
- 1211               	.LM150:
- 1212 068e 1430      		cpi r17,lo8(4)
- 1213 0690 01F0      		breq .L63
- 1214 0692 1230      		cpi r17,lo8(2)
- 1215 0694 01F4      		brne .L64
- 1216               	.L63:
- 1217               	.LM151:
- 1218 0696 202F      		mov r18,r16
- 1219               	.LVL53:
- 1220 0698 3F2D      		mov r19,r15
- 1221               	.LVL54:
- 1222 069a 4E2D      		mov r20,r14
- 1223               	.LVL55:
- 1224 069c 5D2D      		mov r21,r13
- 1225               	.LVL56:
- 1226               	.LM152:
- 1227 069e FB01      		movw r30,r22
- 1228 06a0 EE0F      		lsl r30
- 1229 06a2 FF1F      		rol r31
- 1230 06a4 EE0F      		lsl r30
- 1231 06a6 FF1F      		rol r31
- 1232 06a8 E050      		subi r30,lo8(-(CapTouch))
- 1233 06aa F040      		sbci r31,hi8(-(CapTouch))
- 1234 06ac 83A1      		ldd r24,Z+35
- 1235 06ae 94A1      		ldd r25,Z+36
- 1236 06b0 A5A1      		ldd r26,Z+37
- 1237 06b2 B6A1      		ldd r27,Z+38
- 1238 06b4 6901      		movw r12,r18
- 1239 06b6 7A01      		movw r14,r20
- 1240 06b8 C81A      		sub r12,r24
- 1241 06ba D90A      		sbc r13,r25
- 1242 06bc EA0A      		sbc r14,r26
- 1243 06be FB0A      		sbc r15,r27
- 1244               	.LM153:
- 1245 06c0 F7FC      		sbrc r15,7
- 1246 06c2 00C0      		rjmp .L65
- 1247               	.LVL57:
- 1248               	.LM154:
- 1249 06c4 C38E      		std Z+27,r12
- 1250 06c6 D48E      		std Z+28,r13
- 1251 06c8 E58E      		std Z+29,r14
- 1252 06ca F68E      		std Z+30,r15
- 1253               	.L65:
- 1254               	.LM155:
- 1255 06cc 1430      		cpi r17,lo8(4)
- 1256 06ce 01F4      		brne .L66
- 1257               	.LM156:
- 1258 06d0 FB01      		movw r30,r22
- 1259 06d2 EE0F      		lsl r30
- 1260 06d4 FF1F      		rol r31
- 1261 06d6 EE0F      		lsl r30
- 1262 06d8 FF1F      		rol r31
- 1263 06da E050      		subi r30,lo8(-(CapTouch))
- 1264 06dc F040      		sbci r31,hi8(-(CapTouch))
- 1265 06de 23A3      		std Z+35,r18
- 1266 06e0 34A3      		std Z+36,r19
- 1267 06e2 45A3      		std Z+37,r20
- 1268 06e4 56A3      		std Z+38,r21
- 1269               	.LM157:
- 1270 06e6 81E0      		ldi r24,lo8(1)
- 1271 06e8 90E0      		ldi r25,hi8(1)
- 1272 06ea 00C0      		rjmp 2f
- 1273 06ec 880F      	1:	lsl r24
- 1274 06ee 991F      		rol r25
- 1275 06f0 6A95      	2:	dec r22
- 1276 06f2 02F4      		brpl 1b
- 1277 06f4 8095      		com r24
- 1278 06f6 2091 0000 		lds r18,CapTouch+51
- 1279 06fa 8223      		and r24,r18
- 1280 06fc 8093 0000 		sts CapTouch+51,r24
- 1281 0700 00C0      		rjmp .L66
- 1282               	.LVL58:
- 1283               	.L64:
- 1284               	.LM158:
- 1285 0702 FB01      		movw r30,r22
- 1286 0704 EE0F      		lsl r30
- 1287 0706 FF1F      		rol r31
- 1288 0708 EE0F      		lsl r30
- 1289 070a FF1F      		rol r31
- 1290 070c E050      		subi r30,lo8(-(CapTouch))
- 1291 070e F040      		sbci r31,hi8(-(CapTouch))
- 1292 0710 138E      		std Z+27,__zero_reg__
- 1293 0712 148E      		std Z+28,__zero_reg__
- 1294 0714 158E      		std Z+29,__zero_reg__
- 1295 0716 168E      		std Z+30,__zero_reg__
- 1296               	.LM159:
- 1297 0718 13A2      		std Z+35,__zero_reg__
- 1298 071a 14A2      		std Z+36,__zero_reg__
- 1299 071c 15A2      		std Z+37,__zero_reg__
- 1300 071e 16A2      		std Z+38,__zero_reg__
- 1301               	.LVL59:
- 1302               	.L66:
- 1303               	/* epilogue start */
- 1304               	.LM160:
- 1305 0720 1F91      		pop r17
- 1306 0722 0F91      		pop r16
- 1307               	.LVL60:
- 1308 0724 FF90      		pop r15
- 1309               	.LVL61:
- 1310 0726 EF90      		pop r14
- 1311               	.LVL62:
- 1312 0728 DF90      		pop r13
- 1313               	.LVL63:
- 1314 072a CF90      		pop r12
- 1315               	.LVL64:
- 1316 072c 0895      		ret
- 1317               	.LFE28:
- 1319               	.global	CapTouch_Scan_Sensors
- 1321               	CapTouch_Scan_Sensors:
- 1322               	.LFB29:
- 1323               	.LM161:
- 1324               	.LVL65:
- 1325 072e CF92      		push r12
- 1326 0730 DF92      		push r13
- 1327 0732 EF92      		push r14
- 1328 0734 FF92      		push r15
- 1329 0736 0F93      		push r16
- 1330 0738 1F93      		push r17
- 1331               	/* prologue: function */
- 1332               	/* frame size = 0 */
- 1333 073a 6B01      		movw r12,r22
- 1334 073c 7C01      		movw r14,r24
- 1335               	.LBB75:
- 1336               	.LBB76:
- 1337               	.LM162:
- 1338 073e 0AE7      		ldi r16,lo8(122)
- 1339 0740 10E0      		ldi r17,hi8(122)
- 1340 0742 F801      		movw r30,r16
- 1341 0744 8081      		ld r24,Z
- 1342 0746 8068      		ori r24,lo8(-128)
- 1343 0748 8083      		st Z,r24
- 1344               	.LBE76:
- 1345               	.LBE75:
- 1346               	.LM163:
- 1347 074a 80E0      		ldi r24,lo8(0)
- 1348 074c 0E94 0000 		call CapTouch_ADC_Sample
- 1349               	.LVL66:
- 1350               	.LBB77:
- 1351               	.LBB78:
- 1352               	.LM164:
- 1353 0750 80E0      		ldi r24,lo8(0)
- 1354 0752 B701      		movw r22,r14
- 1355 0754 A601      		movw r20,r12
- 1356 0756 0E94 0000 		call CapTouch_Check_Touch_Duration
- 1357 075a 81E0      		ldi r24,lo8(1)
- 1358 075c B701      		movw r22,r14
- 1359 075e A601      		movw r20,r12
- 1360 0760 0E94 0000 		call CapTouch_Check_Touch_Duration
- 1361               	.LBE78:
- 1362               	.LBE77:
- 1363               	.LBB79:
- 1364               	.LBB80:
- 1365               	.LM165:
- 1366 0764 F801      		movw r30,r16
- 1367 0766 8081      		ld r24,Z
- 1368 0768 8F77      		andi r24,lo8(127)
- 1369 076a 8083      		st Z,r24
- 1370               	/* epilogue start */
- 1371               	.LBE80:
- 1372               	.LBE79:
- 1373               	.LM166:
- 1374 076c 1F91      		pop r17
- 1375 076e 0F91      		pop r16
- 1376 0770 FF90      		pop r15
- 1377 0772 EF90      		pop r14
- 1378 0774 DF90      		pop r13
- 1379 0776 CF90      		pop r12
- 1380               	.LVL67:
- 1381 0778 0895      		ret
- 1382               	.LFE29:
- 1384               	.global	CapTouch_Short_Pressed
- 1386               	CapTouch_Short_Pressed:
- 1387               	.LFB30:
- 1388               	.LM167:
- 1389               	.LVL68:
- 1390               	/* prologue: function */
- 1391               	/* frame size = 0 */
- 1392               	.LM168:
- 1393 077a A82F      		mov r26,r24
- 1394 077c B0E0      		ldi r27,lo8(0)
- 1395 077e FD01      		movw r30,r26
- 1396 0780 E050      		subi r30,lo8(-(CapTouch))
- 1397 0782 F040      		sbci r31,hi8(-(CapTouch))
- 1398 0784 8789      		ldd r24,Z+23
- 1399               	.LVL69:
- 1400 0786 8430      		cpi r24,lo8(4)
- 1401 0788 01F4      		brne .L70
- 1402               	.LM169:
- 1403 078a AA0F      		lsl r26
- 1404 078c BB1F      		rol r27
- 1405 078e AA0F      		lsl r26
- 1406 0790 BB1F      		rol r27
- 1407 0792 A050      		subi r26,lo8(-(CapTouch))
- 1408 0794 B040      		sbci r27,hi8(-(CapTouch))
- 1409 0796 5B96      		adiw r26,27
- 1410 0798 2D91      		ld r18,X+
- 1411 079a 3D91      		ld r19,X+
- 1412 079c 4D91      		ld r20,X+
- 1413 079e 5C91      		ld r21,X
- 1414 07a0 5E97      		sbiw r26,27+3
- 1415 07a2 8091 0000 		lds r24,CapTouch+43
- 1416 07a6 9091 0000 		lds r25,(CapTouch+43)+1
- 1417 07aa A0E0      		ldi r26,lo8(0)
- 1418 07ac B0E0      		ldi r27,hi8(0)
- 1419 07ae 2817      		cp r18,r24
- 1420 07b0 3907      		cpc r19,r25
- 1421 07b2 4A07      		cpc r20,r26
- 1422 07b4 5B07      		cpc r21,r27
- 1423 07b6 04F0      		brlt .L70
- 1424 07b8 60E0      		ldi r22,lo8(0)
- 1425               	.LVL70:
- 1426 07ba 8091 0000 		lds r24,CapTouch+45
- 1427 07be 9091 0000 		lds r25,(CapTouch+45)+1
- 1428 07c2 A0E0      		ldi r26,lo8(0)
- 1429 07c4 B0E0      		ldi r27,hi8(0)
- 1430 07c6 8217      		cp r24,r18
- 1431 07c8 9307      		cpc r25,r19
- 1432 07ca A407      		cpc r26,r20
- 1433 07cc B507      		cpc r27,r21
- 1434 07ce 04F0      		brlt .L72
- 1435 07d0 61E0      		ldi r22,lo8(1)
- 1436 07d2 00C0      		rjmp .L72
- 1437               	.LVL71:
- 1438               	.L70:
- 1439 07d4 60E0      		ldi r22,lo8(0)
- 1440               	.LVL72:
- 1441               	.L72:
- 1442               	.LM170:
- 1443 07d6 862F      		mov r24,r22
- 1444               	/* epilogue start */
- 1445 07d8 0895      		ret
- 1446               	.LFE30:
- 1448               	.global	CapTouch_Long_Pressed
- 1450               	CapTouch_Long_Pressed:
- 1451               	.LFB31:
- 1452               	.LM171:
- 1453               	.LVL73:
- 1454               	/* prologue: function */
- 1455               	/* frame size = 0 */
- 1456               	.LM172:
- 1457 07da 682F      		mov r22,r24
- 1458 07dc 70E0      		ldi r23,lo8(0)
- 1459 07de FB01      		movw r30,r22
- 1460 07e0 EE0F      		lsl r30
- 1461 07e2 FF1F      		rol r31
- 1462 07e4 EE0F      		lsl r30
- 1463 07e6 FF1F      		rol r31
- 1464 07e8 E050      		subi r30,lo8(-(CapTouch))
- 1465 07ea F040      		sbci r31,hi8(-(CapTouch))
- 1466 07ec 8091 0000 		lds r24,CapTouch+47
- 1467 07f0 9091 0000 		lds r25,(CapTouch+47)+1
- 1468               	.LVL74:
- 1469 07f4 A0E0      		ldi r26,lo8(0)
- 1470 07f6 B0E0      		ldi r27,hi8(0)
- 1471 07f8 238D      		ldd r18,Z+27
- 1472 07fa 348D      		ldd r19,Z+28
- 1473 07fc 458D      		ldd r20,Z+29
- 1474 07fe 568D      		ldd r21,Z+30
- 1475 0800 8217      		cp r24,r18
- 1476 0802 9307      		cpc r25,r19
- 1477 0804 A407      		cpc r26,r20
- 1478 0806 B507      		cpc r27,r21
- 1479 0808 04F4      		brge .L75
- 1480 080a FB01      		movw r30,r22
- 1481 080c E050      		subi r30,lo8(-(CapTouch))
- 1482 080e F040      		sbci r31,hi8(-(CapTouch))
- 1483 0810 81A9      		ldd r24,Z+49
- 1484 0812 8823      		tst r24
- 1485 0814 01F4      		brne .L75
- 1486               	.LM173:
- 1487 0816 81E0      		ldi r24,lo8(1)
- 1488 0818 81AB      		std Z+49,r24
- 1489 081a 0895      		ret
- 1490               	.L75:
- 1491 081c 80E0      		ldi r24,lo8(0)
- 1492               	.LVL75:
- 1493               	.LVL76:
- 1494               	.LM174:
- 1495 081e 0895      		ret
- 1496               	.LFE31:
- 1498               	.global	CapTouch_Constant_Pressed
- 1500               	CapTouch_Constant_Pressed:
- 1501               	.LFB32:
- 1502               	.LM175:
- 1503               	.LVL77:
- 1504 0820 CF93      		push r28
- 1505 0822 DF93      		push r29
- 1506               	/* prologue: function */
- 1507               	/* frame size = 0 */
- 1508               	.LM176:
- 1509 0824 C82F      		mov r28,r24
- 1510 0826 D0E0      		ldi r29,lo8(0)
- 1511 0828 FE01      		movw r30,r28
- 1512 082a E050      		subi r30,lo8(-(CapTouch))
- 1513 082c F040      		sbci r31,hi8(-(CapTouch))
- 1514 082e 8789      		ldd r24,Z+23
- 1515               	.LVL78:
- 1516 0830 8230      		cpi r24,lo8(2)
- 1517 0832 01F0      		breq .L79
- 1518 0834 60E0      		ldi r22,lo8(0)
- 1519               	.LVL79:
- 1520 0836 00C0      		rjmp .L80
- 1521               	.LVL80:
- 1522               	.L79:
- 1523 0838 60E0      		ldi r22,lo8(0)
- 1524               	.LVL81:
- 1525 083a CC0F      		lsl r28
- 1526 083c DD1F      		rol r29
- 1527 083e CC0F      		lsl r28
- 1528 0840 DD1F      		rol r29
- 1529 0842 C050      		subi r28,lo8(-(CapTouch))
- 1530 0844 D040      		sbci r29,hi8(-(CapTouch))
- 1531 0846 8091 0000 		lds r24,CapTouch+43
- 1532 084a 9091 0000 		lds r25,(CapTouch+43)+1
- 1533 084e A0E0      		ldi r26,lo8(0)
- 1534 0850 B0E0      		ldi r27,hi8(0)
- 1535 0852 2B8D      		ldd r18,Y+27
- 1536 0854 3C8D      		ldd r19,Y+28
- 1537 0856 4D8D      		ldd r20,Y+29
- 1538 0858 5E8D      		ldd r21,Y+30
- 1539 085a 8217      		cp r24,r18
- 1540 085c 9307      		cpc r25,r19
- 1541 085e A407      		cpc r26,r20
- 1542 0860 B507      		cpc r27,r21
- 1543 0862 04F4      		brge .L80
- 1544 0864 61E0      		ldi r22,lo8(1)
- 1545               	.L80:
- 1546               	.LM177:
- 1547 0866 862F      		mov r24,r22
- 1548               	/* epilogue start */
- 1549 0868 DF91      		pop r29
- 1550 086a CF91      		pop r28
- 1551 086c 0895      		ret
- 1552               	.LFE32:
- 1554               	.global	CapTouch_Short_Pressed_Filtered
- 1556               	CapTouch_Short_Pressed_Filtered:
- 1557               	.LFB33:
- 1558               	.LM178:
- 1559               	.LVL82:
- 1560 086e CF93      		push r28
- 1561 0870 DF93      		push r29
- 1562               	/* prologue: function */
- 1563               	/* frame size = 0 */
- 1564 0872 782F      		mov r23,r24
- 1565               	.LM179:
- 1566 0874 E0E0      		ldi r30,lo8(CapTouch+27)
- 1567 0876 F0E0      		ldi r31,hi8(CapTouch+27)
- 1568 0878 61E0      		ldi r22,lo8(1)
- 1569               	.LVL83:
- 1570               	.LBB81:
- 1571               	.LM180:
- 1572 087a C82F      		mov r28,r24
- 1573 087c D0E0      		ldi r29,lo8(0)
- 1574               	.LVL84:
- 1575 087e 9E01      		movw r18,r28
- 1576 0880 220F      		lsl r18
- 1577 0882 331F      		rol r19
- 1578 0884 220F      		lsl r18
- 1579 0886 331F      		rol r19
- 1580 0888 A901      		movw r20,r18
- 1581 088a 4E0F      		add r20,r30
- 1582 088c 5F1F      		adc r21,r31
- 1583 088e 00C0      		rjmp .L84
- 1584               	.LVL85:
- 1585               	.L86:
- 1586               	.LM181:
- 1587 0890 8081      		ld r24,Z
- 1588 0892 9181      		ldd r25,Z+1
- 1589 0894 A281      		ldd r26,Z+2
- 1590 0896 B381      		ldd r27,Z+3
- 1591 0898 0097      		sbiw r24,0
- 1592 089a A105      		cpc r26,__zero_reg__
- 1593 089c B105      		cpc r27,__zero_reg__
- 1594 089e 01F0      		breq .L85
- 1595 08a0 60E0      		ldi r22,lo8(0)
- 1596               	.L85:
- 1597 08a2 3496      		adiw r30,4
- 1598               	.LVL86:
- 1599               	.L84:
- 1600               	.LM182:
- 1601 08a4 E417      		cp r30,r20
- 1602 08a6 F507      		cpc r31,r21
- 1603 08a8 01F4      		brne .L86
- 1604               	.LBE81:
- 1605               	.LM183:
- 1606 08aa 6130      		cpi r22,lo8(1)
- 1607 08ac 01F4      		brne .L87
- 1608               	.LBB82:
- 1609               	.LBB83:
- 1610               	.LM184:
- 1611 08ae C050      		subi r28,lo8(-(CapTouch))
- 1612 08b0 D040      		sbci r29,hi8(-(CapTouch))
- 1613               	.LVL87:
- 1614 08b2 8F89      		ldd r24,Y+23
- 1615 08b4 8430      		cpi r24,lo8(4)
- 1616 08b6 01F4      		brne .L87
- 1617               	.LM185:
- 1618 08b8 2050      		subi r18,lo8(-(CapTouch))
- 1619 08ba 3040      		sbci r19,hi8(-(CapTouch))
- 1620 08bc F901      		movw r30,r18
- 1621 08be 238D      		ldd r18,Z+27
- 1622 08c0 348D      		ldd r19,Z+28
- 1623 08c2 458D      		ldd r20,Z+29
- 1624 08c4 568D      		ldd r21,Z+30
- 1625 08c6 8091 0000 		lds r24,CapTouch+43
- 1626 08ca 9091 0000 		lds r25,(CapTouch+43)+1
- 1627 08ce A0E0      		ldi r26,lo8(0)
- 1628 08d0 B0E0      		ldi r27,hi8(0)
- 1629 08d2 2817      		cp r18,r24
- 1630 08d4 3907      		cpc r19,r25
- 1631 08d6 4A07      		cpc r20,r26
- 1632 08d8 5B07      		cpc r21,r27
- 1633 08da 04F0      		brlt .L87
- 1634 08dc 8091 0000 		lds r24,CapTouch+45
- 1635 08e0 9091 0000 		lds r25,(CapTouch+45)+1
- 1636 08e4 A0E0      		ldi r26,lo8(0)
- 1637 08e6 B0E0      		ldi r27,hi8(0)
- 1638 08e8 8217      		cp r24,r18
- 1639 08ea 9307      		cpc r25,r19
- 1640 08ec A407      		cpc r26,r20
- 1641 08ee B507      		cpc r27,r21
- 1642 08f0 04F0      		brlt .L87
- 1643               	.LBE83:
- 1644               	.LBE82:
- 1645               	.LBB84:
- 1646               	.LM186:
- 1647 08f2 272F      		mov r18,r23
- 1648               	.LVL88:
- 1649 08f4 2F5F      		subi r18,lo8(-(1))
- 1650 08f6 31E0      		ldi r19,lo8(1)
- 1651               	.LVL89:
- 1652 08f8 00C0      		rjmp .L88
- 1653               	.LVL90:
- 1654               	.L90:
- 1655               	.LM187:
- 1656 08fa E22F      		mov r30,r18
- 1657 08fc F0E0      		ldi r31,lo8(0)
- 1658 08fe EE0F      		lsl r30
- 1659 0900 FF1F      		rol r31
- 1660 0902 EE0F      		lsl r30
- 1661 0904 FF1F      		rol r31
- 1662               	.LVL91:
- 1663 0906 E050      		subi r30,lo8(-(CapTouch))
- 1664 0908 F040      		sbci r31,hi8(-(CapTouch))
- 1665               	.LVL92:
- 1666 090a 838D      		ldd r24,Z+27
- 1667 090c 948D      		ldd r25,Z+28
- 1668 090e A58D      		ldd r26,Z+29
- 1669 0910 B68D      		ldd r27,Z+30
- 1670 0912 0097      		sbiw r24,0
- 1671 0914 A105      		cpc r26,__zero_reg__
- 1672 0916 B105      		cpc r27,__zero_reg__
- 1673 0918 01F0      		breq .L89
- 1674 091a 30E0      		ldi r19,lo8(0)
- 1675               	.L89:
- 1676               	.LM188:
- 1677 091c 2F5F      		subi r18,lo8(-(1))
- 1678               	.LVL93:
- 1679               	.L88:
- 1680 091e 2230      		cpi r18,lo8(2)
- 1681 0920 00F0      		brlo .L90
- 1682 0922 00C0      		rjmp .L91
- 1683               	.LVL94:
- 1684               	.L87:
- 1685 0924 30E0      		ldi r19,lo8(0)
- 1686               	.LVL95:
- 1687               	.L91:
- 1688               	.LBE84:
- 1689               	.LM189:
- 1690 0926 832F      		mov r24,r19
- 1691               	/* epilogue start */
- 1692 0928 DF91      		pop r29
- 1693               	.LVL96:
- 1694 092a CF91      		pop r28
- 1695               	.LVL97:
- 1696 092c 0895      		ret
- 1697               	.LFE33:
- 1699               	.global	CapTouch_Long_Pressed_Filtered
- 1701               	CapTouch_Long_Pressed_Filtered:
- 1702               	.LFB34:
- 1703               	.LM190:
- 1704 092e CF92      		push r12
- 1705 0930 DF92      		push r13
- 1706 0932 EF92      		push r14
- 1707 0934 FF92      		push r15
- 1708 0936 0F93      		push r16
- 1709 0938 1F93      		push r17
- 1710 093a CF93      		push r28
- 1711 093c DF93      		push r29
- 1712               	/* prologue: function */
- 1713               	/* frame size = 0 */
- 1714               	.LBB85:
- 1715               	.LBB86:
- 1716               	.LBB87:
- 1717               	.LM191:
- 1718 093e 6091 0000 		lds r22,CapTouch+47
- 1719 0942 7091 0000 		lds r23,(CapTouch+47)+1
- 1720 0946 9B01      		movw r18,r22
- 1721 0948 40E0      		ldi r20,lo8(0)
- 1722 094a 50E0      		ldi r21,hi8(0)
- 1723 094c 8091 0000 		lds r24,CapTouch+27
- 1724 0950 9091 0000 		lds r25,(CapTouch+27)+1
- 1725 0954 A091 0000 		lds r26,(CapTouch+27)+2
- 1726 0958 B091 0000 		lds r27,(CapTouch+27)+3
- 1727 095c 2817      		cp r18,r24
- 1728 095e 3907      		cpc r19,r25
- 1729 0960 4A07      		cpc r20,r26
- 1730 0962 5B07      		cpc r21,r27
- 1731 0964 04F4      		brge .L94
- 1732 0966 8091 0000 		lds r24,CapTouch+49
- 1733 096a 8823      		tst r24
- 1734 096c 01F4      		brne .L94
+  97 00bc 1092 0000 		sts CapTouch+55,__zero_reg__
+  98 00c0 1092 0000 		sts CapTouch+53,__zero_reg__
+  99 00c4 1092 0000 		sts CapTouch+52,__zero_reg__
+ 100 00c8 1092 0000 		sts CapTouch+51,__zero_reg__
+ 101 00cc 84E6      		ldi r24,lo8(100)
+ 102 00ce 90E0      		ldi r25,hi8(100)
+ 103 00d0 9093 0000 		sts (CapTouch+47)+1,r25
+ 104 00d4 8093 0000 		sts CapTouch+47,r24
+ 105 00d8 82E3      		ldi r24,lo8(50)
+ 106 00da 90E0      		ldi r25,hi8(50)
+ 107 00dc 9093 0000 		sts (CapTouch+45)+1,r25
+ 108 00e0 8093 0000 		sts CapTouch+45,r24
+ 109 00e4 82E0      		ldi r24,lo8(2)
+ 110 00e6 90E0      		ldi r25,hi8(2)
+ 111 00e8 9093 0000 		sts (CapTouch+43)+1,r25
+ 112 00ec 8093 0000 		sts CapTouch+43,r24
+ 113               	/* epilogue start */
+ 114               	.LBE55:
+ 115               	.LM27:
+ 116 00f0 0895      		ret
+ 117               	.LFE6:
+ 119               	.global	CapTouch_IIR_LPF_Struct_Init
+ 121               	CapTouch_IIR_LPF_Struct_Init:
+ 122               	.LFB7:
+ 123               	.LM28:
+ 124               	/* prologue: function */
+ 125               	/* frame size = 0 */
+ 126               	.LM29:
+ 127 00f2 E0E0      		ldi r30,lo8(IIR_LPF)
+ 128 00f4 F0E0      		ldi r31,hi8(IIR_LPF)
+ 129 00f6 92E0      		ldi r25,lo8(2)
+ 130               	.LVL0:
+ 131 00f8 80E0      		ldi r24,lo8(0)
+ 132               	.LVL1:
+ 133               	.LBB56:
+ 134               	.LM30:
+ 135 00fa 22E3      		ldi r18,lo8(50)
+ 136               	.L5:
+ 137 00fc 2083      		st Z,r18
+ 138               	.LM31:
+ 139 00fe 1182      		std Z+1,__zero_reg__
+ 140 0100 1282      		std Z+2,__zero_reg__
+ 141 0102 1382      		std Z+3,__zero_reg__
+ 142 0104 1482      		std Z+4,__zero_reg__
+ 143               	.LM32:
+ 144 0106 1582      		std Z+5,__zero_reg__
+ 145 0108 1682      		std Z+6,__zero_reg__
+ 146 010a 1782      		std Z+7,__zero_reg__
+ 147 010c 1086      		std Z+8,__zero_reg__
+ 148               	.LM33:
+ 149 010e 8917      		cp r24,r25
+ 150 0110 01F4      		brne .L4
+ 151               	.LM34:
+ 152 0112 982F      		mov r25,r24
+ 153 0114 9D5F      		subi r25,lo8(-(3))
+ 154               	.L4:
+ 155               	.LM35:
+ 156 0116 8F5F      		subi r24,lo8(-(1))
+ 157 0118 3996      		adiw r30,9
+ 158 011a 8630      		cpi r24,lo8(6)
+ 159 011c 01F4      		brne .L5
+ 160               	/* epilogue start */
+ 161               	.LBE56:
+ 162               	.LM36:
+ 163 011e 0895      		ret
+ 164               	.LFE7:
+ 166               	.global	CapTouch_IIR_LPF_Set_Alpha
+ 168               	CapTouch_IIR_LPF_Set_Alpha:
+ 169               	.LFB8:
+ 170               	.LM37:
+ 171               	.LVL2:
+ 172               	/* prologue: function */
+ 173               	/* frame size = 0 */
+ 174               	.LM38:
+ 175 0120 90E0      		ldi r25,lo8(0)
+ 176               	.LVL3:
+ 177 0122 FC01      		movw r30,r24
+ 178 0124 23E0      		ldi r18,3
+ 179 0126 EE0F      	1:	lsl r30
+ 180 0128 FF1F      		rol r31
+ 181 012a 2A95      		dec r18
+ 182 012c 01F4      		brne 1b
+ 183 012e E80F      		add r30,r24
+ 184 0130 F91F      		adc r31,r25
+ 185 0132 E050      		subi r30,lo8(-(IIR_LPF))
+ 186 0134 F040      		sbci r31,hi8(-(IIR_LPF))
+ 187 0136 6083      		st Z,r22
+ 188               	/* epilogue start */
+ 189               	.LM39:
+ 190 0138 0895      		ret
+ 191               	.LFE8:
+ 193               	.global	CapTouch_IIR_LPF_Get_Alpha
+ 195               	CapTouch_IIR_LPF_Get_Alpha:
+ 196               	.LFB9:
+ 197               	.LM40:
+ 198               	.LVL4:
+ 199               	/* prologue: function */
+ 200               	/* frame size = 0 */
+ 201               	.LM41:
+ 202 013a 90E0      		ldi r25,lo8(0)
+ 203               	.LVL5:
+ 204 013c FC01      		movw r30,r24
+ 205 013e 33E0      		ldi r19,3
+ 206 0140 EE0F      	1:	lsl r30
+ 207 0142 FF1F      		rol r31
+ 208 0144 3A95      		dec r19
+ 209 0146 01F4      		brne 1b
+ 210 0148 E80F      		add r30,r24
+ 211 014a F91F      		adc r31,r25
+ 212 014c E050      		subi r30,lo8(-(IIR_LPF))
+ 213 014e F040      		sbci r31,hi8(-(IIR_LPF))
+ 214               	.LM42:
+ 215 0150 8081      		ld r24,Z
+ 216               	.LVL6:
+ 217               	/* epilogue start */
+ 218 0152 0895      		ret
+ 219               	.LFE9:
+ 221               	.global	CapTouch_IIR_LPF_Get_Filtered_Value
+ 223               	CapTouch_IIR_LPF_Get_Filtered_Value:
+ 224               	.LFB10:
+ 225               	.LM43:
+ 226               	.LVL7:
+ 227 0154 6F92      		push r6
+ 228 0156 7F92      		push r7
+ 229 0158 8F92      		push r8
+ 230 015a 9F92      		push r9
+ 231 015c AF92      		push r10
+ 232 015e BF92      		push r11
+ 233 0160 CF92      		push r12
+ 234 0162 DF92      		push r13
+ 235 0164 EF92      		push r14
+ 236 0166 FF92      		push r15
+ 237 0168 0F93      		push r16
+ 238 016a 1F93      		push r17
+ 239               	/* prologue: function */
+ 240               	/* frame size = 0 */
+ 241 016c 5A01      		movw r10,r20
+ 242 016e 6B01      		movw r12,r22
+ 243               	.LBB57:
+ 244               	.LBB58:
+ 245               	.LM44:
+ 246 0170 90E0      		ldi r25,lo8(0)
+ 247               	.LBE58:
+ 248               	.LBE57:
+ 249               	.LM45:
+ 250 0172 4C01      		movw r8,r24
+ 251               	.LVL8:
+ 252 0174 73E0      		ldi r23,3
+ 253 0176 880C      	1:	lsl r8
+ 254 0178 991C      		rol r9
+ 255 017a 7A95      		dec r23
+ 256 017c 01F4      		brne 1b
+ 257 017e 880E      		add r8,r24
+ 258 0180 991E      		adc r9,r25
+ 259 0182 80E0      		ldi r24,lo8(IIR_LPF)
+ 260 0184 90E0      		ldi r25,hi8(IIR_LPF)
+ 261 0186 880E      		add r8,r24
+ 262 0188 991E      		adc r9,r25
+ 263 018a F401      		movw r30,r8
+ 264 018c 2081      		ld r18,Z
+ 265 018e 30E0      		ldi r19,lo8(0)
+ 266               	.LVL9:
+ 267 0190 40E0      		ldi r20,lo8(0)
+ 268 0192 50E0      		ldi r21,hi8(0)
+ 269               	.LVL10:
+ 270               	.LM46:
+ 271 0194 64E6      		ldi r22,lo8(100)
+ 272 0196 E62E      		mov r14,r22
+ 273 0198 F12C      		mov r15,__zero_reg__
+ 274 019a 012D      		mov r16,__zero_reg__
+ 275 019c 112D      		mov r17,__zero_reg__
+ 276 019e E21A      		sub r14,r18
+ 277 01a0 F30A      		sbc r15,r19
+ 278 01a2 040B      		sbc r16,r20
+ 279 01a4 150B      		sbc r17,r21
+ 280               	.LVL11:
+ 281               	.LM47:
+ 282 01a6 C601      		movw r24,r12
+ 283 01a8 B501      		movw r22,r10
+ 284 01aa 0E94 0000 		call __mulsi3
+ 285               	.LVL12:
+ 286 01ae 5B01      		movw r10,r22
+ 287 01b0 6C01      		movw r12,r24
+ 288               	.LVL13:
+ 289 01b2 45E0      		ldi r20,lo8(5)
+ 290 01b4 642E      		mov r6,r20
+ 291 01b6 712C      		mov r7,__zero_reg__
+ 292               	.LVL14:
+ 293 01b8 680C      		add r6,r8
+ 294 01ba 791C      		adc r7,r9
+ 295 01bc F401      		movw r30,r8
+ 296 01be 2581      		ldd r18,Z+5
+ 297 01c0 3681      		ldd r19,Z+6
+ 298 01c2 4781      		ldd r20,Z+7
+ 299 01c4 5085      		ldd r21,Z+8
+ 300 01c6 C801      		movw r24,r16
+ 301 01c8 B701      		movw r22,r14
+ 302 01ca 0E94 0000 		call __mulsi3
+ 303 01ce A60E      		add r10,r22
+ 304 01d0 B71E      		adc r11,r23
+ 305 01d2 C81E      		adc r12,r24
+ 306 01d4 D91E      		adc r13,r25
+ 307 01d6 C601      		movw r24,r12
+ 308 01d8 B501      		movw r22,r10
+ 309 01da 24E6      		ldi r18,lo8(100)
+ 310 01dc 30E0      		ldi r19,hi8(100)
+ 311 01de 40E0      		ldi r20,hlo8(100)
+ 312 01e0 50E0      		ldi r21,hhi8(100)
+ 313 01e2 0E94 0000 		call __divmodsi4
+ 314 01e6 CA01      		movw r24,r20
+ 315 01e8 F401      		movw r30,r8
+ 316 01ea 2583      		std Z+5,r18
+ 317 01ec F301      		movw r30,r6
+ 318 01ee 3183      		std Z+1,r19
+ 319               	.LVL15:
+ 320 01f0 4283      		std Z+2,r20
+ 321 01f2 9383      		std Z+3,r25
+ 322               	.LM48:
+ 323 01f4 B901      		movw r22,r18
+ 324               	/* epilogue start */
+ 325 01f6 1F91      		pop r17
+ 326 01f8 0F91      		pop r16
+ 327 01fa FF90      		pop r15
+ 328 01fc EF90      		pop r14
+ 329 01fe DF90      		pop r13
+ 330 0200 CF90      		pop r12
+ 331 0202 BF90      		pop r11
+ 332 0204 AF90      		pop r10
+ 333 0206 9F90      		pop r9
+ 334 0208 8F90      		pop r8
+ 335 020a 7F90      		pop r7
+ 336 020c 6F90      		pop r6
+ 337 020e 0895      		ret
+ 338               	.LFE10:
+ 340               	.global	CapTouch_Set_Key_Pin_Input
+ 342               	CapTouch_Set_Key_Pin_Input:
+ 343               	.LFB11:
+ 344               	.LM49:
+ 345               	.LVL16:
+ 346               	/* prologue: function */
+ 347               	/* frame size = 0 */
+ 348               	.LM50:
+ 349 0210 97B1      		in r25,39-32
+ 350 0212 21E0      		ldi r18,lo8(1)
+ 351 0214 30E0      		ldi r19,hi8(1)
+ 352 0216 00C0      		rjmp 2f
+ 353 0218 220F      	1:	lsl r18
+ 354 021a 331F      		rol r19
+ 355 021c 8A95      	2:	dec r24
+ 356 021e 02F4      		brpl 1b
+ 357 0220 2095      		com r18
+ 358 0222 2923      		and r18,r25
+ 359 0224 27B9      		out 39-32,r18
+ 360               	/* epilogue start */
+ 361               	.LM51:
+ 362 0226 0895      		ret
+ 363               	.LFE11:
+ 365               	.global	CapTouch_Set_Key_Pin_Analog
+ 367               	CapTouch_Set_Key_Pin_Analog:
+ 368               	.LFB12:
+ 369               	.LM52:
+ 370               	.LVL17:
+ 371               	/* prologue: function */
+ 372               	/* frame size = 0 */
+ 373               	.LM53:
+ 374 0228 97B1      		in r25,39-32
+ 375 022a 21E0      		ldi r18,lo8(1)
+ 376 022c 30E0      		ldi r19,hi8(1)
+ 377 022e 00C0      		rjmp 2f
+ 378 0230 220F      	1:	lsl r18
+ 379 0232 331F      		rol r19
+ 380 0234 8A95      	2:	dec r24
+ 381 0236 02F4      		brpl 1b
+ 382 0238 2095      		com r18
+ 383 023a 9223      		and r25,r18
+ 384 023c 97B9      		out 39-32,r25
+ 385               	.LM54:
+ 386 023e 88B1      		in r24,40-32
+ 387               	.LVL18:
+ 388 0240 2823      		and r18,r24
+ 389 0242 28B9      		out 40-32,r18
+ 390               	/* epilogue start */
+ 391               	.LM55:
+ 392 0244 0895      		ret
+ 393               	.LFE12:
+ 395               	.global	CapTouch_Set_Key_Pin_Output
+ 397               	CapTouch_Set_Key_Pin_Output:
+ 398               	.LFB13:
+ 399               	.LM56:
+ 400               	.LVL19:
+ 401               	/* prologue: function */
+ 402               	/* frame size = 0 */
+ 403               	.LM57:
+ 404 0246 97B1      		in r25,39-32
+ 405 0248 21E0      		ldi r18,lo8(1)
+ 406 024a 30E0      		ldi r19,hi8(1)
+ 407 024c 00C0      		rjmp 2f
+ 408 024e 220F      	1:	lsl r18
+ 409 0250 331F      		rol r19
+ 410 0252 8A95      	2:	dec r24
+ 411 0254 02F4      		brpl 1b
+ 412 0256 922B      		or r25,r18
+ 413 0258 97B9      		out 39-32,r25
+ 414               	/* epilogue start */
+ 415               	.LM58:
+ 416 025a 0895      		ret
+ 417               	.LFE13:
+ 419               	.global	CapTouch_Set_Key_Pin_Output_Low
+ 421               	CapTouch_Set_Key_Pin_Output_Low:
+ 422               	.LFB14:
+ 423               	.LM59:
+ 424               	.LVL20:
+ 425               	/* prologue: function */
+ 426               	/* frame size = 0 */
+ 427               	.LM60:
+ 428 025c 98B1      		in r25,40-32
+ 429 025e 21E0      		ldi r18,lo8(1)
+ 430 0260 30E0      		ldi r19,hi8(1)
+ 431 0262 00C0      		rjmp 2f
+ 432 0264 220F      	1:	lsl r18
+ 433 0266 331F      		rol r19
+ 434 0268 8A95      	2:	dec r24
+ 435 026a 02F4      		brpl 1b
+ 436 026c 2095      		com r18
+ 437 026e 2923      		and r18,r25
+ 438 0270 28B9      		out 40-32,r18
+ 439               	/* epilogue start */
+ 440               	.LM61:
+ 441 0272 0895      		ret
+ 442               	.LFE14:
+ 444               	.global	CapTouch_Set_Key_Pin_Output_High
+ 446               	CapTouch_Set_Key_Pin_Output_High:
+ 447               	.LFB15:
+ 448               	.LM62:
+ 449               	.LVL21:
+ 450               	/* prologue: function */
+ 451               	/* frame size = 0 */
+ 452               	.LM63:
+ 453 0274 98B1      		in r25,40-32
+ 454 0276 21E0      		ldi r18,lo8(1)
+ 455 0278 30E0      		ldi r19,hi8(1)
+ 456 027a 00C0      		rjmp 2f
+ 457 027c 220F      	1:	lsl r18
+ 458 027e 331F      		rol r19
+ 459 0280 8A95      	2:	dec r24
+ 460 0282 02F4      		brpl 1b
+ 461 0284 922B      		or r25,r18
+ 462 0286 98B9      		out 40-32,r25
+ 463               	/* epilogue start */
+ 464               	.LM64:
+ 465 0288 0895      		ret
+ 466               	.LFE15:
+ 468               	.global	CapTouch_ADC_Register_Config
+ 470               	CapTouch_ADC_Register_Config:
+ 471               	.LFB16:
+ 472               	.LM65:
+ 473               	/* prologue: function */
+ 474               	/* frame size = 0 */
+ 475               	.LM66:
+ 476 028a 80E4      		ldi r24,lo8(64)
+ 477 028c 8093 7C00 		sts 124,r24
+ 478               	.LM67:
+ 479 0290 87E8      		ldi r24,lo8(-121)
+ 480 0292 8093 7A00 		sts 122,r24
+ 481               	/* epilogue start */
+ 482               	.LM68:
+ 483 0296 0895      		ret
+ 484               	.LFE16:
+ 486               	.global	CapTouch_ADC_Wakeup
+ 488               	CapTouch_ADC_Wakeup:
+ 489               	.LFB17:
+ 490               	.LM69:
+ 491               	/* prologue: function */
+ 492               	/* frame size = 0 */
+ 493               	.LM70:
+ 494 0298 EAE7      		ldi r30,lo8(122)
+ 495 029a F0E0      		ldi r31,hi8(122)
+ 496 029c 8081      		ld r24,Z
+ 497 029e 8068      		ori r24,lo8(-128)
+ 498 02a0 8083      		st Z,r24
+ 499               	/* epilogue start */
+ 500               	.LM71:
+ 501 02a2 0895      		ret
+ 502               	.LFE17:
+ 504               	.global	CapTouch_ADC_Sleep
+ 506               	CapTouch_ADC_Sleep:
+ 507               	.LFB18:
+ 508               	.LM72:
+ 509               	/* prologue: function */
+ 510               	/* frame size = 0 */
+ 511               	.LM73:
+ 512 02a4 EAE7      		ldi r30,lo8(122)
+ 513 02a6 F0E0      		ldi r31,hi8(122)
+ 514 02a8 8081      		ld r24,Z
+ 515 02aa 8F77      		andi r24,lo8(127)
+ 516 02ac 8083      		st Z,r24
+ 517               	/* epilogue start */
+ 518               	.LM74:
+ 519 02ae 0895      		ret
+ 520               	.LFE18:
+ 522               	.global	CapTouch_ADC_Sample
+ 524               	CapTouch_ADC_Sample:
+ 525               	.LFB19:
+ 526               	.LM75:
+ 527               	.LVL22:
+ 528               	/* prologue: function */
+ 529               	/* frame size = 0 */
+ 530               	.LM76:
+ 531 02b0 8064      		ori r24,lo8(64)
+ 532               	.LVL23:
+ 533 02b2 8093 7C00 		sts 124,r24
+ 534               	.LM77:
+ 535 02b6 8091 7A00 		lds r24,122
+ 536 02ba 8738      		cpi r24,lo8(-121)
+ 537 02bc 01F0      		breq .L31
+ 538               	.LM78:
+ 539 02be 87E8      		ldi r24,lo8(-121)
+ 540 02c0 8093 7A00 		sts 122,r24
+ 541               	.L31:
+ 542               	.LM79:
+ 543 02c4 8091 7A00 		lds r24,122
+ 544 02c8 8064      		ori r24,lo8(64)
+ 545 02ca 8093 7A00 		sts 122,r24
+ 546               	.L32:
+ 547               	.LM80:
+ 548 02ce 8091 7A00 		lds r24,122
+ 549 02d2 84FF      		sbrs r24,4
+ 550 02d4 00C0      		rjmp .L32
+ 551               	.LM81:
+ 552 02d6 8091 7A00 		lds r24,122
+ 553 02da 8061      		ori r24,lo8(16)
+ 554 02dc 8093 7A00 		sts 122,r24
+ 555               	.LM82:
+ 556 02e0 2091 7800 		lds r18,120
+ 557 02e4 3091 7900 		lds r19,(120)+1
+ 558               	.LM83:
+ 559 02e8 C901      		movw r24,r18
+ 560               	/* epilogue start */
+ 561 02ea 0895      		ret
+ 562               	.LFE19:
+ 564               	.global	CapTouch_Precharge_SH_Cap
+ 566               	CapTouch_Precharge_SH_Cap:
+ 567               	.LFB20:
+ 568               	.LM84:
+ 569               	.LVL24:
+ 570               	/* prologue: function */
+ 571               	/* frame size = 0 */
+ 572               	.LBB59:
+ 573               	.LBB60:
+ 574               	.LM85:
+ 575 02ec 27B1      		in r18,39-32
+ 576 02ee E0E0      		ldi r30,lo8(CapTouch_Pins)
+ 577 02f0 F0E0      		ldi r31,hi8(CapTouch_Pins)
+ 578 02f2 E80F      		add r30,r24
+ 579 02f4 F11D      		adc r31,__zero_reg__
+ 580 02f6 81E0      		ldi r24,lo8(1)
+ 581 02f8 90E0      		ldi r25,hi8(1)
+ 582               	.LVL25:
+ 583 02fa 0080      		ld r0,Z
+ 584 02fc 00C0      		rjmp 2f
+ 585 02fe 880F      	1:	lsl r24
+ 586 0300 991F      		rol r25
+ 587 0302 0A94      	2:	dec r0
+ 588 0304 02F4      		brpl 1b
+ 589 0306 282B      		or r18,r24
+ 590 0308 27B9      		out 39-32,r18
+ 591               	.LBE60:
+ 592               	.LBE59:
+ 593               	.LBB61:
+ 594               	.LBB62:
+ 595               	.LM86:
+ 596 030a 28B1      		in r18,40-32
+ 597 030c 8095      		com r24
+ 598 030e 8223      		and r24,r18
+ 599 0310 88B9      		out 40-32,r24
+ 600               	.LBE62:
+ 601               	.LBE61:
+ 602               	.LBB63:
+ 603               	.LM87:
+ 604 0312 86E0      		ldi r24,lo8(6)
+ 605 0314 0E94 0000 		call CapTouch_ADC_Sample
+ 606               	/* epilogue start */
+ 607               	.LBE63:
+ 608               	.LM88:
+ 609 0318 0895      		ret
+ 610               	.LFE20:
+ 612               	.global	CapTouch_ADC_Sample1
+ 614               	CapTouch_ADC_Sample1:
+ 615               	.LFB21:
+ 616               	.LM89:
+ 617               	.LVL26:
+ 618 031a AF92      		push r10
+ 619 031c BF92      		push r11
+ 620 031e CF92      		push r12
+ 621 0320 DF92      		push r13
+ 622 0322 EF92      		push r14
+ 623 0324 FF92      		push r15
+ 624 0326 0F93      		push r16
+ 625 0328 1F93      		push r17
+ 626               	/* prologue: function */
+ 627               	/* frame size = 0 */
+ 628               	.LM90:
+ 629 032a E82E      		mov r14,r24
+ 630 032c FF24      		clr r15
+ 631 032e F0E0      		ldi r31,lo8(CapTouch_Pins)
+ 632 0330 CF2E      		mov r12,r31
+ 633 0332 F0E0      		ldi r31,hi8(CapTouch_Pins)
+ 634 0334 DF2E      		mov r13,r31
+ 635 0336 CE0C      		add r12,r14
+ 636 0338 DF1C      		adc r13,r15
+ 637 033a F601      		movw r30,r12
+ 638 033c 8081      		ld r24,Z
+ 639               	.LVL27:
+ 640 033e 0E94 0000 		call CapTouch_Set_Key_Pin_Analog
+ 641               	.LM91:
+ 642 0342 5701      		movw r10,r14
+ 643 0344 AA0C      		lsl r10
+ 644 0346 BB1C      		rol r11
+ 645 0348 8501      		movw r16,r10
+ 646 034a 0050      		subi r16,lo8(-(CapTouch))
+ 647 034c 1040      		sbci r17,hi8(-(CapTouch))
+ 648 034e F801      		movw r30,r16
+ 649 0350 1086      		std Z+8,__zero_reg__
+ 650 0352 1782      		std Z+7,__zero_reg__
+ 651               	.LBB64:
+ 652               	.LM92:
+ 653 0354 F601      		movw r30,r12
+ 654 0356 8081      		ld r24,Z
+ 655 0358 0E94 0000 		call CapTouch_ADC_Sample
+ 656 035c AC01      		movw r20,r24
+ 657 035e F801      		movw r30,r16
+ 658 0360 9087      		std Z+8,r25
+ 659 0362 8783      		std Z+7,r24
+ 660               	.LBE64:
+ 661               	.LM93:
+ 662 0364 6627      		clr r22
+ 663 0366 57FD      		sbrc r21,7
+ 664 0368 6095      		com r22
+ 665 036a 762F      		mov r23,r22
+ 666 036c 8A2D      		mov r24,r10
+ 667 036e 8E0D      		add r24,r14
+ 668 0370 0E94 0000 		call CapTouch_IIR_LPF_Get_Filtered_Value
+ 669 0374 F801      		movw r30,r16
+ 670 0376 7087      		std Z+8,r23
+ 671 0378 6783      		std Z+7,r22
+ 672               	/* epilogue start */
+ 673               	.LM94:
+ 674 037a 1F91      		pop r17
+ 675 037c 0F91      		pop r16
+ 676 037e FF90      		pop r15
+ 677 0380 EF90      		pop r14
+ 678 0382 DF90      		pop r13
+ 679 0384 CF90      		pop r12
+ 680 0386 BF90      		pop r11
+ 681 0388 AF90      		pop r10
+ 682 038a 0895      		ret
+ 683               	.LFE21:
+ 685               	.global	CapTouch_Precharge_Button
+ 687               	CapTouch_Precharge_Button:
+ 688               	.LFB22:
+ 689               	.LM95:
+ 690               	.LVL28:
+ 691               	/* prologue: function */
+ 692               	/* frame size = 0 */
+ 693               	.LBB65:
+ 694               	.LBB66:
+ 695               	.LM96:
+ 696 038c 27B1      		in r18,39-32
+ 697 038e E0E0      		ldi r30,lo8(CapTouch_Pins)
+ 698 0390 F0E0      		ldi r31,hi8(CapTouch_Pins)
+ 699 0392 E80F      		add r30,r24
+ 700 0394 F11D      		adc r31,__zero_reg__
+ 701 0396 81E0      		ldi r24,lo8(1)
+ 702 0398 90E0      		ldi r25,hi8(1)
+ 703               	.LVL29:
+ 704 039a 0080      		ld r0,Z
+ 705 039c 00C0      		rjmp 2f
+ 706 039e 880F      	1:	lsl r24
+ 707 03a0 991F      		rol r25
+ 708 03a2 0A94      	2:	dec r0
+ 709 03a4 02F4      		brpl 1b
+ 710 03a6 282B      		or r18,r24
+ 711 03a8 27B9      		out 39-32,r18
+ 712               	.LBE66:
+ 713               	.LBE65:
+ 714               	.LBB67:
+ 715               	.LBB68:
+ 716               	.LM97:
+ 717 03aa 28B1      		in r18,40-32
+ 718 03ac 822B      		or r24,r18
+ 719 03ae 88B9      		out 40-32,r24
+ 720               	.LBE68:
+ 721               	.LBE67:
+ 722               	.LBB69:
+ 723               	.LM98:
+ 724 03b0 8FE0      		ldi r24,lo8(15)
+ 725 03b2 0E94 0000 		call CapTouch_ADC_Sample
+ 726               	/* epilogue start */
+ 727               	.LBE69:
+ 728               	.LM99:
+ 729 03b6 0895      		ret
+ 730               	.LFE22:
+ 732               	.global	CapTouch_ADC_Sample2
+ 734               	CapTouch_ADC_Sample2:
+ 735               	.LFB23:
+ 736               	.LM100:
+ 737               	.LVL30:
+ 738 03b8 AF92      		push r10
+ 739 03ba BF92      		push r11
+ 740 03bc CF92      		push r12
+ 741 03be DF92      		push r13
+ 742 03c0 EF92      		push r14
+ 743 03c2 FF92      		push r15
+ 744 03c4 0F93      		push r16
+ 745 03c6 1F93      		push r17
+ 746               	/* prologue: function */
+ 747               	/* frame size = 0 */
+ 748               	.LM101:
+ 749 03c8 E82E      		mov r14,r24
+ 750 03ca FF24      		clr r15
+ 751 03cc 10E0      		ldi r17,lo8(CapTouch_Pins)
+ 752 03ce A12E      		mov r10,r17
+ 753 03d0 10E0      		ldi r17,hi8(CapTouch_Pins)
+ 754 03d2 B12E      		mov r11,r17
+ 755 03d4 AE0C      		add r10,r14
+ 756 03d6 BF1C      		adc r11,r15
+ 757 03d8 F501      		movw r30,r10
+ 758 03da 8081      		ld r24,Z
+ 759               	.LVL31:
+ 760 03dc 0E94 0000 		call CapTouch_Set_Key_Pin_Analog
+ 761               	.LM102:
+ 762 03e0 8701      		movw r16,r14
+ 763 03e2 000F      		lsl r16
+ 764 03e4 111F      		rol r17
+ 765 03e6 A0E0      		ldi r26,lo8(CapTouch)
+ 766 03e8 CA2E      		mov r12,r26
+ 767 03ea A0E0      		ldi r26,hi8(CapTouch)
+ 768 03ec DA2E      		mov r13,r26
+ 769 03ee C00E      		add r12,r16
+ 770 03f0 D11E      		adc r13,r17
+ 771 03f2 F601      		movw r30,r12
+ 772 03f4 1486      		std Z+12,__zero_reg__
+ 773 03f6 1386      		std Z+11,__zero_reg__
+ 774               	.LBB70:
+ 775               	.LM103:
+ 776 03f8 F501      		movw r30,r10
+ 777 03fa 8081      		ld r24,Z
+ 778 03fc 0E94 0000 		call CapTouch_ADC_Sample
+ 779 0400 AC01      		movw r20,r24
+ 780 0402 F601      		movw r30,r12
+ 781 0404 9487      		std Z+12,r25
+ 782 0406 8387      		std Z+11,r24
+ 783               	.LBE70:
+ 784               	.LM104:
+ 785 0408 0E0D      		add r16,r14
+ 786 040a 1F1D      		adc r17,r15
+ 787 040c 6627      		clr r22
+ 788 040e 57FD      		sbrc r21,7
+ 789 0410 6095      		com r22
+ 790 0412 762F      		mov r23,r22
+ 791 0414 802F      		mov r24,r16
+ 792 0416 8F5F      		subi r24,lo8(-(1))
+ 793 0418 0E94 0000 		call CapTouch_IIR_LPF_Get_Filtered_Value
+ 794 041c F601      		movw r30,r12
+ 795 041e 7487      		std Z+12,r23
+ 796 0420 6387      		std Z+11,r22
+ 797               	/* epilogue start */
+ 798               	.LM105:
+ 799 0422 1F91      		pop r17
+ 800 0424 0F91      		pop r16
+ 801 0426 FF90      		pop r15
+ 802 0428 EF90      		pop r14
+ 803 042a DF90      		pop r13
+ 804 042c CF90      		pop r12
+ 805 042e BF90      		pop r11
+ 806 0430 AF90      		pop r10
+ 807 0432 0895      		ret
+ 808               	.LFE23:
+ 810               	.global	CapTouch_Read_Delta
+ 812               	CapTouch_Read_Delta:
+ 813               	.LFB24:
+ 814               	.LM106:
+ 815               	.LVL32:
+ 816 0434 EF92      		push r14
+ 817 0436 FF92      		push r15
+ 818 0438 0F93      		push r16
+ 819 043a 1F93      		push r17
+ 820               	/* prologue: function */
+ 821               	/* frame size = 0 */
+ 822 043c 082F      		mov r16,r24
+ 823               	.LM107:
+ 824 043e 0E94 0000 		call CapTouch_Precharge_SH_Cap
+ 825               	.LVL33:
+ 826               	.LM108:
+ 827 0442 802F      		mov r24,r16
+ 828 0444 0E94 0000 		call CapTouch_ADC_Sample1
+ 829               	.LM109:
+ 830 0448 802F      		mov r24,r16
+ 831 044a 0E94 0000 		call CapTouch_Precharge_Button
+ 832               	.LM110:
+ 833 044e 802F      		mov r24,r16
+ 834 0450 0E94 0000 		call CapTouch_ADC_Sample2
+ 835               	.LM111:
+ 836 0454 10E0      		ldi r17,lo8(0)
+ 837 0456 C801      		movw r24,r16
+ 838               	.LVL34:
+ 839 0458 880F      		lsl r24
+ 840 045a 991F      		rol r25
+ 841 045c 20E0      		ldi r18,lo8(CapTouch)
+ 842 045e E22E      		mov r14,r18
+ 843 0460 20E0      		ldi r18,hi8(CapTouch)
+ 844 0462 F22E      		mov r15,r18
+ 845 0464 E80E      		add r14,r24
+ 846 0466 F91E      		adc r15,r25
+ 847 0468 F701      		movw r30,r14
+ 848 046a 4781      		ldd r20,Z+7
+ 849 046c 5085      		ldd r21,Z+8
+ 850               	.LVL35:
+ 851               	.LM112:
+ 852 046e 2385      		ldd r18,Z+11
+ 853 0470 3485      		ldd r19,Z+12
+ 854 0472 421B      		sub r20,r18
+ 855 0474 530B      		sbc r21,r19
+ 856               	.LM113:
+ 857 0476 508B      		std Z+16,r21
+ 858 0478 4787      		std Z+15,r20
+ 859               	.LM114:
+ 860 047a 800F      		add r24,r16
+ 861 047c 911F      		adc r25,r17
+ 862 047e 6627      		clr r22
+ 863 0480 57FD      		sbrc r21,7
+ 864 0482 6095      		com r22
+ 865 0484 762F      		mov r23,r22
+ 866               	.LVL36:
+ 867 0486 8E5F      		subi r24,lo8(-(2))
+ 868 0488 0E94 0000 		call CapTouch_IIR_LPF_Get_Filtered_Value
+ 869               	.LVL37:
+ 870 048c F701      		movw r30,r14
+ 871 048e 708B      		std Z+16,r23
+ 872 0490 6787      		std Z+15,r22
+ 873               	/* epilogue start */
+ 874               	.LM115:
+ 875 0492 1F91      		pop r17
+ 876 0494 0F91      		pop r16
+ 877 0496 FF90      		pop r15
+ 878 0498 EF90      		pop r14
+ 879 049a 0895      		ret
+ 880               	.LFE24:
+ 882               	.global	CapTouch_Calibration
+ 884               	CapTouch_Calibration:
+ 885               	.LFB25:
+ 886               	.LM116:
+ 887 049c CF92      		push r12
+ 888 049e DF92      		push r13
+ 889 04a0 EF92      		push r14
+ 890 04a2 FF92      		push r15
+ 891 04a4 0F93      		push r16
+ 892 04a6 1F93      		push r17
+ 893 04a8 DF93      		push r29
+ 894 04aa CF93      		push r28
+ 895 04ac CDB7      		in r28,__SP_L__
+ 896 04ae DEB7      		in r29,__SP_H__
+ 897 04b0 2897      		sbiw r28,8
+ 898 04b2 0FB6      		in __tmp_reg__,__SREG__
+ 899 04b4 F894      		cli
+ 900 04b6 DEBF      		out __SP_H__,r29
+ 901 04b8 0FBE      		out __SREG__,__tmp_reg__
+ 902 04ba CDBF      		out __SP_L__,r28
+ 903               	/* prologue: function */
+ 904               	/* frame size = 8 */
+ 905               	.LBB71:
+ 906               	.LM117:
+ 907 04bc 1982      		std Y+1,__zero_reg__
+ 908 04be 1A82      		std Y+2,__zero_reg__
+ 909 04c0 1B82      		std Y+3,__zero_reg__
+ 910 04c2 1C82      		std Y+4,__zero_reg__
+ 911 04c4 1D82      		std Y+5,__zero_reg__
+ 912 04c6 1E82      		std Y+6,__zero_reg__
+ 913 04c8 1F82      		std Y+7,__zero_reg__
+ 914 04ca 1886      		std Y+8,__zero_reg__
+ 915 04cc CC24      		clr r12
+ 916 04ce DD24      		clr r13
+ 917               	.LVL38:
+ 918               	.L46:
+ 919               	.LBE71:
+ 920               	.LBB72:
+ 921               	.LBB73:
+ 922               	.LM118:
+ 923 04d0 80E0      		ldi r24,lo8(0)
+ 924 04d2 0E94 0000 		call CapTouch_Read_Delta
+ 925               	.LM119:
+ 926 04d6 8091 0000 		lds r24,CapTouch+15
+ 927 04da 9091 0000 		lds r25,(CapTouch+15)+1
+ 928 04de AA27      		clr r26
+ 929 04e0 97FD      		sbrc r25,7
+ 930 04e2 A095      		com r26
+ 931 04e4 BA2F      		mov r27,r26
+ 932 04e6 2981      		ldd r18,Y+1
+ 933 04e8 3A81      		ldd r19,Y+2
+ 934 04ea 4B81      		ldd r20,Y+3
+ 935 04ec 5C81      		ldd r21,Y+4
+ 936 04ee 280F      		add r18,r24
+ 937 04f0 391F      		adc r19,r25
+ 938 04f2 4A1F      		adc r20,r26
+ 939 04f4 5B1F      		adc r21,r27
+ 940 04f6 2983      		std Y+1,r18
+ 941 04f8 3A83      		std Y+2,r19
+ 942 04fa 4B83      		std Y+3,r20
+ 943 04fc 5C83      		std Y+4,r21
+ 944               	.LM120:
+ 945 04fe 81E0      		ldi r24,lo8(1)
+ 946 0500 0E94 0000 		call CapTouch_Read_Delta
+ 947               	.LM121:
+ 948 0504 8091 0000 		lds r24,CapTouch+17
+ 949 0508 9091 0000 		lds r25,(CapTouch+17)+1
+ 950 050c AA27      		clr r26
+ 951 050e 97FD      		sbrc r25,7
+ 952 0510 A095      		com r26
+ 953 0512 BA2F      		mov r27,r26
+ 954 0514 ED80      		ldd r14,Y+5
+ 955 0516 FE80      		ldd r15,Y+6
+ 956 0518 0F81      		ldd r16,Y+7
+ 957 051a 1885      		ldd r17,Y+8
+ 958 051c E80E      		add r14,r24
+ 959 051e F91E      		adc r15,r25
+ 960 0520 0A1F      		adc r16,r26
+ 961 0522 1B1F      		adc r17,r27
+ 962 0524 ED82      		std Y+5,r14
+ 963 0526 FE82      		std Y+6,r15
+ 964 0528 0F83      		std Y+7,r16
+ 965 052a 1887      		std Y+8,r17
+ 966               	.LBE73:
+ 967               	.LM122:
+ 968 052c 0894      		sec
+ 969 052e C11C      		adc r12,__zero_reg__
+ 970 0530 D11C      		adc r13,__zero_reg__
+ 971 0532 80E2      		ldi r24,lo8(32)
+ 972 0534 C816      		cp r12,r24
+ 973 0536 D104      		cpc r13,__zero_reg__
+ 974 0538 01F4      		brne .L46
+ 975               	.LBE72:
+ 976               	.LBB74:
+ 977               	.LM123:
+ 978 053a 6981      		ldd r22,Y+1
+ 979 053c 7A81      		ldd r23,Y+2
+ 980 053e 8B81      		ldd r24,Y+3
+ 981 0540 9C81      		ldd r25,Y+4
+ 982 0542 20E2      		ldi r18,lo8(32)
+ 983 0544 30E0      		ldi r19,hi8(32)
+ 984 0546 40E0      		ldi r20,hlo8(32)
+ 985 0548 50E0      		ldi r21,hhi8(32)
+ 986 054a 0E94 0000 		call __divmodsi4
+ 987 054e C901      		movw r24,r18
+ 988               	.LM124:
+ 989 0550 2091 0000 		lds r18,CapTouch+19
+ 990 0554 3091 0000 		lds r19,(CapTouch+19)+1
+ 991 0558 821B      		sub r24,r18
+ 992 055a 930B      		sbc r25,r19
+ 993 055c 9093 0000 		sts (CapTouch+3)+1,r25
+ 994 0560 8093 0000 		sts CapTouch+3,r24
+ 995 0564 C801      		movw r24,r16
+ 996 0566 B701      		movw r22,r14
+ 997 0568 20E2      		ldi r18,lo8(32)
+ 998 056a 30E0      		ldi r19,hi8(32)
+ 999 056c 40E0      		ldi r20,hlo8(32)
+ 1000 056e 50E0      		ldi r21,hhi8(32)
+ 1001 0570 0E94 0000 		call __divmodsi4
+ 1002 0574 8091 0000 		lds r24,CapTouch+21
+ 1003 0578 9091 0000 		lds r25,(CapTouch+21)+1
+ 1004 057c 281B      		sub r18,r24
+ 1005 057e 390B      		sbc r19,r25
+ 1006 0580 3093 0000 		sts (CapTouch+5)+1,r19
+ 1007 0584 2093 0000 		sts CapTouch+5,r18
+ 1008               	/* epilogue start */
+ 1009               	.LBE74:
+ 1010               	.LM125:
+ 1011 0588 2896      		adiw r28,8
+ 1012 058a 0FB6      		in __tmp_reg__,__SREG__
+ 1013 058c F894      		cli
+ 1014 058e DEBF      		out __SP_H__,r29
+ 1015 0590 0FBE      		out __SREG__,__tmp_reg__
+ 1016 0592 CDBF      		out __SP_L__,r28
+ 1017 0594 CF91      		pop r28
+ 1018 0596 DF91      		pop r29
+ 1019 0598 1F91      		pop r17
+ 1020 059a 0F91      		pop r16
+ 1021 059c FF90      		pop r15
+ 1022 059e EF90      		pop r14
+ 1023 05a0 DF90      		pop r13
+ 1024 05a2 CF90      		pop r12
+ 1025               	.LVL39:
+ 1026 05a4 0895      		ret
+ 1027               	.LFE25:
+ 1029               	.global	CapTouch_Response
+ 1031               	CapTouch_Response:
+ 1032               	.LFB26:
+ 1033               	.LM126:
+ 1034               	.LVL40:
+ 1035 05a6 0F93      		push r16
+ 1036 05a8 1F93      		push r17
+ 1037               	/* prologue: function */
+ 1038               	/* frame size = 0 */
+ 1039 05aa 082F      		mov r16,r24
+ 1040               	.LM127:
+ 1041 05ac 0E94 0000 		call CapTouch_Read_Delta
+ 1042               	.LVL41:
+ 1043               	.LM128:
+ 1044 05b0 10E0      		ldi r17,lo8(0)
+ 1045 05b2 F801      		movw r30,r16
+ 1046               	.LVL42:
+ 1047 05b4 EE0F      		lsl r30
+ 1048 05b6 FF1F      		rol r31
+ 1049 05b8 E050      		subi r30,lo8(-(CapTouch))
+ 1050 05ba F040      		sbci r31,hi8(-(CapTouch))
+ 1051 05bc 2381      		ldd r18,Z+3
+ 1052 05be 3481      		ldd r19,Z+4
+ 1053 05c0 8785      		ldd r24,Z+15
+ 1054 05c2 9089      		ldd r25,Z+16
+ 1055 05c4 F801      		movw r30,r16
+ 1056 05c6 E050      		subi r30,lo8(-(CapTouch))
+ 1057 05c8 F040      		sbci r31,hi8(-(CapTouch))
+ 1058 05ca 8217      		cp r24,r18
+ 1059 05cc 9307      		cpc r25,r19
+ 1060 05ce 04F4      		brge .L50
+ 1061               	.LM129:
+ 1062 05d0 81E0      		ldi r24,lo8(1)
+ 1063 05d2 8183      		std Z+1,r24
+ 1064 05d4 00C0      		rjmp .L52
+ 1065               	.L50:
+ 1066               	.LM130:
+ 1067 05d6 1182      		std Z+1,__zero_reg__
+ 1068               	.L52:
+ 1069               	/* epilogue start */
+ 1070               	.LM131:
+ 1071 05d8 1F91      		pop r17
+ 1072 05da 0F91      		pop r16
+ 1073 05dc 0895      		ret
+ 1074               	.LFE26:
+ 1076               	.global	CapTouch_Check_Trigger
+ 1078               	CapTouch_Check_Trigger:
+ 1079               	.LFB27:
+ 1080               	.LM132:
+ 1081               	.LVL43:
+ 1082 05de 1F93      		push r17
+ 1083               	/* prologue: function */
+ 1084               	/* frame size = 0 */
+ 1085 05e0 182F      		mov r17,r24
+ 1086               	.LM133:
+ 1087 05e2 0E94 0000 		call CapTouch_Response
+ 1088               	.LVL44:
+ 1089               	.LM134:
+ 1090 05e6 A12F      		mov r26,r17
+ 1091 05e8 B0E0      		ldi r27,lo8(0)
+ 1092 05ea FD01      		movw r30,r26
+ 1093 05ec E050      		subi r30,lo8(-(CapTouch))
+ 1094 05ee F040      		sbci r31,hi8(-(CapTouch))
+ 1095 05f0 9181      		ldd r25,Z+1
+ 1096               	.LVL45:
+ 1097               	.LM135:
+ 1098 05f2 818D      		ldd r24,Z+25
+ 1099 05f4 8823      		tst r24
+ 1100 05f6 01F4      		brne .L54
+ 1101 05f8 9130      		cpi r25,lo8(1)
+ 1102 05fa 01F4      		brne .L55
+ 1103               	.LM136:
+ 1104 05fc 11AA      		std Z+49,__zero_reg__
+ 1105               	.LM137:
+ 1106 05fe 978B      		std Z+23,r25
+ 1107 0600 00C0      		rjmp .L56
+ 1108               	.L54:
+ 1109               	.LM138:
+ 1110 0602 8130      		cpi r24,lo8(1)
+ 1111 0604 01F4      		brne .L55
+ 1112 0606 9923      		tst r25
+ 1113 0608 01F4      		brne .L57
+ 1114               	.LM139:
+ 1115 060a 84E0      		ldi r24,lo8(4)
+ 1116 060c 00C0      		rjmp .L59
+ 1117               	.L57:
+ 1118               	.LM140:
+ 1119 060e 9130      		cpi r25,lo8(1)
+ 1120 0610 01F4      		brne .L55
+ 1121               	.LM141:
+ 1122 0612 82E0      		ldi r24,lo8(2)
+ 1123               	.L59:
+ 1124 0614 878B      		std Z+23,r24
+ 1125 0616 00C0      		rjmp .L56
+ 1126               	.L55:
+ 1127               	.LM142:
+ 1128 0618 FD01      		movw r30,r26
+ 1129 061a E050      		subi r30,lo8(-(CapTouch))
+ 1130 061c F040      		sbci r31,hi8(-(CapTouch))
+ 1131 061e 178A      		std Z+23,__zero_reg__
+ 1132               	.L56:
+ 1133               	.LM143:
+ 1134 0620 A050      		subi r26,lo8(-(CapTouch))
+ 1135 0622 B040      		sbci r27,hi8(-(CapTouch))
+ 1136 0624 5996      		adiw r26,25
+ 1137 0626 9C93      		st X,r25
+ 1138               	/* epilogue start */
+ 1139               	.LM144:
+ 1140 0628 1F91      		pop r17
+ 1141               	.LVL46:
+ 1142 062a 0895      		ret
+ 1143               	.LFE27:
+ 1145               	.global	CapTouch_Check_Touch_Duration
+ 1147               	CapTouch_Check_Touch_Duration:
+ 1148               	.LFB28:
+ 1149               	.LM145:
+ 1150               	.LVL47:
+ 1151 062c CF92      		push r12
+ 1152 062e DF92      		push r13
+ 1153 0630 EF92      		push r14
+ 1154 0632 FF92      		push r15
+ 1155 0634 0F93      		push r16
+ 1156 0636 1F93      		push r17
+ 1157               	/* prologue: function */
+ 1158               	/* frame size = 0 */
+ 1159 0638 182F      		mov r17,r24
+ 1160 063a 042F      		mov r16,r20
+ 1161 063c F52E      		mov r15,r21
+ 1162               	.LVL48:
+ 1163 063e E62E      		mov r14,r22
+ 1164               	.LVL49:
+ 1165 0640 D72E      		mov r13,r23
+ 1166               	.LVL50:
+ 1167               	.LM146:
+ 1168 0642 0E94 0000 		call CapTouch_Check_Trigger
+ 1169               	.LVL51:
+ 1170               	.LM147:
+ 1171 0646 612F      		mov r22,r17
+ 1172 0648 70E0      		ldi r23,lo8(0)
+ 1173 064a FB01      		movw r30,r22
+ 1174 064c E050      		subi r30,lo8(-(CapTouch))
+ 1175 064e F040      		sbci r31,hi8(-(CapTouch))
+ 1176 0650 1789      		ldd r17,Z+23
+ 1177               	.LVL52:
+ 1178 0652 1130      		cpi r17,lo8(1)
+ 1179 0654 01F4      		brne .L61
+ 1180               	.LM148:
+ 1181 0656 81E0      		ldi r24,lo8(1)
+ 1182 0658 90E0      		ldi r25,hi8(1)
+ 1183 065a 062E      		mov r0,r22
+ 1184 065c 00C0      		rjmp 2f
+ 1185 065e 880F      	1:	lsl r24
+ 1186 0660 991F      		rol r25
+ 1187 0662 0A94      	2:	dec r0
+ 1188 0664 02F4      		brpl 1b
+ 1189 0666 2091 0000 		lds r18,CapTouch+53
+ 1190 066a 282B      		or r18,r24
+ 1191 066c 2093 0000 		sts CapTouch+53,r18
+ 1192               	.LM149:
+ 1193 0670 FB01      		movw r30,r22
+ 1194 0672 EE0F      		lsl r30
+ 1195 0674 FF1F      		rol r31
+ 1196 0676 EE0F      		lsl r30
+ 1197 0678 FF1F      		rol r31
+ 1198 067a E050      		subi r30,lo8(-(CapTouch))
+ 1199 067c F040      		sbci r31,hi8(-(CapTouch))
+ 1200 067e DF01      		movw r26,r30
+ 1201 0680 9396      		adiw r26,35
+ 1202 0682 03A3      		std Z+35,r16
+ 1203 0684 1196      		adiw r26,1
+ 1204 0686 FC92      		st X,r15
+ 1205 0688 1197      		sbiw r26,1
+ 1206 068a 1296      		adiw r26,2
+ 1207 068c EC92      		st X,r14
+ 1208 068e 1297      		sbiw r26,2
+ 1209 0690 1396      		adiw r26,3
+ 1210 0692 DC92      		st X,r13
+ 1211 0694 00C0      		rjmp .L66
+ 1212               	.L61:
+ 1213               	.LM150:
+ 1214 0696 1430      		cpi r17,lo8(4)
+ 1215 0698 01F0      		breq .L63
+ 1216 069a 1230      		cpi r17,lo8(2)
+ 1217 069c 01F4      		brne .L64
+ 1218               	.L63:
+ 1219               	.LM151:
+ 1220 069e 202F      		mov r18,r16
+ 1221               	.LVL53:
+ 1222 06a0 3F2D      		mov r19,r15
+ 1223               	.LVL54:
+ 1224 06a2 4E2D      		mov r20,r14
+ 1225               	.LVL55:
+ 1226 06a4 5D2D      		mov r21,r13
+ 1227               	.LVL56:
+ 1228               	.LM152:
+ 1229 06a6 FB01      		movw r30,r22
+ 1230 06a8 EE0F      		lsl r30
+ 1231 06aa FF1F      		rol r31
+ 1232 06ac EE0F      		lsl r30
+ 1233 06ae FF1F      		rol r31
+ 1234 06b0 E050      		subi r30,lo8(-(CapTouch))
+ 1235 06b2 F040      		sbci r31,hi8(-(CapTouch))
+ 1236 06b4 83A1      		ldd r24,Z+35
+ 1237 06b6 94A1      		ldd r25,Z+36
+ 1238 06b8 A5A1      		ldd r26,Z+37
+ 1239 06ba B6A1      		ldd r27,Z+38
+ 1240 06bc 6901      		movw r12,r18
+ 1241 06be 7A01      		movw r14,r20
+ 1242 06c0 C81A      		sub r12,r24
+ 1243 06c2 D90A      		sbc r13,r25
+ 1244 06c4 EA0A      		sbc r14,r26
+ 1245 06c6 FB0A      		sbc r15,r27
+ 1246               	.LM153:
+ 1247 06c8 F7FC      		sbrc r15,7
+ 1248 06ca 00C0      		rjmp .L65
+ 1249               	.LVL57:
+ 1250               	.LM154:
+ 1251 06cc C38E      		std Z+27,r12
+ 1252 06ce D48E      		std Z+28,r13
+ 1253 06d0 E58E      		std Z+29,r14
+ 1254 06d2 F68E      		std Z+30,r15
+ 1255               	.L65:
+ 1256               	.LM155:
+ 1257 06d4 1430      		cpi r17,lo8(4)
+ 1258 06d6 01F4      		brne .L66
+ 1259               	.LM156:
+ 1260 06d8 FB01      		movw r30,r22
+ 1261 06da EE0F      		lsl r30
+ 1262 06dc FF1F      		rol r31
+ 1263 06de EE0F      		lsl r30
+ 1264 06e0 FF1F      		rol r31
+ 1265 06e2 E050      		subi r30,lo8(-(CapTouch))
+ 1266 06e4 F040      		sbci r31,hi8(-(CapTouch))
+ 1267 06e6 23A3      		std Z+35,r18
+ 1268 06e8 34A3      		std Z+36,r19
+ 1269 06ea 45A3      		std Z+37,r20
+ 1270 06ec 56A3      		std Z+38,r21
+ 1271               	.LM157:
+ 1272 06ee 81E0      		ldi r24,lo8(1)
+ 1273 06f0 90E0      		ldi r25,hi8(1)
+ 1274 06f2 00C0      		rjmp 2f
+ 1275 06f4 880F      	1:	lsl r24
+ 1276 06f6 991F      		rol r25
+ 1277 06f8 6A95      	2:	dec r22
+ 1278 06fa 02F4      		brpl 1b
+ 1279 06fc 8095      		com r24
+ 1280 06fe 2091 0000 		lds r18,CapTouch+53
+ 1281 0702 8223      		and r24,r18
+ 1282 0704 8093 0000 		sts CapTouch+53,r24
+ 1283 0708 00C0      		rjmp .L66
+ 1284               	.LVL58:
+ 1285               	.L64:
+ 1286               	.LM158:
+ 1287 070a FB01      		movw r30,r22
+ 1288 070c EE0F      		lsl r30
+ 1289 070e FF1F      		rol r31
+ 1290 0710 EE0F      		lsl r30
+ 1291 0712 FF1F      		rol r31
+ 1292 0714 E050      		subi r30,lo8(-(CapTouch))
+ 1293 0716 F040      		sbci r31,hi8(-(CapTouch))
+ 1294 0718 138E      		std Z+27,__zero_reg__
+ 1295 071a 148E      		std Z+28,__zero_reg__
+ 1296 071c 158E      		std Z+29,__zero_reg__
+ 1297 071e 168E      		std Z+30,__zero_reg__
+ 1298               	.LM159:
+ 1299 0720 13A2      		std Z+35,__zero_reg__
+ 1300 0722 14A2      		std Z+36,__zero_reg__
+ 1301 0724 15A2      		std Z+37,__zero_reg__
+ 1302 0726 16A2      		std Z+38,__zero_reg__
+ 1303               	.LVL59:
+ 1304               	.L66:
+ 1305               	/* epilogue start */
+ 1306               	.LM160:
+ 1307 0728 1F91      		pop r17
+ 1308 072a 0F91      		pop r16
+ 1309               	.LVL60:
+ 1310 072c FF90      		pop r15
+ 1311               	.LVL61:
+ 1312 072e EF90      		pop r14
+ 1313               	.LVL62:
+ 1314 0730 DF90      		pop r13
+ 1315               	.LVL63:
+ 1316 0732 CF90      		pop r12
+ 1317               	.LVL64:
+ 1318 0734 0895      		ret
+ 1319               	.LFE28:
+ 1321               	.global	CapTouch_Short_Pressed
+ 1323               	CapTouch_Short_Pressed:
+ 1324               	.LFB30:
+ 1325               	.LM161:
+ 1326               	.LVL65:
+ 1327               	/* prologue: function */
+ 1328               	/* frame size = 0 */
+ 1329               	.LM162:
+ 1330 0736 A82F      		mov r26,r24
+ 1331 0738 B0E0      		ldi r27,lo8(0)
+ 1332 073a FD01      		movw r30,r26
+ 1333 073c E050      		subi r30,lo8(-(CapTouch))
+ 1334 073e F040      		sbci r31,hi8(-(CapTouch))
+ 1335 0740 8789      		ldd r24,Z+23
+ 1336               	.LVL66:
+ 1337 0742 8430      		cpi r24,lo8(4)
+ 1338 0744 01F4      		brne .L68
+ 1339               	.LM163:
+ 1340 0746 AA0F      		lsl r26
+ 1341 0748 BB1F      		rol r27
+ 1342 074a AA0F      		lsl r26
+ 1343 074c BB1F      		rol r27
+ 1344 074e A050      		subi r26,lo8(-(CapTouch))
+ 1345 0750 B040      		sbci r27,hi8(-(CapTouch))
+ 1346 0752 5B96      		adiw r26,27
+ 1347 0754 2D91      		ld r18,X+
+ 1348 0756 3D91      		ld r19,X+
+ 1349 0758 4D91      		ld r20,X+
+ 1350 075a 5C91      		ld r21,X
+ 1351 075c 5E97      		sbiw r26,27+3
+ 1352 075e 8091 0000 		lds r24,CapTouch+43
+ 1353 0762 9091 0000 		lds r25,(CapTouch+43)+1
+ 1354 0766 A0E0      		ldi r26,lo8(0)
+ 1355 0768 B0E0      		ldi r27,hi8(0)
+ 1356 076a 2817      		cp r18,r24
+ 1357 076c 3907      		cpc r19,r25
+ 1358 076e 4A07      		cpc r20,r26
+ 1359 0770 5B07      		cpc r21,r27
+ 1360 0772 04F0      		brlt .L68
+ 1361 0774 60E0      		ldi r22,lo8(0)
+ 1362               	.LVL67:
+ 1363 0776 8091 0000 		lds r24,CapTouch+45
+ 1364 077a 9091 0000 		lds r25,(CapTouch+45)+1
+ 1365 077e A0E0      		ldi r26,lo8(0)
+ 1366 0780 B0E0      		ldi r27,hi8(0)
+ 1367 0782 8217      		cp r24,r18
+ 1368 0784 9307      		cpc r25,r19
+ 1369 0786 A407      		cpc r26,r20
+ 1370 0788 B507      		cpc r27,r21
+ 1371 078a 04F0      		brlt .L70
+ 1372 078c 61E0      		ldi r22,lo8(1)
+ 1373 078e 00C0      		rjmp .L70
+ 1374               	.LVL68:
+ 1375               	.L68:
+ 1376 0790 60E0      		ldi r22,lo8(0)
+ 1377               	.LVL69:
+ 1378               	.L70:
+ 1379               	.LM164:
+ 1380 0792 862F      		mov r24,r22
+ 1381               	/* epilogue start */
+ 1382 0794 0895      		ret
+ 1383               	.LFE30:
+ 1385               	.global	CapTouch_Long_Pressed
+ 1387               	CapTouch_Long_Pressed:
+ 1388               	.LFB31:
+ 1389               	.LM165:
+ 1390               	.LVL70:
+ 1391               	/* prologue: function */
+ 1392               	/* frame size = 0 */
+ 1393               	.LM166:
+ 1394 0796 682F      		mov r22,r24
+ 1395 0798 70E0      		ldi r23,lo8(0)
+ 1396 079a FB01      		movw r30,r22
+ 1397 079c EE0F      		lsl r30
+ 1398 079e FF1F      		rol r31
+ 1399 07a0 EE0F      		lsl r30
+ 1400 07a2 FF1F      		rol r31
+ 1401 07a4 E050      		subi r30,lo8(-(CapTouch))
+ 1402 07a6 F040      		sbci r31,hi8(-(CapTouch))
+ 1403 07a8 8091 0000 		lds r24,CapTouch+47
+ 1404 07ac 9091 0000 		lds r25,(CapTouch+47)+1
+ 1405               	.LVL71:
+ 1406 07b0 A0E0      		ldi r26,lo8(0)
+ 1407 07b2 B0E0      		ldi r27,hi8(0)
+ 1408 07b4 238D      		ldd r18,Z+27
+ 1409 07b6 348D      		ldd r19,Z+28
+ 1410 07b8 458D      		ldd r20,Z+29
+ 1411 07ba 568D      		ldd r21,Z+30
+ 1412 07bc 8217      		cp r24,r18
+ 1413 07be 9307      		cpc r25,r19
+ 1414 07c0 A407      		cpc r26,r20
+ 1415 07c2 B507      		cpc r27,r21
+ 1416 07c4 04F4      		brge .L73
+ 1417 07c6 FB01      		movw r30,r22
+ 1418 07c8 E050      		subi r30,lo8(-(CapTouch))
+ 1419 07ca F040      		sbci r31,hi8(-(CapTouch))
+ 1420 07cc 81A9      		ldd r24,Z+49
+ 1421 07ce 8823      		tst r24
+ 1422 07d0 01F4      		brne .L73
+ 1423               	.LM167:
+ 1424 07d2 81E0      		ldi r24,lo8(1)
+ 1425 07d4 81AB      		std Z+49,r24
+ 1426 07d6 0895      		ret
+ 1427               	.L73:
+ 1428 07d8 80E0      		ldi r24,lo8(0)
+ 1429               	.LVL72:
+ 1430               	.LVL73:
+ 1431               	.LM168:
+ 1432 07da 0895      		ret
+ 1433               	.LFE31:
+ 1435               	.global	CapTouch_Constant_Pressed
+ 1437               	CapTouch_Constant_Pressed:
+ 1438               	.LFB32:
+ 1439               	.LM169:
+ 1440               	.LVL74:
+ 1441 07dc CF93      		push r28
+ 1442 07de DF93      		push r29
+ 1443               	/* prologue: function */
+ 1444               	/* frame size = 0 */
+ 1445               	.LM170:
+ 1446 07e0 C82F      		mov r28,r24
+ 1447 07e2 D0E0      		ldi r29,lo8(0)
+ 1448 07e4 FE01      		movw r30,r28
+ 1449 07e6 E050      		subi r30,lo8(-(CapTouch))
+ 1450 07e8 F040      		sbci r31,hi8(-(CapTouch))
+ 1451 07ea 8789      		ldd r24,Z+23
+ 1452               	.LVL75:
+ 1453 07ec 8230      		cpi r24,lo8(2)
+ 1454 07ee 01F0      		breq .L77
+ 1455 07f0 60E0      		ldi r22,lo8(0)
+ 1456               	.LVL76:
+ 1457 07f2 00C0      		rjmp .L78
+ 1458               	.LVL77:
+ 1459               	.L77:
+ 1460 07f4 60E0      		ldi r22,lo8(0)
+ 1461               	.LVL78:
+ 1462 07f6 CC0F      		lsl r28
+ 1463 07f8 DD1F      		rol r29
+ 1464 07fa CC0F      		lsl r28
+ 1465 07fc DD1F      		rol r29
+ 1466 07fe C050      		subi r28,lo8(-(CapTouch))
+ 1467 0800 D040      		sbci r29,hi8(-(CapTouch))
+ 1468 0802 8091 0000 		lds r24,CapTouch+43
+ 1469 0806 9091 0000 		lds r25,(CapTouch+43)+1
+ 1470 080a A0E0      		ldi r26,lo8(0)
+ 1471 080c B0E0      		ldi r27,hi8(0)
+ 1472 080e 2B8D      		ldd r18,Y+27
+ 1473 0810 3C8D      		ldd r19,Y+28
+ 1474 0812 4D8D      		ldd r20,Y+29
+ 1475 0814 5E8D      		ldd r21,Y+30
+ 1476 0816 8217      		cp r24,r18
+ 1477 0818 9307      		cpc r25,r19
+ 1478 081a A407      		cpc r26,r20
+ 1479 081c B507      		cpc r27,r21
+ 1480 081e 04F4      		brge .L78
+ 1481 0820 61E0      		ldi r22,lo8(1)
+ 1482               	.L78:
+ 1483               	.LM171:
+ 1484 0822 862F      		mov r24,r22
+ 1485               	/* epilogue start */
+ 1486 0824 DF91      		pop r29
+ 1487 0826 CF91      		pop r28
+ 1488 0828 0895      		ret
+ 1489               	.LFE32:
+ 1491               	.global	CapTouch_Short_Pressed_Filtered
+ 1493               	CapTouch_Short_Pressed_Filtered:
+ 1494               	.LFB33:
+ 1495               	.LM172:
+ 1496               	.LVL79:
+ 1497 082a CF93      		push r28
+ 1498 082c DF93      		push r29
+ 1499               	/* prologue: function */
+ 1500               	/* frame size = 0 */
+ 1501 082e 782F      		mov r23,r24
+ 1502               	.LM173:
+ 1503 0830 E0E0      		ldi r30,lo8(CapTouch+27)
+ 1504 0832 F0E0      		ldi r31,hi8(CapTouch+27)
+ 1505 0834 61E0      		ldi r22,lo8(1)
+ 1506               	.LVL80:
+ 1507               	.LBB75:
+ 1508               	.LM174:
+ 1509 0836 C82F      		mov r28,r24
+ 1510 0838 D0E0      		ldi r29,lo8(0)
+ 1511               	.LVL81:
+ 1512 083a 9E01      		movw r18,r28
+ 1513 083c 220F      		lsl r18
+ 1514 083e 331F      		rol r19
+ 1515 0840 220F      		lsl r18
+ 1516 0842 331F      		rol r19
+ 1517 0844 A901      		movw r20,r18
+ 1518 0846 4E0F      		add r20,r30
+ 1519 0848 5F1F      		adc r21,r31
+ 1520 084a 00C0      		rjmp .L82
+ 1521               	.LVL82:
+ 1522               	.L84:
+ 1523               	.LM175:
+ 1524 084c 8081      		ld r24,Z
+ 1525 084e 9181      		ldd r25,Z+1
+ 1526 0850 A281      		ldd r26,Z+2
+ 1527 0852 B381      		ldd r27,Z+3
+ 1528 0854 0097      		sbiw r24,0
+ 1529 0856 A105      		cpc r26,__zero_reg__
+ 1530 0858 B105      		cpc r27,__zero_reg__
+ 1531 085a 01F0      		breq .L83
+ 1532 085c 60E0      		ldi r22,lo8(0)
+ 1533               	.L83:
+ 1534 085e 3496      		adiw r30,4
+ 1535               	.LVL83:
+ 1536               	.L82:
+ 1537               	.LM176:
+ 1538 0860 E417      		cp r30,r20
+ 1539 0862 F507      		cpc r31,r21
+ 1540 0864 01F4      		brne .L84
+ 1541               	.LBE75:
+ 1542               	.LM177:
+ 1543 0866 6130      		cpi r22,lo8(1)
+ 1544 0868 01F4      		brne .L85
+ 1545               	.LBB76:
+ 1546               	.LBB77:
+ 1547               	.LM178:
+ 1548 086a C050      		subi r28,lo8(-(CapTouch))
+ 1549 086c D040      		sbci r29,hi8(-(CapTouch))
+ 1550               	.LVL84:
+ 1551 086e 8F89      		ldd r24,Y+23
+ 1552 0870 8430      		cpi r24,lo8(4)
+ 1553 0872 01F4      		brne .L85
+ 1554               	.LM179:
+ 1555 0874 2050      		subi r18,lo8(-(CapTouch))
+ 1556 0876 3040      		sbci r19,hi8(-(CapTouch))
+ 1557 0878 F901      		movw r30,r18
+ 1558 087a 238D      		ldd r18,Z+27
+ 1559 087c 348D      		ldd r19,Z+28
+ 1560 087e 458D      		ldd r20,Z+29
+ 1561 0880 568D      		ldd r21,Z+30
+ 1562 0882 8091 0000 		lds r24,CapTouch+43
+ 1563 0886 9091 0000 		lds r25,(CapTouch+43)+1
+ 1564 088a A0E0      		ldi r26,lo8(0)
+ 1565 088c B0E0      		ldi r27,hi8(0)
+ 1566 088e 2817      		cp r18,r24
+ 1567 0890 3907      		cpc r19,r25
+ 1568 0892 4A07      		cpc r20,r26
+ 1569 0894 5B07      		cpc r21,r27
+ 1570 0896 04F0      		brlt .L85
+ 1571 0898 8091 0000 		lds r24,CapTouch+45
+ 1572 089c 9091 0000 		lds r25,(CapTouch+45)+1
+ 1573 08a0 A0E0      		ldi r26,lo8(0)
+ 1574 08a2 B0E0      		ldi r27,hi8(0)
+ 1575 08a4 8217      		cp r24,r18
+ 1576 08a6 9307      		cpc r25,r19
+ 1577 08a8 A407      		cpc r26,r20
+ 1578 08aa B507      		cpc r27,r21
+ 1579 08ac 04F0      		brlt .L85
+ 1580               	.LBE77:
+ 1581               	.LBE76:
+ 1582               	.LBB78:
+ 1583               	.LM180:
+ 1584 08ae 272F      		mov r18,r23
+ 1585               	.LVL85:
+ 1586 08b0 2F5F      		subi r18,lo8(-(1))
+ 1587 08b2 31E0      		ldi r19,lo8(1)
+ 1588               	.LVL86:
+ 1589 08b4 00C0      		rjmp .L86
+ 1590               	.LVL87:
+ 1591               	.L88:
+ 1592               	.LM181:
+ 1593 08b6 E22F      		mov r30,r18
+ 1594 08b8 F0E0      		ldi r31,lo8(0)
+ 1595 08ba EE0F      		lsl r30
+ 1596 08bc FF1F      		rol r31
+ 1597 08be EE0F      		lsl r30
+ 1598 08c0 FF1F      		rol r31
+ 1599               	.LVL88:
+ 1600 08c2 E050      		subi r30,lo8(-(CapTouch))
+ 1601 08c4 F040      		sbci r31,hi8(-(CapTouch))
+ 1602               	.LVL89:
+ 1603 08c6 838D      		ldd r24,Z+27
+ 1604 08c8 948D      		ldd r25,Z+28
+ 1605 08ca A58D      		ldd r26,Z+29
+ 1606 08cc B68D      		ldd r27,Z+30
+ 1607 08ce 0097      		sbiw r24,0
+ 1608 08d0 A105      		cpc r26,__zero_reg__
+ 1609 08d2 B105      		cpc r27,__zero_reg__
+ 1610 08d4 01F0      		breq .L87
+ 1611 08d6 30E0      		ldi r19,lo8(0)
+ 1612               	.L87:
+ 1613               	.LM182:
+ 1614 08d8 2F5F      		subi r18,lo8(-(1))
+ 1615               	.LVL90:
+ 1616               	.L86:
+ 1617 08da 2230      		cpi r18,lo8(2)
+ 1618 08dc 00F0      		brlo .L88
+ 1619 08de 00C0      		rjmp .L89
+ 1620               	.LVL91:
+ 1621               	.L85:
+ 1622 08e0 30E0      		ldi r19,lo8(0)
+ 1623               	.LVL92:
+ 1624               	.L89:
+ 1625               	.LBE78:
+ 1626               	.LM183:
+ 1627 08e2 832F      		mov r24,r19
+ 1628               	/* epilogue start */
+ 1629 08e4 DF91      		pop r29
+ 1630               	.LVL93:
+ 1631 08e6 CF91      		pop r28
+ 1632               	.LVL94:
+ 1633 08e8 0895      		ret
+ 1634               	.LFE33:
+ 1636               	.global	CapTouch_Long_Pressed_Filtered
+ 1638               	CapTouch_Long_Pressed_Filtered:
+ 1639               	.LFB34:
+ 1640               	.LM184:
+ 1641 08ea CF92      		push r12
+ 1642 08ec DF92      		push r13
+ 1643 08ee EF92      		push r14
+ 1644 08f0 FF92      		push r15
+ 1645 08f2 0F93      		push r16
+ 1646 08f4 1F93      		push r17
+ 1647 08f6 CF93      		push r28
+ 1648 08f8 DF93      		push r29
+ 1649               	/* prologue: function */
+ 1650               	/* frame size = 0 */
+ 1651               	.LBB79:
+ 1652               	.LBB80:
+ 1653               	.LBB81:
+ 1654               	.LM185:
+ 1655 08fa 6091 0000 		lds r22,CapTouch+47
+ 1656 08fe 7091 0000 		lds r23,(CapTouch+47)+1
+ 1657 0902 9B01      		movw r18,r22
+ 1658 0904 40E0      		ldi r20,lo8(0)
+ 1659 0906 50E0      		ldi r21,hi8(0)
+ 1660 0908 8091 0000 		lds r24,CapTouch+27
+ 1661 090c 9091 0000 		lds r25,(CapTouch+27)+1
+ 1662 0910 A091 0000 		lds r26,(CapTouch+27)+2
+ 1663 0914 B091 0000 		lds r27,(CapTouch+27)+3
+ 1664 0918 2817      		cp r18,r24
+ 1665 091a 3907      		cpc r19,r25
+ 1666 091c 4A07      		cpc r20,r26
+ 1667 091e 5B07      		cpc r21,r27
+ 1668 0920 04F4      		brge .L92
+ 1669 0922 8091 0000 		lds r24,CapTouch+49
+ 1670 0926 8823      		tst r24
+ 1671 0928 01F4      		brne .L92
+ 1672               	.LM186:
+ 1673 092a 81E0      		ldi r24,lo8(1)
+ 1674 092c 8093 0000 		sts CapTouch+49,r24
+ 1675 0930 11E0      		ldi r17,lo8(1)
+ 1676               	.LVL95:
+ 1677 0932 91E0      		ldi r25,lo8(1)
+ 1678               	.LVL96:
+ 1679 0934 00C0      		rjmp .L93
+ 1680               	.LVL97:
+ 1681               	.L92:
+ 1682 0936 10E0      		ldi r17,lo8(0)
+ 1683               	.LVL98:
+ 1684 0938 90E0      		ldi r25,lo8(0)
+ 1685               	.LVL99:
+ 1686               	.L93:
+ 1687               	.LM187:
+ 1688 093a C090 0000 		lds r12,CapTouch+31
+ 1689 093e D090 0000 		lds r13,(CapTouch+31)+1
+ 1690 0942 E090 0000 		lds r14,(CapTouch+31)+2
+ 1691 0946 F090 0000 		lds r15,(CapTouch+31)+3
+ 1692 094a 2C15      		cp r18,r12
+ 1693 094c 3D05      		cpc r19,r13
+ 1694 094e 4E05      		cpc r20,r14
+ 1695 0950 5F05      		cpc r21,r15
+ 1696 0952 04F4      		brge .L94
+ 1697 0954 8091 0000 		lds r24,CapTouch+50
+ 1698 0958 8823      		tst r24
+ 1699 095a 01F4      		brne .L94
+ 1700               	.LM188:
+ 1701 095c 81E0      		ldi r24,lo8(1)
+ 1702 095e 8093 0000 		sts CapTouch+50,r24
+ 1703               	.LBE81:
+ 1704               	.LBE80:
+ 1705               	.LM189:
+ 1706 0962 1260      		ori r17,lo8(2)
+ 1707 0964 01E0      		ldi r16,lo8(1)
+ 1708               	.LVL100:
+ 1709 0966 00C0      		rjmp .L102
+ 1710               	.LVL101:
+ 1711               	.L94:
+ 1712 0968 00E0      		ldi r16,lo8(0)
+ 1713               	.LVL102:
+ 1714               	.LBE79:
+ 1715               	.LM190:
+ 1716 096a 9130      		cpi r25,lo8(1)
+ 1717 096c 01F4      		brne .L96
+ 1718               	.L102:
+ 1719               	.LBB82:
+ 1720               	.LM191:
+ 1721 096e 7695      		lsr r23
+ 1722 0970 6795      		ror r22
+ 1723 0972 AB01      		movw r20,r22
+ 1724 0974 60E0      		ldi r22,lo8(0)
+ 1725 0976 70E0      		ldi r23,hi8(0)
+ 1726 0978 C0E0      		ldi r28,lo8(CapTouch+27)
+ 1727 097a D0E0      		ldi r29,hi8(CapTouch+27)
+ 1728 097c 20E0      		ldi r18,lo8(0)
+ 1729 097e 30E0      		ldi r19,hi8(0)
+ 1730 0980 00C0      		rjmp .L97
+ 1731               	.L99:
+ 1732 0982 F901      		movw r30,r18
+ 1733               	.LBB83:
+ 1734               	.LBB84:
  1735               	.LM192:
- 1736 096e 81E0      		ldi r24,lo8(1)
- 1737 0970 8093 0000 		sts CapTouch+49,r24
- 1738 0974 11E0      		ldi r17,lo8(1)
- 1739               	.LVL98:
- 1740 0976 91E0      		ldi r25,lo8(1)
- 1741               	.LVL99:
- 1742 0978 00C0      		rjmp .L95
- 1743               	.LVL100:
- 1744               	.L94:
- 1745 097a 10E0      		ldi r17,lo8(0)
- 1746               	.LVL101:
- 1747 097c 90E0      		ldi r25,lo8(0)
- 1748               	.LVL102:
- 1749               	.L95:
- 1750               	.LM193:
- 1751 097e C090 0000 		lds r12,CapTouch+31
- 1752 0982 D090 0000 		lds r13,(CapTouch+31)+1
- 1753 0986 E090 0000 		lds r14,(CapTouch+31)+2
- 1754 098a F090 0000 		lds r15,(CapTouch+31)+3
- 1755 098e 2C15      		cp r18,r12
- 1756 0990 3D05      		cpc r19,r13
- 1757 0992 4E05      		cpc r20,r14
- 1758 0994 5F05      		cpc r21,r15
- 1759 0996 04F4      		brge .L96
- 1760 0998 8091 0000 		lds r24,CapTouch+50
- 1761 099c 8823      		tst r24
- 1762 099e 01F4      		brne .L96
- 1763               	.LM194:
- 1764 09a0 81E0      		ldi r24,lo8(1)
- 1765 09a2 8093 0000 		sts CapTouch+50,r24
- 1766               	.LBE87:
- 1767               	.LBE86:
- 1768               	.LM195:
- 1769 09a6 1260      		ori r17,lo8(2)
- 1770 09a8 01E0      		ldi r16,lo8(1)
- 1771               	.LVL103:
- 1772 09aa 00C0      		rjmp .L104
- 1773               	.LVL104:
- 1774               	.L96:
- 1775 09ac 00E0      		ldi r16,lo8(0)
- 1776               	.LVL105:
- 1777               	.LBE85:
- 1778               	.LM196:
- 1779 09ae 9130      		cpi r25,lo8(1)
- 1780 09b0 01F4      		brne .L98
- 1781               	.L104:
- 1782               	.LBB88:
- 1783               	.LM197:
- 1784 09b2 7695      		lsr r23
- 1785 09b4 6795      		ror r22
- 1786 09b6 AB01      		movw r20,r22
- 1787 09b8 60E0      		ldi r22,lo8(0)
- 1788 09ba 70E0      		ldi r23,hi8(0)
- 1789 09bc C0E0      		ldi r28,lo8(CapTouch+27)
- 1790 09be D0E0      		ldi r29,hi8(CapTouch+27)
- 1791 09c0 20E0      		ldi r18,lo8(0)
- 1792 09c2 30E0      		ldi r19,hi8(0)
- 1793 09c4 00C0      		rjmp .L99
- 1794               	.L101:
- 1795 09c6 F901      		movw r30,r18
- 1796               	.LBB89:
- 1797               	.LBB90:
- 1798               	.LM198:
- 1799 09c8 8991      		ld r24,Y+
- 1800 09ca 9991      		ld r25,Y+
- 1801 09cc A991      		ld r26,Y+
- 1802 09ce B991      		ld r27,Y+
- 1803 09d0 2F5F      		subi r18,lo8(-(1))
- 1804 09d2 3F4F      		sbci r19,hi8(-(1))
- 1805               	.LBE90:
- 1806               	.LBE89:
- 1807               	.LM199:
- 1808 09d4 8417      		cp r24,r20
- 1809 09d6 9507      		cpc r25,r21
- 1810 09d8 A607      		cpc r26,r22
- 1811 09da B707      		cpc r27,r23
- 1812 09dc 04F0      		brlt .L99
- 1813               	.LM200:
- 1814 09de 81E0      		ldi r24,lo8(1)
- 1815 09e0 90E0      		ldi r25,hi8(1)
- 1816 09e2 0E2E      		mov r0,r30
- 1817 09e4 00C0      		rjmp 2f
- 1818 09e6 880F      	1:	lsl r24
- 1819 09e8 991F      		rol r25
- 1820 09ea 0A94      	2:	dec r0
- 1821 09ec 02F4      		brpl 1b
- 1822 09ee 182B      		or r17,r24
- 1823               	.LM201:
- 1824 09f0 E050      		subi r30,lo8(-(CapTouch))
- 1825 09f2 F040      		sbci r31,hi8(-(CapTouch))
- 1826 09f4 81E0      		ldi r24,lo8(1)
- 1827 09f6 81AB      		std Z+49,r24
- 1828 09f8 00C0      		rjmp .L100
- 1829               	.L99:
- 1830               	.LM202:
- 1831 09fa 2017      		cp r18,r16
- 1832 09fc 00F0      		brlo .L101
- 1833               	.L100:
- 1834               	.LBE88:
- 1835               	.LBB91:
- 1836               	.LM203:
- 1837 09fe 0023      		tst r16
- 1838 0a00 01F4      		brne .L98
- 1839               	.LM204:
- 1840 0a02 C416      		cp r12,r20
- 1841 0a04 D506      		cpc r13,r21
- 1842 0a06 E606      		cpc r14,r22
- 1843 0a08 F706      		cpc r15,r23
- 1844 0a0a 04F0      		brlt .L98
- 1845               	.LM205:
- 1846 0a0c 1260      		ori r17,lo8(2)
- 1847               	.LM206:
- 1848 0a0e 81E0      		ldi r24,lo8(1)
- 1849 0a10 8093 0000 		sts CapTouch+50,r24
- 1850               	.L98:
- 1851               	.LBE91:
- 1852               	.LM207:
- 1853 0a14 812F      		mov r24,r17
- 1854               	/* epilogue start */
- 1855 0a16 DF91      		pop r29
- 1856 0a18 CF91      		pop r28
- 1857 0a1a 1F91      		pop r17
- 1858               	.LVL106:
- 1859 0a1c 0F91      		pop r16
- 1860               	.LVL107:
- 1861 0a1e FF90      		pop r15
- 1862 0a20 EF90      		pop r14
- 1863 0a22 DF90      		pop r13
- 1864 0a24 CF90      		pop r12
- 1865 0a26 0895      		ret
- 1866               	.LFE34:
- 1868               	.global	CapTouch_Set_Short_Press_Min_Time
- 1870               	CapTouch_Set_Short_Press_Min_Time:
- 1871               	.LFB35:
- 1872               	.LM208:
- 1873               	.LVL108:
- 1874               	/* prologue: function */
- 1875               	/* frame size = 0 */
- 1876               	.LM209:
- 1877 0a28 8093 0000 		sts CapTouch+43,r24
- 1878 0a2c 1092 0000 		sts CapTouch+44,__zero_reg__
- 1879               	/* epilogue start */
- 1880               	.LM210:
- 1881 0a30 0895      		ret
- 1882               	.LFE35:
- 1884               	.global	CapTouch_Set_Short_Press_Max_Time
- 1886               	CapTouch_Set_Short_Press_Max_Time:
- 1887               	.LFB36:
- 1888               	.LM211:
- 1889               	.LVL109:
- 1890               	/* prologue: function */
- 1891               	/* frame size = 0 */
- 1892               	.LM212:
- 1893 0a32 8093 0000 		sts CapTouch+45,r24
- 1894 0a36 1092 0000 		sts CapTouch+46,__zero_reg__
- 1895               	/* epilogue start */
- 1896               	.LM213:
- 1897 0a3a 0895      		ret
- 1898               	.LFE36:
- 1900               	.global	CapTouch_Set_Long_Press_Time
- 1902               	CapTouch_Set_Long_Press_Time:
- 1903               	.LFB37:
- 1904               	.LM214:
- 1905               	.LVL110:
- 1906               	/* prologue: function */
- 1907               	/* frame size = 0 */
- 1908               	.LM215:
- 1909 0a3c 8093 0000 		sts CapTouch+47,r24
- 1910 0a40 1092 0000 		sts CapTouch+48,__zero_reg__
- 1911               	/* epilogue start */
- 1912               	.LM216:
- 1913 0a44 0895      		ret
- 1914               	.LFE37:
- 1916               	.global	CapTouch_Get_RawADC1
- 1918               	CapTouch_Get_RawADC1:
- 1919               	.LFB38:
- 1920               	.LM217:
- 1921               	.LVL111:
- 1922               	/* prologue: function */
- 1923               	/* frame size = 0 */
- 1924               	.LM218:
- 1925 0a46 E82F      		mov r30,r24
- 1926 0a48 F0E0      		ldi r31,lo8(0)
- 1927 0a4a EE0F      		lsl r30
- 1928 0a4c FF1F      		rol r31
- 1929 0a4e E050      		subi r30,lo8(-(CapTouch))
- 1930 0a50 F040      		sbci r31,hi8(-(CapTouch))
- 1931               	.LM219:
- 1932 0a52 8781      		ldd r24,Z+7
- 1933               	.LVL112:
- 1934 0a54 9085      		ldd r25,Z+8
- 1935               	/* epilogue start */
- 1936 0a56 0895      		ret
- 1937               	.LFE38:
- 1939               	.global	CapTouch_Get_RawADC2
- 1941               	CapTouch_Get_RawADC2:
- 1942               	.LFB39:
- 1943               	.LM220:
- 1944               	.LVL113:
- 1945               	/* prologue: function */
- 1946               	/* frame size = 0 */
- 1947               	.LM221:
- 1948 0a58 E82F      		mov r30,r24
- 1949 0a5a F0E0      		ldi r31,lo8(0)
- 1950 0a5c EE0F      		lsl r30
- 1951 0a5e FF1F      		rol r31
- 1952 0a60 E050      		subi r30,lo8(-(CapTouch))
- 1953 0a62 F040      		sbci r31,hi8(-(CapTouch))
- 1954               	.LM222:
- 1955 0a64 8385      		ldd r24,Z+11
- 1956               	.LVL114:
- 1957 0a66 9485      		ldd r25,Z+12
- 1958               	/* epilogue start */
- 1959 0a68 0895      		ret
- 1960               	.LFE39:
- 1962               	.global	CapTouch_Get_RawDifferentialADC
- 1964               	CapTouch_Get_RawDifferentialADC:
- 1965               	.LFB40:
- 1966               	.LM223:
- 1967               	.LVL115:
- 1968               	/* prologue: function */
- 1969               	/* frame size = 0 */
- 1970               	.LM224:
- 1971 0a6a E82F      		mov r30,r24
- 1972 0a6c F0E0      		ldi r31,lo8(0)
- 1973 0a6e EE0F      		lsl r30
- 1974 0a70 FF1F      		rol r31
- 1975               	.LVL116:
- 1976 0a72 E050      		subi r30,lo8(-(CapTouch))
- 1977 0a74 F040      		sbci r31,hi8(-(CapTouch))
- 1978               	.LM225:
- 1979 0a76 8785      		ldd r24,Z+15
- 1980 0a78 9089      		ldd r25,Z+16
- 1981               	/* epilogue start */
- 1982 0a7a 0895      		ret
- 1983               	.LFE40:
- 1985               	.global	CapTouch_Get_Calibration_Value
- 1987               	CapTouch_Get_Calibration_Value:
- 1988               	.LFB41:
- 1989               	.LM226:
- 1990               	.LVL117:
- 1991               	/* prologue: function */
- 1992               	/* frame size = 0 */
- 1993               	.LM227:
- 1994 0a7c E82F      		mov r30,r24
- 1995 0a7e F0E0      		ldi r31,lo8(0)
- 1996 0a80 EE0F      		lsl r30
- 1997 0a82 FF1F      		rol r31
- 1998 0a84 E050      		subi r30,lo8(-(CapTouch))
- 1999 0a86 F040      		sbci r31,hi8(-(CapTouch))
- 2000               	.LM228:
- 2001 0a88 8381      		ldd r24,Z+3
- 2002               	.LVL118:
- 2003 0a8a 9481      		ldd r25,Z+4
- 2004               	/* epilogue start */
- 2005 0a8c 0895      		ret
- 2006               	.LFE41:
- 2008               	.global	CapTouch_Get_Touch_Duration
- 2010               	CapTouch_Get_Touch_Duration:
- 2011               	.LFB42:
- 2012               	.LM229:
- 2013               	.LVL119:
- 2014               	/* prologue: function */
- 2015               	/* frame size = 0 */
- 2016               	.LM230:
- 2017 0a8e E82F      		mov r30,r24
- 2018 0a90 F0E0      		ldi r31,lo8(0)
- 2019 0a92 EE0F      		lsl r30
- 2020 0a94 FF1F      		rol r31
- 2021 0a96 EE0F      		lsl r30
- 2022 0a98 FF1F      		rol r31
- 2023 0a9a E050      		subi r30,lo8(-(CapTouch))
- 2024 0a9c F040      		sbci r31,hi8(-(CapTouch))
- 2025 0a9e DF01      		movw r26,r30
- 2026 0aa0 5B96      		adiw r26,27
- 2027 0aa2 638D      		ldd r22,Z+27
- 2028 0aa4 1196      		adiw r26,1
- 2029 0aa6 7C91      		ld r23,X
- 2030 0aa8 1197      		sbiw r26,1
- 2031               	.LM231:
- 2032 0aaa 1296      		adiw r26,2
- 2033 0aac 8C91      		ld r24,X
- 2034 0aae 1297      		sbiw r26,2
- 2035               	.LVL120:
- 2036 0ab0 1396      		adiw r26,3
- 2037 0ab2 9C91      		ld r25,X
- 2038               	/* epilogue start */
- 2039 0ab4 0895      		ret
- 2040               	.LFE42:
- 2042               	.global	CapTouch_Get_Touch_Response
- 2044               	CapTouch_Get_Touch_Response:
- 2045               	.LFB43:
- 2046               	.LM232:
- 2047               	.LVL121:
- 2048               	/* prologue: function */
- 2049               	/* frame size = 0 */
- 2050               	.LM233:
- 2051 0ab6 E0E0      		ldi r30,lo8(CapTouch)
- 2052 0ab8 F0E0      		ldi r31,hi8(CapTouch)
- 2053 0aba E80F      		add r30,r24
- 2054 0abc F11D      		adc r31,__zero_reg__
- 2055               	.LM234:
- 2056 0abe 8181      		ldd r24,Z+1
- 2057               	.LVL122:
- 2058               	/* epilogue start */
- 2059 0ac0 0895      		ret
- 2060               	.LFE43:
- 2062               	.global	CapTouch_Get_Reference_Timer_Use_Flag
- 2064               	CapTouch_Get_Reference_Timer_Use_Flag:
- 2065               	.LFB44:
- 2066               	.LM235:
- 2067               	/* prologue: function */
- 2068               	/* frame size = 0 */
- 2069               	.LM236:
- 2070 0ac2 8091 0000 		lds r24,CapTouch+51
- 2071 0ac6 8111      		cpse r24,__zero_reg__
- 2072 0ac8 81E0      		ldi r24,lo8(1)
- 2073               	.L124:
- 2074               	.LM237:
- 2075 0aca 0895      		ret
- 2076               	.LFE44:
- 2078               	.global	CapTouch_Get_ErrorCode
- 2080               	CapTouch_Get_ErrorCode:
- 2081               	.LFB45:
- 2082               	.LM238:
- 2083               	.LVL123:
- 2084               	/* prologue: function */
- 2085               	/* frame size = 0 */
- 2086               	.LM239:
- 2087 0acc E0E0      		ldi r30,lo8(CapTouch)
- 2088 0ace F0E0      		ldi r31,hi8(CapTouch)
- 2089 0ad0 E80F      		add r30,r24
- 2090 0ad2 F11D      		adc r31,__zero_reg__
- 2091               	.LM240:
- 2092 0ad4 84A9      		ldd r24,Z+52
- 2093               	.LVL124:
- 2094               	/* epilogue start */
- 2095 0ad6 0895      		ret
- 2096               	.LFE45:
- 2098               	.global	CapTouch_Get_Debug_Data
- 2100               	CapTouch_Get_Debug_Data:
- 2101               	.LFB46:
- 2102               	.LM241:
- 2103               	.LVL125:
- 2104 0ad8 CF93      		push r28
- 2105 0ada DF93      		push r29
- 2106               	/* prologue: function */
- 2107               	/* frame size = 0 */
- 2108 0adc EB01      		movw r28,r22
- 2109               	.LM242:
- 2110 0ade 28E0      		ldi r18,lo8(8)
- 2111 0ae0 30E0      		ldi r19,hi8(8)
- 2112 0ae2 3983      		std Y+1,r19
- 2113 0ae4 2883      		st Y,r18
- 2114               	.LM243:
- 2115 0ae6 A82F      		mov r26,r24
- 2116 0ae8 B0E0      		ldi r27,lo8(0)
- 2117 0aea BB83      		std Y+3,r27
- 2118 0aec AA83      		std Y+2,r26
- 2119               	.LM244:
- 2120 0aee FD01      		movw r30,r26
- 2121 0af0 EE0F      		lsl r30
- 2122 0af2 FF1F      		rol r31
- 2123 0af4 E050      		subi r30,lo8(-(CapTouch))
- 2124 0af6 F040      		sbci r31,hi8(-(CapTouch))
- 2125 0af8 8781      		ldd r24,Z+7
- 2126 0afa 9085      		ldd r25,Z+8
- 2127               	.LVL126:
- 2128 0afc 9D83      		std Y+5,r25
- 2129 0afe 8C83      		std Y+4,r24
- 2130               	.LM245:
- 2131 0b00 8385      		ldd r24,Z+11
- 2132 0b02 9485      		ldd r25,Z+12
- 2133 0b04 9F83      		std Y+7,r25
- 2134 0b06 8E83      		std Y+6,r24
- 2135               	.LM246:
- 2136 0b08 8785      		ldd r24,Z+15
- 2137 0b0a 9089      		ldd r25,Z+16
- 2138 0b0c 9987      		std Y+9,r25
- 2139 0b0e 8887      		std Y+8,r24
- 2140               	.LM247:
- 2141 0b10 8381      		ldd r24,Z+3
- 2142 0b12 9481      		ldd r25,Z+4
- 2143 0b14 9B87      		std Y+11,r25
- 2144 0b16 8A87      		std Y+10,r24
- 2145               	.LM248:
- 2146 0b18 FD01      		movw r30,r26
- 2147 0b1a EE0F      		lsl r30
- 2148 0b1c FF1F      		rol r31
- 2149 0b1e EE0F      		lsl r30
- 2150 0b20 FF1F      		rol r31
- 2151 0b22 E050      		subi r30,lo8(-(CapTouch))
- 2152 0b24 F040      		sbci r31,hi8(-(CapTouch))
- 2153 0b26 838D      		ldd r24,Z+27
- 2154 0b28 948D      		ldd r25,Z+28
- 2155 0b2a 9D87      		std Y+13,r25
- 2156 0b2c 8C87      		std Y+12,r24
- 2157               	.LM249:
- 2158 0b2e A050      		subi r26,lo8(-(CapTouch))
- 2159 0b30 B040      		sbci r27,hi8(-(CapTouch))
- 2160 0b32 1196      		adiw r26,1
- 2161 0b34 8C91      		ld r24,X
- 2162 0b36 8E87      		std Y+14,r24
- 2163 0b38 1F86      		std Y+15,__zero_reg__
- 2164               	.LM250:
- 2165 0b3a 20E0      		ldi r18,lo8(0)
- 2166 0b3c 30E0      		ldi r19,hi8(0)
- 2167 0b3e 8091 0000 		lds r24,CapTouch+51
- 2168 0b42 8823      		tst r24
- 2169 0b44 01F0      		breq .L129
- 2170               	.LVL127:
- 2171 0b46 21E0      		ldi r18,lo8(1)
- 2172 0b48 30E0      		ldi r19,hi8(1)
- 2173               	.L129:
- 2174 0b4a 398B      		std Y+17,r19
- 2175 0b4c 288B      		std Y+16,r18
- 2176               	/* epilogue start */
- 2177               	.LM251:
- 2178 0b4e DF91      		pop r29
- 2179 0b50 CF91      		pop r28
- 2180               	.LVL128:
- 2181 0b52 0895      		ret
- 2182               	.LFE46:
- 2184               	.global	CapTouch_Init
- 2186               	CapTouch_Init:
- 2187               	.LFB47:
- 2188               	.LM252:
- 2189               	/* prologue: function */
- 2190               	/* frame size = 0 */
- 2191               	.LM253:
- 2192 0b54 0E94 0000 		call CapTouch_Struct_Init
- 2193               	.LM254:
- 2194 0b58 0E94 0000 		call CapTouch_IIR_LPF_Struct_Init
- 2195               	.LBB92:
- 2196               	.LBB93:
- 2197               	.LM255:
- 2198 0b5c 80E4      		ldi r24,lo8(64)
- 2199 0b5e 8093 7C00 		sts 124,r24
- 2200               	.LM256:
- 2201 0b62 87E8      		ldi r24,lo8(-121)
- 2202 0b64 8093 7A00 		sts 122,r24
- 2203               	.LBE93:
- 2204               	.LBE92:
- 2205               	.LM257:
- 2206 0b68 0E94 0000 		call CapTouch_Calibration
- 2207               	/* epilogue start */
- 2208               	.LM258:
- 2209 0b6c 0895      		ret
- 2210               	.LFE47:
- 2212               	.global	CapTouch_Pins
- 2213               		.data
- 2216               	CapTouch_Pins:
- 2217 0000 04        		.byte	4
- 2218 0001 05        		.byte	5
- 2219               		.comm CapTouch,54,1
- 2220               		.comm IIR_LPF,54,1
- 2573               	.Letext0:
+ 1736 0984 8991      		ld r24,Y+
+ 1737 0986 9991      		ld r25,Y+
+ 1738 0988 A991      		ld r26,Y+
+ 1739 098a B991      		ld r27,Y+
+ 1740 098c 2F5F      		subi r18,lo8(-(1))
+ 1741 098e 3F4F      		sbci r19,hi8(-(1))
+ 1742               	.LBE84:
+ 1743               	.LBE83:
+ 1744               	.LM193:
+ 1745 0990 8417      		cp r24,r20
+ 1746 0992 9507      		cpc r25,r21
+ 1747 0994 A607      		cpc r26,r22
+ 1748 0996 B707      		cpc r27,r23
+ 1749 0998 04F0      		brlt .L97
+ 1750               	.LM194:
+ 1751 099a 81E0      		ldi r24,lo8(1)
+ 1752 099c 90E0      		ldi r25,hi8(1)
+ 1753 099e 0E2E      		mov r0,r30
+ 1754 09a0 00C0      		rjmp 2f
+ 1755 09a2 880F      	1:	lsl r24
+ 1756 09a4 991F      		rol r25
+ 1757 09a6 0A94      	2:	dec r0
+ 1758 09a8 02F4      		brpl 1b
+ 1759 09aa 182B      		or r17,r24
+ 1760               	.LM195:
+ 1761 09ac E050      		subi r30,lo8(-(CapTouch))
+ 1762 09ae F040      		sbci r31,hi8(-(CapTouch))
+ 1763 09b0 81E0      		ldi r24,lo8(1)
+ 1764 09b2 81AB      		std Z+49,r24
+ 1765 09b4 00C0      		rjmp .L98
+ 1766               	.L97:
+ 1767               	.LM196:
+ 1768 09b6 2017      		cp r18,r16
+ 1769 09b8 00F0      		brlo .L99
+ 1770               	.L98:
+ 1771               	.LBE82:
+ 1772               	.LBB85:
+ 1773               	.LM197:
+ 1774 09ba 0023      		tst r16
+ 1775 09bc 01F4      		brne .L96
+ 1776               	.LM198:
+ 1777 09be C416      		cp r12,r20
+ 1778 09c0 D506      		cpc r13,r21
+ 1779 09c2 E606      		cpc r14,r22
+ 1780 09c4 F706      		cpc r15,r23
+ 1781 09c6 04F0      		brlt .L96
+ 1782               	.LM199:
+ 1783 09c8 1260      		ori r17,lo8(2)
+ 1784               	.LM200:
+ 1785 09ca 81E0      		ldi r24,lo8(1)
+ 1786 09cc 8093 0000 		sts CapTouch+50,r24
+ 1787               	.L96:
+ 1788               	.LBE85:
+ 1789               	.LM201:
+ 1790 09d0 1093 0000 		sts CapTouch+52,r17
+ 1791               	.LM202:
+ 1792 09d4 812F      		mov r24,r17
+ 1793               	/* epilogue start */
+ 1794 09d6 DF91      		pop r29
+ 1795 09d8 CF91      		pop r28
+ 1796 09da 1F91      		pop r17
+ 1797               	.LVL103:
+ 1798 09dc 0F91      		pop r16
+ 1799               	.LVL104:
+ 1800 09de FF90      		pop r15
+ 1801 09e0 EF90      		pop r14
+ 1802 09e2 DF90      		pop r13
+ 1803 09e4 CF90      		pop r12
+ 1804 09e6 0895      		ret
+ 1805               	.LFE34:
+ 1807               	.global	CapTouch_Scan_Sensors
+ 1809               	CapTouch_Scan_Sensors:
+ 1810               	.LFB29:
+ 1811               	.LM203:
+ 1812               	.LVL105:
+ 1813 09e8 CF92      		push r12
+ 1814 09ea DF92      		push r13
+ 1815 09ec EF92      		push r14
+ 1816 09ee FF92      		push r15
+ 1817 09f0 0F93      		push r16
+ 1818 09f2 1F93      		push r17
+ 1819               	/* prologue: function */
+ 1820               	/* frame size = 0 */
+ 1821 09f4 6B01      		movw r12,r22
+ 1822 09f6 7C01      		movw r14,r24
+ 1823               	.LBB86:
+ 1824               	.LBB87:
+ 1825               	.LM204:
+ 1826 09f8 0AE7      		ldi r16,lo8(122)
+ 1827 09fa 10E0      		ldi r17,hi8(122)
+ 1828 09fc F801      		movw r30,r16
+ 1829 09fe 8081      		ld r24,Z
+ 1830 0a00 8068      		ori r24,lo8(-128)
+ 1831 0a02 8083      		st Z,r24
+ 1832               	.LBE87:
+ 1833               	.LBE86:
+ 1834               	.LM205:
+ 1835 0a04 80E0      		ldi r24,lo8(0)
+ 1836 0a06 0E94 0000 		call CapTouch_ADC_Sample
+ 1837               	.LVL106:
+ 1838               	.LBB88:
+ 1839               	.LBB89:
+ 1840               	.LM206:
+ 1841 0a0a 80E0      		ldi r24,lo8(0)
+ 1842 0a0c B701      		movw r22,r14
+ 1843 0a0e A601      		movw r20,r12
+ 1844 0a10 0E94 0000 		call CapTouch_Check_Touch_Duration
+ 1845 0a14 81E0      		ldi r24,lo8(1)
+ 1846 0a16 B701      		movw r22,r14
+ 1847 0a18 A601      		movw r20,r12
+ 1848 0a1a 0E94 0000 		call CapTouch_Check_Touch_Duration
+ 1849               	.LBE89:
+ 1850               	.LBE88:
+ 1851               	.LBB90:
+ 1852               	.LBB91:
+ 1853               	.LM207:
+ 1854 0a1e F801      		movw r30,r16
+ 1855 0a20 8081      		ld r24,Z
+ 1856 0a22 8F77      		andi r24,lo8(127)
+ 1857 0a24 8083      		st Z,r24
+ 1858               	.LBE91:
+ 1859               	.LBE90:
+ 1860               	.LM208:
+ 1861 0a26 0E94 0000 		call CapTouch_Long_Pressed_Filtered
+ 1862               	/* epilogue start */
+ 1863               	.LM209:
+ 1864 0a2a 1F91      		pop r17
+ 1865 0a2c 0F91      		pop r16
+ 1866 0a2e FF90      		pop r15
+ 1867 0a30 EF90      		pop r14
+ 1868 0a32 DF90      		pop r13
+ 1869 0a34 CF90      		pop r12
+ 1870               	.LVL107:
+ 1871 0a36 0895      		ret
+ 1872               	.LFE29:
+ 1874               	.global	CapTouch_Set_Short_Press_Min_Time
+ 1876               	CapTouch_Set_Short_Press_Min_Time:
+ 1877               	.LFB35:
+ 1878               	.LM210:
+ 1879               	.LVL108:
+ 1880               	/* prologue: function */
+ 1881               	/* frame size = 0 */
+ 1882               	.LM211:
+ 1883 0a38 8093 0000 		sts CapTouch+43,r24
+ 1884 0a3c 1092 0000 		sts CapTouch+44,__zero_reg__
+ 1885               	/* epilogue start */
+ 1886               	.LM212:
+ 1887 0a40 0895      		ret
+ 1888               	.LFE35:
+ 1890               	.global	CapTouch_Set_Short_Press_Max_Time
+ 1892               	CapTouch_Set_Short_Press_Max_Time:
+ 1893               	.LFB36:
+ 1894               	.LM213:
+ 1895               	.LVL109:
+ 1896               	/* prologue: function */
+ 1897               	/* frame size = 0 */
+ 1898               	.LM214:
+ 1899 0a42 8093 0000 		sts CapTouch+45,r24
+ 1900 0a46 1092 0000 		sts CapTouch+46,__zero_reg__
+ 1901               	/* epilogue start */
+ 1902               	.LM215:
+ 1903 0a4a 0895      		ret
+ 1904               	.LFE36:
+ 1906               	.global	CapTouch_Set_Long_Press_Time
+ 1908               	CapTouch_Set_Long_Press_Time:
+ 1909               	.LFB37:
+ 1910               	.LM216:
+ 1911               	.LVL110:
+ 1912               	/* prologue: function */
+ 1913               	/* frame size = 0 */
+ 1914               	.LM217:
+ 1915 0a4c 8093 0000 		sts CapTouch+47,r24
+ 1916 0a50 1092 0000 		sts CapTouch+48,__zero_reg__
+ 1917               	/* epilogue start */
+ 1918               	.LM218:
+ 1919 0a54 0895      		ret
+ 1920               	.LFE37:
+ 1922               	.global	CapTouch_Get_RawADC1
+ 1924               	CapTouch_Get_RawADC1:
+ 1925               	.LFB38:
+ 1926               	.LM219:
+ 1927               	.LVL111:
+ 1928               	/* prologue: function */
+ 1929               	/* frame size = 0 */
+ 1930               	.LM220:
+ 1931 0a56 E82F      		mov r30,r24
+ 1932 0a58 F0E0      		ldi r31,lo8(0)
+ 1933 0a5a EE0F      		lsl r30
+ 1934 0a5c FF1F      		rol r31
+ 1935 0a5e E050      		subi r30,lo8(-(CapTouch))
+ 1936 0a60 F040      		sbci r31,hi8(-(CapTouch))
+ 1937               	.LM221:
+ 1938 0a62 8781      		ldd r24,Z+7
+ 1939               	.LVL112:
+ 1940 0a64 9085      		ldd r25,Z+8
+ 1941               	/* epilogue start */
+ 1942 0a66 0895      		ret
+ 1943               	.LFE38:
+ 1945               	.global	CapTouch_Get_RawADC2
+ 1947               	CapTouch_Get_RawADC2:
+ 1948               	.LFB39:
+ 1949               	.LM222:
+ 1950               	.LVL113:
+ 1951               	/* prologue: function */
+ 1952               	/* frame size = 0 */
+ 1953               	.LM223:
+ 1954 0a68 E82F      		mov r30,r24
+ 1955 0a6a F0E0      		ldi r31,lo8(0)
+ 1956 0a6c EE0F      		lsl r30
+ 1957 0a6e FF1F      		rol r31
+ 1958 0a70 E050      		subi r30,lo8(-(CapTouch))
+ 1959 0a72 F040      		sbci r31,hi8(-(CapTouch))
+ 1960               	.LM224:
+ 1961 0a74 8385      		ldd r24,Z+11
+ 1962               	.LVL114:
+ 1963 0a76 9485      		ldd r25,Z+12
+ 1964               	/* epilogue start */
+ 1965 0a78 0895      		ret
+ 1966               	.LFE39:
+ 1968               	.global	CapTouch_Get_RawDifferentialADC
+ 1970               	CapTouch_Get_RawDifferentialADC:
+ 1971               	.LFB40:
+ 1972               	.LM225:
+ 1973               	.LVL115:
+ 1974               	/* prologue: function */
+ 1975               	/* frame size = 0 */
+ 1976               	.LM226:
+ 1977 0a7a E82F      		mov r30,r24
+ 1978 0a7c F0E0      		ldi r31,lo8(0)
+ 1979 0a7e EE0F      		lsl r30
+ 1980 0a80 FF1F      		rol r31
+ 1981               	.LVL116:
+ 1982 0a82 E050      		subi r30,lo8(-(CapTouch))
+ 1983 0a84 F040      		sbci r31,hi8(-(CapTouch))
+ 1984               	.LM227:
+ 1985 0a86 8785      		ldd r24,Z+15
+ 1986 0a88 9089      		ldd r25,Z+16
+ 1987               	/* epilogue start */
+ 1988 0a8a 0895      		ret
+ 1989               	.LFE40:
+ 1991               	.global	CapTouch_Get_Calibration_Value
+ 1993               	CapTouch_Get_Calibration_Value:
+ 1994               	.LFB41:
+ 1995               	.LM228:
+ 1996               	.LVL117:
+ 1997               	/* prologue: function */
+ 1998               	/* frame size = 0 */
+ 1999               	.LM229:
+ 2000 0a8c E82F      		mov r30,r24
+ 2001 0a8e F0E0      		ldi r31,lo8(0)
+ 2002 0a90 EE0F      		lsl r30
+ 2003 0a92 FF1F      		rol r31
+ 2004 0a94 E050      		subi r30,lo8(-(CapTouch))
+ 2005 0a96 F040      		sbci r31,hi8(-(CapTouch))
+ 2006               	.LM230:
+ 2007 0a98 8381      		ldd r24,Z+3
+ 2008               	.LVL118:
+ 2009 0a9a 9481      		ldd r25,Z+4
+ 2010               	/* epilogue start */
+ 2011 0a9c 0895      		ret
+ 2012               	.LFE41:
+ 2014               	.global	CapTouch_Get_Touch_Duration
+ 2016               	CapTouch_Get_Touch_Duration:
+ 2017               	.LFB42:
+ 2018               	.LM231:
+ 2019               	.LVL119:
+ 2020               	/* prologue: function */
+ 2021               	/* frame size = 0 */
+ 2022               	.LM232:
+ 2023 0a9e E82F      		mov r30,r24
+ 2024 0aa0 F0E0      		ldi r31,lo8(0)
+ 2025 0aa2 EE0F      		lsl r30
+ 2026 0aa4 FF1F      		rol r31
+ 2027 0aa6 EE0F      		lsl r30
+ 2028 0aa8 FF1F      		rol r31
+ 2029 0aaa E050      		subi r30,lo8(-(CapTouch))
+ 2030 0aac F040      		sbci r31,hi8(-(CapTouch))
+ 2031 0aae DF01      		movw r26,r30
+ 2032 0ab0 5B96      		adiw r26,27
+ 2033 0ab2 638D      		ldd r22,Z+27
+ 2034 0ab4 1196      		adiw r26,1
+ 2035 0ab6 7C91      		ld r23,X
+ 2036 0ab8 1197      		sbiw r26,1
+ 2037               	.LM233:
+ 2038 0aba 1296      		adiw r26,2
+ 2039 0abc 8C91      		ld r24,X
+ 2040 0abe 1297      		sbiw r26,2
+ 2041               	.LVL120:
+ 2042 0ac0 1396      		adiw r26,3
+ 2043 0ac2 9C91      		ld r25,X
+ 2044               	/* epilogue start */
+ 2045 0ac4 0895      		ret
+ 2046               	.LFE42:
+ 2048               	.global	CapTouch_Get_Touch_Response
+ 2050               	CapTouch_Get_Touch_Response:
+ 2051               	.LFB43:
+ 2052               	.LM234:
+ 2053               	.LVL121:
+ 2054               	/* prologue: function */
+ 2055               	/* frame size = 0 */
+ 2056               	.LM235:
+ 2057 0ac6 E0E0      		ldi r30,lo8(CapTouch)
+ 2058 0ac8 F0E0      		ldi r31,hi8(CapTouch)
+ 2059 0aca E80F      		add r30,r24
+ 2060 0acc F11D      		adc r31,__zero_reg__
+ 2061               	.LM236:
+ 2062 0ace 8181      		ldd r24,Z+1
+ 2063               	.LVL122:
+ 2064               	/* epilogue start */
+ 2065 0ad0 0895      		ret
+ 2066               	.LFE43:
+ 2068               	.global	CapTouch_Get_Long_Press_Reg
+ 2070               	CapTouch_Get_Long_Press_Reg:
+ 2071               	.LFB44:
+ 2072               	.LM237:
+ 2073               	/* prologue: function */
+ 2074               	/* frame size = 0 */
+ 2075               	.LM238:
+ 2076 0ad2 8091 0000 		lds r24,CapTouch+52
+ 2077               	/* epilogue start */
+ 2078 0ad6 0895      		ret
+ 2079               	.LFE44:
+ 2081               	.global	CapTouch_Get_Reference_Timer_Use_Flag
+ 2083               	CapTouch_Get_Reference_Timer_Use_Flag:
+ 2084               	.LFB45:
+ 2085               	.LM239:
+ 2086               	/* prologue: function */
+ 2087               	/* frame size = 0 */
+ 2088               	.LM240:
+ 2089 0ad8 8091 0000 		lds r24,CapTouch+53
+ 2090 0adc 8111      		cpse r24,__zero_reg__
+ 2091 0ade 81E0      		ldi r24,lo8(1)
+ 2092               	.L126:
+ 2093               	.LM241:
+ 2094 0ae0 0895      		ret
+ 2095               	.LFE45:
+ 2097               	.global	CapTouch_Get_ErrorCode
+ 2099               	CapTouch_Get_ErrorCode:
+ 2100               	.LFB46:
+ 2101               	.LM242:
+ 2102               	.LVL123:
+ 2103               	/* prologue: function */
+ 2104               	/* frame size = 0 */
+ 2105               	.LM243:
+ 2106 0ae2 E0E0      		ldi r30,lo8(CapTouch)
+ 2107 0ae4 F0E0      		ldi r31,hi8(CapTouch)
+ 2108 0ae6 E80F      		add r30,r24
+ 2109 0ae8 F11D      		adc r31,__zero_reg__
+ 2110               	.LM244:
+ 2111 0aea 86A9      		ldd r24,Z+54
+ 2112               	.LVL124:
+ 2113               	/* epilogue start */
+ 2114 0aec 0895      		ret
+ 2115               	.LFE46:
+ 2117               	.global	CapTouch_Get_Debug_Data
+ 2119               	CapTouch_Get_Debug_Data:
+ 2120               	.LFB47:
+ 2121               	.LM245:
+ 2122               	.LVL125:
+ 2123 0aee CF93      		push r28
+ 2124 0af0 DF93      		push r29
+ 2125               	/* prologue: function */
+ 2126               	/* frame size = 0 */
+ 2127 0af2 EB01      		movw r28,r22
+ 2128               	.LM246:
+ 2129 0af4 28E0      		ldi r18,lo8(8)
+ 2130 0af6 30E0      		ldi r19,hi8(8)
+ 2131 0af8 3983      		std Y+1,r19
+ 2132 0afa 2883      		st Y,r18
+ 2133               	.LM247:
+ 2134 0afc A82F      		mov r26,r24
+ 2135 0afe B0E0      		ldi r27,lo8(0)
+ 2136 0b00 BB83      		std Y+3,r27
+ 2137 0b02 AA83      		std Y+2,r26
+ 2138               	.LM248:
+ 2139 0b04 FD01      		movw r30,r26
+ 2140 0b06 EE0F      		lsl r30
+ 2141 0b08 FF1F      		rol r31
+ 2142 0b0a E050      		subi r30,lo8(-(CapTouch))
+ 2143 0b0c F040      		sbci r31,hi8(-(CapTouch))
+ 2144 0b0e 8781      		ldd r24,Z+7
+ 2145 0b10 9085      		ldd r25,Z+8
+ 2146               	.LVL126:
+ 2147 0b12 9D83      		std Y+5,r25
+ 2148 0b14 8C83      		std Y+4,r24
+ 2149               	.LM249:
+ 2150 0b16 8385      		ldd r24,Z+11
+ 2151 0b18 9485      		ldd r25,Z+12
+ 2152 0b1a 9F83      		std Y+7,r25
+ 2153 0b1c 8E83      		std Y+6,r24
+ 2154               	.LM250:
+ 2155 0b1e 8785      		ldd r24,Z+15
+ 2156 0b20 9089      		ldd r25,Z+16
+ 2157 0b22 9987      		std Y+9,r25
+ 2158 0b24 8887      		std Y+8,r24
+ 2159               	.LM251:
+ 2160 0b26 8381      		ldd r24,Z+3
+ 2161 0b28 9481      		ldd r25,Z+4
+ 2162 0b2a 9B87      		std Y+11,r25
+ 2163 0b2c 8A87      		std Y+10,r24
+ 2164               	.LM252:
+ 2165 0b2e FD01      		movw r30,r26
+ 2166 0b30 EE0F      		lsl r30
+ 2167 0b32 FF1F      		rol r31
+ 2168 0b34 EE0F      		lsl r30
+ 2169 0b36 FF1F      		rol r31
+ 2170 0b38 E050      		subi r30,lo8(-(CapTouch))
+ 2171 0b3a F040      		sbci r31,hi8(-(CapTouch))
+ 2172 0b3c 838D      		ldd r24,Z+27
+ 2173 0b3e 948D      		ldd r25,Z+28
+ 2174 0b40 9D87      		std Y+13,r25
+ 2175 0b42 8C87      		std Y+12,r24
+ 2176               	.LM253:
+ 2177 0b44 A050      		subi r26,lo8(-(CapTouch))
+ 2178 0b46 B040      		sbci r27,hi8(-(CapTouch))
+ 2179 0b48 1196      		adiw r26,1
+ 2180 0b4a 8C91      		ld r24,X
+ 2181 0b4c 8E87      		std Y+14,r24
+ 2182 0b4e 1F86      		std Y+15,__zero_reg__
+ 2183               	.LM254:
+ 2184 0b50 20E0      		ldi r18,lo8(0)
+ 2185 0b52 30E0      		ldi r19,hi8(0)
+ 2186 0b54 8091 0000 		lds r24,CapTouch+53
+ 2187 0b58 8823      		tst r24
+ 2188 0b5a 01F0      		breq .L131
+ 2189               	.LVL127:
+ 2190 0b5c 21E0      		ldi r18,lo8(1)
+ 2191 0b5e 30E0      		ldi r19,hi8(1)
+ 2192               	.L131:
+ 2193 0b60 398B      		std Y+17,r19
+ 2194 0b62 288B      		std Y+16,r18
+ 2195               	/* epilogue start */
+ 2196               	.LM255:
+ 2197 0b64 DF91      		pop r29
+ 2198 0b66 CF91      		pop r28
+ 2199               	.LVL128:
+ 2200 0b68 0895      		ret
+ 2201               	.LFE47:
+ 2203               	.global	CapTouch_Init
+ 2205               	CapTouch_Init:
+ 2206               	.LFB48:
+ 2207               	.LM256:
+ 2208               	/* prologue: function */
+ 2209               	/* frame size = 0 */
+ 2210               	.LM257:
+ 2211 0b6a 0E94 0000 		call CapTouch_Struct_Init
+ 2212               	.LM258:
+ 2213 0b6e 0E94 0000 		call CapTouch_IIR_LPF_Struct_Init
+ 2214               	.LBB92:
+ 2215               	.LBB93:
+ 2216               	.LM259:
+ 2217 0b72 80E4      		ldi r24,lo8(64)
+ 2218 0b74 8093 7C00 		sts 124,r24
+ 2219               	.LM260:
+ 2220 0b78 87E8      		ldi r24,lo8(-121)
+ 2221 0b7a 8093 7A00 		sts 122,r24
+ 2222               	.LBE93:
+ 2223               	.LBE92:
+ 2224               	.LM261:
+ 2225 0b7e 0E94 0000 		call CapTouch_Calibration
+ 2226               	/* epilogue start */
+ 2227               	.LM262:
+ 2228 0b82 0895      		ret
+ 2229               	.LFE48:
+ 2231               	.global	CapTouch_Pins
+ 2232               		.data
+ 2235               	CapTouch_Pins:
+ 2236 0000 04        		.byte	4
+ 2237 0001 05        		.byte	5
+ 2238               		.comm CapTouch,56,1
+ 2239               		.comm IIR_LPF,54,1
+ 2600               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 captouch.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:18     .text:00000000 CapTouch_Struct_Init
-                            *COM*:00000036 CapTouch
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:119    .text:000000ea CapTouch_IIR_LPF_Struct_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:18     .text:00000000 CapTouch_Struct_Init
+                            *COM*:00000038 CapTouch
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:121    .text:000000f2 CapTouch_IIR_LPF_Struct_Init
                             *COM*:00000036 IIR_LPF
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:166    .text:00000118 CapTouch_IIR_LPF_Set_Alpha
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:193    .text:00000132 CapTouch_IIR_LPF_Get_Alpha
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:221    .text:0000014c CapTouch_IIR_LPF_Get_Filtered_Value
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:340    .text:00000208 CapTouch_Set_Key_Pin_Input
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:365    .text:00000220 CapTouch_Set_Key_Pin_Analog
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:395    .text:0000023e CapTouch_Set_Key_Pin_Output
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:419    .text:00000254 CapTouch_Set_Key_Pin_Output_Low
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:444    .text:0000026c CapTouch_Set_Key_Pin_Output_High
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:468    .text:00000282 CapTouch_ADC_Register_Config
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:486    .text:00000290 CapTouch_ADC_Wakeup
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:504    .text:0000029c CapTouch_ADC_Sleep
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:522    .text:000002a8 CapTouch_ADC_Sample
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:564    .text:000002e4 CapTouch_Precharge_SH_Cap
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:2216   .data:00000000 CapTouch_Pins
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:612    .text:00000312 CapTouch_ADC_Sample1
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:685    .text:00000384 CapTouch_Precharge_Button
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:732    .text:000003b0 CapTouch_ADC_Sample2
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:810    .text:0000042c CapTouch_Read_Delta
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:882    .text:00000494 CapTouch_Calibration
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1029   .text:0000059e CapTouch_Response
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1076   .text:000005d6 CapTouch_Check_Trigger
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1145   .text:00000624 CapTouch_Check_Touch_Duration
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1321   .text:0000072e CapTouch_Scan_Sensors
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1386   .text:0000077a CapTouch_Short_Pressed
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1450   .text:000007da CapTouch_Long_Pressed
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1500   .text:00000820 CapTouch_Constant_Pressed
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1556   .text:0000086e CapTouch_Short_Pressed_Filtered
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1701   .text:0000092e CapTouch_Long_Pressed_Filtered
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1870   .text:00000a28 CapTouch_Set_Short_Press_Min_Time
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1886   .text:00000a32 CapTouch_Set_Short_Press_Max_Time
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1902   .text:00000a3c CapTouch_Set_Long_Press_Time
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1918   .text:00000a46 CapTouch_Get_RawADC1
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1941   .text:00000a58 CapTouch_Get_RawADC2
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1964   .text:00000a6a CapTouch_Get_RawDifferentialADC
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:1987   .text:00000a7c CapTouch_Get_Calibration_Value
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:2010   .text:00000a8e CapTouch_Get_Touch_Duration
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:2044   .text:00000ab6 CapTouch_Get_Touch_Response
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:2064   .text:00000ac2 CapTouch_Get_Reference_Timer_Use_Flag
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:2080   .text:00000acc CapTouch_Get_ErrorCode
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:2100   .text:00000ad8 CapTouch_Get_Debug_Data
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfyCyO7.s:2186   .text:00000b54 CapTouch_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:168    .text:00000120 CapTouch_IIR_LPF_Set_Alpha
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:195    .text:0000013a CapTouch_IIR_LPF_Get_Alpha
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:223    .text:00000154 CapTouch_IIR_LPF_Get_Filtered_Value
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:342    .text:00000210 CapTouch_Set_Key_Pin_Input
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:367    .text:00000228 CapTouch_Set_Key_Pin_Analog
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:397    .text:00000246 CapTouch_Set_Key_Pin_Output
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:421    .text:0000025c CapTouch_Set_Key_Pin_Output_Low
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:446    .text:00000274 CapTouch_Set_Key_Pin_Output_High
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:470    .text:0000028a CapTouch_ADC_Register_Config
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:488    .text:00000298 CapTouch_ADC_Wakeup
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:506    .text:000002a4 CapTouch_ADC_Sleep
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:524    .text:000002b0 CapTouch_ADC_Sample
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:566    .text:000002ec CapTouch_Precharge_SH_Cap
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:2235   .data:00000000 CapTouch_Pins
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:614    .text:0000031a CapTouch_ADC_Sample1
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:687    .text:0000038c CapTouch_Precharge_Button
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:734    .text:000003b8 CapTouch_ADC_Sample2
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:812    .text:00000434 CapTouch_Read_Delta
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:884    .text:0000049c CapTouch_Calibration
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1031   .text:000005a6 CapTouch_Response
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1078   .text:000005de CapTouch_Check_Trigger
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1147   .text:0000062c CapTouch_Check_Touch_Duration
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1323   .text:00000736 CapTouch_Short_Pressed
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1387   .text:00000796 CapTouch_Long_Pressed
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1437   .text:000007dc CapTouch_Constant_Pressed
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1493   .text:0000082a CapTouch_Short_Pressed_Filtered
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1638   .text:000008ea CapTouch_Long_Pressed_Filtered
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1809   .text:000009e8 CapTouch_Scan_Sensors
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1876   .text:00000a38 CapTouch_Set_Short_Press_Min_Time
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1892   .text:00000a42 CapTouch_Set_Short_Press_Max_Time
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1908   .text:00000a4c CapTouch_Set_Long_Press_Time
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1924   .text:00000a56 CapTouch_Get_RawADC1
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1947   .text:00000a68 CapTouch_Get_RawADC2
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1970   .text:00000a7a CapTouch_Get_RawDifferentialADC
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:1993   .text:00000a8c CapTouch_Get_Calibration_Value
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:2016   .text:00000a9e CapTouch_Get_Touch_Duration
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:2050   .text:00000ac6 CapTouch_Get_Touch_Response
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:2070   .text:00000ad2 CapTouch_Get_Long_Press_Reg
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:2083   .text:00000ad8 CapTouch_Get_Reference_Timer_Use_Flag
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:2099   .text:00000ae2 CapTouch_Get_ErrorCode
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:2119   .text:00000aee CapTouch_Get_Debug_Data
+C:\Users\FARIDU~1\AppData\Local\Temp/ccigTha4.s:2205   .text:00000b6a CapTouch_Init
 
 UNDEFINED SYMBOLS
 __mulsi3

@@ -33,6 +33,8 @@ typedef struct captouch_t{
   uint16_t MaxShortPressTime;
   uint16_t LongPressTime;
   uint8_t  LongPressFlag[CAPTOUCH_TOTAL_TOUCH_KEY];
+  uint8_t  ShortPressReg;
+  uint8_t  LongPressReg;
   uint8_t  UsingReferenceTimer;
   uint8_t  ErrorCode[CAPTOUCH_TOTAL_TOUCH_KEY];
 }captouch_t;
@@ -69,6 +71,8 @@ void CapTouch_Struct_Init(void){
     CapTouch.MaxShortPressTime=CAPTOUCH_SHORT_PRESS_TIME_MAX;
     CapTouch.LongPressTime=CAPTOUCH_LONG_PRESS_TIME;
     CapTouch.LongPressFlag[i]=0;
+	CapTouch.ShortPressReg=0;
+	CapTouch.LongPressReg=0;
     CapTouch.UsingReferenceTimer=0;
     CapTouch.ErrorCode[i]=0;
   }
@@ -289,6 +293,9 @@ void CapTouch_Scan_Sensors(uint32_t refernce_time){
   #ifdef CAPTOUCH_AUTO_PWR_DOWN
     CapTouch_ADC_Sleep();
   #endif
+  
+  //long press added
+  CapTouch_Long_Pressed_Filtered();
 }
 
 uint8_t CapTouch_Short_Pressed(uint8_t current_channel){
@@ -370,6 +377,7 @@ uint8_t CapTouch_Long_Pressed_Filtered(void){
 	  }
     }
   }
+  CapTouch.LongPressReg=sts;
   return sts;
 }
 
@@ -407,6 +415,10 @@ int32_t CapTouch_Get_Touch_Duration(uint8_t current_channel){
 
 uint8_t CapTouch_Get_Touch_Response(uint8_t current_channel){
   return CapTouch.Result[current_channel];
+}
+
+uint8_t CapTouch_Get_Long_Press_Reg(void){
+  return CapTouch.LongPressReg;
 }
 
 uint8_t CapTouch_Get_Reference_Timer_Use_Flag(void){

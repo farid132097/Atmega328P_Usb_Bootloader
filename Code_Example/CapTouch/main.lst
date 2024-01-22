@@ -38,100 +38,101 @@
   42 0016 FF24      		clr r15
   43 0018 8701      		movw r16,r14
   44               	.LVL0:
-  45               	.LBB13:
-  46               	.LBB14:
-  47               	.LBB15:
-  48               	.LBB16:
-  49               	.LBB17:
-  50               	.LM4:
-  51 001a C0E6      		ldi r28,lo8(-5536)
-  52 001c DAEE      		ldi r29,hi8(-5536)
-  53               	.LVL1:
-  54               	.L5:
-  55               	.LBE17:
-  56               	.LBE16:
-  57               	.LBE15:
-  58               	.LBE14:
-  59               	.LM5:
-  60 001e C801      		movw r24,r16
-  61 0020 B701      		movw r22,r14
-  62 0022 0E94 0000 		call CapTouch_Scan_Sensors
-  63               	.LVL2:
-  64               	.LM6:
-  65 0026 0894      		sec
-  66 0028 E11C      		adc r14,__zero_reg__
-  67 002a F11C      		adc r15,__zero_reg__
-  68 002c 011D      		adc r16,__zero_reg__
-  69 002e 111D      		adc r17,__zero_reg__
-  70               	.LM7:
-  71 0030 0E94 0000 		call CapTouch_Long_Pressed_Filtered
-  72               	.LM8:
-  73 0034 8130      		cpi r24,lo8(1)
-  74               	.LVL3:
-  75 0036 01F4      		brne .L2
-  76               	.LM9:
-  77 0038 80E0      		ldi r24,lo8(.LC0)
-  78 003a 90E0      		ldi r25,hi8(.LC0)
-  79               	.LVL4:
-  80 003c 00C0      		rjmp .L7
-  81               	.LVL5:
-  82               	.L2:
-  83               	.LM10:
-  84 003e 8230      		cpi r24,lo8(2)
-  85 0040 01F4      		brne .L4
-  86               	.LM11:
-  87 0042 80E0      		ldi r24,lo8(.LC1)
-  88 0044 90E0      		ldi r25,hi8(.LC1)
-  89               	.LVL6:
-  90 0046 00C0      		rjmp .L7
-  91               	.LVL7:
-  92               	.L4:
-  93               	.LM12:
-  94 0048 8330      		cpi r24,lo8(3)
-  95 004a 01F4      		brne .L3
-  96               	.LM13:
-  97 004c 80E0      		ldi r24,lo8(.LC2)
-  98 004e 90E0      		ldi r25,hi8(.LC2)
-  99               	.LVL8:
- 100               	.L7:
- 101 0050 0E94 0000 		call debug_tx_text_nl
- 102               	.LVL9:
- 103               	.L3:
- 104               	.LBB21:
- 105               	.LBB20:
- 106               	.LBB19:
- 107               	.LBB18:
- 108               	.LM14:
- 109 0054 CE01      		movw r24,r28
- 110               	.LVL10:
- 111               	/* #APP */
- 112               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 113 0056 0197      		1: sbiw r24,1
- 114 0058 01F4      		brne 1b
- 115               	 ;  0 "" 2
- 116               	/* #NOAPP */
- 117 005a 00C0      		rjmp .L5
- 118               	.LBE18:
- 119               	.LBE19:
- 120               	.LBE20:
- 121               	.LBE21:
- 122               	.LBE13:
+  45               	.LBB12:
+  46               	.LBB13:
+  47               	.LBB14:
+  48               	.LBB15:
+  49               	.LM4:
+  50 001a C0E6      		ldi r28,lo8(-5536)
+  51 001c DAEE      		ldi r29,hi8(-5536)
+  52               	.LVL1:
+  53               	.L5:
+  54               	.LBE15:
+  55               	.LBE14:
+  56               	.LBE13:
+  57               	.LBE12:
+  58               	.LM5:
+  59 001e C801      		movw r24,r16
+  60 0020 B701      		movw r22,r14
+  61 0022 0E94 0000 		call CapTouch_Scan_Sensors
+  62               	.LVL2:
+  63               	.LM6:
+  64 0026 0894      		sec
+  65 0028 E11C      		adc r14,__zero_reg__
+  66 002a F11C      		adc r15,__zero_reg__
+  67 002c 011D      		adc r16,__zero_reg__
+  68 002e 111D      		adc r17,__zero_reg__
+  69               	.LM7:
+  70 0030 0E94 0000 		call CapTouch_Get_Long_Press_Reg
+  71 0034 90E0      		ldi r25,lo8(0)
+  72 0036 A0E0      		ldi r26,lo8(0)
+  73 0038 B0E0      		ldi r27,hi8(0)
+  74 003a BC01      		movw r22,r24
+  75 003c CD01      		movw r24,r26
+  76 003e 0E94 0000 		call debug_tx_number_nl
+  77               	.LM8:
+  78 0042 0E94 0000 		call CapTouch_Get_Long_Press_Reg
+  79 0046 8130      		cpi r24,lo8(1)
+  80 0048 01F4      		brne .L2
+  81               	.LM9:
+  82 004a 80E0      		ldi r24,lo8(.LC0)
+  83 004c 90E0      		ldi r25,hi8(.LC0)
+  84 004e 00C0      		rjmp .L7
+  85               	.L2:
+  86               	.LM10:
+  87 0050 0E94 0000 		call CapTouch_Get_Long_Press_Reg
+  88 0054 8230      		cpi r24,lo8(2)
+  89 0056 01F4      		brne .L4
+  90               	.LM11:
+  91 0058 80E0      		ldi r24,lo8(.LC1)
+  92 005a 90E0      		ldi r25,hi8(.LC1)
+  93 005c 00C0      		rjmp .L7
+  94               	.L4:
+  95               	.LM12:
+  96 005e 0E94 0000 		call CapTouch_Get_Long_Press_Reg
+  97 0062 8330      		cpi r24,lo8(3)
+  98 0064 01F4      		brne .L3
+  99               	.LM13:
+ 100 0066 80E0      		ldi r24,lo8(.LC2)
+ 101 0068 90E0      		ldi r25,hi8(.LC2)
+ 102               	.L7:
+ 103 006a 0E94 0000 		call debug_tx_text_nl
+ 104               	.L3:
+ 105               	.LBB19:
+ 106               	.LBB18:
+ 107               	.LBB17:
+ 108               	.LBB16:
+ 109               	.LM14:
+ 110 006e CE01      		movw r24,r28
+ 111               	.LVL3:
+ 112               	/* #APP */
+ 113               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 114 0070 0197      		1: sbiw r24,1
+ 115 0072 01F4      		brne 1b
+ 116               	 ;  0 "" 2
+ 117               	/* #NOAPP */
+ 118 0074 00C0      		rjmp .L5
+ 119               	.LBE16:
+ 120               	.LBE17:
+ 121               	.LBE18:
+ 122               	.LBE19:
  123               	.LFE6:
  149               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfSrPvR.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfSrPvR.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfSrPvR.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfSrPvR.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfSrPvR.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfSrPvR.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccfSrPvR.s:26     .text:00000000 main
+C:\Users\FARIDU~1\AppData\Local\Temp/cc9T158h.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc9T158h.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc9T158h.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc9T158h.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc9T158h.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc9T158h.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc9T158h.s:26     .text:00000000 main
 
 UNDEFINED SYMBOLS
 debug_init
 CapTouch_Init
 CapTouch_Scan_Sensors
-CapTouch_Long_Pressed_Filtered
+CapTouch_Get_Long_Press_Reg
+debug_tx_number_nl
 debug_tx_text_nl
 __do_copy_data
