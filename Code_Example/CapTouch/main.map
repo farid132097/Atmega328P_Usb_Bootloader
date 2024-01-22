@@ -1,0 +1,704 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                              captouch.o (__mulsi3)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                              debug.o (__udivmodsi4)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                              captouch.o (__divmodsi4)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              debug.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+CapTouch            0x36              captouch.o
+debug               0x2d              debug.o
+IIR_LPF             0x36              captouch.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+LOAD main.o
+LOAD debug.o
+LOAD captouch.o
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x149e
+ *(.vectors)
+ .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000068                . = ALIGN (0x2)
+                0x00000068                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000068        0x0 linker stubs
+ *(.trampolines*)
+                0x00000068                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000068                __ctors_start = .
+ *(.ctors)
+                0x00000068                __ctors_end = .
+                0x00000068                __dtors_start = .
+ *(.dtors)
+                0x00000068                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+                0x00000068                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000068        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000074       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000074                __do_copy_data
+ .init4         0x0000008a       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x0000008a                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000009a        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ *(.init9)
+ *(.text)
+ .text          0x000000a2        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+                0x000000a2                __vector_22
+                0x000000a2                __vector_1
+                0x000000a2                __vector_24
+                0x000000a2                __vector_12
+                0x000000a2                __bad_interrupt
+                0x000000a2                __vector_6
+                0x000000a2                __vector_3
+                0x000000a2                __vector_23
+                0x000000a2                __vector_25
+                0x000000a2                __vector_11
+                0x000000a2                __vector_13
+                0x000000a2                __vector_17
+                0x000000a2                __vector_19
+                0x000000a2                __vector_7
+                0x000000a2                __vector_5
+                0x000000a2                __vector_9
+                0x000000a2                __vector_2
+                0x000000a2                __vector_21
+                0x000000a2                __vector_15
+                0x000000a2                __vector_8
+                0x000000a2                __vector_14
+                0x000000a2                __vector_10
+                0x000000a2                __vector_18
+                0x000000a2                __vector_20
+ .text          0x000000a6       0x5c main.o
+                0x000000a6                main
+ .text          0x00000102      0x772 debug.o
+                0x000001e0                debug_delay_index_1
+                0x000006fe                debug_tx_parameter_bin_nl
+                0x000005f8                debug_tx_number_bin_nl
+                0x000005c8                debug_tx_number_cm
+                0x0000074a                Debug_tx_parameter_bin_cm
+                0x000004ce                debug_tx_text_cm
+                0x000004d8                debug_determine_digit_numbers
+                0x00000102                debug_struct_init
+                0x0000017a                debug_timer_stop
+                0x000007c2                debug_available_bytes_rx_buf
+                0x000005d6                debug_tx_number_hex_nl
+                0x00000770                debug_buf_get
+                0x000002ac                debug_rx_byte
+                0x00000782                debug_flush_buf
+                0x0000077c                debug_buf_index_get
+                0x000005ea                debug_tx_number_hex_cm
+                0x0000061a                debug_tx_parameter_nl
+                0x000005be                debug_tx_number_sp
+                0x000004ba                debug_tx_text_nl
+                0x00000196                debug_tx_set
+                0x000006d8                Debug_tx_parameter_hex_cm
+                0x00000494                debug_tx_text
+                0x00000602                debug_tx_number_bin_sp
+                0x00000192                debug_tx_low
+                0x00000160                debug_timer_start
+                0x00000666                debug_tx_parameter_cm
+                0x0000030a                debug_rx_byte_clear
+                0x000001d2                debug_delay_index_0
+                0x00000578                debug_tx_number
+                0x00000310                debug_rx_byte_set
+                0x000003ca                debug_tx_bin
+                0x000001b4                debug_delay
+                0x000007d6                __vector_4
+                0x000001ee                debug_delay_index_2
+                0x00000484                debug_tx_sp
+                0x000007c8                debug_init
+                0x00000184                debug_gpio_init
+                0x000004c4                debug_tx_text_sp
+                0x00000476                debug_tx_nl
+                0x0000018e                debug_tx_high
+                0x000005b4                debug_tx_number_nl
+                0x00000640                debug_tx_parameter_sp
+                0x000006b2                debug_tx_parameter_hex_sp
+                0x000001fc                debug_tx_byte
+                0x0000060c                debug_tx_number_bin_cm
+                0x000005e0                debug_tx_number_hex_sp
+                0x00000724                debug_tx_parameter_bin_sp
+                0x0000048c                debug_tx_cm
+                0x0000079c                debug_databsy_get
+                0x0000068c                debug_tx_parameter_hex_nl
+                0x00000316                debug_tx_hex
+                0x000007a2                debug_data_available_rx_buf
+                0x00000304                debug_rx_byte_get
+                0x0000013a                debug_timings_init
+                0x00000854                __vector_16
+                0x00000556                debug_tx_number_digits
+                0x000001a2                debug_rx_get
+ .text          0x00000874      0xb6e captouch.o
+                0x0000098c                CapTouch_IIR_LPF_Set_Alpha
+                0x00001302                CapTouch_Get_Touch_Duration
+                0x000012de                CapTouch_Get_RawDifferentialADC
+                0x00000fee                CapTouch_Short_Pressed
+                0x00000ca0                CapTouch_Read_Delta
+                0x00000a94                CapTouch_Set_Key_Pin_Analog
+                0x00000b04                CapTouch_ADC_Wakeup
+                0x00000ae0                CapTouch_Set_Key_Pin_Output_High
+                0x000012f0                CapTouch_Get_Calibration_Value
+                0x0000095e                CapTouch_IIR_LPF_Struct_Init
+                0x00001340                CapTouch_Get_ErrorCode
+                0x0000134c                CapTouch_Get_Debug_Data
+                0x00000b1c                CapTouch_ADC_Sample
+                0x00000af6                CapTouch_ADC_Register_Config
+                0x00000b58                CapTouch_Precharge_SH_Cap
+                0x00000fa2                CapTouch_Scan_Sensors
+                0x00000d08                CapTouch_Calibration
+                0x000010e2                CapTouch_Short_Pressed_Filtered
+                0x00000b86                CapTouch_ADC_Sample1
+                0x00000bf8                CapTouch_Precharge_Button
+                0x00000e98                CapTouch_Check_Touch_Duration
+                0x000009c0                CapTouch_IIR_LPF_Get_Filtered_Value
+                0x00001094                CapTouch_Constant_Pressed
+                0x000012cc                CapTouch_Get_RawADC2
+                0x0000104e                CapTouch_Long_Pressed
+                0x000012ba                CapTouch_Get_RawADC1
+                0x00000b10                CapTouch_ADC_Sleep
+                0x0000132a                CapTouch_Get_Touch_Response
+                0x000009a6                CapTouch_IIR_LPF_Get_Alpha
+                0x00000ac8                CapTouch_Set_Key_Pin_Output_Low
+                0x000012a6                CapTouch_Set_Short_Press_Max_Time
+                0x000011a2                CapTouch_Long_Pressed_Filtered
+                0x00000874                CapTouch_Struct_Init
+                0x00000ab2                CapTouch_Set_Key_Pin_Output
+                0x000012b0                CapTouch_Set_Long_Press_Time
+                0x00000e4a                CapTouch_Check_Trigger
+                0x0000129c                CapTouch_Set_Short_Press_Min_Time
+                0x000013c8                CapTouch_Init
+                0x00000c24                CapTouch_ADC_Sample2
+                0x00001336                CapTouch_Get_Reference_Timer_Use_Flag
+                0x00000a7c                CapTouch_Set_Key_Pin_Input
+                0x00000e12                CapTouch_Response
+ .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x000013e2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x000013e2                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x000013e2       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x000013e2                __mulsi3
+ .text.libgcc   0x00001420       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001420                __udivmodsi4
+ .text.libgcc   0x00001464       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                0x00001464                __divmodsi4
+ .text.libgcc   0x0000149a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000149a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000149a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x0000149a                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000149a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000149a                exit
+                0x0000149a                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000149a        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000149e                _etext = .
+
+.data           0x00800100       0x32 load address 0x0000149e
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ .data          0x00800100       0x1c main.o
+ .data          0x0080011c       0x14 debug.o
+                0x0080011e                TIM0_BAUD_9600
+                0x00800124                TIM0_BAUD_19200
+                0x0080012a                TIM0_BAUD_38400
+ .data          0x00800130        0x2 captouch.o
+                0x00800130                CapTouch_Pins
+ .data          0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .data          0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .data          0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800132                . = ALIGN (0x2)
+                0x00800132                _edata = .
+                0x00800132                PROVIDE (__data_end, .)
+
+.bss            0x00800132       0x99
+                0x00800132                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ .bss           0x00800132        0x0 main.o
+ .bss           0x00800132        0x0 debug.o
+ .bss           0x00800132        0x0 captouch.o
+ .bss           0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .bss           0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800132        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800132       0x2d debug.o
+                0x00800132                debug
+ COMMON         0x0080015f       0x6c captouch.o
+                0x0080015f                CapTouch
+                0x00800195                IIR_LPF
+                0x008001cb                PROVIDE (__bss_end, .)
+                0x0000149e                __data_load_start = LOADADDR (.data)
+                0x000014d0                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008001cb        0x0
+                0x008001cb                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x008001cb                PROVIDE (__noinit_end, .)
+                0x008001cb                _end = .
+                0x008001cb                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x60
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main.o
+ .debug_aranges
+                0x00000020       0x20 debug.o
+ .debug_aranges
+                0x00000040       0x20 captouch.o
+
+.debug_pubnames
+                0x00000000      0xaaf
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x1b main.o
+ .debug_pubnames
+                0x0000001b      0x568 debug.o
+ .debug_pubnames
+                0x00000583      0x52c captouch.o
+
+.debug_info     0x00000000     0x1aad
+ *(.debug_info)
+ .debug_info    0x00000000      0x141 main.o
+ .debug_info    0x00000141      0xc54 debug.o
+ .debug_info    0x00000d95      0xd18 captouch.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x64e
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xc2 main.o
+ .debug_abbrev  0x000000c2      0x288 debug.o
+ .debug_abbrev  0x0000034a      0x304 captouch.o
+
+.debug_line     0x00000000     0x149b
+ *(.debug_line)
+ .debug_line    0x00000000      0x152 main.o
+ .debug_line    0x00000152      0xa9c debug.o
+ .debug_line    0x00000bee      0x8ad captouch.o
+
+.debug_frame    0x00000000      0x670
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x20 main.o
+ .debug_frame   0x00000020      0x3a0 debug.o
+ .debug_frame   0x000003c0      0x2b0 captouch.o
+
+.debug_str      0x00000000      0xb77
+ *(.debug_str)
+ .debug_str     0x00000000       0xf9 main.o
+                                0x133 (size before relaxing)
+ .debug_str     0x000000f9      0x4d7 debug.o
+                                0x5d8 (size before relaxing)
+ .debug_str     0x000005d0      0x5a7 captouch.o
+                                0x6da (size before relaxing)
+
+.debug_loc      0x00000000      0xce2
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x5c main.o
+ .debug_loc     0x0000005c      0x767 debug.o
+ .debug_loc     0x000007c3      0x51f captouch.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(main.elf elf32-avr)
+LOAD linker stubs
+
+.debug_ranges   0x00000000       0x60
+ .debug_ranges  0x00000000       0x48 main.o
+ .debug_ranges  0x00000048       0x18 debug.o
+
+Cross Reference Table
+
+Symbol                                            File
+CapTouch                                          captouch.o
+CapTouch_ADC_Register_Config                      captouch.o
+CapTouch_ADC_Sample                               captouch.o
+CapTouch_ADC_Sample1                              captouch.o
+CapTouch_ADC_Sample2                              captouch.o
+CapTouch_ADC_Sleep                                captouch.o
+CapTouch_ADC_Wakeup                               captouch.o
+CapTouch_Calibration                              captouch.o
+CapTouch_Check_Touch_Duration                     captouch.o
+CapTouch_Check_Trigger                            captouch.o
+CapTouch_Constant_Pressed                         captouch.o
+CapTouch_Get_Calibration_Value                    captouch.o
+CapTouch_Get_Debug_Data                           captouch.o
+CapTouch_Get_ErrorCode                            captouch.o
+CapTouch_Get_RawADC1                              captouch.o
+CapTouch_Get_RawADC2                              captouch.o
+CapTouch_Get_RawDifferentialADC                   captouch.o
+CapTouch_Get_Reference_Timer_Use_Flag             captouch.o
+CapTouch_Get_Touch_Duration                       captouch.o
+CapTouch_Get_Touch_Response                       captouch.o
+CapTouch_IIR_LPF_Get_Alpha                        captouch.o
+CapTouch_IIR_LPF_Get_Filtered_Value               captouch.o
+CapTouch_IIR_LPF_Set_Alpha                        captouch.o
+CapTouch_IIR_LPF_Struct_Init                      captouch.o
+CapTouch_Init                                     captouch.o
+                                                  main.o
+CapTouch_Long_Pressed                             captouch.o
+CapTouch_Long_Pressed_Filtered                    captouch.o
+                                                  main.o
+CapTouch_Pins                                     captouch.o
+CapTouch_Precharge_Button                         captouch.o
+CapTouch_Precharge_SH_Cap                         captouch.o
+CapTouch_Read_Delta                               captouch.o
+CapTouch_Response                                 captouch.o
+CapTouch_Scan_Sensors                             captouch.o
+                                                  main.o
+CapTouch_Set_Key_Pin_Analog                       captouch.o
+CapTouch_Set_Key_Pin_Input                        captouch.o
+CapTouch_Set_Key_Pin_Output                       captouch.o
+CapTouch_Set_Key_Pin_Output_High                  captouch.o
+CapTouch_Set_Key_Pin_Output_Low                   captouch.o
+CapTouch_Set_Long_Press_Time                      captouch.o
+CapTouch_Set_Short_Press_Max_Time                 captouch.o
+CapTouch_Set_Short_Press_Min_Time                 captouch.o
+CapTouch_Short_Pressed                            captouch.o
+CapTouch_Short_Pressed_Filtered                   captouch.o
+CapTouch_Struct_Init                              captouch.o
+Debug_tx_parameter_bin_cm                         debug.o
+Debug_tx_parameter_hex_cm                         debug.o
+IIR_LPF                                           captouch.o
+TIM0_BAUD_19200                                   debug.o
+TIM0_BAUD_38400                                   debug.o
+TIM0_BAUD_9600                                    debug.o
+__bad_interrupt                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__bss_end                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+__bss_start                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+__data_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+__data_load_start                                 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+__data_start                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+__divmodsi4                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                                                  captouch.o
+__do_clear_bss                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                                                  captouch.o
+                                                  debug.o
+__do_copy_data                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                                                  captouch.o
+                                                  debug.o
+                                                  main.o
+__heap_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__init                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__mulsi3                                          c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                                                  captouch.o
+__stack                                           c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__udivmodsi4                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                                                  debug.o
+__vector_1                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_10                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_11                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_12                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_13                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_14                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_15                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_16                                       debug.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_17                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_18                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_19                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_2                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_20                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_21                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_22                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_23                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_24                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_25                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_3                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_4                                        debug.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_5                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_6                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_7                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_8                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_9                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_default                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vectors                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+_exit                                             c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+debug                                             debug.o
+debug_available_bytes_rx_buf                      debug.o
+debug_buf_get                                     debug.o
+debug_buf_index_get                               debug.o
+debug_data_available_rx_buf                       debug.o
+debug_databsy_get                                 debug.o
+debug_delay                                       debug.o
+debug_delay_index_0                               debug.o
+debug_delay_index_1                               debug.o
+debug_delay_index_2                               debug.o
+debug_determine_digit_numbers                     debug.o
+debug_flush_buf                                   debug.o
+debug_gpio_init                                   debug.o
+debug_init                                        debug.o
+                                                  main.o
+debug_rx_byte                                     debug.o
+debug_rx_byte_clear                               debug.o
+debug_rx_byte_get                                 debug.o
+debug_rx_byte_set                                 debug.o
+debug_rx_get                                      debug.o
+debug_struct_init                                 debug.o
+debug_timer_start                                 debug.o
+debug_timer_stop                                  debug.o
+debug_timings_init                                debug.o
+debug_tx_bin                                      debug.o
+debug_tx_byte                                     debug.o
+debug_tx_cm                                       debug.o
+debug_tx_hex                                      debug.o
+debug_tx_high                                     debug.o
+debug_tx_low                                      debug.o
+debug_tx_nl                                       debug.o
+debug_tx_number                                   debug.o
+debug_tx_number_bin_cm                            debug.o
+debug_tx_number_bin_nl                            debug.o
+debug_tx_number_bin_sp                            debug.o
+debug_tx_number_cm                                debug.o
+debug_tx_number_digits                            debug.o
+debug_tx_number_hex_cm                            debug.o
+debug_tx_number_hex_nl                            debug.o
+debug_tx_number_hex_sp                            debug.o
+debug_tx_number_nl                                debug.o
+debug_tx_number_sp                                debug.o
+debug_tx_parameter_bin_nl                         debug.o
+debug_tx_parameter_bin_sp                         debug.o
+debug_tx_parameter_cm                             debug.o
+debug_tx_parameter_hex_nl                         debug.o
+debug_tx_parameter_hex_sp                         debug.o
+debug_tx_parameter_nl                             debug.o
+debug_tx_parameter_sp                             debug.o
+debug_tx_set                                      debug.o
+debug_tx_sp                                       debug.o
+debug_tx_text                                     debug.o
+debug_tx_text_cm                                  debug.o
+debug_tx_text_nl                                  debug.o
+                                                  main.o
+debug_tx_text_sp                                  debug.o
+exit                                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+main                                              main.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
