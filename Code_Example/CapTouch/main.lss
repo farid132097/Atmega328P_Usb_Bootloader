@@ -154,7 +154,8 @@ _delay_loop_2(uint16_t __count)
       e2:	cd 01       	movw	r24, r26
       e4:	0e 94 e7 02 	call	0x5ce	; 0x5ce <debug_tx_number_nl>
 	
-	if(CapTouch_Get_Long_Press_Reg()==0b01){
+	
+	if      (CapTouch_Get_Long_Press_Reg()==0b01){
       e8:	0e 94 b0 09 	call	0x1360	; 0x1360 <CapTouch_Get_Long_Press_Reg>
       ec:	81 30       	cpi	r24, 0x01	; 1
       ee:	19 f4       	brne	.+6      	; 0xf6 <main+0x50>

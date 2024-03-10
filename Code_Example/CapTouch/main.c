@@ -15,7 +15,8 @@ int main(void){
 	ticks++;
 	debug_tx_number_nl(CapTouch_Get_Long_Press_Reg());
 	
-	if(CapTouch_Get_Long_Press_Reg()==0b01){
+	
+	if      (CapTouch_Get_Long_Press_Reg()==0b01){
 	  debug_tx_text_nl("LP BT 0");
 	}else if(CapTouch_Get_Long_Press_Reg()==0b10){
 	  debug_tx_text_nl("LP BT 1");

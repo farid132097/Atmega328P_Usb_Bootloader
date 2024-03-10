@@ -1,0 +1,494 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002d0  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000009  00800100  00800100  00000344  2**0
+                  ALLOC
+  2 .debug_aranges 00000040  00000000  00000000  00000344  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 000000bf  00000000  00000000  00000384  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000204  00000000  00000000  00000443  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000136  00000000  00000000  00000647  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000003f8  00000000  00000000  0000077d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000090  00000000  00000000  00000b78  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000138  00000000  00000000  00000c08  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000013  00000000  00000000  00000d40  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 38 01 	jmp	0x270	; 0x270 <__vector_6>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	a9 30       	cpi	r26, 0x09	; 9
+  80:	b1 07       	cpc	r27, r17
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 48 00 	call	0x90	; 0x90 <main>
+  88:	0c 94 66 01 	jmp	0x2cc	; 0x2cc <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <main>:
+uint8_t  state=0;
+
+
+int main(void){
+
+  DDRD  |= (1<<4);
+  90:	54 9a       	sbi	0x0a, 4	; 10
+  PORTD &=~(1<<4);
+  92:	5c 98       	cbi	0x0b, 4	; 11
+  
+  DDRD&=~((1<<3)|(1<<2));
+  94:	8a b1       	in	r24, 0x0a	; 10
+  96:	83 7f       	andi	r24, 0xF3	; 243
+  98:	8a b9       	out	0x0a, r24	; 10
+  PORTD|=(1<<3)|(1<<2);
+  9a:	8b b1       	in	r24, 0x0b	; 11
+  9c:	8c 60       	ori	r24, 0x0C	; 12
+  9e:	8b b9       	out	0x0b, r24	; 11
+  
+  
+  Sleep_Init();
+  a0:	0e 94 23 01 	call	0x246	; 0x246 <Sleep_Init>
+  
+  //12Mhz
+  cli();
+  a4:	f8 94       	cli
+  CLKPR = (1<<CLKPCE);
+  a6:	80 e8       	ldi	r24, 0x80	; 128
+  a8:	80 93 61 00 	sts	0x0061, r24
+  CLKPR = 0;
+  ac:	10 92 61 00 	sts	0x0061, r1
+  sei();
+  b0:	78 94       	sei
+  while(WDT_Get_Ticks()<5);
+  b2:	0e 94 18 01 	call	0x230	; 0x230 <WDT_Get_Ticks>
+  b6:	65 30       	cpi	r22, 0x05	; 5
+  b8:	71 05       	cpc	r23, r1
+  ba:	81 05       	cpc	r24, r1
+  bc:	91 05       	cpc	r25, r1
+  be:	c8 f3       	brcs	.-14     	; 0xb2 <main+0x22>
+  
+  //6Mhz
+  cli();
+  c0:	f8 94       	cli
+  CLKPR = (1<<CLKPCE);
+  c2:	80 e8       	ldi	r24, 0x80	; 128
+  c4:	80 93 61 00 	sts	0x0061, r24
+  CLKPR = 1;
+  c8:	81 e0       	ldi	r24, 0x01	; 1
+  ca:	80 93 61 00 	sts	0x0061, r24
+  sei();
+  ce:	78 94       	sei
+  while(WDT_Get_Ticks()<10);
+  d0:	0e 94 18 01 	call	0x230	; 0x230 <WDT_Get_Ticks>
+  d4:	6a 30       	cpi	r22, 0x0A	; 10
+  d6:	71 05       	cpc	r23, r1
+  d8:	81 05       	cpc	r24, r1
+  da:	91 05       	cpc	r25, r1
+  dc:	c8 f3       	brcs	.-14     	; 0xd0 <main+0x40>
+  
+  //3Mhz
+  cli();
+  de:	f8 94       	cli
+  CLKPR = (1<<CLKPCE);
+  e0:	80 e8       	ldi	r24, 0x80	; 128
+  e2:	80 93 61 00 	sts	0x0061, r24
+  CLKPR = 2;
+  e6:	82 e0       	ldi	r24, 0x02	; 2
+  e8:	80 93 61 00 	sts	0x0061, r24
+  sei();
+  ec:	78 94       	sei
+  while(WDT_Get_Ticks()<15);
+  ee:	0e 94 18 01 	call	0x230	; 0x230 <WDT_Get_Ticks>
+  f2:	6f 30       	cpi	r22, 0x0F	; 15
+  f4:	71 05       	cpc	r23, r1
+  f6:	81 05       	cpc	r24, r1
+  f8:	91 05       	cpc	r25, r1
+  fa:	c8 f3       	brcs	.-14     	; 0xee <main+0x5e>
+  
+  //1.5Mhz
+  cli();
+  fc:	f8 94       	cli
+  CLKPR = (1<<CLKPCE);
+  fe:	80 e8       	ldi	r24, 0x80	; 128
+ 100:	80 93 61 00 	sts	0x0061, r24
+  CLKPR = 3;
+ 104:	83 e0       	ldi	r24, 0x03	; 3
+ 106:	80 93 61 00 	sts	0x0061, r24
+  sei();
+ 10a:	78 94       	sei
+  while(WDT_Get_Ticks()<20);
+ 10c:	0e 94 18 01 	call	0x230	; 0x230 <WDT_Get_Ticks>
+ 110:	64 31       	cpi	r22, 0x14	; 20
+ 112:	71 05       	cpc	r23, r1
+ 114:	81 05       	cpc	r24, r1
+ 116:	91 05       	cpc	r25, r1
+ 118:	c8 f3       	brcs	.-14     	; 0x10c <main+0x7c>
+  
+  //750khz
+  cli();
+ 11a:	f8 94       	cli
+  CLKPR = (1<<CLKPCE);
+ 11c:	80 e8       	ldi	r24, 0x80	; 128
+ 11e:	80 93 61 00 	sts	0x0061, r24
+  CLKPR = 4;
+ 122:	84 e0       	ldi	r24, 0x04	; 4
+ 124:	80 93 61 00 	sts	0x0061, r24
+  sei();
+ 128:	78 94       	sei
+  while(WDT_Get_Ticks()<25);
+ 12a:	0e 94 18 01 	call	0x230	; 0x230 <WDT_Get_Ticks>
+ 12e:	69 31       	cpi	r22, 0x19	; 25
+ 130:	71 05       	cpc	r23, r1
+ 132:	81 05       	cpc	r24, r1
+ 134:	91 05       	cpc	r25, r1
+ 136:	c8 f3       	brcs	.-14     	; 0x12a <main+0x9a>
+  
+  //375khz
+  cli();
+ 138:	f8 94       	cli
+  CLKPR = (1<<CLKPCE);
+ 13a:	80 e8       	ldi	r24, 0x80	; 128
+ 13c:	80 93 61 00 	sts	0x0061, r24
+  CLKPR = 5;
+ 140:	85 e0       	ldi	r24, 0x05	; 5
+ 142:	80 93 61 00 	sts	0x0061, r24
+  sei();
+ 146:	78 94       	sei
+  while(WDT_Get_Ticks()<30);
+ 148:	0e 94 18 01 	call	0x230	; 0x230 <WDT_Get_Ticks>
+ 14c:	6e 31       	cpi	r22, 0x1E	; 30
+ 14e:	71 05       	cpc	r23, r1
+ 150:	81 05       	cpc	r24, r1
+ 152:	91 05       	cpc	r25, r1
+ 154:	c8 f3       	brcs	.-14     	; 0x148 <main+0xb8>
+  
+  //375khz
+  cli();
+ 156:	f8 94       	cli
+  CLKPR = (1<<CLKPCE);
+ 158:	80 e8       	ldi	r24, 0x80	; 128
+ 15a:	80 93 61 00 	sts	0x0061, r24
+  CLKPR = 6;
+ 15e:	86 e0       	ldi	r24, 0x06	; 6
+ 160:	80 93 61 00 	sts	0x0061, r24
+  sei();
+ 164:	78 94       	sei
+  while(WDT_Get_Ticks()<35);
+ 166:	0e 94 18 01 	call	0x230	; 0x230 <WDT_Get_Ticks>
+ 16a:	63 32       	cpi	r22, 0x23	; 35
+ 16c:	71 05       	cpc	r23, r1
+ 16e:	81 05       	cpc	r24, r1
+ 170:	91 05       	cpc	r25, r1
+ 172:	c8 f3       	brcs	.-14     	; 0x166 <main+0xd6>
+  
+  //187.5khz
+  cli();
+ 174:	f8 94       	cli
+  CLKPR = (1<<CLKPCE);
+ 176:	80 e8       	ldi	r24, 0x80	; 128
+ 178:	80 93 61 00 	sts	0x0061, r24
+  CLKPR = 7;
+ 17c:	87 e0       	ldi	r24, 0x07	; 7
+ 17e:	80 93 61 00 	sts	0x0061, r24
+  sei();
+ 182:	78 94       	sei
+  while(WDT_Get_Ticks()<40);
+ 184:	0e 94 18 01 	call	0x230	; 0x230 <WDT_Get_Ticks>
+ 188:	68 32       	cpi	r22, 0x28	; 40
+ 18a:	71 05       	cpc	r23, r1
+ 18c:	81 05       	cpc	r24, r1
+ 18e:	91 05       	cpc	r25, r1
+ 190:	c8 f3       	brcs	.-14     	; 0x184 <main+0xf4>
+  
+  //93.75khz
+  cli();
+ 192:	f8 94       	cli
+  CLKPR = (1<<CLKPCE);
+ 194:	80 e8       	ldi	r24, 0x80	; 128
+ 196:	80 93 61 00 	sts	0x0061, r24
+  CLKPR = 8;
+ 19a:	88 e0       	ldi	r24, 0x08	; 8
+ 19c:	80 93 61 00 	sts	0x0061, r24
+  sei();
+ 1a0:	78 94       	sei
+  while(WDT_Get_Ticks()<45);
+ 1a2:	0e 94 18 01 	call	0x230	; 0x230 <WDT_Get_Ticks>
+ 1a6:	6d 32       	cpi	r22, 0x2D	; 45
+ 1a8:	71 05       	cpc	r23, r1
+ 1aa:	81 05       	cpc	r24, r1
+ 1ac:	91 05       	cpc	r25, r1
+ 1ae:	c8 f3       	brcs	.-14     	; 0x1a2 <main+0x112>
+  
+  //12Mhz
+  cli();
+ 1b0:	f8 94       	cli
+  CLKPR = (1<<CLKPCE);
+ 1b2:	80 e8       	ldi	r24, 0x80	; 128
+ 1b4:	80 93 61 00 	sts	0x0061, r24
+  CLKPR = 0;
+ 1b8:	10 92 61 00 	sts	0x0061, r1
+  sei();
+ 1bc:	78 94       	sei
+  while(WDT_Get_Ticks()<50);
+ 1be:	0e 94 18 01 	call	0x230	; 0x230 <WDT_Get_Ticks>
+ 1c2:	62 33       	cpi	r22, 0x32	; 50
+ 1c4:	71 05       	cpc	r23, r1
+ 1c6:	81 05       	cpc	r24, r1
+ 1c8:	91 05       	cpc	r25, r1
+ 1ca:	c8 f3       	brcs	.-14     	; 0x1be <main+0x12e>
+  
+  //Power-Down + WDT Enabled
+  PORTD &=~(1<<4);
+ 1cc:	5c 98       	cbi	0x0b, 4	; 11
+ 1ce:	02 c0       	rjmp	.+4      	; 0x1d4 <main+0x144>
+  while(WDT_Get_Ticks()<60){
+    Deep_Sleep();
+ 1d0:	0e 94 00 01 	call	0x200	; 0x200 <Deep_Sleep>
+  sei();
+  while(WDT_Get_Ticks()<50);
+  
+  //Power-Down + WDT Enabled
+  PORTD &=~(1<<4);
+  while(WDT_Get_Ticks()<60){
+ 1d4:	0e 94 18 01 	call	0x230	; 0x230 <WDT_Get_Ticks>
+ 1d8:	6c 33       	cpi	r22, 0x3C	; 60
+ 1da:	71 05       	cpc	r23, r1
+ 1dc:	81 05       	cpc	r24, r1
+ 1de:	91 05       	cpc	r25, r1
+ 1e0:	b8 f3       	brcs	.-18     	; 0x1d0 <main+0x140>
+    Deep_Sleep();
+  }
+  
+  //Power-Down + WDT Disabled
+  cli();
+ 1e2:	f8 94       	cli
+  MCUSR &=~(1<<WDRF);
+ 1e4:	84 b7       	in	r24, 0x34	; 52
+ 1e6:	87 7f       	andi	r24, 0xF7	; 247
+ 1e8:	84 bf       	out	0x34, r24	; 52
+  WDTCSR|= (1<<WDCE)|(1<<WDE);
+ 1ea:	80 91 60 00 	lds	r24, 0x0060
+ 1ee:	88 61       	ori	r24, 0x18	; 24
+ 1f0:	80 93 60 00 	sts	0x0060, r24
+  WDTCSR = 0;
+ 1f4:	10 92 60 00 	sts	0x0060, r1
+  sei();
+ 1f8:	78 94       	sei
+  Deep_Sleep();
+ 1fa:	0e 94 00 01 	call	0x200	; 0x200 <Deep_Sleep>
+ 1fe:	ff cf       	rjmp	.-2      	; 0x1fe <main+0x16e>
+
+00000200 <Deep_Sleep>:
+#include <avr/sleep.h>
+
+volatile uint32_t WDT_Ticks=0;
+
+void Deep_Sleep(void){
+  sleep_enable();
+ 200:	83 b7       	in	r24, 0x33	; 51
+ 202:	81 60       	ori	r24, 0x01	; 1
+ 204:	83 bf       	out	0x33, r24	; 51
+  sleep_bod_disable();
+ 206:	85 b7       	in	r24, 0x35	; 53
+ 208:	80 66       	ori	r24, 0x60	; 96
+ 20a:	85 bf       	out	0x35, r24	; 53
+ 20c:	8f 7d       	andi	r24, 0xDF	; 223
+ 20e:	85 bf       	out	0x35, r24	; 53
+  sei();
+ 210:	78 94       	sei
+  sleep_cpu();
+ 212:	88 95       	sleep
+  sleep_disable();
+ 214:	83 b7       	in	r24, 0x33	; 51
+ 216:	8e 7f       	andi	r24, 0xFE	; 254
+ 218:	83 bf       	out	0x33, r24	; 51
+}
+ 21a:	08 95       	ret
+
+0000021c <ADC_Disable>:
+
+void ADC_Disable(void){
+  ADCSRA &=~ (1<<ADEN);
+ 21c:	ea e7       	ldi	r30, 0x7A	; 122
+ 21e:	f0 e0       	ldi	r31, 0x00	; 0
+ 220:	80 81       	ld	r24, Z
+ 222:	8f 77       	andi	r24, 0x7F	; 127
+ 224:	80 83       	st	Z, r24
+}
+ 226:	08 95       	ret
+
+00000228 <Analog_Comparator_Disable>:
+
+void Analog_Comparator_Disable(void){
+  ACSR   |= (1<<ACD) ;
+ 228:	80 b7       	in	r24, 0x30	; 48
+ 22a:	80 68       	ori	r24, 0x80	; 128
+ 22c:	80 bf       	out	0x30, r24	; 48
+}
+ 22e:	08 95       	ret
+
+00000230 <WDT_Get_Ticks>:
+
+uint32_t WDT_Get_Ticks(void){
+  return WDT_Ticks;
+ 230:	20 91 05 01 	lds	r18, 0x0105
+ 234:	30 91 06 01 	lds	r19, 0x0106
+ 238:	40 91 07 01 	lds	r20, 0x0107
+ 23c:	50 91 08 01 	lds	r21, 0x0108
+}
+ 240:	b9 01       	movw	r22, r18
+ 242:	ca 01       	movw	r24, r20
+ 244:	08 95       	ret
+
+00000246 <Sleep_Init>:
+
+
+void Sleep_Init(void){
+  cli();
+ 246:	f8 94       	cli
+  WDTCSR=(1<<WDCE)|(1<<WDE);
+ 248:	e0 e6       	ldi	r30, 0x60	; 96
+ 24a:	f0 e0       	ldi	r31, 0x00	; 0
+ 24c:	88 e1       	ldi	r24, 0x18	; 24
+ 24e:	80 83       	st	Z, r24
+  WDTCSR=(1<<WDP1)|(1<<WDP2)|(1<<WDIE);
+ 250:	86 e4       	ldi	r24, 0x46	; 70
+ 252:	80 83       	st	Z, r24
+  sei();
+ 254:	78 94       	sei
+  set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+ 256:	83 b7       	in	r24, 0x33	; 51
+ 258:	81 7f       	andi	r24, 0xF1	; 241
+ 25a:	84 60       	ori	r24, 0x04	; 4
+ 25c:	83 bf       	out	0x33, r24	; 51
+  sleep_cpu();
+  sleep_disable();
+}
+
+void ADC_Disable(void){
+  ADCSRA &=~ (1<<ADEN);
+ 25e:	ea e7       	ldi	r30, 0x7A	; 122
+ 260:	f0 e0       	ldi	r31, 0x00	; 0
+ 262:	80 81       	ld	r24, Z
+ 264:	8f 77       	andi	r24, 0x7F	; 127
+ 266:	80 83       	st	Z, r24
+}
+
+void Analog_Comparator_Disable(void){
+  ACSR   |= (1<<ACD) ;
+ 268:	80 b7       	in	r24, 0x30	; 48
+ 26a:	80 68       	ori	r24, 0x80	; 128
+ 26c:	80 bf       	out	0x30, r24	; 48
+  WDTCSR=(1<<WDP1)|(1<<WDP2)|(1<<WDIE);
+  sei();
+  set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+  ADC_Disable();
+  Analog_Comparator_Disable();
+}
+ 26e:	08 95       	ret
+
+00000270 <__vector_6>:
+
+ISR(WDT_vect){
+ 270:	1f 92       	push	r1
+ 272:	0f 92       	push	r0
+ 274:	0f b6       	in	r0, 0x3f	; 63
+ 276:	0f 92       	push	r0
+ 278:	11 24       	eor	r1, r1
+ 27a:	8f 93       	push	r24
+ 27c:	9f 93       	push	r25
+ 27e:	af 93       	push	r26
+ 280:	bf 93       	push	r27
+ 282:	ef 93       	push	r30
+ 284:	ff 93       	push	r31
+  WDTCSR|=(1<<WDIE);
+ 286:	e0 e6       	ldi	r30, 0x60	; 96
+ 288:	f0 e0       	ldi	r31, 0x00	; 0
+ 28a:	80 81       	ld	r24, Z
+ 28c:	80 64       	ori	r24, 0x40	; 64
+ 28e:	80 83       	st	Z, r24
+  WDT_Ticks++;
+ 290:	80 91 05 01 	lds	r24, 0x0105
+ 294:	90 91 06 01 	lds	r25, 0x0106
+ 298:	a0 91 07 01 	lds	r26, 0x0107
+ 29c:	b0 91 08 01 	lds	r27, 0x0108
+ 2a0:	01 96       	adiw	r24, 0x01	; 1
+ 2a2:	a1 1d       	adc	r26, r1
+ 2a4:	b1 1d       	adc	r27, r1
+ 2a6:	80 93 05 01 	sts	0x0105, r24
+ 2aa:	90 93 06 01 	sts	0x0106, r25
+ 2ae:	a0 93 07 01 	sts	0x0107, r26
+ 2b2:	b0 93 08 01 	sts	0x0108, r27
+ 2b6:	ff 91       	pop	r31
+ 2b8:	ef 91       	pop	r30
+ 2ba:	bf 91       	pop	r27
+ 2bc:	af 91       	pop	r26
+ 2be:	9f 91       	pop	r25
+ 2c0:	8f 91       	pop	r24
+ 2c2:	0f 90       	pop	r0
+ 2c4:	0f be       	out	0x3f, r0	; 63
+ 2c6:	0f 90       	pop	r0
+ 2c8:	1f 90       	pop	r1
+ 2ca:	18 95       	reti
+
+000002cc <_exit>:
+ 2cc:	f8 94       	cli
+
+000002ce <__stop_program>:
+ 2ce:	ff cf       	rjmp	.-2      	; 0x2ce <__stop_program>

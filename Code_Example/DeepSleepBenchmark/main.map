@@ -117,7 +117,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x18e
+.text           0x00000000      0x2d0
  *(.vectors)
  .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vectors
@@ -196,26 +196,26 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x0000008c                __vector_16
                 0x0000008c                __vector_18
                 0x0000008c                __vector_20
- .text          0x00000090       0x2e main.o
+ .text          0x00000090      0x170 main.o
                 0x00000090                main
- .text          0x000000be       0xcc lowpower.o
-                0x000000be                Deep_Sleep
-                0x0000012e                __vector_6
-                0x00000104                Sleep_Init
-                0x000000da                ADC_Disable
-                0x000000e6                Analog_Comparator_Disable
-                0x000000ee                WDT_Get_Ticks
- .text          0x0000018a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text          0x0000018a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x0000018a                . = ALIGN (0x2)
+ .text          0x00000200       0xcc lowpower.o
+                0x00000200                Deep_Sleep
+                0x00000270                __vector_6
+                0x00000246                Sleep_Init
+                0x0000021c                ADC_Disable
+                0x00000228                Analog_Comparator_Disable
+                0x00000230                WDT_Get_Ticks
+ .text          0x000002cc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x000002cc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x000002cc                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000018a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000018a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x0000018a                . = ALIGN (0x2)
+ .text.libgcc   0x000002cc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000002cc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x000002cc                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000018a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000018a                exit
-                0x0000018a                _exit
+ .fini9         0x000002cc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000002cc                exit
+                0x000002cc                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -234,11 +234,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000018a        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000002cc        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000018e                _etext = .
+                0x000002d0                _etext = .
 
-.data           0x00800100        0x0 load address 0x0000018e
+.data           0x00800100        0x0 load address 0x000002d0
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -268,8 +268,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.bss*)
  *(COMMON)
                 0x00800109                PROVIDE (__bss_end, .)
-                0x0000018e                __data_load_start = LOADADDR (.data)
-                0x0000018e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000002d0                __data_load_start = LOADADDR (.data)
+                0x000002d0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800109        0x0
                 0x00800109                PROVIDE (__noinit_start, .)
@@ -353,10 +353,10 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .debug_abbrev  0x00000000       0x5f main.o
  .debug_abbrev  0x0000005f       0xd7 lowpower.o
 
-.debug_line     0x00000000      0x240
+.debug_line     0x00000000      0x3f8
  *(.debug_line)
- .debug_line    0x00000000       0xd1 main.o
- .debug_line    0x000000d1      0x16f lowpower.o
+ .debug_line    0x00000000      0x289 main.o
+ .debug_line    0x00000289      0x16f lowpower.o
 
 .debug_frame    0x00000000       0x90
  *(.debug_frame)

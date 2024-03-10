@@ -1,0 +1,354 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 549A      		sbi 42-32,4
+  25               	.LM3:
+  26 0002 5C98      		cbi 43-32,4
+  27               	.LM4:
+  28 0004 8AB1      		in r24,42-32
+  29 0006 837F      		andi r24,lo8(-13)
+  30 0008 8AB9      		out 42-32,r24
+  31               	.LM5:
+  32 000a 8BB1      		in r24,43-32
+  33 000c 8C60      		ori r24,lo8(12)
+  34 000e 8BB9      		out 43-32,r24
+  35               	.LM6:
+  36 0010 0E94 0000 		call Sleep_Init
+  37               	.LM7:
+  38               	/* #APP */
+  39               	 ;  23 "main.c" 1
+  40 0014 F894      		cli
+  41               	 ;  0 "" 2
+  42               	.LM8:
+  43               	/* #NOAPP */
+  44 0016 80E8      		ldi r24,lo8(-128)
+  45 0018 8093 6100 		sts 97,r24
+  46               	.LM9:
+  47 001c 1092 6100 		sts 97,__zero_reg__
+  48               	.LM10:
+  49               	/* #APP */
+  50               	 ;  26 "main.c" 1
+  51 0020 7894      		sei
+  52               	 ;  0 "" 2
+  53               	/* #NOAPP */
+  54               	.L2:
+  55               	.LM11:
+  56 0022 0E94 0000 		call WDT_Get_Ticks
+  57 0026 6530      		cpi r22,lo8(5)
+  58 0028 7105      		cpc r23,__zero_reg__
+  59 002a 8105      		cpc r24,__zero_reg__
+  60 002c 9105      		cpc r25,__zero_reg__
+  61 002e 00F0      		brlo .L2
+  62               	.LM12:
+  63               	/* #APP */
+  64               	 ;  30 "main.c" 1
+  65 0030 F894      		cli
+  66               	 ;  0 "" 2
+  67               	.LM13:
+  68               	/* #NOAPP */
+  69 0032 80E8      		ldi r24,lo8(-128)
+  70 0034 8093 6100 		sts 97,r24
+  71               	.LM14:
+  72 0038 81E0      		ldi r24,lo8(1)
+  73 003a 8093 6100 		sts 97,r24
+  74               	.LM15:
+  75               	/* #APP */
+  76               	 ;  33 "main.c" 1
+  77 003e 7894      		sei
+  78               	 ;  0 "" 2
+  79               	/* #NOAPP */
+  80               	.L3:
+  81               	.LM16:
+  82 0040 0E94 0000 		call WDT_Get_Ticks
+  83 0044 6A30      		cpi r22,lo8(10)
+  84 0046 7105      		cpc r23,__zero_reg__
+  85 0048 8105      		cpc r24,__zero_reg__
+  86 004a 9105      		cpc r25,__zero_reg__
+  87 004c 00F0      		brlo .L3
+  88               	.LM17:
+  89               	/* #APP */
+  90               	 ;  37 "main.c" 1
+  91 004e F894      		cli
+  92               	 ;  0 "" 2
+  93               	.LM18:
+  94               	/* #NOAPP */
+  95 0050 80E8      		ldi r24,lo8(-128)
+  96 0052 8093 6100 		sts 97,r24
+  97               	.LM19:
+  98 0056 82E0      		ldi r24,lo8(2)
+  99 0058 8093 6100 		sts 97,r24
+ 100               	.LM20:
+ 101               	/* #APP */
+ 102               	 ;  40 "main.c" 1
+ 103 005c 7894      		sei
+ 104               	 ;  0 "" 2
+ 105               	/* #NOAPP */
+ 106               	.L4:
+ 107               	.LM21:
+ 108 005e 0E94 0000 		call WDT_Get_Ticks
+ 109 0062 6F30      		cpi r22,lo8(15)
+ 110 0064 7105      		cpc r23,__zero_reg__
+ 111 0066 8105      		cpc r24,__zero_reg__
+ 112 0068 9105      		cpc r25,__zero_reg__
+ 113 006a 00F0      		brlo .L4
+ 114               	.LM22:
+ 115               	/* #APP */
+ 116               	 ;  44 "main.c" 1
+ 117 006c F894      		cli
+ 118               	 ;  0 "" 2
+ 119               	.LM23:
+ 120               	/* #NOAPP */
+ 121 006e 80E8      		ldi r24,lo8(-128)
+ 122 0070 8093 6100 		sts 97,r24
+ 123               	.LM24:
+ 124 0074 83E0      		ldi r24,lo8(3)
+ 125 0076 8093 6100 		sts 97,r24
+ 126               	.LM25:
+ 127               	/* #APP */
+ 128               	 ;  47 "main.c" 1
+ 129 007a 7894      		sei
+ 130               	 ;  0 "" 2
+ 131               	/* #NOAPP */
+ 132               	.L5:
+ 133               	.LM26:
+ 134 007c 0E94 0000 		call WDT_Get_Ticks
+ 135 0080 6431      		cpi r22,lo8(20)
+ 136 0082 7105      		cpc r23,__zero_reg__
+ 137 0084 8105      		cpc r24,__zero_reg__
+ 138 0086 9105      		cpc r25,__zero_reg__
+ 139 0088 00F0      		brlo .L5
+ 140               	.LM27:
+ 141               	/* #APP */
+ 142               	 ;  51 "main.c" 1
+ 143 008a F894      		cli
+ 144               	 ;  0 "" 2
+ 145               	.LM28:
+ 146               	/* #NOAPP */
+ 147 008c 80E8      		ldi r24,lo8(-128)
+ 148 008e 8093 6100 		sts 97,r24
+ 149               	.LM29:
+ 150 0092 84E0      		ldi r24,lo8(4)
+ 151 0094 8093 6100 		sts 97,r24
+ 152               	.LM30:
+ 153               	/* #APP */
+ 154               	 ;  54 "main.c" 1
+ 155 0098 7894      		sei
+ 156               	 ;  0 "" 2
+ 157               	/* #NOAPP */
+ 158               	.L6:
+ 159               	.LM31:
+ 160 009a 0E94 0000 		call WDT_Get_Ticks
+ 161 009e 6931      		cpi r22,lo8(25)
+ 162 00a0 7105      		cpc r23,__zero_reg__
+ 163 00a2 8105      		cpc r24,__zero_reg__
+ 164 00a4 9105      		cpc r25,__zero_reg__
+ 165 00a6 00F0      		brlo .L6
+ 166               	.LM32:
+ 167               	/* #APP */
+ 168               	 ;  58 "main.c" 1
+ 169 00a8 F894      		cli
+ 170               	 ;  0 "" 2
+ 171               	.LM33:
+ 172               	/* #NOAPP */
+ 173 00aa 80E8      		ldi r24,lo8(-128)
+ 174 00ac 8093 6100 		sts 97,r24
+ 175               	.LM34:
+ 176 00b0 85E0      		ldi r24,lo8(5)
+ 177 00b2 8093 6100 		sts 97,r24
+ 178               	.LM35:
+ 179               	/* #APP */
+ 180               	 ;  61 "main.c" 1
+ 181 00b6 7894      		sei
+ 182               	 ;  0 "" 2
+ 183               	/* #NOAPP */
+ 184               	.L7:
+ 185               	.LM36:
+ 186 00b8 0E94 0000 		call WDT_Get_Ticks
+ 187 00bc 6E31      		cpi r22,lo8(30)
+ 188 00be 7105      		cpc r23,__zero_reg__
+ 189 00c0 8105      		cpc r24,__zero_reg__
+ 190 00c2 9105      		cpc r25,__zero_reg__
+ 191 00c4 00F0      		brlo .L7
+ 192               	.LM37:
+ 193               	/* #APP */
+ 194               	 ;  65 "main.c" 1
+ 195 00c6 F894      		cli
+ 196               	 ;  0 "" 2
+ 197               	.LM38:
+ 198               	/* #NOAPP */
+ 199 00c8 80E8      		ldi r24,lo8(-128)
+ 200 00ca 8093 6100 		sts 97,r24
+ 201               	.LM39:
+ 202 00ce 86E0      		ldi r24,lo8(6)
+ 203 00d0 8093 6100 		sts 97,r24
+ 204               	.LM40:
+ 205               	/* #APP */
+ 206               	 ;  68 "main.c" 1
+ 207 00d4 7894      		sei
+ 208               	 ;  0 "" 2
+ 209               	/* #NOAPP */
+ 210               	.L8:
+ 211               	.LM41:
+ 212 00d6 0E94 0000 		call WDT_Get_Ticks
+ 213 00da 6332      		cpi r22,lo8(35)
+ 214 00dc 7105      		cpc r23,__zero_reg__
+ 215 00de 8105      		cpc r24,__zero_reg__
+ 216 00e0 9105      		cpc r25,__zero_reg__
+ 217 00e2 00F0      		brlo .L8
+ 218               	.LM42:
+ 219               	/* #APP */
+ 220               	 ;  72 "main.c" 1
+ 221 00e4 F894      		cli
+ 222               	 ;  0 "" 2
+ 223               	.LM43:
+ 224               	/* #NOAPP */
+ 225 00e6 80E8      		ldi r24,lo8(-128)
+ 226 00e8 8093 6100 		sts 97,r24
+ 227               	.LM44:
+ 228 00ec 87E0      		ldi r24,lo8(7)
+ 229 00ee 8093 6100 		sts 97,r24
+ 230               	.LM45:
+ 231               	/* #APP */
+ 232               	 ;  75 "main.c" 1
+ 233 00f2 7894      		sei
+ 234               	 ;  0 "" 2
+ 235               	/* #NOAPP */
+ 236               	.L9:
+ 237               	.LM46:
+ 238 00f4 0E94 0000 		call WDT_Get_Ticks
+ 239 00f8 6832      		cpi r22,lo8(40)
+ 240 00fa 7105      		cpc r23,__zero_reg__
+ 241 00fc 8105      		cpc r24,__zero_reg__
+ 242 00fe 9105      		cpc r25,__zero_reg__
+ 243 0100 00F0      		brlo .L9
+ 244               	.LM47:
+ 245               	/* #APP */
+ 246               	 ;  79 "main.c" 1
+ 247 0102 F894      		cli
+ 248               	 ;  0 "" 2
+ 249               	.LM48:
+ 250               	/* #NOAPP */
+ 251 0104 80E8      		ldi r24,lo8(-128)
+ 252 0106 8093 6100 		sts 97,r24
+ 253               	.LM49:
+ 254 010a 88E0      		ldi r24,lo8(8)
+ 255 010c 8093 6100 		sts 97,r24
+ 256               	.LM50:
+ 257               	/* #APP */
+ 258               	 ;  82 "main.c" 1
+ 259 0110 7894      		sei
+ 260               	 ;  0 "" 2
+ 261               	/* #NOAPP */
+ 262               	.L10:
+ 263               	.LM51:
+ 264 0112 0E94 0000 		call WDT_Get_Ticks
+ 265 0116 6D32      		cpi r22,lo8(45)
+ 266 0118 7105      		cpc r23,__zero_reg__
+ 267 011a 8105      		cpc r24,__zero_reg__
+ 268 011c 9105      		cpc r25,__zero_reg__
+ 269 011e 00F0      		brlo .L10
+ 270               	.LM52:
+ 271               	/* #APP */
+ 272               	 ;  86 "main.c" 1
+ 273 0120 F894      		cli
+ 274               	 ;  0 "" 2
+ 275               	.LM53:
+ 276               	/* #NOAPP */
+ 277 0122 80E8      		ldi r24,lo8(-128)
+ 278 0124 8093 6100 		sts 97,r24
+ 279               	.LM54:
+ 280 0128 1092 6100 		sts 97,__zero_reg__
+ 281               	.LM55:
+ 282               	/* #APP */
+ 283               	 ;  89 "main.c" 1
+ 284 012c 7894      		sei
+ 285               	 ;  0 "" 2
+ 286               	/* #NOAPP */
+ 287               	.L11:
+ 288               	.LM56:
+ 289 012e 0E94 0000 		call WDT_Get_Ticks
+ 290 0132 6233      		cpi r22,lo8(50)
+ 291 0134 7105      		cpc r23,__zero_reg__
+ 292 0136 8105      		cpc r24,__zero_reg__
+ 293 0138 9105      		cpc r25,__zero_reg__
+ 294 013a 00F0      		brlo .L11
+ 295               	.LM57:
+ 296 013c 5C98      		cbi 43-32,4
+ 297 013e 00C0      		rjmp .L12
+ 298               	.L13:
+ 299               	.LM58:
+ 300 0140 0E94 0000 		call Deep_Sleep
+ 301               	.L12:
+ 302               	.LM59:
+ 303 0144 0E94 0000 		call WDT_Get_Ticks
+ 304 0148 6C33      		cpi r22,lo8(60)
+ 305 014a 7105      		cpc r23,__zero_reg__
+ 306 014c 8105      		cpc r24,__zero_reg__
+ 307 014e 9105      		cpc r25,__zero_reg__
+ 308 0150 00F0      		brlo .L13
+ 309               	.LM60:
+ 310               	/* #APP */
+ 311               	 ;  99 "main.c" 1
+ 312 0152 F894      		cli
+ 313               	 ;  0 "" 2
+ 314               	.LM61:
+ 315               	/* #NOAPP */
+ 316 0154 84B7      		in r24,84-32
+ 317 0156 877F      		andi r24,lo8(-9)
+ 318 0158 84BF      		out 84-32,r24
+ 319               	.LM62:
+ 320 015a 8091 6000 		lds r24,96
+ 321 015e 8861      		ori r24,lo8(24)
+ 322 0160 8093 6000 		sts 96,r24
+ 323               	.LM63:
+ 324 0164 1092 6000 		sts 96,__zero_reg__
+ 325               	.LM64:
+ 326               	/* #APP */
+ 327               	 ;  103 "main.c" 1
+ 328 0168 7894      		sei
+ 329               	 ;  0 "" 2
+ 330               	.LM65:
+ 331               	/* #NOAPP */
+ 332 016a 0E94 0000 		call Deep_Sleep
+ 333               	.L14:
+ 334 016e 00C0      		rjmp .L14
+ 335               	.LFE6:
+ 337               	.global	last_val
+ 338               	.global	last_val
+ 339               		.section .bss
+ 342               	last_val:
+ 343 0000 0000 0000 		.skip 4,0
+ 344               	.global	state
+ 345               	.global	state
+ 348               	state:
+ 349 0004 00        		.skip 1,0
+ 374               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxsfyhS.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxsfyhS.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxsfyhS.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxsfyhS.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxsfyhS.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxsfyhS.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxsfyhS.s:18     .text:00000000 main
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxsfyhS.s:342    .bss:00000000 last_val
+C:\Users\FARIDU~1\AppData\Local\Temp/ccxsfyhS.s:348    .bss:00000004 state
+
+UNDEFINED SYMBOLS
+Sleep_Init
+WDT_Get_Ticks
+Deep_Sleep
+__do_clear_bss
