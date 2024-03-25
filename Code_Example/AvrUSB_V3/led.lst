@@ -47,14 +47,14 @@
  100               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 led.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccBShIQN.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccBShIQN.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccBShIQN.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccBShIQN.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccBShIQN.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccBShIQN.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccBShIQN.s:18     .text:00000000 led_init
-C:\Users\FARIDU~1\AppData\Local\Temp/ccBShIQN.s:34     .text:00000006 led_on
-C:\Users\FARIDU~1\AppData\Local\Temp/ccBShIQN.s:48     .text:0000000a led_off
+C:\Users\FARIDU~1\AppData\Local\Temp/ccUIiXxl.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccUIiXxl.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccUIiXxl.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccUIiXxl.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccUIiXxl.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccUIiXxl.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccUIiXxl.s:18     .text:00000000 led_init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccUIiXxl.s:34     .text:00000006 led_on
+C:\Users\FARIDU~1\AppData\Local\Temp/ccUIiXxl.s:48     .text:0000000a led_off
 
 NO UNDEFINED SYMBOLS

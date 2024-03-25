@@ -41,7 +41,7 @@
   49 002c 8C60      		ori r24,lo8(12)
   50 002e 8BB9      		out 43-32,r24
   51               	.LM6:
-  52 0030 0E94 0000 		call nrf24l01p_init
+  52 0030 0E94 0000 		call nRF24L01P_Init
   53               	.LM7:
   54 0034 0E94 0000 		call Sleep_Init
   55               	.LM8:
@@ -97,10 +97,10 @@
  105 008c 682F      		mov r22,r24
  106 008e 6E5F      		subi r22,lo8(-(2))
  107 0090 C801      		movw r24,r16
- 108 0092 0E94 0000 		call nrf24l01p_tx_basic
+ 108 0092 0E94 0000 		call nRF24L01P_Tx_Basic
  109               	.LM19:
  110 0096 80E0      		ldi r24,lo8(0)
- 111 0098 0E94 0000 		call nrf24l01p_mode_set
+ 111 0098 0E94 0000 		call nRF24L01P_Mode_Set
  112               	.LM20:
  113 009c 0E94 0000 		call led_off
  114               	.LM21:
@@ -111,16 +111,16 @@
  144               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\FARIDU~1\AppData\Local\Temp/ccibaDrf.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccibaDrf.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccibaDrf.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccibaDrf.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccibaDrf.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccibaDrf.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/ccibaDrf.s:18     .text:00000000 main
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFQbtQE.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFQbtQE.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFQbtQE.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFQbtQE.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFQbtQE.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFQbtQE.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFQbtQE.s:18     .text:00000000 main
 
 UNDEFINED SYMBOLS
-nrf24l01p_init
+nRF24L01P_Init
 Sleep_Init
 Vsns_Init
 led_init
@@ -128,7 +128,7 @@ led_on
 Vsns_V_Read
 dataconv_dword_to_num
 dataconv_dword_to_num_len
-nrf24l01p_tx_basic
-nrf24l01p_mode_set
+nRF24L01P_Tx_Basic
+nRF24L01P_Mode_Set
 led_off
 Deep_Sleep

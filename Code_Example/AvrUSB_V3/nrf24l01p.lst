@@ -6,93 +6,93 @@
    6               	__tmp_reg__ = 0
    7               	__zero_reg__ = 1
   15               	.Ltext0:
-  16               	.global	nrf24l01p_struct_init
-  18               	nrf24l01p_struct_init:
+  16               	.global	nRF24L01P_Struct_Init
+  18               	nRF24L01P_Struct_Init:
   19               	.LFB6:
   20               	.LM1:
   21               	/* prologue: function */
   22               	/* frame size = 0 */
   23               	.LM2:
-  24 0000 1092 0000 		sts nrf24l01p,__zero_reg__
+  24 0000 1092 0000 		sts nRF24L01P,__zero_reg__
   25               	.LM3:
   26 0004 91E0      		ldi r25,lo8(1)
-  27 0006 9093 0000 		sts nrf24l01p+1,r25
+  27 0006 9093 0000 		sts nRF24L01P+1,r25
   28               	.LM4:
-  29 000a 1092 0000 		sts nrf24l01p+2,__zero_reg__
+  29 000a 1092 0000 		sts nRF24L01P+2,__zero_reg__
   30               	.LM5:
-  31 000e 1092 0000 		sts nrf24l01p+3,__zero_reg__
+  31 000e 1092 0000 		sts nRF24L01P+3,__zero_reg__
   32               	.LM6:
-  33 0012 9093 0000 		sts nrf24l01p+4,r25
+  33 0012 9093 0000 		sts nRF24L01P+4,r25
   34               	.LM7:
   35 0016 82E0      		ldi r24,lo8(2)
-  36 0018 8093 0000 		sts nrf24l01p+5,r24
+  36 0018 8093 0000 		sts nRF24L01P+5,r24
   37               	.LM8:
-  38 001c 1092 0000 		sts (nrf24l01p+8)+1,__zero_reg__
-  39 0020 1092 0000 		sts nrf24l01p+8,__zero_reg__
+  38 001c 1092 0000 		sts (nRF24L01P+8)+1,__zero_reg__
+  39 0020 1092 0000 		sts nRF24L01P+8,__zero_reg__
   40               	.LM9:
   41 0024 2AE0      		ldi r18,lo8(10)
   42 0026 30E0      		ldi r19,hi8(10)
-  43 0028 3093 0000 		sts (nrf24l01p+6)+1,r19
-  44 002c 2093 0000 		sts nrf24l01p+6,r18
+  43 0028 3093 0000 		sts (nRF24L01P+6)+1,r19
+  44 002c 2093 0000 		sts nRF24L01P+6,r18
   45               	.LM10:
   46 0030 84E1      		ldi r24,lo8(20)
-  47 0032 8093 0000 		sts nrf24l01p+10,r24
+  47 0032 8093 0000 		sts nRF24L01P+10,r24
   48               	.LM11:
-  49 0036 3093 0000 		sts (nrf24l01p+11)+1,r19
-  50 003a 2093 0000 		sts nrf24l01p+11,r18
+  49 0036 3093 0000 		sts (nRF24L01P+11)+1,r19
+  50 003a 2093 0000 		sts nRF24L01P+11,r18
   51               	.LM12:
-  52 003e 1092 0000 		sts (nrf24l01p+13)+1,__zero_reg__
-  53 0042 1092 0000 		sts nrf24l01p+13,__zero_reg__
+  52 003e 1092 0000 		sts (nRF24L01P+13)+1,__zero_reg__
+  53 0042 1092 0000 		sts nRF24L01P+13,__zero_reg__
   54               	.LM13:
-  55 0046 9093 0000 		sts nrf24l01p+15,r25
+  55 0046 9093 0000 		sts nRF24L01P+15,r25
   56               	.LM14:
-  57 004a 1092 0000 		sts nrf24l01p+16,__zero_reg__
+  57 004a 1092 0000 		sts nRF24L01P+16,__zero_reg__
   58               	.LM15:
-  59 004e 1092 0000 		sts nrf24l01p+17,__zero_reg__
+  59 004e 1092 0000 		sts nRF24L01P+17,__zero_reg__
   60               	.LM16:
-  61 0052 9093 0000 		sts nrf24l01p+18,r25
+  61 0052 9093 0000 		sts nRF24L01P+18,r25
   62               	.LM17:
-  63 0056 1092 0000 		sts nrf24l01p+19,__zero_reg__
+  63 0056 1092 0000 		sts nRF24L01P+19,__zero_reg__
   64               	.LM18:
-  65 005a 1092 0000 		sts nrf24l01p+20,__zero_reg__
+  65 005a 1092 0000 		sts nRF24L01P+20,__zero_reg__
   66               	.LM19:
   67 005e 8FE1      		ldi r24,lo8(31)
-  68 0060 8093 0000 		sts nrf24l01p+22,r24
+  68 0060 8093 0000 		sts nRF24L01P+22,r24
   69               	.LM20:
   70 0064 8EE1      		ldi r24,lo8(30)
-  71 0066 8093 0000 		sts nrf24l01p+21,r24
+  71 0066 8093 0000 		sts nRF24L01P+21,r24
   72               	.LM21:
-  73 006a 8093 0000 		sts nrf24l01p+28,r24
+  73 006a 8093 0000 		sts nRF24L01P+28,r24
   74               	.LM22:
   75 006e 8DE1      		ldi r24,lo8(29)
-  76 0070 8093 0000 		sts nrf24l01p+23,r24
+  76 0070 8093 0000 		sts nRF24L01P+23,r24
   77               	.LM23:
   78 0074 8CE1      		ldi r24,lo8(28)
-  79 0076 8093 0000 		sts nrf24l01p+24,r24
+  79 0076 8093 0000 		sts nRF24L01P+24,r24
   80               	.LM24:
   81 007a 8BE1      		ldi r24,lo8(27)
-  82 007c 8093 0000 		sts nrf24l01p+25,r24
+  82 007c 8093 0000 		sts nRF24L01P+25,r24
   83               	.LM25:
   84 0080 8AE1      		ldi r24,lo8(26)
-  85 0082 8093 0000 		sts nrf24l01p+26,r24
+  85 0082 8093 0000 		sts nRF24L01P+26,r24
   86               	.LM26:
   87 0086 89E1      		ldi r24,lo8(25)
-  88 0088 8093 0000 		sts nrf24l01p+27,r24
+  88 0088 8093 0000 		sts nRF24L01P+27,r24
   89               	.LM27:
   90 008c 88E1      		ldi r24,lo8(24)
-  91 008e 8093 0000 		sts nrf24l01p+29,r24
+  91 008e 8093 0000 		sts nRF24L01P+29,r24
   92               	.LM28:
-  93 0092 1092 0000 		sts (nrf24l01p+30)+1,__zero_reg__
-  94 0096 1092 0000 		sts nrf24l01p+30,__zero_reg__
+  93 0092 1092 0000 		sts (nRF24L01P+30)+1,__zero_reg__
+  94 0096 1092 0000 		sts nRF24L01P+30,__zero_reg__
   95               	.LM29:
-  96 009a 1092 0000 		sts nrf24l01p+32,__zero_reg__
-  97 009e 1092 0000 		sts nrf24l01p+33,__zero_reg__
+  96 009a 1092 0000 		sts nRF24L01P+32,__zero_reg__
+  97 009e 1092 0000 		sts nRF24L01P+33,__zero_reg__
   98               	/* epilogue start */
   99               	.LM30:
  100 00a2 0895      		ret
  101               	.LFE6:
- 103               	.global	nrf24l01p_set_sck_dd
- 105               	nrf24l01p_set_sck_dd:
+ 103               	.global	nRF24L01P_Set_SCK_DD
+ 105               	nRF24L01P_Set_SCK_DD:
  106               	.LFB7:
  107               	.LM31:
  108               	.LVL0:
@@ -109,8 +109,8 @@
  119 00ac 2598      		cbi 36-32,5
  120 00ae 0895      		ret
  121               	.LFE7:
- 123               	.global	nrf24l01p_set_miso_dd
- 125               	nrf24l01p_set_miso_dd:
+ 123               	.global	nRF24L01P_Set_MISO_DD
+ 125               	nRF24L01P_Set_MISO_DD:
  126               	.LFB8:
  127               	.LM35:
  128               	.LVL1:
@@ -127,8 +127,8 @@
  139 00b8 2498      		cbi 36-32,4
  140 00ba 0895      		ret
  141               	.LFE8:
- 143               	.global	nrf24l01p_set_mosi_dd
- 145               	nrf24l01p_set_mosi_dd:
+ 143               	.global	nRF24L01P_Set_MOSI_DD
+ 145               	nRF24L01P_Set_MOSI_DD:
  146               	.LFB9:
  147               	.LM39:
  148               	.LVL2:
@@ -145,8 +145,8 @@
  159 00c4 2398      		cbi 36-32,3
  160 00c6 0895      		ret
  161               	.LFE9:
- 163               	.global	nrf24l01p_set_csn_dd
- 165               	nrf24l01p_set_csn_dd:
+ 163               	.global	nRF24L01P_Set_CSN_DD
+ 165               	nRF24L01P_Set_CSN_DD:
  166               	.LFB10:
  167               	.LM43:
  168               	.LVL3:
@@ -163,8 +163,8 @@
  179 00d0 2298      		cbi 36-32,2
  180 00d2 0895      		ret
  181               	.LFE10:
- 183               	.global	nrf24l01p_set_ce_dd
- 185               	nrf24l01p_set_ce_dd:
+ 183               	.global	nRF24L01P_Set_CE_DD
+ 185               	nRF24L01P_Set_CE_DD:
  186               	.LFB11:
  187               	.LM47:
  188               	.LVL4:
@@ -181,8 +181,8 @@
  199 00dc 3898      		cbi 39-32,0
  200 00de 0895      		ret
  201               	.LFE11:
- 203               	.global	nrf24l01p_set_sck
- 205               	nrf24l01p_set_sck:
+ 203               	.global	nRF24L01P_Set_SCK
+ 205               	nRF24L01P_Set_SCK:
  206               	.LFB12:
  207               	.LM51:
  208               	.LVL5:
@@ -199,8 +199,8 @@
  219 00e8 2D98      		cbi 37-32,5
  220 00ea 0895      		ret
  221               	.LFE12:
- 223               	.global	nrf24l01p_set_miso
- 225               	nrf24l01p_set_miso:
+ 223               	.global	nRF24L01P_Set_MISO
+ 225               	nRF24L01P_Set_MISO:
  226               	.LFB13:
  227               	.LM55:
  228               	.LVL6:
@@ -217,8 +217,8 @@
  239 00f4 2C98      		cbi 37-32,4
  240 00f6 0895      		ret
  241               	.LFE13:
- 243               	.global	nrf24l01p_set_mosi
- 245               	nrf24l01p_set_mosi:
+ 243               	.global	nRF24L01P_Set_MOSI
+ 245               	nRF24L01P_Set_MOSI:
  246               	.LFB14:
  247               	.LM59:
  248               	.LVL7:
@@ -235,8 +235,8 @@
  259 0100 2B98      		cbi 37-32,3
  260 0102 0895      		ret
  261               	.LFE14:
- 263               	.global	nrf24l01p_set_csn
- 265               	nrf24l01p_set_csn:
+ 263               	.global	nRF24L01P_Set_CSN
+ 265               	nRF24L01P_Set_CSN:
  266               	.LFB15:
  267               	.LM63:
  268               	.LVL8:
@@ -253,8 +253,8 @@
  279 010c 2A98      		cbi 37-32,2
  280 010e 0895      		ret
  281               	.LFE15:
- 283               	.global	nrf24l01p_set_ce
- 285               	nrf24l01p_set_ce:
+ 283               	.global	nRF24L01P_Set_CE
+ 285               	nRF24L01P_Set_CE:
  286               	.LFB16:
  287               	.LM67:
  288               	.LVL9:
@@ -271,8 +271,8 @@
  299 0118 4098      		cbi 40-32,0
  300 011a 0895      		ret
  301               	.LFE16:
- 303               	.global	nrf24l01p_gpio_enable
- 305               	nrf24l01p_gpio_enable:
+ 303               	.global	nRF24L01P_GPIO_Enable
+ 305               	nRF24L01P_GPIO_Enable:
  306               	.LFB17:
  307               	.LM71:
  308               	/* prologue: function */
@@ -325,8 +325,8 @@
  355               	.LM80:
  356 012c 0895      		ret
  357               	.LFE17:
- 359               	.global	nrf24l01p_gpio_disable
- 361               	nrf24l01p_gpio_disable:
+ 359               	.global	nRF24L01P_GPIO_Disable
+ 361               	nRF24L01P_GPIO_Disable:
  362               	.LFB18:
  363               	.LM81:
  364               	/* prologue: function */
@@ -395,8 +395,8 @@
  427               	.LM92:
  428 0142 0895      		ret
  429               	.LFE18:
- 431               	.global	nrf24l01p_spi_enable
- 433               	nrf24l01p_spi_enable:
+ 431               	.global	nRF24L01P_SPI_Enable
+ 433               	nRF24L01P_SPI_Enable:
  434               	.LFB19:
  435               	.LM93:
  436               	/* prologue: function */
@@ -405,2319 +405,2321 @@
  439 0144 80E5      		ldi r24,lo8(80)
  440 0146 8CBD      		out 76-32,r24
  441               	.LM95:
- 442 0148 1DBC      		out 77-32,__zero_reg__
- 443               	/* epilogue start */
+ 442 0148 81E0      		ldi r24,lo8(1)
+ 443 014a 8DBD      		out 77-32,r24
  444               	.LM96:
- 445 014a 0895      		ret
- 446               	.LFE19:
- 448               	.global	nrf24l01p_spi_disable
- 450               	nrf24l01p_spi_disable:
- 451               	.LFB20:
- 452               	.LM97:
- 453               	/* prologue: function */
- 454               	/* frame size = 0 */
+ 445 014c 1DBC      		out 77-32,__zero_reg__
+ 446               	/* epilogue start */
+ 447               	.LM97:
+ 448 014e 0895      		ret
+ 449               	.LFE19:
+ 451               	.global	nRF24L01P_SPI_Disable
+ 453               	nRF24L01P_SPI_Disable:
+ 454               	.LFB20:
  455               	.LM98:
- 456 014c 1CBC      		out 76-32,__zero_reg__
- 457               	.LM99:
- 458 014e 1DBC      		out 77-32,__zero_reg__
- 459               	/* epilogue start */
+ 456               	/* prologue: function */
+ 457               	/* frame size = 0 */
+ 458               	.LM99:
+ 459 0150 1CBC      		out 76-32,__zero_reg__
  460               	.LM100:
- 461 0150 0895      		ret
- 462               	.LFE20:
- 464               	.global	nrf24l01p_enable
- 466               	nrf24l01p_enable:
- 467               	.LFB21:
- 468               	.LM101:
- 469               	/* prologue: function */
- 470               	/* frame size = 0 */
+ 461 0152 1DBC      		out 77-32,__zero_reg__
+ 462               	/* epilogue start */
+ 463               	.LM101:
+ 464 0154 0895      		ret
+ 465               	.LFE20:
+ 467               	.global	nRF24L01P_Enable
+ 469               	nRF24L01P_Enable:
+ 470               	.LFB21:
  471               	.LM102:
- 472 0152 0E94 0000 		call nrf24l01p_gpio_enable
- 473               	.LBB281:
- 474               	.LBB282:
- 475               	.LM103:
- 476 0156 80E5      		ldi r24,lo8(80)
- 477 0158 8CBD      		out 76-32,r24
+ 472               	/* prologue: function */
+ 473               	/* frame size = 0 */
+ 474               	.LM103:
+ 475 0156 0E94 0000 		call nRF24L01P_GPIO_Enable
+ 476               	.LBB281:
+ 477               	.LBB282:
  478               	.LM104:
- 479 015a 1DBC      		out 77-32,__zero_reg__
- 480               	.LBE282:
- 481               	.LBE281:
- 482               	.LM105:
- 483 015c 81E0      		ldi r24,lo8(1)
- 484 015e 8093 0000 		sts nrf24l01p+1,r24
- 485               	/* epilogue start */
- 486               	.LM106:
- 487 0162 0895      		ret
- 488               	.LFE21:
- 490               	.global	nrf24l01p_disable
- 492               	nrf24l01p_disable:
- 493               	.LFB22:
- 494               	.LM107:
- 495               	/* prologue: function */
- 496               	/* frame size = 0 */
- 497               	.LBB283:
- 498               	.LBB284:
- 499               	.LM108:
- 500 0164 1CBC      		out 76-32,__zero_reg__
- 501               	.LM109:
- 502 0166 1DBC      		out 77-32,__zero_reg__
- 503               	.LBE284:
- 504               	.LBE283:
- 505               	.LM110:
- 506 0168 0E94 0000 		call nrf24l01p_gpio_disable
- 507               	.LM111:
- 508 016c 1092 0000 		sts nrf24l01p+1,__zero_reg__
- 509               	/* epilogue start */
+ 479 015a 80E5      		ldi r24,lo8(80)
+ 480 015c 8CBD      		out 76-32,r24
+ 481               	.LM105:
+ 482 015e 81E0      		ldi r24,lo8(1)
+ 483 0160 8DBD      		out 77-32,r24
+ 484               	.LM106:
+ 485 0162 1DBC      		out 77-32,__zero_reg__
+ 486               	.LBE282:
+ 487               	.LBE281:
+ 488               	.LM107:
+ 489 0164 8093 0000 		sts nRF24L01P+1,r24
+ 490               	/* epilogue start */
+ 491               	.LM108:
+ 492 0168 0895      		ret
+ 493               	.LFE21:
+ 495               	.global	nRF24L01P_Disable
+ 497               	nRF24L01P_Disable:
+ 498               	.LFB22:
+ 499               	.LM109:
+ 500               	/* prologue: function */
+ 501               	/* frame size = 0 */
+ 502               	.LBB283:
+ 503               	.LBB284:
+ 504               	.LM110:
+ 505 016a 1CBC      		out 76-32,__zero_reg__
+ 506               	.LM111:
+ 507 016c 1DBC      		out 77-32,__zero_reg__
+ 508               	.LBE284:
+ 509               	.LBE283:
  510               	.LM112:
- 511 0170 0895      		ret
- 512               	.LFE22:
- 514               	.global	nrf24l01p_error_clear
- 516               	nrf24l01p_error_clear:
- 517               	.LFB23:
- 518               	.LM113:
- 519               	/* prologue: function */
- 520               	/* frame size = 0 */
- 521               	.LM114:
- 522 0172 1092 0000 		sts nrf24l01p+32,__zero_reg__
- 523               	/* epilogue start */
- 524               	.LM115:
- 525 0176 0895      		ret
- 526               	.LFE23:
- 528               	.global	nrf24l01p_error_clear_ticks
- 530               	nrf24l01p_error_clear_ticks:
- 531               	.LFB24:
- 532               	.LM116:
- 533               	/* prologue: function */
- 534               	/* frame size = 0 */
- 535               	.LM117:
- 536 0178 1092 0000 		sts (nrf24l01p+30)+1,__zero_reg__
- 537 017c 1092 0000 		sts nrf24l01p+30,__zero_reg__
- 538               	/* epilogue start */
- 539               	.LM118:
- 540 0180 0895      		ret
- 541               	.LFE24:
- 543               	.global	nrf24l01p_error_clear_buf
- 545               	nrf24l01p_error_clear_buf:
- 546               	.LFB25:
- 547               	.LM119:
- 548               	/* prologue: function */
- 549               	/* frame size = 0 */
- 550               	.LM120:
- 551 0182 E0E0      		ldi r30,lo8(nrf24l01p+33)
- 552 0184 F0E0      		ldi r31,hi8(nrf24l01p+33)
- 553               	.L60:
- 554               	.LBB285:
- 555               	.LM121:
- 556 0186 1192      		st Z+,__zero_reg__
- 557               	.LM122:
- 558 0188 80E0      		ldi r24,hi8(nrf24l01p+43)
- 559 018a E030      		cpi r30,lo8(nrf24l01p+43)
- 560 018c F807      		cpc r31,r24
- 561 018e 01F4      		brne .L60
- 562               	/* epilogue start */
- 563               	.LBE285:
- 564               	.LM123:
- 565 0190 0895      		ret
- 566               	.LFE25:
- 568               	.global	nrf24l01p_error_clear_all
- 570               	nrf24l01p_error_clear_all:
- 571               	.LFB26:
- 572               	.LM124:
- 573               	/* prologue: function */
- 574               	/* frame size = 0 */
- 575               	.LBB286:
- 576               	.LBB287:
- 577               	.LM125:
- 578 0192 1092 0000 		sts nrf24l01p+32,__zero_reg__
- 579               	.LBE287:
- 580               	.LBE286:
- 581               	.LBB288:
- 582               	.LBB289:
- 583               	.LM126:
- 584 0196 1092 0000 		sts (nrf24l01p+30)+1,__zero_reg__
- 585 019a 1092 0000 		sts nrf24l01p+30,__zero_reg__
- 586 019e E0E0      		ldi r30,lo8(nrf24l01p+33)
- 587 01a0 F0E0      		ldi r31,hi8(nrf24l01p+33)
- 588               	.L64:
- 589               	.LBE289:
- 590               	.LBE288:
- 591               	.LBB290:
- 592               	.LBB291:
- 593               	.LBB292:
- 594               	.LM127:
- 595 01a2 1192      		st Z+,__zero_reg__
- 596               	.LM128:
- 597 01a4 80E0      		ldi r24,hi8(nrf24l01p+43)
- 598 01a6 E030      		cpi r30,lo8(nrf24l01p+43)
- 599 01a8 F807      		cpc r31,r24
- 600 01aa 01F4      		brne .L64
- 601               	/* epilogue start */
- 602               	.LBE292:
- 603               	.LBE291:
- 604               	.LBE290:
- 605               	.LM129:
- 606 01ac 0895      		ret
- 607               	.LFE26:
- 609               	.global	nrf24l01p_error_set
- 611               	nrf24l01p_error_set:
- 612               	.LFB27:
- 613               	.LM130:
- 614               	.LVL10:
- 615               	/* prologue: function */
- 616               	/* frame size = 0 */
- 617               	.LM131:
- 618 01ae 8093 0000 		sts nrf24l01p+32,r24
- 619               	/* epilogue start */
- 620               	.LM132:
- 621 01b2 0895      		ret
- 622               	.LFE27:
- 624               	.global	nrf24l01p_error_get
- 626               	nrf24l01p_error_get:
- 627               	.LFB28:
- 628               	.LM133:
- 629               	/* prologue: function */
- 630               	/* frame size = 0 */
- 631               	.LM134:
- 632 01b4 8091 0000 		lds r24,nrf24l01p+32
- 633               	/* epilogue start */
- 634 01b8 0895      		ret
- 635               	.LFE28:
- 637               	.global	nrf24l01p_error_get_index
- 639               	nrf24l01p_error_get_index:
- 640               	.LFB29:
- 641               	.LM135:
- 642               	.LVL11:
- 643               	/* prologue: function */
- 644               	/* frame size = 0 */
- 645               	.LM136:
- 646 01ba E0E0      		ldi r30,lo8(nrf24l01p)
- 647 01bc F0E0      		ldi r31,hi8(nrf24l01p)
- 648 01be E80F      		add r30,r24
- 649 01c0 F11D      		adc r31,__zero_reg__
- 650               	.LM137:
- 651 01c2 81A1      		ldd r24,Z+33
- 652               	.LVL12:
- 653               	/* epilogue start */
- 654 01c4 0895      		ret
- 655               	.LFE29:
- 657               	.global	nrf24l01p_error_timeout
- 659               	nrf24l01p_error_timeout:
- 660               	.LFB30:
- 661               	.LM138:
- 662               	.LVL13:
- 663               	/* prologue: function */
- 664               	/* frame size = 0 */
- 665               	.LBB293:
- 666               	.LBB294:
- 667               	.LBB295:
- 668               	.LBB296:
- 669               	.LBB297:
- 670               	.LBB298:
- 671               	.LM139:
- 672 01c6 ECE2      		ldi r30,lo8(300)
- 673 01c8 F1E0      		ldi r31,hi8(300)
- 674               	.LVL14:
- 675               	/* #APP */
- 676               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 677 01ca 3197      		1: sbiw r30,1
- 678 01cc 01F4      		brne 1b
- 679               	 ;  0 "" 2
- 680               	/* #NOAPP */
- 681               	.LBE298:
- 682               	.LBE297:
- 683               	.LBE296:
- 684               	.LBE295:
- 685               	.LBE294:
- 686               	.LBE293:
- 687               	.LM140:
- 688 01ce 2091 0000 		lds r18,nrf24l01p+30
- 689 01d2 3091 0000 		lds r19,(nrf24l01p+30)+1
- 690 01d6 2F5F      		subi r18,lo8(-(1))
- 691 01d8 3F4F      		sbci r19,hi8(-(1))
- 692 01da 3093 0000 		sts (nrf24l01p+30)+1,r19
- 693 01de 2093 0000 		sts nrf24l01p+30,r18
- 694 01e2 40E0      		ldi r20,lo8(0)
- 695 01e4 8217      		cp r24,r18
- 696 01e6 9307      		cpc r25,r19
- 697 01e8 00F4      		brsh .L74
- 698 01ea 41E0      		ldi r20,lo8(1)
- 699               	.L74:
- 700               	.LM141:
- 701 01ec 842F      		mov r24,r20
- 702               	.LVL15:
- 703               	/* epilogue start */
- 704 01ee 0895      		ret
- 705               	.LFE30:
- 707               	.global	nrf24l01p_error_free
- 709               	nrf24l01p_error_free:
- 710               	.LFB31:
- 711               	.LM142:
- 712               	/* prologue: function */
- 713               	/* frame size = 0 */
- 714               	.LM143:
- 715 01f0 90E0      		ldi r25,lo8(0)
- 716 01f2 8091 0000 		lds r24,nrf24l01p+32
- 717 01f6 8823      		tst r24
- 718 01f8 01F4      		brne .L77
- 719 01fa 91E0      		ldi r25,lo8(1)
- 720               	.L77:
- 721               	.LM144:
- 722 01fc 892F      		mov r24,r25
- 723               	/* epilogue start */
- 724 01fe 0895      		ret
- 725               	.LFE31:
- 727               	.global	nrf24l01p_crc
- 729               	nrf24l01p_crc:
- 730               	.LFB32:
- 731               	.LM145:
- 732               	.LVL16:
- 733               	/* prologue: function */
- 734               	/* frame size = 0 */
- 735               	.LM146:
- 736 0200 362F      		mov r19,r22
- 737               	.LVL17:
- 738 0202 20E0      		ldi r18,lo8(0)
- 739               	.LVL18:
- 740 0204 2827      		eor r18,r24
- 741 0206 3927      		eor r19,r25
- 742               	.LVL19:
- 743 0208 40E0      		ldi r20,lo8(0)
- 744               	.LVL20:
- 745               	.LBB299:
- 746               	.LM147:
- 747 020a 61E2      		ldi r22,lo8(4129)
- 748 020c 70E1      		ldi r23,hi8(4129)
- 749               	.LVL21:
- 750               	.L82:
- 751 020e C901      		movw r24,r18
- 752 0210 880F      		lsl r24
- 753 0212 991F      		rol r25
- 754               	.LVL22:
- 755               	.LM148:
- 756 0214 37FF      		sbrs r19,7
- 757 0216 00C0      		rjmp .L80
- 758               	.LVL23:
- 759               	.LM149:
- 760 0218 9C01      		movw r18,r24
- 761 021a 2627      		eor r18,r22
- 762 021c 3727      		eor r19,r23
- 763 021e 00C0      		rjmp .L81
- 764               	.LVL24:
- 765               	.L80:
- 766               	.LM150:
- 767 0220 9C01      		movw r18,r24
- 768               	.L81:
- 769               	.LM151:
- 770 0222 4F5F      		subi r20,lo8(-(1))
- 771 0224 4830      		cpi r20,lo8(8)
- 772 0226 01F4      		brne .L82
- 773               	.LBE299:
- 774               	.LM152:
- 775 0228 C901      		movw r24,r18
- 776               	.LVL25:
- 777               	/* epilogue start */
- 778 022a 0895      		ret
- 779               	.LFE32:
- 781               	.global	nrf24l01p_crc_block
- 783               	nrf24l01p_crc_block:
- 784               	.LFB33:
- 785               	.LM153:
- 786               	.LVL26:
- 787 022c 0F93      		push r16
- 788 022e 1F93      		push r17
- 789 0230 CF93      		push r28
- 790 0232 DF93      		push r29
- 791               	/* prologue: function */
- 792               	/* frame size = 0 */
- 793 0234 062F      		mov r16,r22
- 794               	.LM154:
- 795 0236 EC01      		movw r28,r24
- 796               	.LVL27:
- 797 0238 20E0      		ldi r18,lo8(0)
- 798 023a 30E0      		ldi r19,hi8(0)
- 799               	.LVL28:
- 800 023c 10E0      		ldi r17,lo8(0)
- 801               	.LVL29:
- 802 023e 00C0      		rjmp .L86
- 803               	.LVL30:
- 804               	.L87:
- 805               	.LBB300:
- 806               	.LM155:
- 807 0240 C901      		movw r24,r18
- 808 0242 6991      		ld r22,Y+
- 809 0244 0E94 0000 		call nrf24l01p_crc
- 810               	.LVL31:
- 811 0248 9C01      		movw r18,r24
- 812               	.LVL32:
- 813               	.LM156:
- 814 024a 1F5F      		subi r17,lo8(-(1))
- 815               	.LVL33:
- 816               	.L86:
- 817 024c 1017      		cp r17,r16
- 818 024e 00F0      		brlo .L87
- 819               	.LBE300:
- 820               	.LM157:
- 821 0250 C901      		movw r24,r18
- 822               	.LVL34:
- 823               	/* epilogue start */
- 824 0252 DF91      		pop r29
- 825 0254 CF91      		pop r28
- 826 0256 1F91      		pop r17
- 827               	.LVL35:
- 828 0258 0F91      		pop r16
- 829               	.LVL36:
- 830 025a 0895      		ret
- 831               	.LFE33:
- 833               	.global	nrf24l01p_spi_transfer
- 835               	nrf24l01p_spi_transfer:
- 836               	.LFB34:
- 837               	.LM158:
- 838               	.LVL37:
- 839               	/* prologue: function */
- 840               	/* frame size = 0 */
- 841 025c 982F      		mov r25,r24
- 842               	.LBB301:
- 843               	.LBB302:
- 844               	.LM159:
- 845 025e 8091 0000 		lds r24,nrf24l01p+32
- 846               	.LVL38:
- 847 0262 8823      		tst r24
- 848 0264 01F4      		brne .L96
- 849               	.L90:
- 850               	.LBE302:
- 851               	.LBE301:
- 852               	.LBB303:
- 853               	.LM160:
- 854 0266 9EBD      		out 78-32,r25
- 855 0268 90E0      		ldi r25,lo8(0)
- 856               	.LVL39:
- 857               	.LBB304:
- 858               	.LBB305:
- 859               	.LBB306:
- 860               	.LBB307:
- 861               	.LM161:
- 862 026a 28E2      		ldi r18,lo8(40)
- 863 026c 00C0      		rjmp .L92
- 864               	.LVL40:
- 865               	.L93:
- 866 026e 822F      		mov r24,r18
- 867               	/* #APP */
- 868               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 869 0270 8A95      		1: dec r24
- 870 0272 01F4      		brne 1b
- 871               	 ;  0 "" 2
- 872               	/* #NOAPP */
- 873               	.LBE307:
- 874               	.LBE306:
- 875               	.LBE305:
- 876               	.LBE304:
- 877               	.LM162:
- 878 0274 9F5F      		subi r25,lo8(-(1))
- 879               	.LM163:
- 880 0276 993C      		cpi r25,lo8(-55)
- 881 0278 01F4      		brne .L92
- 882               	.LBB308:
- 883               	.LBB309:
- 884               	.LM164:
- 885 027a 81E0      		ldi r24,lo8(1)
- 886               	.LVL41:
- 887 027c 8093 0000 		sts nrf24l01p+32,r24
- 888               	.LVL42:
- 889               	.L96:
- 890 0280 80E0      		ldi r24,lo8(0)
- 891 0282 0895      		ret
- 892               	.LVL43:
- 893               	.L92:
- 894               	.LBE309:
- 895               	.LBE308:
- 896               	.LM165:
- 897 0284 0DB4      		in __tmp_reg__,77-32
- 898 0286 07FE      		sbrs __tmp_reg__,7
- 899 0288 00C0      		rjmp .L93
- 900               	.LM166:
- 901 028a 8EB5      		in r24,78-32
- 902               	.LVL44:
- 903               	.LBE303:
- 904               	.LM167:
- 905 028c 0895      		ret
- 906               	.LFE34:
- 908               	.global	nrf24l01p_readwrite_register
- 910               	nrf24l01p_readwrite_register:
- 911               	.LFB35:
- 912               	.LM168:
- 913               	.LVL45:
- 914 028e DF92      		push r13
- 915 0290 EF92      		push r14
- 916 0292 FF92      		push r15
- 917 0294 0F93      		push r16
- 918 0296 1F93      		push r17
- 919 0298 CF93      		push r28
- 920 029a DF93      		push r29
- 921               	/* prologue: function */
- 922               	/* frame size = 0 */
- 923 029c 182F      		mov r17,r24
- 924 029e 062F      		mov r16,r22
- 925 02a0 F42E      		mov r15,r20
- 926 02a2 E52E      		mov r14,r21
- 927               	.LVL46:
- 928 02a4 D22E      		mov r13,r18
- 929               	.LBB310:
- 930               	.LBB311:
- 931               	.LM169:
- 932 02a6 8091 0000 		lds r24,nrf24l01p+32
- 933               	.LVL47:
- 934 02aa 8823      		tst r24
- 935 02ac 01F4      		brne .L106
- 936               	.LVL48:
- 937               	.LBE311:
- 938               	.LBE310:
- 939               	.LM170:
- 940 02ae 8091 0000 		lds r24,nrf24l01p+1
- 941 02b2 8823      		tst r24
- 942 02b4 01F4      		brne .L99
- 943               	.LM171:
- 944 02b6 0E94 0000 		call nrf24l01p_enable
- 945               	.LVL49:
- 946               	.L99:
- 947               	.LBB312:
- 948               	.LBB313:
- 949               	.LM172:
- 950 02ba 2A98      		cbi 37-32,2
- 951               	.LBE313:
- 952               	.LBE312:
- 953               	.LM173:
- 954 02bc 0023      		tst r16
- 955 02be 01F4      		brne .L100
- 956               	.LM174:
- 957 02c0 812F      		mov r24,r17
- 958 02c2 8062      		ori r24,lo8(32)
- 959 02c4 0E94 0000 		call nrf24l01p_spi_transfer
- 960 02c8 8F2D      		mov r24,r15
- 961 02ca 9E2D      		mov r25,r14
- 962 02cc 9C01      		movw r18,r24
- 963 02ce E901      		movw r28,r18
- 964 02d0 10E0      		ldi r17,lo8(0)
- 965               	.LVL50:
- 966 02d2 00C0      		rjmp .L101
- 967               	.L102:
- 968               	.LBB314:
- 969               	.LM175:
- 970 02d4 8991      		ld r24,Y+
- 971 02d6 0E94 0000 		call nrf24l01p_spi_transfer
- 972               	.LM176:
- 973 02da 1F5F      		subi r17,lo8(-(1))
- 974               	.L101:
- 975 02dc 1D15      		cp r17,r13
- 976 02de 00F0      		brlo .L102
- 977 02e0 00C0      		rjmp .L103
- 978               	.LVL51:
- 979               	.L100:
- 980               	.LBE314:
- 981               	.LM177:
- 982 02e2 812F      		mov r24,r17
- 983 02e4 0E94 0000 		call nrf24l01p_spi_transfer
- 984 02e8 8F2D      		mov r24,r15
- 985 02ea 9E2D      		mov r25,r14
- 986 02ec 9C01      		movw r18,r24
- 987 02ee E901      		movw r28,r18
- 988 02f0 10E0      		ldi r17,lo8(0)
- 989               	.LVL52:
- 990 02f2 00C0      		rjmp .L104
- 991               	.L105:
- 992               	.LBB315:
- 993               	.LM178:
- 994 02f4 8FEF      		ldi r24,lo8(-1)
- 995 02f6 0E94 0000 		call nrf24l01p_spi_transfer
- 996 02fa 8993      		st Y+,r24
- 997               	.LM179:
- 998 02fc 1F5F      		subi r17,lo8(-(1))
- 999               	.L104:
- 1000 02fe 1D15      		cp r17,r13
- 1001 0300 00F0      		brlo .L105
- 1002               	.LVL53:
- 1003               	.L103:
- 1004               	.LBE315:
- 1005               	.LBB316:
- 1006               	.LBB317:
- 1007               	.LM180:
- 1008 0302 2A9A      		sbi 37-32,2
- 1009               	.LVL54:
- 1010               	.L106:
- 1011               	/* epilogue start */
- 1012               	.LBE317:
- 1013               	.LBE316:
- 1014               	.LM181:
- 1015 0304 DF91      		pop r29
- 1016 0306 CF91      		pop r28
- 1017 0308 1F91      		pop r17
- 1018               	.LVL55:
- 1019 030a 0F91      		pop r16
- 1020               	.LVL56:
- 1021 030c FF90      		pop r15
- 1022               	.LVL57:
- 1023 030e EF90      		pop r14
- 1024               	.LVL58:
- 1025 0310 DF90      		pop r13
- 1026               	.LVL59:
- 1027 0312 0895      		ret
- 1028               	.LFE35:
- 1030               	.global	nrf24l01p_read_modify_write_register
- 1032               	nrf24l01p_read_modify_write_register:
- 1033               	.LFB36:
- 1034               	.LM182:
- 1035               	.LVL60:
- 1036 0314 FF92      		push r15
- 1037 0316 0F93      		push r16
- 1038 0318 1F93      		push r17
- 1039               	/* prologue: function */
- 1040               	/* frame size = 0 */
- 1041 031a F82E      		mov r15,r24
- 1042 031c 062F      		mov r16,r22
- 1043 031e 142F      		mov r17,r20
- 1044               	.LBB318:
- 1045               	.LBB319:
- 1046               	.LM183:
- 1047 0320 8091 0000 		lds r24,nrf24l01p+32
- 1048               	.LVL61:
- 1049 0324 8823      		tst r24
- 1050 0326 01F4      		brne .L111
- 1051               	.LVL62:
- 1052               	.LBE319:
- 1053               	.LBE318:
- 1054               	.LM184:
- 1055 0328 8F2D      		mov r24,r15
- 1056 032a 61E0      		ldi r22,lo8(1)
- 1057 032c 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1058 032e 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1059 0330 21E0      		ldi r18,lo8(1)
- 1060 0332 0E94 0000 		call nrf24l01p_readwrite_register
- 1061 0336 2091 0000 		lds r18,nrf24l01p+2
- 1062               	.LM185:
- 1063 033a 1123      		tst r17
- 1064 033c 01F0      		breq .L109
- 1065               	.LM186:
- 1066 033e 81E0      		ldi r24,lo8(1)
- 1067 0340 90E0      		ldi r25,hi8(1)
- 1068 0342 00C0      		rjmp 2f
- 1069 0344 880F      	1:	lsl r24
- 1070 0346 991F      		rol r25
- 1071 0348 0A95      	2:	dec r16
- 1072 034a 02F4      		brpl 1b
- 1073 034c 282B      		or r18,r24
- 1074 034e 2093 0000 		sts nrf24l01p+2,r18
- 1075 0352 00C0      		rjmp .L110
- 1076               	.L109:
- 1077               	.LM187:
- 1078 0354 81E0      		ldi r24,lo8(1)
- 1079 0356 90E0      		ldi r25,hi8(1)
- 1080 0358 00C0      		rjmp 2f
- 1081 035a 880F      	1:	lsl r24
- 1082 035c 991F      		rol r25
- 1083 035e 0A95      	2:	dec r16
- 1084 0360 02F4      		brpl 1b
- 1085 0362 8095      		com r24
- 1086 0364 8223      		and r24,r18
- 1087 0366 8093 0000 		sts nrf24l01p+2,r24
- 1088               	.L110:
- 1089               	.LM188:
- 1090 036a 8F2D      		mov r24,r15
- 1091 036c 60E0      		ldi r22,lo8(0)
- 1092 036e 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1093 0370 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1094 0372 21E0      		ldi r18,lo8(1)
- 1095 0374 0E94 0000 		call nrf24l01p_readwrite_register
- 1096               	.LVL63:
- 1097               	.L111:
- 1098               	/* epilogue start */
- 1099               	.LM189:
- 1100 0378 1F91      		pop r17
- 1101               	.LVL64:
- 1102 037a 0F91      		pop r16
- 1103               	.LVL65:
- 1104 037c FF90      		pop r15
- 1105               	.LVL66:
- 1106 037e 0895      		ret
- 1107               	.LFE36:
- 1109               	.global	nrf24l01p_flush_tx_buf
- 1111               	nrf24l01p_flush_tx_buf:
- 1112               	.LFB37:
- 1113               	.LM190:
- 1114               	/* prologue: function */
- 1115               	/* frame size = 0 */
- 1116               	.LM191:
- 1117 0380 81EE      		ldi r24,lo8(-31)
- 1118 0382 60E0      		ldi r22,lo8(0)
- 1119 0384 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1120 0386 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1121 0388 20E0      		ldi r18,lo8(0)
- 1122 038a 0E94 0000 		call nrf24l01p_readwrite_register
- 1123               	.LBB320:
- 1124               	.LBB321:
- 1125               	.LM192:
- 1126 038e 8091 0000 		lds r24,nrf24l01p+32
- 1127 0392 8823      		tst r24
- 1128 0394 01F0      		breq .L115
- 1129               	.LBE321:
- 1130               	.LBE320:
- 1131               	.LBB322:
- 1132               	.LBB323:
- 1133               	.LM193:
- 1134 0396 82E0      		ldi r24,lo8(2)
- 1135 0398 8093 0000 		sts nrf24l01p+32,r24
- 1136               	.L115:
- 1137 039c 0895      		ret
- 1138               	.LBE323:
- 1139               	.LBE322:
- 1140               	.LFE37:
- 1142               	.global	nrf24l01p_flush_rx_buf
- 1144               	nrf24l01p_flush_rx_buf:
- 1145               	.LFB38:
- 1146               	.LM194:
- 1147               	/* prologue: function */
- 1148               	/* frame size = 0 */
- 1149               	.LM195:
- 1150 039e 82EE      		ldi r24,lo8(-30)
- 1151 03a0 60E0      		ldi r22,lo8(0)
- 1152 03a2 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1153 03a4 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1154 03a6 20E0      		ldi r18,lo8(0)
- 1155 03a8 0E94 0000 		call nrf24l01p_readwrite_register
- 1156               	.LBB324:
- 1157               	.LBB325:
- 1158               	.LM196:
- 1159 03ac 8091 0000 		lds r24,nrf24l01p+32
- 1160 03b0 8823      		tst r24
- 1161 03b2 01F0      		breq .L119
- 1162               	.LBE325:
- 1163               	.LBE324:
- 1164               	.LBB326:
- 1165               	.LBB327:
- 1166               	.LM197:
- 1167 03b4 83E0      		ldi r24,lo8(3)
- 1168 03b6 8093 0000 		sts nrf24l01p+32,r24
- 1169               	.L119:
- 1170 03ba 0895      		ret
- 1171               	.LBE327:
- 1172               	.LBE326:
- 1173               	.LFE38:
- 1175               	.global	nrf24l01p_write_data_tx_buf
- 1177               	nrf24l01p_write_data_tx_buf:
- 1178               	.LFB39:
- 1179               	.LM198:
- 1180               	.LVL67:
- 1181               	/* prologue: function */
- 1182               	/* frame size = 0 */
- 1183 03bc AC01      		movw r20,r24
- 1184               	.LM199:
- 1185 03be 80EA      		ldi r24,lo8(-96)
- 1186               	.LVL68:
- 1187 03c0 60E0      		ldi r22,lo8(0)
- 1188 03c2 20E2      		ldi r18,lo8(32)
- 1189 03c4 0E94 0000 		call nrf24l01p_readwrite_register
- 1190               	.LVL69:
- 1191               	.LBB328:
- 1192               	.LBB329:
- 1193               	.LM200:
- 1194 03c8 8091 0000 		lds r24,nrf24l01p+32
- 1195 03cc 8823      		tst r24
- 1196 03ce 01F0      		breq .L123
- 1197               	.LBE329:
- 1198               	.LBE328:
- 1199               	.LBB330:
- 1200               	.LBB331:
- 1201               	.LM201:
- 1202 03d0 84E0      		ldi r24,lo8(4)
- 1203 03d2 8093 0000 		sts nrf24l01p+32,r24
- 1204               	.L123:
- 1205 03d6 0895      		ret
- 1206               	.LBE331:
- 1207               	.LBE330:
- 1208               	.LFE39:
- 1210               	.global	nrf24l01p_read_data_rx_buf
- 1212               	nrf24l01p_read_data_rx_buf:
- 1213               	.LFB40:
- 1214               	.LM202:
- 1215               	.LVL70:
- 1216               	/* prologue: function */
- 1217               	/* frame size = 0 */
- 1218 03d8 AC01      		movw r20,r24
- 1219               	.LM203:
- 1220 03da 81E6      		ldi r24,lo8(97)
- 1221               	.LVL71:
- 1222 03dc 61E0      		ldi r22,lo8(1)
- 1223 03de 20E2      		ldi r18,lo8(32)
- 1224 03e0 0E94 0000 		call nrf24l01p_readwrite_register
- 1225               	.LVL72:
- 1226               	.LBB332:
- 1227               	.LBB333:
- 1228               	.LM204:
- 1229 03e4 8091 0000 		lds r24,nrf24l01p+32
- 1230 03e8 8823      		tst r24
- 1231 03ea 01F0      		breq .L127
- 1232               	.LBE333:
- 1233               	.LBE332:
- 1234               	.LBB334:
- 1235               	.LBB335:
- 1236               	.LM205:
- 1237 03ec 85E0      		ldi r24,lo8(5)
- 1238 03ee 8093 0000 		sts nrf24l01p+32,r24
- 1239               	.L127:
- 1240 03f2 0895      		ret
- 1241               	.LBE335:
- 1242               	.LBE334:
- 1243               	.LFE40:
- 1245               	.global	nrf24l01p_tx_buf_empty
- 1247               	nrf24l01p_tx_buf_empty:
- 1248               	.LFB41:
- 1249               	.LM206:
- 1250               	/* prologue: function */
- 1251               	/* frame size = 0 */
- 1252               	.LBB336:
- 1253               	.LBB337:
- 1254               	.LM207:
- 1255 03f4 8091 0000 		lds r24,nrf24l01p+32
- 1256 03f8 8823      		tst r24
- 1257 03fa 01F0      		breq .L129
- 1258 03fc 80E0      		ldi r24,lo8(0)
- 1259 03fe 0895      		ret
- 1260               	.L129:
- 1261               	.LBE337:
- 1262               	.LBE336:
- 1263               	.LM208:
- 1264 0400 1092 0000 		sts nrf24l01p+2,__zero_reg__
- 1265               	.LM209:
- 1266 0404 87E1      		ldi r24,lo8(23)
- 1267 0406 61E0      		ldi r22,lo8(1)
- 1268 0408 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1269 040a 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1270 040c 21E0      		ldi r18,lo8(1)
- 1271 040e 0E94 0000 		call nrf24l01p_readwrite_register
- 1272 0412 8091 0000 		lds r24,nrf24l01p+2
- 1273 0416 90E0      		ldi r25,lo8(0)
- 1274 0418 64E0      		ldi r22,4
- 1275 041a 9695      	1:	lsr r25
- 1276 041c 8795      		ror r24
- 1277 041e 6A95      		dec r22
- 1278 0420 01F4      		brne 1b
- 1279 0422 8170      		andi r24,lo8(1)
- 1280               	.LM210:
- 1281 0424 0895      		ret
- 1282               	.LFE41:
- 1284               	.global	nrf24l01p_rx_buf_not_empty
- 1286               	nrf24l01p_rx_buf_not_empty:
- 1287               	.LFB42:
- 1288               	.LM211:
- 1289               	/* prologue: function */
- 1290               	/* frame size = 0 */
- 1291               	.LBB338:
- 1292               	.LBB339:
- 1293               	.LM212:
- 1294 0426 8091 0000 		lds r24,nrf24l01p+32
- 1295 042a 8823      		tst r24
- 1296 042c 01F0      		breq .L133
- 1297 042e 80E0      		ldi r24,lo8(0)
- 1298 0430 0895      		ret
- 1299               	.L133:
- 1300               	.LBE339:
- 1301               	.LBE338:
- 1302               	.LM213:
- 1303 0432 1092 0000 		sts nrf24l01p+2,__zero_reg__
- 1304               	.LM214:
- 1305 0436 87E1      		ldi r24,lo8(23)
- 1306 0438 61E0      		ldi r22,lo8(1)
- 1307 043a 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1308 043c 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1309 043e 21E0      		ldi r18,lo8(1)
- 1310 0440 0E94 0000 		call nrf24l01p_readwrite_register
- 1311 0444 8091 0000 		lds r24,nrf24l01p+2
- 1312 0448 8095      		com r24
- 1313 044a 8170      		andi r24,lo8(1)
- 1314               	.LM215:
- 1315 044c 0895      		ret
- 1316               	.LFE42:
- 1318               	.global	nrf24l01p_wait_tx_complete
- 1320               	nrf24l01p_wait_tx_complete:
- 1321               	.LFB43:
- 1322               	.LM216:
- 1323 044e CF93      		push r28
- 1324 0450 DF93      		push r29
- 1325               	/* prologue: function */
- 1326               	/* frame size = 0 */
- 1327               	.LBB340:
- 1328               	.LBB341:
- 1329               	.LM217:
- 1330 0452 8091 0000 		lds r24,nrf24l01p+32
- 1331 0456 8823      		tst r24
- 1332 0458 01F4      		brne .L143
- 1333               	.L137:
- 1334               	.LBE341:
- 1335               	.LBE340:
- 1336               	.LBB342:
- 1337               	.LBB343:
- 1338               	.LM218:
- 1339 045a 1092 0000 		sts (nrf24l01p+30)+1,__zero_reg__
- 1340 045e 1092 0000 		sts nrf24l01p+30,__zero_reg__
- 1341               	.LBE343:
- 1342               	.LBE342:
- 1343               	.LBB344:
- 1344               	.LBB345:
- 1345               	.LBB346:
- 1346               	.LBB347:
- 1347               	.LBB348:
- 1348               	.LBB349:
- 1349               	.LBB350:
- 1350               	.LBB351:
- 1351               	.LM219:
- 1352 0462 CCE2      		ldi r28,lo8(300)
- 1353 0464 D1E0      		ldi r29,hi8(300)
- 1354 0466 00C0      		rjmp .L139
- 1355               	.L140:
- 1356 0468 CE01      		movw r24,r28
- 1357               	.LVL73:
- 1358               	/* #APP */
- 1359               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 1360 046a 0197      		1: sbiw r24,1
- 1361 046c 01F4      		brne 1b
- 1362               	 ;  0 "" 2
- 1363               	/* #NOAPP */
- 1364               	.LBE351:
- 1365               	.LBE350:
- 1366               	.LBE349:
- 1367               	.LBE348:
- 1368               	.LBE347:
- 1369               	.LBE346:
- 1370               	.LM220:
- 1371 046e 8091 0000 		lds r24,nrf24l01p+30
- 1372 0472 9091 0000 		lds r25,(nrf24l01p+30)+1
- 1373               	.LVL74:
- 1374 0476 0196      		adiw r24,1
- 1375 0478 9093 0000 		sts (nrf24l01p+30)+1,r25
- 1376 047c 8093 0000 		sts nrf24l01p+30,r24
- 1377               	.LM221:
- 1378 0480 8536      		cpi r24,101
- 1379 0482 9105      		cpc r25,__zero_reg__
- 1380 0484 00F0      		brlo .L139
- 1381               	.LBE345:
- 1382               	.LBE344:
- 1383               	.LBB352:
- 1384               	.LBB353:
- 1385               	.LM222:
- 1386 0486 86E0      		ldi r24,lo8(6)
- 1387 0488 8093 0000 		sts nrf24l01p+32,r24
- 1388               	.L143:
- 1389 048c 80E0      		ldi r24,lo8(0)
- 1390 048e 00C0      		rjmp .L138
- 1391               	.L139:
- 1392               	.LBE353:
- 1393               	.LBE352:
- 1394               	.LM223:
- 1395 0490 0E94 0000 		call nrf24l01p_tx_buf_empty
- 1396 0494 8823      		tst r24
- 1397 0496 01F0      		breq .L140
- 1398 0498 81E0      		ldi r24,lo8(1)
- 1399               	.L138:
- 1400               	/* epilogue start */
- 1401               	.LM224:
- 1402 049a DF91      		pop r29
- 1403 049c CF91      		pop r28
- 1404 049e 0895      		ret
- 1405               	.LFE43:
- 1407               	.global	nrf24l01p_mode_set_deep_sleep
- 1409               	nrf24l01p_mode_set_deep_sleep:
- 1410               	.LFB44:
- 1411               	.LM225:
- 1412               	/* prologue: function */
- 1413               	/* frame size = 0 */
- 1414               	.LBB354:
- 1415               	.LBB355:
- 1416               	.LM226:
- 1417 04a0 8091 0000 		lds r24,nrf24l01p+32
- 1418 04a4 8823      		tst r24
- 1419 04a6 01F4      		brne .L145
- 1420               	.LBE355:
- 1421               	.LBE354:
- 1422               	.LM227:
- 1423 04a8 1092 0000 		sts nrf24l01p+2,__zero_reg__
- 1424               	.LM228:
- 1425 04ac 60E0      		ldi r22,lo8(0)
- 1426 04ae 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1427 04b0 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1428 04b2 21E0      		ldi r18,lo8(1)
- 1429 04b4 0E94 0000 		call nrf24l01p_readwrite_register
- 1430               	.LM229:
- 1431 04b8 1092 0000 		sts nrf24l01p,__zero_reg__
- 1432               	.L145:
- 1433               	.LM230:
- 1434 04bc 0E94 0000 		call nrf24l01p_disable
- 1435               	/* epilogue start */
- 1436               	.LM231:
- 1437 04c0 0895      		ret
- 1438               	.LFE44:
- 1440               	.global	nrf24l01p_mode_set_sleep
- 1442               	nrf24l01p_mode_set_sleep:
- 1443               	.LFB45:
- 1444               	.LM232:
- 1445               	/* prologue: function */
- 1446               	/* frame size = 0 */
- 1447               	.LM233:
- 1448 04c2 8091 0000 		lds r24,nrf24l01p+1
- 1449 04c6 8823      		tst r24
- 1450 04c8 01F4      		brne .L148
- 1451               	.LM234:
- 1452 04ca 0E94 0000 		call nrf24l01p_enable
- 1453               	.L148:
- 1454               	.LBB356:
- 1455               	.LBB357:
- 1456               	.LM235:
- 1457 04ce 8091 0000 		lds r24,nrf24l01p+32
- 1458 04d2 8823      		tst r24
- 1459 04d4 01F4      		brne .L150
- 1460               	.LBE357:
- 1461               	.LBE356:
- 1462               	.LM236:
- 1463 04d6 1092 0000 		sts nrf24l01p+2,__zero_reg__
- 1464               	.LBB358:
- 1465               	.LBB359:
- 1466               	.LM237:
- 1467 04da 4098      		cbi 40-32,0
- 1468               	.LBE359:
- 1469               	.LBE358:
- 1470               	.LM238:
- 1471 04dc 60E0      		ldi r22,lo8(0)
- 1472 04de 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1473 04e0 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1474 04e2 21E0      		ldi r18,lo8(1)
- 1475 04e4 0E94 0000 		call nrf24l01p_readwrite_register
- 1476               	.LM239:
- 1477 04e8 81E0      		ldi r24,lo8(1)
- 1478 04ea 8093 0000 		sts nrf24l01p,r24
- 1479               	.L150:
- 1480 04ee 0895      		ret
- 1481               	.LFE45:
- 1483               	.global	nrf24l01p_mode_set_rx
- 1485               	nrf24l01p_mode_set_rx:
- 1486               	.LFB46:
- 1487               	.LM240:
- 1488               	/* prologue: function */
- 1489               	/* frame size = 0 */
- 1490               	.LM241:
- 1491 04f0 8091 0000 		lds r24,nrf24l01p+1
- 1492 04f4 8823      		tst r24
- 1493 04f6 01F4      		brne .L152
- 1494               	.LM242:
- 1495 04f8 0E94 0000 		call nrf24l01p_enable
- 1496               	.L152:
- 1497               	.LBB360:
- 1498               	.LBB361:
- 1499               	.LM243:
- 1500 04fc 8091 0000 		lds r24,nrf24l01p+32
- 1501 0500 8823      		tst r24
- 1502 0502 01F4      		brne .L154
- 1503               	.LBE361:
- 1504               	.LBE360:
- 1505               	.LM244:
- 1506 0504 83E7      		ldi r24,lo8(115)
- 1507 0506 8093 0000 		sts nrf24l01p+2,r24
- 1508               	.LBB362:
- 1509               	.LBB363:
- 1510               	.LM245:
- 1511 050a 409A      		sbi 40-32,0
- 1512               	.LBE363:
- 1513               	.LBE362:
- 1514               	.LM246:
- 1515 050c 80E0      		ldi r24,lo8(0)
- 1516 050e 60E0      		ldi r22,lo8(0)
- 1517 0510 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1518 0512 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1519 0514 21E0      		ldi r18,lo8(1)
- 1520 0516 0E94 0000 		call nrf24l01p_readwrite_register
- 1521               	.LM247:
- 1522 051a 82E0      		ldi r24,lo8(2)
- 1523 051c 8093 0000 		sts nrf24l01p,r24
- 1524               	.L154:
- 1525 0520 0895      		ret
- 1526               	.LFE46:
- 1528               	.global	nrf24l01p_mode_set_tx
- 1530               	nrf24l01p_mode_set_tx:
- 1531               	.LFB47:
- 1532               	.LM248:
- 1533               	/* prologue: function */
- 1534               	/* frame size = 0 */
- 1535               	.LM249:
- 1536 0522 8091 0000 		lds r24,nrf24l01p+1
- 1537 0526 8823      		tst r24
- 1538 0528 01F4      		brne .L156
- 1539               	.LM250:
- 1540 052a 0E94 0000 		call nrf24l01p_enable
- 1541               	.L156:
- 1542               	.LBB364:
- 1543               	.LBB365:
- 1544               	.LM251:
- 1545 052e 8091 0000 		lds r24,nrf24l01p+32
- 1546 0532 8823      		tst r24
- 1547 0534 01F4      		brne .L158
- 1548               	.LBE365:
- 1549               	.LBE364:
- 1550               	.LM252:
- 1551 0536 82E7      		ldi r24,lo8(114)
- 1552 0538 8093 0000 		sts nrf24l01p+2,r24
- 1553               	.LBB366:
- 1554               	.LBB367:
- 1555               	.LM253:
- 1556 053c 4098      		cbi 40-32,0
- 1557               	.LBE367:
- 1558               	.LBE366:
- 1559               	.LM254:
- 1560 053e 80E0      		ldi r24,lo8(0)
- 1561 0540 60E0      		ldi r22,lo8(0)
- 1562 0542 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1563 0544 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1564 0546 21E0      		ldi r18,lo8(1)
- 1565 0548 0E94 0000 		call nrf24l01p_readwrite_register
- 1566               	.LBB368:
- 1567               	.LBB369:
- 1568               	.LM255:
- 1569 054c 409A      		sbi 40-32,0
- 1570               	.LBE369:
- 1571               	.LBE368:
- 1572               	.LM256:
- 1573 054e 83E0      		ldi r24,lo8(3)
- 1574 0550 8093 0000 		sts nrf24l01p,r24
- 1575               	.L158:
- 1576 0554 0895      		ret
- 1577               	.LFE47:
- 1579               	.global	nrf24l01p_mode_set
- 1581               	nrf24l01p_mode_set:
- 1582               	.LFB48:
- 1583               	.LM257:
- 1584               	.LVL75:
- 1585               	/* prologue: function */
- 1586               	/* frame size = 0 */
- 1587 0556 982F      		mov r25,r24
- 1588               	.LBB370:
- 1589               	.LBB371:
- 1590               	.LM258:
- 1591 0558 8091 0000 		lds r24,nrf24l01p+32
- 1592               	.LVL76:
- 1593 055c 8823      		tst r24
- 1594 055e 01F4      		brne .L165
- 1595               	.LBE371:
- 1596               	.LBE370:
- 1597               	.LM259:
- 1598 0560 9923      		tst r25
- 1599 0562 01F4      		brne .L161
- 1600               	.LM260:
- 1601 0564 0E94 0000 		call nrf24l01p_mode_set_deep_sleep
- 1602               	.LVL77:
- 1603 0568 0895      		ret
- 1604               	.LVL78:
- 1605               	.L161:
- 1606               	.LM261:
- 1607 056a 9130      		cpi r25,lo8(1)
- 1608 056c 01F4      		brne .L162
- 1609               	.LM262:
- 1610 056e 0E94 0000 		call nrf24l01p_mode_set_sleep
- 1611               	.LVL79:
- 1612 0572 0895      		ret
- 1613               	.LVL80:
- 1614               	.L162:
- 1615               	.LM263:
- 1616 0574 9230      		cpi r25,lo8(2)
- 1617 0576 01F4      		brne .L163
- 1618               	.LM264:
- 1619 0578 0E94 0000 		call nrf24l01p_mode_set_rx
- 1620               	.LVL81:
- 1621 057c 0895      		ret
- 1622               	.LVL82:
- 1623               	.L163:
- 1624               	.LM265:
- 1625 057e 9330      		cpi r25,lo8(3)
- 1626 0580 01F4      		brne .L164
- 1627               	.LM266:
- 1628 0582 0E94 0000 		call nrf24l01p_mode_set_tx
- 1629               	.LVL83:
- 1630 0586 0895      		ret
- 1631               	.LVL84:
- 1632               	.L164:
- 1633               	.LM267:
- 1634 0588 0E94 0000 		call nrf24l01p_mode_set_rx
- 1635               	.LVL85:
- 1636               	.L165:
- 1637 058c 0895      		ret
- 1638               	.LFE48:
- 1640               	.global	nrf24l01p_mode_get
- 1642               	nrf24l01p_mode_get:
- 1643               	.LFB49:
- 1644               	.LM268:
- 1645               	/* prologue: function */
- 1646               	/* frame size = 0 */
- 1647               	.LBB372:
- 1648               	.LBB373:
- 1649               	.LM269:
- 1650 058e 8091 0000 		lds r24,nrf24l01p+32
- 1651 0592 8823      		tst r24
- 1652 0594 01F0      		breq .L167
- 1653 0596 80E0      		ldi r24,lo8(0)
- 1654 0598 0895      		ret
- 1655               	.L167:
- 1656               	.LBE373:
- 1657               	.LBE372:
- 1658               	.LM270:
- 1659 059a 80E0      		ldi r24,lo8(0)
- 1660 059c 61E0      		ldi r22,lo8(1)
- 1661 059e 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1662 05a0 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1663 05a2 21E0      		ldi r18,lo8(1)
- 1664 05a4 0E94 0000 		call nrf24l01p_readwrite_register
- 1665               	.LM271:
- 1666 05a8 8091 0000 		lds r24,nrf24l01p+2
- 1667 05ac 81FF      		sbrs r24,1
- 1668 05ae 00C0      		rjmp .L169
- 1669               	.LM272:
- 1670 05b0 80FF      		sbrs r24,0
- 1671 05b2 00C0      		rjmp .L170
- 1672               	.LM273:
- 1673 05b4 82E0      		ldi r24,lo8(2)
- 1674 05b6 00C0      		rjmp .L172
- 1675               	.L170:
- 1676               	.LM274:
- 1677 05b8 83E0      		ldi r24,lo8(3)
- 1678               	.L172:
- 1679 05ba 8093 0000 		sts nrf24l01p,r24
- 1680 05be 0895      		ret
- 1681               	.L169:
- 1682               	.LM275:
- 1683 05c0 81E0      		ldi r24,lo8(1)
- 1684 05c2 8093 0000 		sts nrf24l01p,r24
- 1685               	.LM276:
- 1686 05c6 0895      		ret
- 1687               	.LFE49:
- 1689               	.global	nrf24l01p_channel_set
- 1691               	nrf24l01p_channel_set:
- 1692               	.LFB50:
- 1693               	.LM277:
- 1694               	.LVL86:
- 1695               	/* prologue: function */
- 1696               	/* frame size = 0 */
- 1697 05c8 982F      		mov r25,r24
- 1698               	.LBB374:
- 1699               	.LBB375:
- 1700               	.LM278:
- 1701 05ca 8091 0000 		lds r24,nrf24l01p+32
- 1702               	.LVL87:
- 1703 05ce 8823      		tst r24
- 1704 05d0 01F4      		brne .L176
- 1705               	.LBE375:
- 1706               	.LBE374:
- 1707               	.LM279:
- 1708 05d2 892F      		mov r24,r25
- 1709 05d4 9937      		cpi r25,lo8(121)
- 1710 05d6 00F0      		brlo .L175
- 1711 05d8 88E7      		ldi r24,lo8(120)
- 1712               	.LVL88:
- 1713               	.L175:
- 1714 05da 8093 0000 		sts nrf24l01p+2,r24
- 1715               	.LM280:
- 1716 05de 85E0      		ldi r24,lo8(5)
- 1717               	.LVL89:
- 1718 05e0 60E0      		ldi r22,lo8(0)
- 1719 05e2 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1720 05e4 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1721 05e6 21E0      		ldi r18,lo8(1)
- 1722 05e8 0E94 0000 		call nrf24l01p_readwrite_register
- 1723               	.LVL90:
- 1724               	.L176:
- 1725 05ec 0895      		ret
- 1726               	.LFE50:
- 1728               	.global	nrf24l01p_channel_get
- 1730               	nrf24l01p_channel_get:
- 1731               	.LFB51:
- 1732               	.LM281:
- 1733               	/* prologue: function */
- 1734               	/* frame size = 0 */
- 1735               	.LBB376:
- 1736               	.LBB377:
- 1737               	.LM282:
- 1738 05ee 8091 0000 		lds r24,nrf24l01p+32
- 1739 05f2 8823      		tst r24
- 1740 05f4 01F0      		breq .L178
- 1741 05f6 80E0      		ldi r24,lo8(0)
- 1742 05f8 0895      		ret
- 1743               	.L178:
- 1744               	.LBE377:
- 1745               	.LBE376:
- 1746               	.LM283:
- 1747 05fa 85E0      		ldi r24,lo8(5)
- 1748 05fc 61E0      		ldi r22,lo8(1)
- 1749 05fe 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1750 0600 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1751 0602 21E0      		ldi r18,lo8(1)
- 1752 0604 0E94 0000 		call nrf24l01p_readwrite_register
- 1753               	.LM284:
- 1754 0608 8091 0000 		lds r24,nrf24l01p+2
- 1755               	.LM285:
- 1756 060c 0895      		ret
- 1757               	.LFE51:
- 1759               	.global	nrf24l01p_speed_set
- 1761               	nrf24l01p_speed_set:
- 1762               	.LFB52:
- 1763               	.LM286:
- 1764               	.LVL91:
- 1765               	/* prologue: function */
- 1766               	/* frame size = 0 */
- 1767               	.LM287:
- 1768 060e 8823      		tst r24
- 1769 0610 01F4      		brne .L182
- 1770               	.LM288:
- 1771 0612 86E0      		ldi r24,lo8(6)
- 1772               	.LVL92:
- 1773 0614 65E0      		ldi r22,lo8(5)
- 1774 0616 41E0      		ldi r20,lo8(1)
- 1775 0618 00C0      		rjmp .L188
- 1776               	.LVL93:
- 1777               	.L182:
- 1778               	.LM289:
- 1779 061a 8130      		cpi r24,lo8(1)
- 1780 061c 01F4      		brne .L184
- 1781               	.LM290:
- 1782 061e 86E0      		ldi r24,lo8(6)
- 1783               	.LVL94:
- 1784 0620 65E0      		ldi r22,lo8(5)
- 1785 0622 40E0      		ldi r20,lo8(0)
- 1786               	.L188:
- 1787 0624 0E94 0000 		call nrf24l01p_read_modify_write_register
- 1788               	.LM291:
- 1789 0628 86E0      		ldi r24,lo8(6)
- 1790 062a 63E0      		ldi r22,lo8(3)
- 1791 062c 40E0      		ldi r20,lo8(0)
- 1792 062e 00C0      		rjmp .L187
- 1793               	.LVL95:
- 1794               	.L184:
- 1795               	.LM292:
- 1796 0630 86E0      		ldi r24,lo8(6)
- 1797               	.LVL96:
- 1798 0632 65E0      		ldi r22,lo8(5)
- 1799 0634 40E0      		ldi r20,lo8(0)
- 1800 0636 0E94 0000 		call nrf24l01p_read_modify_write_register
- 1801               	.LM293:
- 1802 063a 86E0      		ldi r24,lo8(6)
- 1803 063c 63E0      		ldi r22,lo8(3)
- 1804 063e 41E0      		ldi r20,lo8(1)
- 1805               	.L187:
- 1806 0640 0E94 0000 		call nrf24l01p_read_modify_write_register
- 1807 0644 0895      		ret
- 1808               	.LFE52:
- 1810               	.global	nrf24l01p_speed_get
- 1812               	nrf24l01p_speed_get:
- 1813               	.LFB53:
- 1814               	.LM294:
- 1815               	/* prologue: function */
- 1816               	/* frame size = 0 */
- 1817               	.LBB378:
- 1818               	.LBB379:
- 1819               	.LM295:
- 1820 0646 8091 0000 		lds r24,nrf24l01p+32
- 1821 064a 8823      		tst r24
- 1822 064c 01F0      		breq .L190
- 1823 064e 80E0      		ldi r24,lo8(0)
- 1824 0650 0895      		ret
- 1825               	.L190:
- 1826               	.LBE379:
- 1827               	.LBE378:
- 1828               	.LM296:
- 1829 0652 86E0      		ldi r24,lo8(6)
- 1830 0654 61E0      		ldi r22,lo8(1)
- 1831 0656 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1832 0658 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1833 065a 21E0      		ldi r18,lo8(1)
- 1834 065c 0E94 0000 		call nrf24l01p_readwrite_register
- 1835               	.LM297:
- 1836 0660 9091 0000 		lds r25,nrf24l01p+2
- 1837               	.LM298:
- 1838 0664 892F      		mov r24,r25
- 1839 0666 8295      		swap r24
- 1840 0668 8270      		andi r24,lo8(2)
- 1841 066a 8093 0000 		sts nrf24l01p+2,r24
- 1842               	.LM299:
- 1843 066e 9695      		lsr r25
- 1844 0670 9695      		lsr r25
- 1845 0672 9695      		lsr r25
- 1846 0674 9170      		andi r25,lo8(1)
- 1847 0676 982B      		or r25,r24
- 1848 0678 9093 0000 		sts nrf24l01p+3,r25
- 1849               	.LM300:
- 1850 067c 9230      		cpi r25,lo8(2)
- 1851 067e 01F4      		brne .L192
- 1852               	.LM301:
- 1853 0680 1092 0000 		sts nrf24l01p+2,__zero_reg__
- 1854 0684 00C0      		rjmp .L193
- 1855               	.L192:
- 1856               	.LM302:
- 1857 0686 9130      		cpi r25,lo8(1)
- 1858 0688 01F4      		brne .L194
- 1859               	.LM303:
- 1860 068a 9093 0000 		sts nrf24l01p+2,r25
- 1861 068e 00C0      		rjmp .L193
- 1862               	.L194:
- 1863               	.LM304:
- 1864 0690 9923      		tst r25
- 1865 0692 01F4      		brne .L193
- 1866               	.LM305:
- 1867 0694 82E0      		ldi r24,lo8(2)
- 1868 0696 8093 0000 		sts nrf24l01p+2,r24
- 1869               	.L193:
- 1870               	.LM306:
- 1871 069a 8091 0000 		lds r24,nrf24l01p+2
- 1872               	.LM307:
- 1873 069e 0895      		ret
- 1874               	.LFE53:
- 1876               	.global	nrf24l01p_tx_power_set
- 1878               	nrf24l01p_tx_power_set:
- 1879               	.LFB54:
- 1880               	.LM308:
- 1881               	.LVL97:
- 1882               	/* prologue: function */
- 1883               	/* frame size = 0 */
- 1884 06a0 982F      		mov r25,r24
- 1885               	.LBB380:
- 1886               	.LBB381:
- 1887               	.LM309:
- 1888 06a2 8091 0000 		lds r24,nrf24l01p+32
- 1889               	.LVL98:
- 1890 06a6 8823      		tst r24
- 1891 06a8 01F4      		brne .L202
- 1892               	.LBE381:
- 1893               	.LBE380:
- 1894               	.LM310:
- 1895 06aa 9923      		tst r25
- 1896 06ac 01F4      		brne .L198
- 1897               	.LM311:
- 1898 06ae 86E0      		ldi r24,lo8(6)
- 1899 06b0 62E0      		ldi r22,lo8(2)
- 1900 06b2 40E0      		ldi r20,lo8(0)
- 1901 06b4 00C0      		rjmp .L204
- 1902               	.L198:
- 1903               	.LM312:
- 1904 06b6 9130      		cpi r25,lo8(1)
- 1905 06b8 01F4      		brne .L199
- 1906               	.LM313:
- 1907 06ba 86E0      		ldi r24,lo8(6)
- 1908 06bc 62E0      		ldi r22,lo8(2)
- 1909 06be 40E0      		ldi r20,lo8(0)
- 1910 06c0 00C0      		rjmp .L205
- 1911               	.L199:
- 1912               	.LM314:
- 1913 06c2 9230      		cpi r25,lo8(2)
- 1914 06c4 01F4      		brne .L200
- 1915               	.LM315:
- 1916 06c6 86E0      		ldi r24,lo8(6)
- 1917 06c8 62E0      		ldi r22,lo8(2)
- 1918 06ca 41E0      		ldi r20,lo8(1)
- 1919               	.L204:
- 1920 06cc 0E94 0000 		call nrf24l01p_read_modify_write_register
- 1921               	.LVL99:
- 1922               	.LM316:
- 1923 06d0 86E0      		ldi r24,lo8(6)
- 1924 06d2 61E0      		ldi r22,lo8(1)
- 1925 06d4 40E0      		ldi r20,lo8(0)
- 1926 06d6 00C0      		rjmp .L203
- 1927               	.LVL100:
- 1928               	.L200:
- 1929               	.LM317:
- 1930 06d8 9330      		cpi r25,lo8(3)
- 1931 06da 01F4      		brne .L201
- 1932               	.LM318:
- 1933 06dc 86E0      		ldi r24,lo8(6)
- 1934 06de 62E0      		ldi r22,lo8(2)
- 1935 06e0 41E0      		ldi r20,lo8(1)
- 1936               	.L205:
- 1937 06e2 0E94 0000 		call nrf24l01p_read_modify_write_register
- 1938               	.LVL101:
- 1939               	.LM319:
- 1940 06e6 86E0      		ldi r24,lo8(6)
- 1941 06e8 61E0      		ldi r22,lo8(1)
- 1942 06ea 41E0      		ldi r20,lo8(1)
- 1943               	.L203:
- 1944 06ec 0E94 0000 		call nrf24l01p_read_modify_write_register
- 1945 06f0 0895      		ret
- 1946               	.LVL102:
- 1947               	.L201:
- 1948               	.LM320:
- 1949 06f2 86E0      		ldi r24,lo8(6)
- 1950 06f4 62E0      		ldi r22,lo8(2)
- 1951 06f6 41E0      		ldi r20,lo8(1)
- 1952 06f8 0E94 0000 		call nrf24l01p_read_modify_write_register
- 1953               	.LVL103:
- 1954               	.LM321:
- 1955 06fc 86E0      		ldi r24,lo8(6)
- 1956 06fe 61E0      		ldi r22,lo8(1)
- 1957 0700 41E0      		ldi r20,lo8(1)
- 1958 0702 0E94 0000 		call nrf24l01p_read_modify_write_register
- 1959               	.LVL104:
- 1960               	.L202:
- 1961 0706 0895      		ret
- 1962               	.LFE54:
- 1964               	.global	nrf24l01p_tx_power_get
- 1966               	nrf24l01p_tx_power_get:
- 1967               	.LFB55:
- 1968               	.LM322:
- 1969               	/* prologue: function */
- 1970               	/* frame size = 0 */
- 1971               	.LBB382:
- 1972               	.LBB383:
- 1973               	.LM323:
- 1974 0708 8091 0000 		lds r24,nrf24l01p+32
- 1975 070c 8823      		tst r24
- 1976 070e 01F0      		breq .L207
- 1977 0710 80E0      		ldi r24,lo8(0)
- 1978 0712 0895      		ret
- 1979               	.L207:
- 1980               	.LBE383:
- 1981               	.LBE382:
- 1982               	.LM324:
- 1983 0714 86E0      		ldi r24,lo8(6)
- 1984 0716 61E0      		ldi r22,lo8(1)
- 1985 0718 40E0      		ldi r20,lo8(nrf24l01p+2)
- 1986 071a 50E0      		ldi r21,hi8(nrf24l01p+2)
- 1987 071c 21E0      		ldi r18,lo8(1)
- 1988 071e 0E94 0000 		call nrf24l01p_readwrite_register
- 1989               	.LM325:
- 1990 0722 8091 0000 		lds r24,nrf24l01p+2
- 1991 0726 8695      		lsr r24
- 1992 0728 8370      		andi r24,lo8(3)
- 1993 072a 8093 0000 		sts nrf24l01p+2,r24
- 1994               	.LM326:
- 1995 072e 0895      		ret
- 1996               	.LFE55:
- 1998               	.global	nrf24l01p_own_addr_set
- 2000               	nrf24l01p_own_addr_set:
- 2001               	.LFB56:
- 2002               	.LM327:
- 2003               	.LVL105:
- 2004               	/* prologue: function */
- 2005               	/* frame size = 0 */
- 2006               	.LM328:
- 2007 0730 8093 0000 		sts nrf24l01p+4,r24
- 2008               	/* epilogue start */
- 2009               	.LM329:
- 2010 0734 0895      		ret
- 2011               	.LFE56:
- 2013               	.global	nrf24l01p_own_addr_get
- 2015               	nrf24l01p_own_addr_get:
- 2016               	.LFB57:
- 2017               	.LM330:
- 2018               	/* prologue: function */
- 2019               	/* frame size = 0 */
- 2020               	.LM331:
- 2021 0736 8091 0000 		lds r24,nrf24l01p+4
- 2022               	/* epilogue start */
- 2023 073a 0895      		ret
- 2024               	.LFE57:
- 2026               	.global	nrf24l01p_dest_addr_set
- 2028               	nrf24l01p_dest_addr_set:
- 2029               	.LFB58:
- 2030               	.LM332:
- 2031               	.LVL106:
- 2032               	/* prologue: function */
- 2033               	/* frame size = 0 */
- 2034               	.LM333:
- 2035 073c 8093 0000 		sts nrf24l01p+5,r24
- 2036               	/* epilogue start */
- 2037               	.LM334:
- 2038 0740 0895      		ret
- 2039               	.LFE58:
- 2041               	.global	nrf24l01p_dest_addr_get
- 2043               	nrf24l01p_dest_addr_get:
- 2044               	.LFB59:
- 2045               	.LM335:
- 2046               	/* prologue: function */
- 2047               	/* frame size = 0 */
- 2048               	.LM336:
- 2049 0742 8091 0000 		lds r24,nrf24l01p+5
- 2050               	/* epilogue start */
- 2051 0746 0895      		ret
- 2052               	.LFE59:
- 2054               	.global	nrf24l01p_rxticks_set
- 2056               	nrf24l01p_rxticks_set:
- 2057               	.LFB60:
- 2058               	.LM337:
- 2059               	.LVL107:
- 2060               	/* prologue: function */
- 2061               	/* frame size = 0 */
- 2062               	.LM338:
- 2063 0748 9093 0000 		sts (nrf24l01p+8)+1,r25
- 2064 074c 8093 0000 		sts nrf24l01p+8,r24
- 2065               	/* epilogue start */
- 2066               	.LM339:
- 2067 0750 0895      		ret
- 2068               	.LFE60:
- 2070               	.global	nrf24l01p_rxticks_get
- 2072               	nrf24l01p_rxticks_get:
- 2073               	.LFB61:
- 2074               	.LM340:
- 2075               	/* prologue: function */
- 2076               	/* frame size = 0 */
- 2077               	.LM341:
- 2078 0752 8091 0000 		lds r24,nrf24l01p+8
- 2079 0756 9091 0000 		lds r25,nrf24l01p+9
- 2080               	/* epilogue start */
- 2081 075a 0895      		ret
- 2082               	.LFE61:
- 2084               	.global	nrf24l01p_rx_timeout_set
- 2086               	nrf24l01p_rx_timeout_set:
- 2087               	.LFB62:
- 2088               	.LM342:
- 2089               	.LVL108:
- 2090               	/* prologue: function */
- 2091               	/* frame size = 0 */
- 2092               	.LM343:
- 2093 075c 9093 0000 		sts (nrf24l01p+6)+1,r25
- 2094 0760 8093 0000 		sts nrf24l01p+6,r24
- 2095               	/* epilogue start */
- 2096               	.LM344:
- 2097 0764 0895      		ret
- 2098               	.LFE62:
- 2100               	.global	nrf24l01p_rx_timeout_get
- 2102               	nrf24l01p_rx_timeout_get:
- 2103               	.LFB63:
- 2104               	.LM345:
- 2105               	/* prologue: function */
- 2106               	/* frame size = 0 */
- 2107               	.LM346:
- 2108 0766 8091 0000 		lds r24,nrf24l01p+6
- 2109 076a 9091 0000 		lds r25,nrf24l01p+7
- 2110               	/* epilogue start */
- 2111 076e 0895      		ret
- 2112               	.LFE63:
- 2114               	.global	nrf24l01p_max_retransmission_set
- 2116               	nrf24l01p_max_retransmission_set:
- 2117               	.LFB64:
- 2118               	.LM347:
- 2119               	.LVL109:
- 2120               	/* prologue: function */
- 2121               	/* frame size = 0 */
- 2122               	.LM348:
- 2123 0770 9093 0000 		sts (nrf24l01p+11)+1,r25
- 2124 0774 8093 0000 		sts nrf24l01p+11,r24
- 2125               	/* epilogue start */
- 2126               	.LM349:
- 2127 0778 0895      		ret
- 2128               	.LFE64:
- 2130               	.global	nrf24l01p_max_retransmission_get
- 2132               	nrf24l01p_max_retransmission_get:
- 2133               	.LFB65:
- 2134               	.LM350:
- 2135               	/* prologue: function */
- 2136               	/* frame size = 0 */
- 2137               	.LM351:
- 2138 077a 8091 0000 		lds r24,nrf24l01p+11
- 2139 077e 9091 0000 		lds r25,nrf24l01p+12
- 2140               	/* epilogue start */
- 2141 0782 0895      		ret
- 2142               	.LFE65:
- 2144               	.global	nrf24l01p_tx_basic
- 2146               	nrf24l01p_tx_basic:
- 2147               	.LFB66:
- 2148               	.LM352:
- 2149               	.LVL110:
- 2150 0784 FF92      		push r15
- 2151 0786 0F93      		push r16
- 2152 0788 1F93      		push r17
- 2153               	/* prologue: function */
- 2154               	/* frame size = 0 */
- 2155 078a 8C01      		movw r16,r24
- 2156 078c F62E      		mov r15,r22
- 2157               	.LBB384:
- 2158               	.LBB385:
- 2159               	.LM353:
- 2160 078e 1092 0000 		sts nrf24l01p+32,__zero_reg__
- 2161               	.LBE385:
- 2162               	.LBE384:
- 2163               	.LM354:
- 2164 0792 0E94 0000 		call nrf24l01p_flush_tx_buf
- 2165               	.LVL111:
- 2166               	.LM355:
- 2167 0796 8091 0000 		lds r24,nrf24l01p+29
- 2168 079a F801      		movw r30,r16
- 2169 079c E80F      		add r30,r24
- 2170 079e F11D      		adc r31,__zero_reg__
- 2171 07a0 8091 0000 		lds r24,nrf24l01p+19
- 2172 07a4 8083      		st Z,r24
- 2173               	.LM356:
- 2174 07a6 8091 0000 		lds r24,nrf24l01p+27
- 2175 07aa F801      		movw r30,r16
- 2176 07ac E80F      		add r30,r24
- 2177 07ae F11D      		adc r31,__zero_reg__
- 2178 07b0 8091 0000 		lds r24,nrf24l01p+15
- 2179 07b4 8083      		st Z,r24
- 2180               	.LM357:
- 2181 07b6 8091 0000 		lds r24,nrf24l01p+26
- 2182 07ba F801      		movw r30,r16
- 2183 07bc E80F      		add r30,r24
- 2184 07be F11D      		adc r31,__zero_reg__
- 2185 07c0 8091 0000 		lds r24,nrf24l01p+18
- 2186 07c4 8083      		st Z,r24
- 2187               	.LM358:
- 2188 07c6 8091 0000 		lds r24,nrf24l01p+25
- 2189 07ca F801      		movw r30,r16
- 2190 07cc E80F      		add r30,r24
- 2191 07ce F11D      		adc r31,__zero_reg__
- 2192 07d0 8091 0000 		lds r24,nrf24l01p+4
- 2193 07d4 8083      		st Z,r24
- 2194               	.LM359:
- 2195 07d6 8091 0000 		lds r24,nrf24l01p+24
- 2196 07da F801      		movw r30,r16
- 2197 07dc E80F      		add r30,r24
- 2198 07de F11D      		adc r31,__zero_reg__
- 2199 07e0 8091 0000 		lds r24,nrf24l01p+5
- 2200 07e4 8083      		st Z,r24
- 2201               	.LM360:
- 2202 07e6 8091 0000 		lds r24,nrf24l01p+23
- 2203 07ea F801      		movw r30,r16
- 2204 07ec E80F      		add r30,r24
- 2205 07ee F11D      		adc r31,__zero_reg__
- 2206 07f0 F082      		st Z,r15
- 2207               	.LM361:
- 2208 07f2 C801      		movw r24,r16
- 2209 07f4 6091 0000 		lds r22,nrf24l01p+28
- 2210 07f8 0E94 0000 		call nrf24l01p_crc_block
- 2211               	.LM362:
- 2212 07fc 2091 0000 		lds r18,nrf24l01p+21
- 2213 0800 F801      		movw r30,r16
- 2214 0802 E20F      		add r30,r18
- 2215 0804 F11D      		adc r31,__zero_reg__
- 2216 0806 9083      		st Z,r25
- 2217               	.LM363:
- 2218 0808 9091 0000 		lds r25,nrf24l01p+22
- 2219 080c F801      		movw r30,r16
- 2220 080e E90F      		add r30,r25
- 2221 0810 F11D      		adc r31,__zero_reg__
- 2222 0812 8083      		st Z,r24
- 2223               	.LM364:
- 2224 0814 C801      		movw r24,r16
- 2225 0816 0E94 0000 		call nrf24l01p_write_data_tx_buf
- 2226               	.LM365:
- 2227 081a 83E0      		ldi r24,lo8(3)
- 2228 081c 0E94 0000 		call nrf24l01p_mode_set
- 2229               	.LM366:
- 2230 0820 0E94 0000 		call nrf24l01p_wait_tx_complete
+ 511 016e 0E94 0000 		call nRF24L01P_GPIO_Disable
+ 512               	.LM113:
+ 513 0172 1092 0000 		sts nRF24L01P+1,__zero_reg__
+ 514               	/* epilogue start */
+ 515               	.LM114:
+ 516 0176 0895      		ret
+ 517               	.LFE22:
+ 519               	.global	nRF24L01P_Error_Clear
+ 521               	nRF24L01P_Error_Clear:
+ 522               	.LFB23:
+ 523               	.LM115:
+ 524               	/* prologue: function */
+ 525               	/* frame size = 0 */
+ 526               	.LM116:
+ 527 0178 1092 0000 		sts nRF24L01P+32,__zero_reg__
+ 528               	/* epilogue start */
+ 529               	.LM117:
+ 530 017c 0895      		ret
+ 531               	.LFE23:
+ 533               	.global	nRF24L01P_Error_Clear_Ticks
+ 535               	nRF24L01P_Error_Clear_Ticks:
+ 536               	.LFB24:
+ 537               	.LM118:
+ 538               	/* prologue: function */
+ 539               	/* frame size = 0 */
+ 540               	.LM119:
+ 541 017e 1092 0000 		sts (nRF24L01P+30)+1,__zero_reg__
+ 542 0182 1092 0000 		sts nRF24L01P+30,__zero_reg__
+ 543               	/* epilogue start */
+ 544               	.LM120:
+ 545 0186 0895      		ret
+ 546               	.LFE24:
+ 548               	.global	nRF24L01P_Error_Clear_Buf
+ 550               	nRF24L01P_Error_Clear_Buf:
+ 551               	.LFB25:
+ 552               	.LM121:
+ 553               	/* prologue: function */
+ 554               	/* frame size = 0 */
+ 555               	.LM122:
+ 556 0188 E0E0      		ldi r30,lo8(nRF24L01P+33)
+ 557 018a F0E0      		ldi r31,hi8(nRF24L01P+33)
+ 558               	.L60:
+ 559               	.LBB285:
+ 560               	.LM123:
+ 561 018c 1192      		st Z+,__zero_reg__
+ 562               	.LM124:
+ 563 018e 80E0      		ldi r24,hi8(nRF24L01P+43)
+ 564 0190 E030      		cpi r30,lo8(nRF24L01P+43)
+ 565 0192 F807      		cpc r31,r24
+ 566 0194 01F4      		brne .L60
+ 567               	/* epilogue start */
+ 568               	.LBE285:
+ 569               	.LM125:
+ 570 0196 0895      		ret
+ 571               	.LFE25:
+ 573               	.global	nRF24L01P_Error_Clear_All
+ 575               	nRF24L01P_Error_Clear_All:
+ 576               	.LFB26:
+ 577               	.LM126:
+ 578               	/* prologue: function */
+ 579               	/* frame size = 0 */
+ 580               	.LBB286:
+ 581               	.LBB287:
+ 582               	.LM127:
+ 583 0198 1092 0000 		sts nRF24L01P+32,__zero_reg__
+ 584               	.LBE287:
+ 585               	.LBE286:
+ 586               	.LBB288:
+ 587               	.LBB289:
+ 588               	.LM128:
+ 589 019c 1092 0000 		sts (nRF24L01P+30)+1,__zero_reg__
+ 590 01a0 1092 0000 		sts nRF24L01P+30,__zero_reg__
+ 591 01a4 E0E0      		ldi r30,lo8(nRF24L01P+33)
+ 592 01a6 F0E0      		ldi r31,hi8(nRF24L01P+33)
+ 593               	.L64:
+ 594               	.LBE289:
+ 595               	.LBE288:
+ 596               	.LBB290:
+ 597               	.LBB291:
+ 598               	.LBB292:
+ 599               	.LM129:
+ 600 01a8 1192      		st Z+,__zero_reg__
+ 601               	.LM130:
+ 602 01aa 80E0      		ldi r24,hi8(nRF24L01P+43)
+ 603 01ac E030      		cpi r30,lo8(nRF24L01P+43)
+ 604 01ae F807      		cpc r31,r24
+ 605 01b0 01F4      		brne .L64
+ 606               	/* epilogue start */
+ 607               	.LBE292:
+ 608               	.LBE291:
+ 609               	.LBE290:
+ 610               	.LM131:
+ 611 01b2 0895      		ret
+ 612               	.LFE26:
+ 614               	.global	nRF24L01P_Error_Set
+ 616               	nRF24L01P_Error_Set:
+ 617               	.LFB27:
+ 618               	.LM132:
+ 619               	.LVL10:
+ 620               	/* prologue: function */
+ 621               	/* frame size = 0 */
+ 622               	.LM133:
+ 623 01b4 8093 0000 		sts nRF24L01P+32,r24
+ 624               	/* epilogue start */
+ 625               	.LM134:
+ 626 01b8 0895      		ret
+ 627               	.LFE27:
+ 629               	.global	nRF24L01P_Error_Get
+ 631               	nRF24L01P_Error_Get:
+ 632               	.LFB28:
+ 633               	.LM135:
+ 634               	/* prologue: function */
+ 635               	/* frame size = 0 */
+ 636               	.LM136:
+ 637 01ba 8091 0000 		lds r24,nRF24L01P+32
+ 638               	/* epilogue start */
+ 639 01be 0895      		ret
+ 640               	.LFE28:
+ 642               	.global	nRF24L01P_Error_Get_Index
+ 644               	nRF24L01P_Error_Get_Index:
+ 645               	.LFB29:
+ 646               	.LM137:
+ 647               	.LVL11:
+ 648               	/* prologue: function */
+ 649               	/* frame size = 0 */
+ 650               	.LM138:
+ 651 01c0 E0E0      		ldi r30,lo8(nRF24L01P)
+ 652 01c2 F0E0      		ldi r31,hi8(nRF24L01P)
+ 653 01c4 E80F      		add r30,r24
+ 654 01c6 F11D      		adc r31,__zero_reg__
+ 655               	.LM139:
+ 656 01c8 81A1      		ldd r24,Z+33
+ 657               	.LVL12:
+ 658               	/* epilogue start */
+ 659 01ca 0895      		ret
+ 660               	.LFE29:
+ 662               	.global	nRF24L01P_Error_Timeout
+ 664               	nRF24L01P_Error_Timeout:
+ 665               	.LFB30:
+ 666               	.LM140:
+ 667               	.LVL13:
+ 668               	/* prologue: function */
+ 669               	/* frame size = 0 */
+ 670               	.LBB293:
+ 671               	.LBB294:
+ 672               	.LBB295:
+ 673               	.LBB296:
+ 674               	.LBB297:
+ 675               	.LBB298:
+ 676               	.LM141:
+ 677 01cc ECE2      		ldi r30,lo8(300)
+ 678 01ce F1E0      		ldi r31,hi8(300)
+ 679               	.LVL14:
+ 680               	/* #APP */
+ 681               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 682 01d0 3197      		1: sbiw r30,1
+ 683 01d2 01F4      		brne 1b
+ 684               	 ;  0 "" 2
+ 685               	/* #NOAPP */
+ 686               	.LBE298:
+ 687               	.LBE297:
+ 688               	.LBE296:
+ 689               	.LBE295:
+ 690               	.LBE294:
+ 691               	.LBE293:
+ 692               	.LM142:
+ 693 01d4 2091 0000 		lds r18,nRF24L01P+30
+ 694 01d8 3091 0000 		lds r19,(nRF24L01P+30)+1
+ 695 01dc 2F5F      		subi r18,lo8(-(1))
+ 696 01de 3F4F      		sbci r19,hi8(-(1))
+ 697 01e0 3093 0000 		sts (nRF24L01P+30)+1,r19
+ 698 01e4 2093 0000 		sts nRF24L01P+30,r18
+ 699 01e8 40E0      		ldi r20,lo8(0)
+ 700 01ea 8217      		cp r24,r18
+ 701 01ec 9307      		cpc r25,r19
+ 702 01ee 00F4      		brsh .L74
+ 703 01f0 41E0      		ldi r20,lo8(1)
+ 704               	.L74:
+ 705               	.LM143:
+ 706 01f2 842F      		mov r24,r20
+ 707               	.LVL15:
+ 708               	/* epilogue start */
+ 709 01f4 0895      		ret
+ 710               	.LFE30:
+ 712               	.global	nRF24L01P_Error_Free
+ 714               	nRF24L01P_Error_Free:
+ 715               	.LFB31:
+ 716               	.LM144:
+ 717               	/* prologue: function */
+ 718               	/* frame size = 0 */
+ 719               	.LM145:
+ 720 01f6 90E0      		ldi r25,lo8(0)
+ 721 01f8 8091 0000 		lds r24,nRF24L01P+32
+ 722 01fc 8823      		tst r24
+ 723 01fe 01F4      		brne .L77
+ 724 0200 91E0      		ldi r25,lo8(1)
+ 725               	.L77:
+ 726               	.LM146:
+ 727 0202 892F      		mov r24,r25
+ 728               	/* epilogue start */
+ 729 0204 0895      		ret
+ 730               	.LFE31:
+ 732               	.global	nRF24L01P_CRC
+ 734               	nRF24L01P_CRC:
+ 735               	.LFB32:
+ 736               	.LM147:
+ 737               	.LVL16:
+ 738               	/* prologue: function */
+ 739               	/* frame size = 0 */
+ 740               	.LM148:
+ 741 0206 362F      		mov r19,r22
+ 742               	.LVL17:
+ 743 0208 20E0      		ldi r18,lo8(0)
+ 744               	.LVL18:
+ 745 020a 2827      		eor r18,r24
+ 746 020c 3927      		eor r19,r25
+ 747               	.LVL19:
+ 748 020e 40E0      		ldi r20,lo8(0)
+ 749               	.LVL20:
+ 750               	.LBB299:
+ 751               	.LM149:
+ 752 0210 61E2      		ldi r22,lo8(4129)
+ 753 0212 70E1      		ldi r23,hi8(4129)
+ 754               	.LVL21:
+ 755               	.L82:
+ 756 0214 C901      		movw r24,r18
+ 757 0216 880F      		lsl r24
+ 758 0218 991F      		rol r25
+ 759               	.LVL22:
+ 760               	.LM150:
+ 761 021a 37FF      		sbrs r19,7
+ 762 021c 00C0      		rjmp .L80
+ 763               	.LVL23:
+ 764               	.LM151:
+ 765 021e 9C01      		movw r18,r24
+ 766 0220 2627      		eor r18,r22
+ 767 0222 3727      		eor r19,r23
+ 768 0224 00C0      		rjmp .L81
+ 769               	.LVL24:
+ 770               	.L80:
+ 771               	.LM152:
+ 772 0226 9C01      		movw r18,r24
+ 773               	.L81:
+ 774               	.LM153:
+ 775 0228 4F5F      		subi r20,lo8(-(1))
+ 776 022a 4830      		cpi r20,lo8(8)
+ 777 022c 01F4      		brne .L82
+ 778               	.LBE299:
+ 779               	.LM154:
+ 780 022e C901      		movw r24,r18
+ 781               	.LVL25:
+ 782               	/* epilogue start */
+ 783 0230 0895      		ret
+ 784               	.LFE32:
+ 786               	.global	nRF24L01P_CRC_Block
+ 788               	nRF24L01P_CRC_Block:
+ 789               	.LFB33:
+ 790               	.LM155:
+ 791               	.LVL26:
+ 792 0232 0F93      		push r16
+ 793 0234 1F93      		push r17
+ 794 0236 CF93      		push r28
+ 795 0238 DF93      		push r29
+ 796               	/* prologue: function */
+ 797               	/* frame size = 0 */
+ 798 023a 062F      		mov r16,r22
+ 799               	.LM156:
+ 800 023c EC01      		movw r28,r24
+ 801               	.LVL27:
+ 802 023e 20E0      		ldi r18,lo8(0)
+ 803 0240 30E0      		ldi r19,hi8(0)
+ 804               	.LVL28:
+ 805 0242 10E0      		ldi r17,lo8(0)
+ 806               	.LVL29:
+ 807 0244 00C0      		rjmp .L86
+ 808               	.LVL30:
+ 809               	.L87:
+ 810               	.LBB300:
+ 811               	.LM157:
+ 812 0246 C901      		movw r24,r18
+ 813 0248 6991      		ld r22,Y+
+ 814 024a 0E94 0000 		call nRF24L01P_CRC
+ 815               	.LVL31:
+ 816 024e 9C01      		movw r18,r24
+ 817               	.LVL32:
+ 818               	.LM158:
+ 819 0250 1F5F      		subi r17,lo8(-(1))
+ 820               	.LVL33:
+ 821               	.L86:
+ 822 0252 1017      		cp r17,r16
+ 823 0254 00F0      		brlo .L87
+ 824               	.LBE300:
+ 825               	.LM159:
+ 826 0256 C901      		movw r24,r18
+ 827               	.LVL34:
+ 828               	/* epilogue start */
+ 829 0258 DF91      		pop r29
+ 830 025a CF91      		pop r28
+ 831 025c 1F91      		pop r17
+ 832               	.LVL35:
+ 833 025e 0F91      		pop r16
+ 834               	.LVL36:
+ 835 0260 0895      		ret
+ 836               	.LFE33:
+ 838               	.global	nRF24L01P_SPI_Transfer
+ 840               	nRF24L01P_SPI_Transfer:
+ 841               	.LFB34:
+ 842               	.LM160:
+ 843               	.LVL37:
+ 844               	/* prologue: function */
+ 845               	/* frame size = 0 */
+ 846 0262 982F      		mov r25,r24
+ 847               	.LBB301:
+ 848               	.LBB302:
+ 849               	.LM161:
+ 850 0264 8091 0000 		lds r24,nRF24L01P+32
+ 851               	.LVL38:
+ 852 0268 8823      		tst r24
+ 853 026a 01F4      		brne .L96
+ 854               	.L90:
+ 855               	.LBE302:
+ 856               	.LBE301:
+ 857               	.LBB303:
+ 858               	.LM162:
+ 859 026c 9EBD      		out 78-32,r25
+ 860 026e 90E0      		ldi r25,lo8(0)
+ 861               	.LVL39:
+ 862               	.LBB304:
+ 863               	.LBB305:
+ 864               	.LBB306:
+ 865               	.LBB307:
+ 866               	.LM163:
+ 867 0270 28E2      		ldi r18,lo8(40)
+ 868 0272 00C0      		rjmp .L92
+ 869               	.LVL40:
+ 870               	.L93:
+ 871 0274 822F      		mov r24,r18
+ 872               	/* #APP */
+ 873               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 874 0276 8A95      		1: dec r24
+ 875 0278 01F4      		brne 1b
+ 876               	 ;  0 "" 2
+ 877               	/* #NOAPP */
+ 878               	.LBE307:
+ 879               	.LBE306:
+ 880               	.LBE305:
+ 881               	.LBE304:
+ 882               	.LM164:
+ 883 027a 9F5F      		subi r25,lo8(-(1))
+ 884               	.LM165:
+ 885 027c 993C      		cpi r25,lo8(-55)
+ 886 027e 01F4      		brne .L92
+ 887               	.LBB308:
+ 888               	.LBB309:
+ 889               	.LM166:
+ 890 0280 81E0      		ldi r24,lo8(1)
+ 891               	.LVL41:
+ 892 0282 8093 0000 		sts nRF24L01P+32,r24
+ 893               	.LVL42:
+ 894               	.L96:
+ 895 0286 80E0      		ldi r24,lo8(0)
+ 896 0288 0895      		ret
+ 897               	.LVL43:
+ 898               	.L92:
+ 899               	.LBE309:
+ 900               	.LBE308:
+ 901               	.LM167:
+ 902 028a 0DB4      		in __tmp_reg__,77-32
+ 903 028c 07FE      		sbrs __tmp_reg__,7
+ 904 028e 00C0      		rjmp .L93
+ 905               	.LM168:
+ 906 0290 8EB5      		in r24,78-32
+ 907               	.LVL44:
+ 908               	.LBE303:
+ 909               	.LM169:
+ 910 0292 0895      		ret
+ 911               	.LFE34:
+ 913               	.global	nRF24L01P_ReadWrite_Register
+ 915               	nRF24L01P_ReadWrite_Register:
+ 916               	.LFB35:
+ 917               	.LM170:
+ 918               	.LVL45:
+ 919 0294 DF92      		push r13
+ 920 0296 EF92      		push r14
+ 921 0298 FF92      		push r15
+ 922 029a 0F93      		push r16
+ 923 029c 1F93      		push r17
+ 924 029e CF93      		push r28
+ 925 02a0 DF93      		push r29
+ 926               	/* prologue: function */
+ 927               	/* frame size = 0 */
+ 928 02a2 182F      		mov r17,r24
+ 929 02a4 062F      		mov r16,r22
+ 930 02a6 F42E      		mov r15,r20
+ 931 02a8 E52E      		mov r14,r21
+ 932               	.LVL46:
+ 933 02aa D22E      		mov r13,r18
+ 934               	.LBB310:
+ 935               	.LBB311:
+ 936               	.LM171:
+ 937 02ac 8091 0000 		lds r24,nRF24L01P+32
+ 938               	.LVL47:
+ 939 02b0 8823      		tst r24
+ 940 02b2 01F4      		brne .L106
+ 941               	.LVL48:
+ 942               	.LBE311:
+ 943               	.LBE310:
+ 944               	.LM172:
+ 945 02b4 8091 0000 		lds r24,nRF24L01P+1
+ 946 02b8 8823      		tst r24
+ 947 02ba 01F4      		brne .L99
+ 948               	.LM173:
+ 949 02bc 0E94 0000 		call nRF24L01P_Enable
+ 950               	.LVL49:
+ 951               	.L99:
+ 952               	.LBB312:
+ 953               	.LBB313:
+ 954               	.LM174:
+ 955 02c0 2A98      		cbi 37-32,2
+ 956               	.LBE313:
+ 957               	.LBE312:
+ 958               	.LM175:
+ 959 02c2 0023      		tst r16
+ 960 02c4 01F4      		brne .L100
+ 961               	.LM176:
+ 962 02c6 812F      		mov r24,r17
+ 963 02c8 8062      		ori r24,lo8(32)
+ 964 02ca 0E94 0000 		call nRF24L01P_SPI_Transfer
+ 965 02ce 8F2D      		mov r24,r15
+ 966 02d0 9E2D      		mov r25,r14
+ 967 02d2 9C01      		movw r18,r24
+ 968 02d4 E901      		movw r28,r18
+ 969 02d6 10E0      		ldi r17,lo8(0)
+ 970               	.LVL50:
+ 971 02d8 00C0      		rjmp .L101
+ 972               	.L102:
+ 973               	.LBB314:
+ 974               	.LM177:
+ 975 02da 8991      		ld r24,Y+
+ 976 02dc 0E94 0000 		call nRF24L01P_SPI_Transfer
+ 977               	.LM178:
+ 978 02e0 1F5F      		subi r17,lo8(-(1))
+ 979               	.L101:
+ 980 02e2 1D15      		cp r17,r13
+ 981 02e4 00F0      		brlo .L102
+ 982 02e6 00C0      		rjmp .L103
+ 983               	.LVL51:
+ 984               	.L100:
+ 985               	.LBE314:
+ 986               	.LM179:
+ 987 02e8 812F      		mov r24,r17
+ 988 02ea 0E94 0000 		call nRF24L01P_SPI_Transfer
+ 989 02ee 8F2D      		mov r24,r15
+ 990 02f0 9E2D      		mov r25,r14
+ 991 02f2 9C01      		movw r18,r24
+ 992 02f4 E901      		movw r28,r18
+ 993 02f6 10E0      		ldi r17,lo8(0)
+ 994               	.LVL52:
+ 995 02f8 00C0      		rjmp .L104
+ 996               	.L105:
+ 997               	.LBB315:
+ 998               	.LM180:
+ 999 02fa 8FEF      		ldi r24,lo8(-1)
+ 1000 02fc 0E94 0000 		call nRF24L01P_SPI_Transfer
+ 1001 0300 8993      		st Y+,r24
+ 1002               	.LM181:
+ 1003 0302 1F5F      		subi r17,lo8(-(1))
+ 1004               	.L104:
+ 1005 0304 1D15      		cp r17,r13
+ 1006 0306 00F0      		brlo .L105
+ 1007               	.LVL53:
+ 1008               	.L103:
+ 1009               	.LBE315:
+ 1010               	.LBB316:
+ 1011               	.LBB317:
+ 1012               	.LM182:
+ 1013 0308 2A9A      		sbi 37-32,2
+ 1014               	.LVL54:
+ 1015               	.L106:
+ 1016               	/* epilogue start */
+ 1017               	.LBE317:
+ 1018               	.LBE316:
+ 1019               	.LM183:
+ 1020 030a DF91      		pop r29
+ 1021 030c CF91      		pop r28
+ 1022 030e 1F91      		pop r17
+ 1023               	.LVL55:
+ 1024 0310 0F91      		pop r16
+ 1025               	.LVL56:
+ 1026 0312 FF90      		pop r15
+ 1027               	.LVL57:
+ 1028 0314 EF90      		pop r14
+ 1029               	.LVL58:
+ 1030 0316 DF90      		pop r13
+ 1031               	.LVL59:
+ 1032 0318 0895      		ret
+ 1033               	.LFE35:
+ 1035               	.global	nRF24L01P_ReadModifyWrite_Register
+ 1037               	nRF24L01P_ReadModifyWrite_Register:
+ 1038               	.LFB36:
+ 1039               	.LM184:
+ 1040               	.LVL60:
+ 1041 031a FF92      		push r15
+ 1042 031c 0F93      		push r16
+ 1043 031e 1F93      		push r17
+ 1044               	/* prologue: function */
+ 1045               	/* frame size = 0 */
+ 1046 0320 F82E      		mov r15,r24
+ 1047 0322 062F      		mov r16,r22
+ 1048 0324 142F      		mov r17,r20
+ 1049               	.LBB318:
+ 1050               	.LBB319:
+ 1051               	.LM185:
+ 1052 0326 8091 0000 		lds r24,nRF24L01P+32
+ 1053               	.LVL61:
+ 1054 032a 8823      		tst r24
+ 1055 032c 01F4      		brne .L111
+ 1056               	.LVL62:
+ 1057               	.LBE319:
+ 1058               	.LBE318:
+ 1059               	.LM186:
+ 1060 032e 8F2D      		mov r24,r15
+ 1061 0330 61E0      		ldi r22,lo8(1)
+ 1062 0332 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1063 0334 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1064 0336 21E0      		ldi r18,lo8(1)
+ 1065 0338 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1066 033c 2091 0000 		lds r18,nRF24L01P+2
+ 1067               	.LM187:
+ 1068 0340 1123      		tst r17
+ 1069 0342 01F0      		breq .L109
+ 1070               	.LM188:
+ 1071 0344 81E0      		ldi r24,lo8(1)
+ 1072 0346 90E0      		ldi r25,hi8(1)
+ 1073 0348 00C0      		rjmp 2f
+ 1074 034a 880F      	1:	lsl r24
+ 1075 034c 991F      		rol r25
+ 1076 034e 0A95      	2:	dec r16
+ 1077 0350 02F4      		brpl 1b
+ 1078 0352 282B      		or r18,r24
+ 1079 0354 2093 0000 		sts nRF24L01P+2,r18
+ 1080 0358 00C0      		rjmp .L110
+ 1081               	.L109:
+ 1082               	.LM189:
+ 1083 035a 81E0      		ldi r24,lo8(1)
+ 1084 035c 90E0      		ldi r25,hi8(1)
+ 1085 035e 00C0      		rjmp 2f
+ 1086 0360 880F      	1:	lsl r24
+ 1087 0362 991F      		rol r25
+ 1088 0364 0A95      	2:	dec r16
+ 1089 0366 02F4      		brpl 1b
+ 1090 0368 8095      		com r24
+ 1091 036a 8223      		and r24,r18
+ 1092 036c 8093 0000 		sts nRF24L01P+2,r24
+ 1093               	.L110:
+ 1094               	.LM190:
+ 1095 0370 8F2D      		mov r24,r15
+ 1096 0372 60E0      		ldi r22,lo8(0)
+ 1097 0374 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1098 0376 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1099 0378 21E0      		ldi r18,lo8(1)
+ 1100 037a 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1101               	.LVL63:
+ 1102               	.L111:
+ 1103               	/* epilogue start */
+ 1104               	.LM191:
+ 1105 037e 1F91      		pop r17
+ 1106               	.LVL64:
+ 1107 0380 0F91      		pop r16
+ 1108               	.LVL65:
+ 1109 0382 FF90      		pop r15
+ 1110               	.LVL66:
+ 1111 0384 0895      		ret
+ 1112               	.LFE36:
+ 1114               	.global	nRF24L01P_Flush_Tx_Buf
+ 1116               	nRF24L01P_Flush_Tx_Buf:
+ 1117               	.LFB37:
+ 1118               	.LM192:
+ 1119               	/* prologue: function */
+ 1120               	/* frame size = 0 */
+ 1121               	.LM193:
+ 1122 0386 81EE      		ldi r24,lo8(-31)
+ 1123 0388 60E0      		ldi r22,lo8(0)
+ 1124 038a 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1125 038c 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1126 038e 20E0      		ldi r18,lo8(0)
+ 1127 0390 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1128               	.LBB320:
+ 1129               	.LBB321:
+ 1130               	.LM194:
+ 1131 0394 8091 0000 		lds r24,nRF24L01P+32
+ 1132 0398 8823      		tst r24
+ 1133 039a 01F0      		breq .L115
+ 1134               	.LBE321:
+ 1135               	.LBE320:
+ 1136               	.LBB322:
+ 1137               	.LBB323:
+ 1138               	.LM195:
+ 1139 039c 82E0      		ldi r24,lo8(2)
+ 1140 039e 8093 0000 		sts nRF24L01P+32,r24
+ 1141               	.L115:
+ 1142 03a2 0895      		ret
+ 1143               	.LBE323:
+ 1144               	.LBE322:
+ 1145               	.LFE37:
+ 1147               	.global	nRF24L01P_Flush_Rx_Buf
+ 1149               	nRF24L01P_Flush_Rx_Buf:
+ 1150               	.LFB38:
+ 1151               	.LM196:
+ 1152               	/* prologue: function */
+ 1153               	/* frame size = 0 */
+ 1154               	.LM197:
+ 1155 03a4 82EE      		ldi r24,lo8(-30)
+ 1156 03a6 60E0      		ldi r22,lo8(0)
+ 1157 03a8 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1158 03aa 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1159 03ac 20E0      		ldi r18,lo8(0)
+ 1160 03ae 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1161               	.LBB324:
+ 1162               	.LBB325:
+ 1163               	.LM198:
+ 1164 03b2 8091 0000 		lds r24,nRF24L01P+32
+ 1165 03b6 8823      		tst r24
+ 1166 03b8 01F0      		breq .L119
+ 1167               	.LBE325:
+ 1168               	.LBE324:
+ 1169               	.LBB326:
+ 1170               	.LBB327:
+ 1171               	.LM199:
+ 1172 03ba 83E0      		ldi r24,lo8(3)
+ 1173 03bc 8093 0000 		sts nRF24L01P+32,r24
+ 1174               	.L119:
+ 1175 03c0 0895      		ret
+ 1176               	.LBE327:
+ 1177               	.LBE326:
+ 1178               	.LFE38:
+ 1180               	.global	nRF24L01P_Write_Data_Tx_Buf
+ 1182               	nRF24L01P_Write_Data_Tx_Buf:
+ 1183               	.LFB39:
+ 1184               	.LM200:
+ 1185               	.LVL67:
+ 1186               	/* prologue: function */
+ 1187               	/* frame size = 0 */
+ 1188 03c2 AC01      		movw r20,r24
+ 1189               	.LM201:
+ 1190 03c4 80EA      		ldi r24,lo8(-96)
+ 1191               	.LVL68:
+ 1192 03c6 60E0      		ldi r22,lo8(0)
+ 1193 03c8 20E2      		ldi r18,lo8(32)
+ 1194 03ca 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1195               	.LVL69:
+ 1196               	.LBB328:
+ 1197               	.LBB329:
+ 1198               	.LM202:
+ 1199 03ce 8091 0000 		lds r24,nRF24L01P+32
+ 1200 03d2 8823      		tst r24
+ 1201 03d4 01F0      		breq .L123
+ 1202               	.LBE329:
+ 1203               	.LBE328:
+ 1204               	.LBB330:
+ 1205               	.LBB331:
+ 1206               	.LM203:
+ 1207 03d6 84E0      		ldi r24,lo8(4)
+ 1208 03d8 8093 0000 		sts nRF24L01P+32,r24
+ 1209               	.L123:
+ 1210 03dc 0895      		ret
+ 1211               	.LBE331:
+ 1212               	.LBE330:
+ 1213               	.LFE39:
+ 1215               	.global	nRF24L01P_Read_Data_Rx_Buf
+ 1217               	nRF24L01P_Read_Data_Rx_Buf:
+ 1218               	.LFB40:
+ 1219               	.LM204:
+ 1220               	.LVL70:
+ 1221               	/* prologue: function */
+ 1222               	/* frame size = 0 */
+ 1223 03de AC01      		movw r20,r24
+ 1224               	.LM205:
+ 1225 03e0 81E6      		ldi r24,lo8(97)
+ 1226               	.LVL71:
+ 1227 03e2 61E0      		ldi r22,lo8(1)
+ 1228 03e4 20E2      		ldi r18,lo8(32)
+ 1229 03e6 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1230               	.LVL72:
+ 1231               	.LBB332:
+ 1232               	.LBB333:
+ 1233               	.LM206:
+ 1234 03ea 8091 0000 		lds r24,nRF24L01P+32
+ 1235 03ee 8823      		tst r24
+ 1236 03f0 01F0      		breq .L127
+ 1237               	.LBE333:
+ 1238               	.LBE332:
+ 1239               	.LBB334:
+ 1240               	.LBB335:
+ 1241               	.LM207:
+ 1242 03f2 85E0      		ldi r24,lo8(5)
+ 1243 03f4 8093 0000 		sts nRF24L01P+32,r24
+ 1244               	.L127:
+ 1245 03f8 0895      		ret
+ 1246               	.LBE335:
+ 1247               	.LBE334:
+ 1248               	.LFE40:
+ 1250               	.global	nRF24L01P_Tx_Buf_Empty
+ 1252               	nRF24L01P_Tx_Buf_Empty:
+ 1253               	.LFB41:
+ 1254               	.LM208:
+ 1255               	/* prologue: function */
+ 1256               	/* frame size = 0 */
+ 1257               	.LBB336:
+ 1258               	.LBB337:
+ 1259               	.LM209:
+ 1260 03fa 8091 0000 		lds r24,nRF24L01P+32
+ 1261 03fe 8823      		tst r24
+ 1262 0400 01F0      		breq .L129
+ 1263 0402 80E0      		ldi r24,lo8(0)
+ 1264 0404 0895      		ret
+ 1265               	.L129:
+ 1266               	.LBE337:
+ 1267               	.LBE336:
+ 1268               	.LM210:
+ 1269 0406 1092 0000 		sts nRF24L01P+2,__zero_reg__
+ 1270               	.LM211:
+ 1271 040a 87E1      		ldi r24,lo8(23)
+ 1272 040c 61E0      		ldi r22,lo8(1)
+ 1273 040e 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1274 0410 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1275 0412 21E0      		ldi r18,lo8(1)
+ 1276 0414 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1277 0418 8091 0000 		lds r24,nRF24L01P+2
+ 1278 041c 90E0      		ldi r25,lo8(0)
+ 1279 041e 64E0      		ldi r22,4
+ 1280 0420 9695      	1:	lsr r25
+ 1281 0422 8795      		ror r24
+ 1282 0424 6A95      		dec r22
+ 1283 0426 01F4      		brne 1b
+ 1284 0428 8170      		andi r24,lo8(1)
+ 1285               	.LM212:
+ 1286 042a 0895      		ret
+ 1287               	.LFE41:
+ 1289               	.global	nRF24L01P_Rx_Buf_Not_Empty
+ 1291               	nRF24L01P_Rx_Buf_Not_Empty:
+ 1292               	.LFB42:
+ 1293               	.LM213:
+ 1294               	/* prologue: function */
+ 1295               	/* frame size = 0 */
+ 1296               	.LBB338:
+ 1297               	.LBB339:
+ 1298               	.LM214:
+ 1299 042c 8091 0000 		lds r24,nRF24L01P+32
+ 1300 0430 8823      		tst r24
+ 1301 0432 01F0      		breq .L133
+ 1302 0434 80E0      		ldi r24,lo8(0)
+ 1303 0436 0895      		ret
+ 1304               	.L133:
+ 1305               	.LBE339:
+ 1306               	.LBE338:
+ 1307               	.LM215:
+ 1308 0438 1092 0000 		sts nRF24L01P+2,__zero_reg__
+ 1309               	.LM216:
+ 1310 043c 87E1      		ldi r24,lo8(23)
+ 1311 043e 61E0      		ldi r22,lo8(1)
+ 1312 0440 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1313 0442 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1314 0444 21E0      		ldi r18,lo8(1)
+ 1315 0446 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1316 044a 8091 0000 		lds r24,nRF24L01P+2
+ 1317 044e 8095      		com r24
+ 1318 0450 8170      		andi r24,lo8(1)
+ 1319               	.LM217:
+ 1320 0452 0895      		ret
+ 1321               	.LFE42:
+ 1323               	.global	nRF24L01P_Wait_Tx_Complete
+ 1325               	nRF24L01P_Wait_Tx_Complete:
+ 1326               	.LFB43:
+ 1327               	.LM218:
+ 1328 0454 CF93      		push r28
+ 1329 0456 DF93      		push r29
+ 1330               	/* prologue: function */
+ 1331               	/* frame size = 0 */
+ 1332               	.LBB340:
+ 1333               	.LBB341:
+ 1334               	.LM219:
+ 1335 0458 8091 0000 		lds r24,nRF24L01P+32
+ 1336 045c 8823      		tst r24
+ 1337 045e 01F4      		brne .L143
+ 1338               	.L137:
+ 1339               	.LBE341:
+ 1340               	.LBE340:
+ 1341               	.LBB342:
+ 1342               	.LBB343:
+ 1343               	.LM220:
+ 1344 0460 1092 0000 		sts (nRF24L01P+30)+1,__zero_reg__
+ 1345 0464 1092 0000 		sts nRF24L01P+30,__zero_reg__
+ 1346               	.LBE343:
+ 1347               	.LBE342:
+ 1348               	.LBB344:
+ 1349               	.LBB345:
+ 1350               	.LBB346:
+ 1351               	.LBB347:
+ 1352               	.LBB348:
+ 1353               	.LBB349:
+ 1354               	.LBB350:
+ 1355               	.LBB351:
+ 1356               	.LM221:
+ 1357 0468 CCE2      		ldi r28,lo8(300)
+ 1358 046a D1E0      		ldi r29,hi8(300)
+ 1359 046c 00C0      		rjmp .L139
+ 1360               	.L140:
+ 1361 046e CE01      		movw r24,r28
+ 1362               	.LVL73:
+ 1363               	/* #APP */
+ 1364               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1365 0470 0197      		1: sbiw r24,1
+ 1366 0472 01F4      		brne 1b
+ 1367               	 ;  0 "" 2
+ 1368               	/* #NOAPP */
+ 1369               	.LBE351:
+ 1370               	.LBE350:
+ 1371               	.LBE349:
+ 1372               	.LBE348:
+ 1373               	.LBE347:
+ 1374               	.LBE346:
+ 1375               	.LM222:
+ 1376 0474 8091 0000 		lds r24,nRF24L01P+30
+ 1377 0478 9091 0000 		lds r25,(nRF24L01P+30)+1
+ 1378               	.LVL74:
+ 1379 047c 0196      		adiw r24,1
+ 1380 047e 9093 0000 		sts (nRF24L01P+30)+1,r25
+ 1381 0482 8093 0000 		sts nRF24L01P+30,r24
+ 1382               	.LM223:
+ 1383 0486 8536      		cpi r24,101
+ 1384 0488 9105      		cpc r25,__zero_reg__
+ 1385 048a 00F0      		brlo .L139
+ 1386               	.LBE345:
+ 1387               	.LBE344:
+ 1388               	.LBB352:
+ 1389               	.LBB353:
+ 1390               	.LM224:
+ 1391 048c 86E0      		ldi r24,lo8(6)
+ 1392 048e 8093 0000 		sts nRF24L01P+32,r24
+ 1393               	.L143:
+ 1394 0492 80E0      		ldi r24,lo8(0)
+ 1395 0494 00C0      		rjmp .L138
+ 1396               	.L139:
+ 1397               	.LBE353:
+ 1398               	.LBE352:
+ 1399               	.LM225:
+ 1400 0496 0E94 0000 		call nRF24L01P_Tx_Buf_Empty
+ 1401 049a 8823      		tst r24
+ 1402 049c 01F0      		breq .L140
+ 1403 049e 81E0      		ldi r24,lo8(1)
+ 1404               	.L138:
+ 1405               	/* epilogue start */
+ 1406               	.LM226:
+ 1407 04a0 DF91      		pop r29
+ 1408 04a2 CF91      		pop r28
+ 1409 04a4 0895      		ret
+ 1410               	.LFE43:
+ 1412               	.global	nRF24L01P_Mode_Set_DeepSleep
+ 1414               	nRF24L01P_Mode_Set_DeepSleep:
+ 1415               	.LFB44:
+ 1416               	.LM227:
+ 1417               	/* prologue: function */
+ 1418               	/* frame size = 0 */
+ 1419               	.LBB354:
+ 1420               	.LBB355:
+ 1421               	.LM228:
+ 1422 04a6 8091 0000 		lds r24,nRF24L01P+32
+ 1423 04aa 8823      		tst r24
+ 1424 04ac 01F4      		brne .L145
+ 1425               	.LBE355:
+ 1426               	.LBE354:
+ 1427               	.LM229:
+ 1428 04ae 1092 0000 		sts nRF24L01P+2,__zero_reg__
+ 1429               	.LM230:
+ 1430 04b2 60E0      		ldi r22,lo8(0)
+ 1431 04b4 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1432 04b6 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1433 04b8 21E0      		ldi r18,lo8(1)
+ 1434 04ba 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1435               	.LM231:
+ 1436 04be 1092 0000 		sts nRF24L01P,__zero_reg__
+ 1437               	.L145:
+ 1438               	.LM232:
+ 1439 04c2 0E94 0000 		call nRF24L01P_Disable
+ 1440               	/* epilogue start */
+ 1441               	.LM233:
+ 1442 04c6 0895      		ret
+ 1443               	.LFE44:
+ 1445               	.global	nRF24L01P_Mode_Set_Sleep
+ 1447               	nRF24L01P_Mode_Set_Sleep:
+ 1448               	.LFB45:
+ 1449               	.LM234:
+ 1450               	/* prologue: function */
+ 1451               	/* frame size = 0 */
+ 1452               	.LM235:
+ 1453 04c8 8091 0000 		lds r24,nRF24L01P+1
+ 1454 04cc 8823      		tst r24
+ 1455 04ce 01F4      		brne .L148
+ 1456               	.LM236:
+ 1457 04d0 0E94 0000 		call nRF24L01P_Enable
+ 1458               	.L148:
+ 1459               	.LBB356:
+ 1460               	.LBB357:
+ 1461               	.LM237:
+ 1462 04d4 8091 0000 		lds r24,nRF24L01P+32
+ 1463 04d8 8823      		tst r24
+ 1464 04da 01F4      		brne .L150
+ 1465               	.LBE357:
+ 1466               	.LBE356:
+ 1467               	.LM238:
+ 1468 04dc 1092 0000 		sts nRF24L01P+2,__zero_reg__
+ 1469               	.LBB358:
+ 1470               	.LBB359:
+ 1471               	.LM239:
+ 1472 04e0 4098      		cbi 40-32,0
+ 1473               	.LBE359:
+ 1474               	.LBE358:
+ 1475               	.LM240:
+ 1476 04e2 60E0      		ldi r22,lo8(0)
+ 1477 04e4 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1478 04e6 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1479 04e8 21E0      		ldi r18,lo8(1)
+ 1480 04ea 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1481               	.LM241:
+ 1482 04ee 81E0      		ldi r24,lo8(1)
+ 1483 04f0 8093 0000 		sts nRF24L01P,r24
+ 1484               	.L150:
+ 1485 04f4 0895      		ret
+ 1486               	.LFE45:
+ 1488               	.global	nRF24L01P_Mode_Set_Rx
+ 1490               	nRF24L01P_Mode_Set_Rx:
+ 1491               	.LFB46:
+ 1492               	.LM242:
+ 1493               	/* prologue: function */
+ 1494               	/* frame size = 0 */
+ 1495               	.LM243:
+ 1496 04f6 8091 0000 		lds r24,nRF24L01P+1
+ 1497 04fa 8823      		tst r24
+ 1498 04fc 01F4      		brne .L152
+ 1499               	.LM244:
+ 1500 04fe 0E94 0000 		call nRF24L01P_Enable
+ 1501               	.L152:
+ 1502               	.LBB360:
+ 1503               	.LBB361:
+ 1504               	.LM245:
+ 1505 0502 8091 0000 		lds r24,nRF24L01P+32
+ 1506 0506 8823      		tst r24
+ 1507 0508 01F4      		brne .L154
+ 1508               	.LBE361:
+ 1509               	.LBE360:
+ 1510               	.LM246:
+ 1511 050a 83E7      		ldi r24,lo8(115)
+ 1512 050c 8093 0000 		sts nRF24L01P+2,r24
+ 1513               	.LBB362:
+ 1514               	.LBB363:
+ 1515               	.LM247:
+ 1516 0510 409A      		sbi 40-32,0
+ 1517               	.LBE363:
+ 1518               	.LBE362:
+ 1519               	.LM248:
+ 1520 0512 80E0      		ldi r24,lo8(0)
+ 1521 0514 60E0      		ldi r22,lo8(0)
+ 1522 0516 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1523 0518 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1524 051a 21E0      		ldi r18,lo8(1)
+ 1525 051c 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1526               	.LM249:
+ 1527 0520 82E0      		ldi r24,lo8(2)
+ 1528 0522 8093 0000 		sts nRF24L01P,r24
+ 1529               	.L154:
+ 1530 0526 0895      		ret
+ 1531               	.LFE46:
+ 1533               	.global	nRF24L01P_Mode_Set_Tx
+ 1535               	nRF24L01P_Mode_Set_Tx:
+ 1536               	.LFB47:
+ 1537               	.LM250:
+ 1538               	/* prologue: function */
+ 1539               	/* frame size = 0 */
+ 1540               	.LM251:
+ 1541 0528 8091 0000 		lds r24,nRF24L01P+1
+ 1542 052c 8823      		tst r24
+ 1543 052e 01F4      		brne .L156
+ 1544               	.LM252:
+ 1545 0530 0E94 0000 		call nRF24L01P_Enable
+ 1546               	.L156:
+ 1547               	.LBB364:
+ 1548               	.LBB365:
+ 1549               	.LM253:
+ 1550 0534 8091 0000 		lds r24,nRF24L01P+32
+ 1551 0538 8823      		tst r24
+ 1552 053a 01F4      		brne .L158
+ 1553               	.LBE365:
+ 1554               	.LBE364:
+ 1555               	.LM254:
+ 1556 053c 82E7      		ldi r24,lo8(114)
+ 1557 053e 8093 0000 		sts nRF24L01P+2,r24
+ 1558               	.LBB366:
+ 1559               	.LBB367:
+ 1560               	.LM255:
+ 1561 0542 4098      		cbi 40-32,0
+ 1562               	.LBE367:
+ 1563               	.LBE366:
+ 1564               	.LM256:
+ 1565 0544 80E0      		ldi r24,lo8(0)
+ 1566 0546 60E0      		ldi r22,lo8(0)
+ 1567 0548 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1568 054a 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1569 054c 21E0      		ldi r18,lo8(1)
+ 1570 054e 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1571               	.LBB368:
+ 1572               	.LBB369:
+ 1573               	.LM257:
+ 1574 0552 409A      		sbi 40-32,0
+ 1575               	.LBE369:
+ 1576               	.LBE368:
+ 1577               	.LM258:
+ 1578 0554 83E0      		ldi r24,lo8(3)
+ 1579 0556 8093 0000 		sts nRF24L01P,r24
+ 1580               	.L158:
+ 1581 055a 0895      		ret
+ 1582               	.LFE47:
+ 1584               	.global	nRF24L01P_Mode_Set
+ 1586               	nRF24L01P_Mode_Set:
+ 1587               	.LFB48:
+ 1588               	.LM259:
+ 1589               	.LVL75:
+ 1590               	/* prologue: function */
+ 1591               	/* frame size = 0 */
+ 1592 055c 982F      		mov r25,r24
+ 1593               	.LBB370:
+ 1594               	.LBB371:
+ 1595               	.LM260:
+ 1596 055e 8091 0000 		lds r24,nRF24L01P+32
+ 1597               	.LVL76:
+ 1598 0562 8823      		tst r24
+ 1599 0564 01F4      		brne .L165
+ 1600               	.LBE371:
+ 1601               	.LBE370:
+ 1602               	.LM261:
+ 1603 0566 9923      		tst r25
+ 1604 0568 01F4      		brne .L161
+ 1605               	.LM262:
+ 1606 056a 0E94 0000 		call nRF24L01P_Mode_Set_DeepSleep
+ 1607               	.LVL77:
+ 1608 056e 0895      		ret
+ 1609               	.LVL78:
+ 1610               	.L161:
+ 1611               	.LM263:
+ 1612 0570 9130      		cpi r25,lo8(1)
+ 1613 0572 01F4      		brne .L162
+ 1614               	.LM264:
+ 1615 0574 0E94 0000 		call nRF24L01P_Mode_Set_Sleep
+ 1616               	.LVL79:
+ 1617 0578 0895      		ret
+ 1618               	.LVL80:
+ 1619               	.L162:
+ 1620               	.LM265:
+ 1621 057a 9230      		cpi r25,lo8(2)
+ 1622 057c 01F4      		brne .L163
+ 1623               	.LM266:
+ 1624 057e 0E94 0000 		call nRF24L01P_Mode_Set_Rx
+ 1625               	.LVL81:
+ 1626 0582 0895      		ret
+ 1627               	.LVL82:
+ 1628               	.L163:
+ 1629               	.LM267:
+ 1630 0584 9330      		cpi r25,lo8(3)
+ 1631 0586 01F4      		brne .L164
+ 1632               	.LM268:
+ 1633 0588 0E94 0000 		call nRF24L01P_Mode_Set_Tx
+ 1634               	.LVL83:
+ 1635 058c 0895      		ret
+ 1636               	.LVL84:
+ 1637               	.L164:
+ 1638               	.LM269:
+ 1639 058e 0E94 0000 		call nRF24L01P_Mode_Set_Rx
+ 1640               	.LVL85:
+ 1641               	.L165:
+ 1642 0592 0895      		ret
+ 1643               	.LFE48:
+ 1645               	.global	nRF24L01P_Mode_Get
+ 1647               	nRF24L01P_Mode_Get:
+ 1648               	.LFB49:
+ 1649               	.LM270:
+ 1650               	/* prologue: function */
+ 1651               	/* frame size = 0 */
+ 1652               	.LBB372:
+ 1653               	.LBB373:
+ 1654               	.LM271:
+ 1655 0594 8091 0000 		lds r24,nRF24L01P+32
+ 1656 0598 8823      		tst r24
+ 1657 059a 01F0      		breq .L167
+ 1658 059c 80E0      		ldi r24,lo8(0)
+ 1659 059e 0895      		ret
+ 1660               	.L167:
+ 1661               	.LBE373:
+ 1662               	.LBE372:
+ 1663               	.LM272:
+ 1664 05a0 80E0      		ldi r24,lo8(0)
+ 1665 05a2 61E0      		ldi r22,lo8(1)
+ 1666 05a4 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1667 05a6 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1668 05a8 21E0      		ldi r18,lo8(1)
+ 1669 05aa 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1670               	.LM273:
+ 1671 05ae 8091 0000 		lds r24,nRF24L01P+2
+ 1672 05b2 81FF      		sbrs r24,1
+ 1673 05b4 00C0      		rjmp .L169
+ 1674               	.LM274:
+ 1675 05b6 80FF      		sbrs r24,0
+ 1676 05b8 00C0      		rjmp .L170
+ 1677               	.LM275:
+ 1678 05ba 82E0      		ldi r24,lo8(2)
+ 1679 05bc 00C0      		rjmp .L172
+ 1680               	.L170:
+ 1681               	.LM276:
+ 1682 05be 83E0      		ldi r24,lo8(3)
+ 1683               	.L172:
+ 1684 05c0 8093 0000 		sts nRF24L01P,r24
+ 1685 05c4 0895      		ret
+ 1686               	.L169:
+ 1687               	.LM277:
+ 1688 05c6 81E0      		ldi r24,lo8(1)
+ 1689 05c8 8093 0000 		sts nRF24L01P,r24
+ 1690               	.LM278:
+ 1691 05cc 0895      		ret
+ 1692               	.LFE49:
+ 1694               	.global	nRF24L01P_Channel_Set
+ 1696               	nRF24L01P_Channel_Set:
+ 1697               	.LFB50:
+ 1698               	.LM279:
+ 1699               	.LVL86:
+ 1700               	/* prologue: function */
+ 1701               	/* frame size = 0 */
+ 1702 05ce 982F      		mov r25,r24
+ 1703               	.LBB374:
+ 1704               	.LBB375:
+ 1705               	.LM280:
+ 1706 05d0 8091 0000 		lds r24,nRF24L01P+32
+ 1707               	.LVL87:
+ 1708 05d4 8823      		tst r24
+ 1709 05d6 01F4      		brne .L176
+ 1710               	.LBE375:
+ 1711               	.LBE374:
+ 1712               	.LM281:
+ 1713 05d8 892F      		mov r24,r25
+ 1714 05da 9937      		cpi r25,lo8(121)
+ 1715 05dc 00F0      		brlo .L175
+ 1716 05de 88E7      		ldi r24,lo8(120)
+ 1717               	.LVL88:
+ 1718               	.L175:
+ 1719 05e0 8093 0000 		sts nRF24L01P+2,r24
+ 1720               	.LM282:
+ 1721 05e4 85E0      		ldi r24,lo8(5)
+ 1722               	.LVL89:
+ 1723 05e6 60E0      		ldi r22,lo8(0)
+ 1724 05e8 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1725 05ea 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1726 05ec 21E0      		ldi r18,lo8(1)
+ 1727 05ee 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1728               	.LVL90:
+ 1729               	.L176:
+ 1730 05f2 0895      		ret
+ 1731               	.LFE50:
+ 1733               	.global	nRF24L01P_Channel_Get
+ 1735               	nRF24L01P_Channel_Get:
+ 1736               	.LFB51:
+ 1737               	.LM283:
+ 1738               	/* prologue: function */
+ 1739               	/* frame size = 0 */
+ 1740               	.LBB376:
+ 1741               	.LBB377:
+ 1742               	.LM284:
+ 1743 05f4 8091 0000 		lds r24,nRF24L01P+32
+ 1744 05f8 8823      		tst r24
+ 1745 05fa 01F0      		breq .L178
+ 1746 05fc 80E0      		ldi r24,lo8(0)
+ 1747 05fe 0895      		ret
+ 1748               	.L178:
+ 1749               	.LBE377:
+ 1750               	.LBE376:
+ 1751               	.LM285:
+ 1752 0600 85E0      		ldi r24,lo8(5)
+ 1753 0602 61E0      		ldi r22,lo8(1)
+ 1754 0604 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1755 0606 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1756 0608 21E0      		ldi r18,lo8(1)
+ 1757 060a 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1758               	.LM286:
+ 1759 060e 8091 0000 		lds r24,nRF24L01P+2
+ 1760               	.LM287:
+ 1761 0612 0895      		ret
+ 1762               	.LFE51:
+ 1764               	.global	nRF24L01P_Speed_Set
+ 1766               	nRF24L01P_Speed_Set:
+ 1767               	.LFB52:
+ 1768               	.LM288:
+ 1769               	.LVL91:
+ 1770               	/* prologue: function */
+ 1771               	/* frame size = 0 */
+ 1772               	.LM289:
+ 1773 0614 8823      		tst r24
+ 1774 0616 01F4      		brne .L182
+ 1775               	.LM290:
+ 1776 0618 86E0      		ldi r24,lo8(6)
+ 1777               	.LVL92:
+ 1778 061a 65E0      		ldi r22,lo8(5)
+ 1779 061c 41E0      		ldi r20,lo8(1)
+ 1780 061e 00C0      		rjmp .L188
+ 1781               	.LVL93:
+ 1782               	.L182:
+ 1783               	.LM291:
+ 1784 0620 8130      		cpi r24,lo8(1)
+ 1785 0622 01F4      		brne .L184
+ 1786               	.LM292:
+ 1787 0624 86E0      		ldi r24,lo8(6)
+ 1788               	.LVL94:
+ 1789 0626 65E0      		ldi r22,lo8(5)
+ 1790 0628 40E0      		ldi r20,lo8(0)
+ 1791               	.L188:
+ 1792 062a 0E94 0000 		call nRF24L01P_ReadModifyWrite_Register
+ 1793               	.LM293:
+ 1794 062e 86E0      		ldi r24,lo8(6)
+ 1795 0630 63E0      		ldi r22,lo8(3)
+ 1796 0632 40E0      		ldi r20,lo8(0)
+ 1797 0634 00C0      		rjmp .L187
+ 1798               	.LVL95:
+ 1799               	.L184:
+ 1800               	.LM294:
+ 1801 0636 86E0      		ldi r24,lo8(6)
+ 1802               	.LVL96:
+ 1803 0638 65E0      		ldi r22,lo8(5)
+ 1804 063a 40E0      		ldi r20,lo8(0)
+ 1805 063c 0E94 0000 		call nRF24L01P_ReadModifyWrite_Register
+ 1806               	.LM295:
+ 1807 0640 86E0      		ldi r24,lo8(6)
+ 1808 0642 63E0      		ldi r22,lo8(3)
+ 1809 0644 41E0      		ldi r20,lo8(1)
+ 1810               	.L187:
+ 1811 0646 0E94 0000 		call nRF24L01P_ReadModifyWrite_Register
+ 1812 064a 0895      		ret
+ 1813               	.LFE52:
+ 1815               	.global	nRF24L01P_Speed_Get
+ 1817               	nRF24L01P_Speed_Get:
+ 1818               	.LFB53:
+ 1819               	.LM296:
+ 1820               	/* prologue: function */
+ 1821               	/* frame size = 0 */
+ 1822               	.LBB378:
+ 1823               	.LBB379:
+ 1824               	.LM297:
+ 1825 064c 8091 0000 		lds r24,nRF24L01P+32
+ 1826 0650 8823      		tst r24
+ 1827 0652 01F0      		breq .L190
+ 1828 0654 80E0      		ldi r24,lo8(0)
+ 1829 0656 0895      		ret
+ 1830               	.L190:
+ 1831               	.LBE379:
+ 1832               	.LBE378:
+ 1833               	.LM298:
+ 1834 0658 86E0      		ldi r24,lo8(6)
+ 1835 065a 61E0      		ldi r22,lo8(1)
+ 1836 065c 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1837 065e 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1838 0660 21E0      		ldi r18,lo8(1)
+ 1839 0662 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1840               	.LM299:
+ 1841 0666 9091 0000 		lds r25,nRF24L01P+2
+ 1842               	.LM300:
+ 1843 066a 892F      		mov r24,r25
+ 1844 066c 8295      		swap r24
+ 1845 066e 8270      		andi r24,lo8(2)
+ 1846 0670 8093 0000 		sts nRF24L01P+2,r24
+ 1847               	.LM301:
+ 1848 0674 9695      		lsr r25
+ 1849 0676 9695      		lsr r25
+ 1850 0678 9695      		lsr r25
+ 1851 067a 9170      		andi r25,lo8(1)
+ 1852 067c 982B      		or r25,r24
+ 1853 067e 9093 0000 		sts nRF24L01P+3,r25
+ 1854               	.LM302:
+ 1855 0682 9230      		cpi r25,lo8(2)
+ 1856 0684 01F4      		brne .L192
+ 1857               	.LM303:
+ 1858 0686 1092 0000 		sts nRF24L01P+2,__zero_reg__
+ 1859 068a 00C0      		rjmp .L193
+ 1860               	.L192:
+ 1861               	.LM304:
+ 1862 068c 9130      		cpi r25,lo8(1)
+ 1863 068e 01F4      		brne .L194
+ 1864               	.LM305:
+ 1865 0690 9093 0000 		sts nRF24L01P+2,r25
+ 1866 0694 00C0      		rjmp .L193
+ 1867               	.L194:
+ 1868               	.LM306:
+ 1869 0696 9923      		tst r25
+ 1870 0698 01F4      		brne .L193
+ 1871               	.LM307:
+ 1872 069a 82E0      		ldi r24,lo8(2)
+ 1873 069c 8093 0000 		sts nRF24L01P+2,r24
+ 1874               	.L193:
+ 1875               	.LM308:
+ 1876 06a0 8091 0000 		lds r24,nRF24L01P+2
+ 1877               	.LM309:
+ 1878 06a4 0895      		ret
+ 1879               	.LFE53:
+ 1881               	.global	nRF24L01P_Tx_Power_Set
+ 1883               	nRF24L01P_Tx_Power_Set:
+ 1884               	.LFB54:
+ 1885               	.LM310:
+ 1886               	.LVL97:
+ 1887               	/* prologue: function */
+ 1888               	/* frame size = 0 */
+ 1889 06a6 982F      		mov r25,r24
+ 1890               	.LBB380:
+ 1891               	.LBB381:
+ 1892               	.LM311:
+ 1893 06a8 8091 0000 		lds r24,nRF24L01P+32
+ 1894               	.LVL98:
+ 1895 06ac 8823      		tst r24
+ 1896 06ae 01F4      		brne .L202
+ 1897               	.LBE381:
+ 1898               	.LBE380:
+ 1899               	.LM312:
+ 1900 06b0 9923      		tst r25
+ 1901 06b2 01F4      		brne .L198
+ 1902               	.LM313:
+ 1903 06b4 86E0      		ldi r24,lo8(6)
+ 1904 06b6 62E0      		ldi r22,lo8(2)
+ 1905 06b8 40E0      		ldi r20,lo8(0)
+ 1906 06ba 00C0      		rjmp .L204
+ 1907               	.L198:
+ 1908               	.LM314:
+ 1909 06bc 9130      		cpi r25,lo8(1)
+ 1910 06be 01F4      		brne .L199
+ 1911               	.LM315:
+ 1912 06c0 86E0      		ldi r24,lo8(6)
+ 1913 06c2 62E0      		ldi r22,lo8(2)
+ 1914 06c4 40E0      		ldi r20,lo8(0)
+ 1915 06c6 00C0      		rjmp .L205
+ 1916               	.L199:
+ 1917               	.LM316:
+ 1918 06c8 9230      		cpi r25,lo8(2)
+ 1919 06ca 01F4      		brne .L200
+ 1920               	.LM317:
+ 1921 06cc 86E0      		ldi r24,lo8(6)
+ 1922 06ce 62E0      		ldi r22,lo8(2)
+ 1923 06d0 41E0      		ldi r20,lo8(1)
+ 1924               	.L204:
+ 1925 06d2 0E94 0000 		call nRF24L01P_ReadModifyWrite_Register
+ 1926               	.LVL99:
+ 1927               	.LM318:
+ 1928 06d6 86E0      		ldi r24,lo8(6)
+ 1929 06d8 61E0      		ldi r22,lo8(1)
+ 1930 06da 40E0      		ldi r20,lo8(0)
+ 1931 06dc 00C0      		rjmp .L203
+ 1932               	.LVL100:
+ 1933               	.L200:
+ 1934               	.LM319:
+ 1935 06de 9330      		cpi r25,lo8(3)
+ 1936 06e0 01F4      		brne .L201
+ 1937               	.LM320:
+ 1938 06e2 86E0      		ldi r24,lo8(6)
+ 1939 06e4 62E0      		ldi r22,lo8(2)
+ 1940 06e6 41E0      		ldi r20,lo8(1)
+ 1941               	.L205:
+ 1942 06e8 0E94 0000 		call nRF24L01P_ReadModifyWrite_Register
+ 1943               	.LVL101:
+ 1944               	.LM321:
+ 1945 06ec 86E0      		ldi r24,lo8(6)
+ 1946 06ee 61E0      		ldi r22,lo8(1)
+ 1947 06f0 41E0      		ldi r20,lo8(1)
+ 1948               	.L203:
+ 1949 06f2 0E94 0000 		call nRF24L01P_ReadModifyWrite_Register
+ 1950 06f6 0895      		ret
+ 1951               	.LVL102:
+ 1952               	.L201:
+ 1953               	.LM322:
+ 1954 06f8 86E0      		ldi r24,lo8(6)
+ 1955 06fa 62E0      		ldi r22,lo8(2)
+ 1956 06fc 41E0      		ldi r20,lo8(1)
+ 1957 06fe 0E94 0000 		call nRF24L01P_ReadModifyWrite_Register
+ 1958               	.LVL103:
+ 1959               	.LM323:
+ 1960 0702 86E0      		ldi r24,lo8(6)
+ 1961 0704 61E0      		ldi r22,lo8(1)
+ 1962 0706 41E0      		ldi r20,lo8(1)
+ 1963 0708 0E94 0000 		call nRF24L01P_ReadModifyWrite_Register
+ 1964               	.LVL104:
+ 1965               	.L202:
+ 1966 070c 0895      		ret
+ 1967               	.LFE54:
+ 1969               	.global	nRF24L01P_Tx_Power_Get
+ 1971               	nRF24L01P_Tx_Power_Get:
+ 1972               	.LFB55:
+ 1973               	.LM324:
+ 1974               	/* prologue: function */
+ 1975               	/* frame size = 0 */
+ 1976               	.LBB382:
+ 1977               	.LBB383:
+ 1978               	.LM325:
+ 1979 070e 8091 0000 		lds r24,nRF24L01P+32
+ 1980 0712 8823      		tst r24
+ 1981 0714 01F0      		breq .L207
+ 1982 0716 80E0      		ldi r24,lo8(0)
+ 1983 0718 0895      		ret
+ 1984               	.L207:
+ 1985               	.LBE383:
+ 1986               	.LBE382:
+ 1987               	.LM326:
+ 1988 071a 86E0      		ldi r24,lo8(6)
+ 1989 071c 61E0      		ldi r22,lo8(1)
+ 1990 071e 40E0      		ldi r20,lo8(nRF24L01P+2)
+ 1991 0720 50E0      		ldi r21,hi8(nRF24L01P+2)
+ 1992 0722 21E0      		ldi r18,lo8(1)
+ 1993 0724 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 1994               	.LM327:
+ 1995 0728 8091 0000 		lds r24,nRF24L01P+2
+ 1996 072c 8695      		lsr r24
+ 1997 072e 8370      		andi r24,lo8(3)
+ 1998 0730 8093 0000 		sts nRF24L01P+2,r24
+ 1999               	.LM328:
+ 2000 0734 0895      		ret
+ 2001               	.LFE55:
+ 2003               	.global	nRF24L01P_Own_Addr_Set
+ 2005               	nRF24L01P_Own_Addr_Set:
+ 2006               	.LFB56:
+ 2007               	.LM329:
+ 2008               	.LVL105:
+ 2009               	/* prologue: function */
+ 2010               	/* frame size = 0 */
+ 2011               	.LM330:
+ 2012 0736 8093 0000 		sts nRF24L01P+4,r24
+ 2013               	/* epilogue start */
+ 2014               	.LM331:
+ 2015 073a 0895      		ret
+ 2016               	.LFE56:
+ 2018               	.global	nRF24L01P_Own_Addr_Get
+ 2020               	nRF24L01P_Own_Addr_Get:
+ 2021               	.LFB57:
+ 2022               	.LM332:
+ 2023               	/* prologue: function */
+ 2024               	/* frame size = 0 */
+ 2025               	.LM333:
+ 2026 073c 8091 0000 		lds r24,nRF24L01P+4
+ 2027               	/* epilogue start */
+ 2028 0740 0895      		ret
+ 2029               	.LFE57:
+ 2031               	.global	nRF24L01P_Dest_Addr_Set
+ 2033               	nRF24L01P_Dest_Addr_Set:
+ 2034               	.LFB58:
+ 2035               	.LM334:
+ 2036               	.LVL106:
+ 2037               	/* prologue: function */
+ 2038               	/* frame size = 0 */
+ 2039               	.LM335:
+ 2040 0742 8093 0000 		sts nRF24L01P+5,r24
+ 2041               	/* epilogue start */
+ 2042               	.LM336:
+ 2043 0746 0895      		ret
+ 2044               	.LFE58:
+ 2046               	.global	nRF24L01P_Dest_Addr_Get
+ 2048               	nRF24L01P_Dest_Addr_Get:
+ 2049               	.LFB59:
+ 2050               	.LM337:
+ 2051               	/* prologue: function */
+ 2052               	/* frame size = 0 */
+ 2053               	.LM338:
+ 2054 0748 8091 0000 		lds r24,nRF24L01P+5
+ 2055               	/* epilogue start */
+ 2056 074c 0895      		ret
+ 2057               	.LFE59:
+ 2059               	.global	nRF24L01P_RxTicks_Set
+ 2061               	nRF24L01P_RxTicks_Set:
+ 2062               	.LFB60:
+ 2063               	.LM339:
+ 2064               	.LVL107:
+ 2065               	/* prologue: function */
+ 2066               	/* frame size = 0 */
+ 2067               	.LM340:
+ 2068 074e 9093 0000 		sts (nRF24L01P+8)+1,r25
+ 2069 0752 8093 0000 		sts nRF24L01P+8,r24
+ 2070               	/* epilogue start */
+ 2071               	.LM341:
+ 2072 0756 0895      		ret
+ 2073               	.LFE60:
+ 2075               	.global	nRF24L01P_RxTicks_Get
+ 2077               	nRF24L01P_RxTicks_Get:
+ 2078               	.LFB61:
+ 2079               	.LM342:
+ 2080               	/* prologue: function */
+ 2081               	/* frame size = 0 */
+ 2082               	.LM343:
+ 2083 0758 8091 0000 		lds r24,nRF24L01P+8
+ 2084 075c 9091 0000 		lds r25,nRF24L01P+9
+ 2085               	/* epilogue start */
+ 2086 0760 0895      		ret
+ 2087               	.LFE61:
+ 2089               	.global	nRF24L01P_RxTimeout_Set
+ 2091               	nRF24L01P_RxTimeout_Set:
+ 2092               	.LFB62:
+ 2093               	.LM344:
+ 2094               	.LVL108:
+ 2095               	/* prologue: function */
+ 2096               	/* frame size = 0 */
+ 2097               	.LM345:
+ 2098 0762 9093 0000 		sts (nRF24L01P+6)+1,r25
+ 2099 0766 8093 0000 		sts nRF24L01P+6,r24
+ 2100               	/* epilogue start */
+ 2101               	.LM346:
+ 2102 076a 0895      		ret
+ 2103               	.LFE62:
+ 2105               	.global	nRF24L01P_RxTimeout_Get
+ 2107               	nRF24L01P_RxTimeout_Get:
+ 2108               	.LFB63:
+ 2109               	.LM347:
+ 2110               	/* prologue: function */
+ 2111               	/* frame size = 0 */
+ 2112               	.LM348:
+ 2113 076c 8091 0000 		lds r24,nRF24L01P+6
+ 2114 0770 9091 0000 		lds r25,nRF24L01P+7
+ 2115               	/* epilogue start */
+ 2116 0774 0895      		ret
+ 2117               	.LFE63:
+ 2119               	.global	nRF24L01P_MaxRetransmission_Set
+ 2121               	nRF24L01P_MaxRetransmission_Set:
+ 2122               	.LFB64:
+ 2123               	.LM349:
+ 2124               	.LVL109:
+ 2125               	/* prologue: function */
+ 2126               	/* frame size = 0 */
+ 2127               	.LM350:
+ 2128 0776 9093 0000 		sts (nRF24L01P+11)+1,r25
+ 2129 077a 8093 0000 		sts nRF24L01P+11,r24
+ 2130               	/* epilogue start */
+ 2131               	.LM351:
+ 2132 077e 0895      		ret
+ 2133               	.LFE64:
+ 2135               	.global	nRF24L01P_MaxRetransmission_Get
+ 2137               	nRF24L01P_MaxRetransmission_Get:
+ 2138               	.LFB65:
+ 2139               	.LM352:
+ 2140               	/* prologue: function */
+ 2141               	/* frame size = 0 */
+ 2142               	.LM353:
+ 2143 0780 8091 0000 		lds r24,nRF24L01P+11
+ 2144 0784 9091 0000 		lds r25,nRF24L01P+12
+ 2145               	/* epilogue start */
+ 2146 0788 0895      		ret
+ 2147               	.LFE65:
+ 2149               	.global	nRF24L01P_Tx_Basic
+ 2151               	nRF24L01P_Tx_Basic:
+ 2152               	.LFB66:
+ 2153               	.LM354:
+ 2154               	.LVL110:
+ 2155 078a FF92      		push r15
+ 2156 078c 0F93      		push r16
+ 2157 078e 1F93      		push r17
+ 2158               	/* prologue: function */
+ 2159               	/* frame size = 0 */
+ 2160 0790 8C01      		movw r16,r24
+ 2161 0792 F62E      		mov r15,r22
+ 2162               	.LBB384:
+ 2163               	.LBB385:
+ 2164               	.LM355:
+ 2165 0794 1092 0000 		sts nRF24L01P+32,__zero_reg__
+ 2166               	.LBE385:
+ 2167               	.LBE384:
+ 2168               	.LM356:
+ 2169 0798 0E94 0000 		call nRF24L01P_Flush_Tx_Buf
+ 2170               	.LVL111:
+ 2171               	.LM357:
+ 2172 079c 8091 0000 		lds r24,nRF24L01P+29
+ 2173 07a0 F801      		movw r30,r16
+ 2174 07a2 E80F      		add r30,r24
+ 2175 07a4 F11D      		adc r31,__zero_reg__
+ 2176 07a6 8091 0000 		lds r24,nRF24L01P+19
+ 2177 07aa 8083      		st Z,r24
+ 2178               	.LM358:
+ 2179 07ac 8091 0000 		lds r24,nRF24L01P+27
+ 2180 07b0 F801      		movw r30,r16
+ 2181 07b2 E80F      		add r30,r24
+ 2182 07b4 F11D      		adc r31,__zero_reg__
+ 2183 07b6 8091 0000 		lds r24,nRF24L01P+15
+ 2184 07ba 8083      		st Z,r24
+ 2185               	.LM359:
+ 2186 07bc 8091 0000 		lds r24,nRF24L01P+26
+ 2187 07c0 F801      		movw r30,r16
+ 2188 07c2 E80F      		add r30,r24
+ 2189 07c4 F11D      		adc r31,__zero_reg__
+ 2190 07c6 8091 0000 		lds r24,nRF24L01P+18
+ 2191 07ca 8083      		st Z,r24
+ 2192               	.LM360:
+ 2193 07cc 8091 0000 		lds r24,nRF24L01P+25
+ 2194 07d0 F801      		movw r30,r16
+ 2195 07d2 E80F      		add r30,r24
+ 2196 07d4 F11D      		adc r31,__zero_reg__
+ 2197 07d6 8091 0000 		lds r24,nRF24L01P+4
+ 2198 07da 8083      		st Z,r24
+ 2199               	.LM361:
+ 2200 07dc 8091 0000 		lds r24,nRF24L01P+24
+ 2201 07e0 F801      		movw r30,r16
+ 2202 07e2 E80F      		add r30,r24
+ 2203 07e4 F11D      		adc r31,__zero_reg__
+ 2204 07e6 8091 0000 		lds r24,nRF24L01P+5
+ 2205 07ea 8083      		st Z,r24
+ 2206               	.LM362:
+ 2207 07ec 8091 0000 		lds r24,nRF24L01P+23
+ 2208 07f0 F801      		movw r30,r16
+ 2209 07f2 E80F      		add r30,r24
+ 2210 07f4 F11D      		adc r31,__zero_reg__
+ 2211 07f6 F082      		st Z,r15
+ 2212               	.LM363:
+ 2213 07f8 C801      		movw r24,r16
+ 2214 07fa 6091 0000 		lds r22,nRF24L01P+28
+ 2215 07fe 0E94 0000 		call nRF24L01P_CRC_Block
+ 2216               	.LM364:
+ 2217 0802 2091 0000 		lds r18,nRF24L01P+21
+ 2218 0806 F801      		movw r30,r16
+ 2219 0808 E20F      		add r30,r18
+ 2220 080a F11D      		adc r31,__zero_reg__
+ 2221 080c 9083      		st Z,r25
+ 2222               	.LM365:
+ 2223 080e 9091 0000 		lds r25,nRF24L01P+22
+ 2224 0812 F801      		movw r30,r16
+ 2225 0814 E90F      		add r30,r25
+ 2226 0816 F11D      		adc r31,__zero_reg__
+ 2227 0818 8083      		st Z,r24
+ 2228               	.LM366:
+ 2229 081a C801      		movw r24,r16
+ 2230 081c 0E94 0000 		call nRF24L01P_Write_Data_Tx_Buf
  2231               	.LM367:
- 2232 0824 82E0      		ldi r24,lo8(2)
- 2233 0826 0E94 0000 		call nrf24l01p_mode_set
- 2234               	/* epilogue start */
- 2235               	.LM368:
- 2236 082a 1F91      		pop r17
- 2237 082c 0F91      		pop r16
- 2238               	.LVL112:
- 2239 082e FF90      		pop r15
- 2240               	.LVL113:
- 2241 0830 0895      		ret
- 2242               	.LFE66:
- 2244               	.global	nrf24l01p_rx_basic
- 2246               	nrf24l01p_rx_basic:
- 2247               	.LFB67:
- 2248               	.LM369:
- 2249               	.LVL114:
- 2250 0832 CF92      		push r12
- 2251 0834 DF92      		push r13
- 2252 0836 EF92      		push r14
- 2253 0838 FF92      		push r15
- 2254 083a 0F93      		push r16
- 2255 083c 1F93      		push r17
- 2256 083e CF93      		push r28
- 2257 0840 DF93      		push r29
- 2258               	/* prologue: function */
- 2259               	/* frame size = 0 */
- 2260 0842 EC01      		movw r28,r24
- 2261               	.LBB386:
- 2262               	.LBB387:
- 2263               	.LM370:
- 2264 0844 1092 0000 		sts nrf24l01p+32,__zero_reg__
- 2265               	.LBE387:
- 2266               	.LBE386:
- 2267               	.LBB388:
- 2268               	.LBB389:
- 2269               	.LM371:
- 2270 0848 1092 0000 		sts (nrf24l01p+8)+1,__zero_reg__
- 2271 084c 1092 0000 		sts nrf24l01p+8,__zero_reg__
- 2272               	.LBE389:
- 2273               	.LBE388:
- 2274               	.LBB390:
- 2275               	.LBB391:
- 2276               	.LBB392:
- 2277               	.LBB393:
- 2278               	.LBB394:
- 2279               	.LBB395:
- 2280               	.LM372:
- 2281 0850 7CE2      		ldi r23,lo8(300)
- 2282 0852 C72E      		mov r12,r23
- 2283 0854 71E0      		ldi r23,hi8(300)
- 2284 0856 D72E      		mov r13,r23
- 2285 0858 00C0      		rjmp .L240
- 2286               	.LVL115:
- 2287               	.L236:
- 2288               	.LBE395:
- 2289               	.LBE394:
- 2290               	.LBE393:
- 2291               	.LBE392:
- 2292               	.LBE391:
- 2293               	.LBE390:
- 2294               	.LM373:
- 2295 085a 0E94 0000 		call nrf24l01p_rx_buf_not_empty
- 2296 085e 8823      		tst r24
- 2297 0860 01F0      		breq .L234
- 2298               	.LBB401:
- 2299               	.LM374:
- 2300 0862 CE01      		movw r24,r28
- 2301 0864 0E94 0000 		call nrf24l01p_read_data_rx_buf
- 2302               	.LM375:
- 2303 0868 8091 0000 		lds r24,nrf24l01p+21
- 2304 086c FE01      		movw r30,r28
- 2305 086e E80F      		add r30,r24
- 2306 0870 F11D      		adc r31,__zero_reg__
- 2307               	.LM376:
- 2308 0872 F080      		ld r15,Z
- 2309               	.LVL116:
- 2310 0874 EE24      		clr r14
- 2311               	.LVL117:
- 2312               	.LM377:
- 2313 0876 8091 0000 		lds r24,nrf24l01p+22
- 2314 087a FE01      		movw r30,r28
- 2315 087c E80F      		add r30,r24
- 2316 087e F11D      		adc r31,__zero_reg__
- 2317 0880 0081      		ld r16,Z
- 2318 0882 10E0      		ldi r17,lo8(0)
- 2319               	.LVL118:
- 2320 0884 0E29      		or r16,r14
- 2321 0886 1F29      		or r17,r15
- 2322               	.LVL119:
- 2323               	.LM378:
- 2324 0888 CE01      		movw r24,r28
- 2325 088a 6091 0000 		lds r22,nrf24l01p+28
- 2326 088e 0E94 0000 		call nrf24l01p_crc_block
- 2327               	.LM379:
- 2328 0892 0817      		cp r16,r24
- 2329 0894 1907      		cpc r17,r25
- 2330 0896 01F4      		brne .L240
- 2331               	.LM380:
- 2332 0898 8091 0000 		lds r24,nrf24l01p+27
- 2333 089c FE01      		movw r30,r28
- 2334 089e E80F      		add r30,r24
- 2335 08a0 F11D      		adc r31,__zero_reg__
- 2336 08a2 8081      		ld r24,Z
- 2337 08a4 8093 0000 		sts nrf24l01p+16,r24
- 2338               	.LM381:
- 2339 08a8 8091 0000 		lds r24,nrf24l01p+29
- 2340 08ac C80F      		add r28,r24
- 2341 08ae D11D      		adc r29,__zero_reg__
- 2342 08b0 8881      		ld r24,Y
- 2343 08b2 8093 0000 		sts nrf24l01p+19,r24
- 2344 08b6 81E0      		ldi r24,lo8(1)
- 2345               	.LVL120:
- 2346 08b8 00C0      		rjmp .L235
- 2347               	.LVL121:
- 2348               	.L234:
- 2349               	.LBE401:
- 2350               	.LBB402:
- 2351               	.LBB400:
- 2352               	.LBB399:
- 2353               	.LBB398:
- 2354               	.LBB397:
- 2355               	.LBB396:
- 2356               	.LM382:
- 2357 08ba C601      		movw r24,r12
- 2358               	.LVL122:
- 2359               	/* #APP */
- 2360               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 2361 08bc 0197      		1: sbiw r24,1
- 2362 08be 01F4      		brne 1b
- 2363               	 ;  0 "" 2
- 2364               	/* #NOAPP */
- 2365               	.LBE396:
- 2366               	.LBE397:
- 2367               	.LBE398:
- 2368               	.LBE399:
- 2369               	.LBE400:
- 2370               	.LBE402:
- 2371               	.LM383:
- 2372 08c0 8091 0000 		lds r24,nrf24l01p+8
- 2373 08c4 9091 0000 		lds r25,(nrf24l01p+8)+1
- 2374               	.LVL123:
- 2375 08c8 0196      		adiw r24,1
- 2376 08ca 9093 0000 		sts (nrf24l01p+8)+1,r25
- 2377 08ce 8093 0000 		sts nrf24l01p+8,r24
- 2378               	.LVL124:
- 2379               	.L240:
- 2380               	.LM384:
- 2381 08d2 2091 0000 		lds r18,nrf24l01p+8
- 2382 08d6 3091 0000 		lds r19,(nrf24l01p+8)+1
- 2383 08da 8091 0000 		lds r24,nrf24l01p+6
- 2384 08de 9091 0000 		lds r25,(nrf24l01p+6)+1
- 2385 08e2 2817      		cp r18,r24
- 2386 08e4 3907      		cpc r19,r25
- 2387 08e6 00F4      		brsh .+2
- 2388 08e8 00C0      		rjmp .L236
- 2389 08ea 80E0      		ldi r24,lo8(0)
- 2390               	.LVL125:
- 2391               	.L235:
- 2392               	.LVL126:
- 2393               	/* epilogue start */
- 2394               	.LM385:
- 2395 08ec DF91      		pop r29
- 2396 08ee CF91      		pop r28
- 2397               	.LVL127:
- 2398 08f0 1F91      		pop r17
- 2399               	.LVL128:
- 2400 08f2 0F91      		pop r16
- 2401               	.LVL129:
- 2402 08f4 FF90      		pop r15
- 2403 08f6 EF90      		pop r14
- 2404 08f8 DF90      		pop r13
- 2405 08fa CF90      		pop r12
- 2406 08fc 0895      		ret
- 2407               	.LFE67:
- 2409               	.global	nrf24l01p_tx_with_ack
- 2411               	nrf24l01p_tx_with_ack:
- 2412               	.LFB68:
- 2413               	.LM386:
- 2414               	.LVL130:
- 2415 08fe EF92      		push r14
- 2416 0900 FF92      		push r15
- 2417 0902 0F93      		push r16
- 2418 0904 1F93      		push r17
- 2419 0906 DF93      		push r29
- 2420 0908 CF93      		push r28
- 2421 090a CDB7      		in r28,__SP_L__
- 2422 090c DEB7      		in r29,__SP_H__
- 2423 090e A097      		sbiw r28,32
- 2424 0910 0FB6      		in __tmp_reg__,__SREG__
- 2425 0912 F894      		cli
- 2426 0914 DEBF      		out __SP_H__,r29
- 2427 0916 0FBE      		out __SREG__,__tmp_reg__
- 2428 0918 CDBF      		out __SP_L__,r28
- 2429               	/* prologue: function */
- 2430               	/* frame size = 32 */
- 2431               	.LBB403:
- 2432               	.LBB404:
- 2433               	.LM387:
- 2434 091a E090 0000 		lds r14,nrf24l01p+6
- 2435 091e F090 0000 		lds r15,(nrf24l01p+6)+1
- 2436               	.LVL131:
- 2437               	.LBE404:
- 2438               	.LBE403:
- 2439               	.LBB405:
- 2440               	.LBB406:
- 2441               	.LM388:
- 2442 0922 25E0      		ldi r18,lo8(5)
- 2443 0924 30E0      		ldi r19,hi8(5)
- 2444 0926 3093 0000 		sts (nrf24l01p+6)+1,r19
- 2445 092a 2093 0000 		sts nrf24l01p+6,r18
- 2446               	.LBE406:
- 2447               	.LBE405:
- 2448               	.LM389:
- 2449 092e 0E94 0000 		call nrf24l01p_tx_basic
- 2450               	.LVL132:
- 2451               	.LM390:
- 2452 0932 8091 0000 		lds r24,nrf24l01p+18
- 2453 0936 8823      		tst r24
- 2454 0938 01F0      		breq .L242
- 2455               	.LM391:
- 2456 093a 8E01      		movw r16,r28
- 2457 093c 0F5F      		subi r16,lo8(-(1))
- 2458 093e 1F4F      		sbci r17,hi8(-(1))
- 2459 0940 C801      		movw r24,r16
- 2460 0942 0E94 0000 		call nrf24l01p_rx_basic
- 2461 0946 8823      		tst r24
- 2462 0948 01F0      		breq .L242
- 2463               	.LM392:
- 2464 094a 8091 0000 		lds r24,nrf24l01p+24
- 2465 094e 080F      		add r16,r24
- 2466 0950 111D      		adc r17,__zero_reg__
- 2467 0952 9091 0000 		lds r25,nrf24l01p+4
- 2468 0956 F801      		movw r30,r16
- 2469 0958 8081      		ld r24,Z
- 2470 095a 9817      		cp r25,r24
- 2471 095c 01F4      		brne .L242
- 2472 095e 81E0      		ldi r24,lo8(1)
- 2473               	.LVL133:
- 2474 0960 00C0      		rjmp .L243
- 2475               	.LVL134:
- 2476               	.L242:
- 2477 0962 80E0      		ldi r24,lo8(0)
- 2478               	.LVL135:
- 2479               	.L243:
- 2480               	.LBB407:
- 2481               	.LBB408:
- 2482               	.LM393:
- 2483 0964 F092 0000 		sts (nrf24l01p+6)+1,r15
- 2484 0968 E092 0000 		sts nrf24l01p+6,r14
- 2485               	.LVL136:
- 2486               	/* epilogue start */
- 2487               	.LBE408:
- 2488               	.LBE407:
- 2489               	.LM394:
- 2490 096c A096      		adiw r28,32
- 2491 096e 0FB6      		in __tmp_reg__,__SREG__
- 2492 0970 F894      		cli
- 2493 0972 DEBF      		out __SP_H__,r29
- 2494 0974 0FBE      		out __SREG__,__tmp_reg__
- 2495 0976 CDBF      		out __SP_L__,r28
- 2496 0978 CF91      		pop r28
- 2497 097a DF91      		pop r29
- 2498 097c 1F91      		pop r17
- 2499 097e 0F91      		pop r16
- 2500 0980 FF90      		pop r15
- 2501 0982 EF90      		pop r14
- 2502               	.LVL137:
- 2503 0984 0895      		ret
- 2504               	.LFE68:
- 2506               	.global	nrf24l01p_rx_with_ack
- 2508               	nrf24l01p_rx_with_ack:
- 2509               	.LFB69:
- 2510               	.LM395:
- 2511               	.LVL138:
- 2512 0986 0F93      		push r16
- 2513 0988 1F93      		push r17
- 2514 098a DF93      		push r29
- 2515 098c CF93      		push r28
- 2516 098e CDB7      		in r28,__SP_L__
- 2517 0990 DEB7      		in r29,__SP_H__
- 2518 0992 A097      		sbiw r28,32
- 2519 0994 0FB6      		in __tmp_reg__,__SREG__
- 2520 0996 F894      		cli
- 2521 0998 DEBF      		out __SP_H__,r29
- 2522 099a 0FBE      		out __SREG__,__tmp_reg__
- 2523 099c CDBF      		out __SP_L__,r28
- 2524               	/* prologue: function */
- 2525               	/* frame size = 32 */
- 2526 099e 8C01      		movw r16,r24
- 2527               	.LM396:
- 2528 09a0 8EE7      		ldi r24,lo8(8281726)
- 2529 09a2 9EE5      		ldi r25,hi8(8281726)
- 2530 09a4 AEE7      		ldi r26,hlo8(8281726)
- 2531 09a6 B0E0      		ldi r27,hhi8(8281726)
- 2532               	.LVL139:
- 2533 09a8 8983      		std Y+1,r24
- 2534 09aa 9A83      		std Y+2,r25
- 2535 09ac AB83      		std Y+3,r26
- 2536 09ae BC83      		std Y+4,r27
- 2537 09b0 FE01      		movw r30,r28
- 2538 09b2 3596      		adiw r30,5
- 2539 09b4 8CE1      		ldi r24,lo8(28)
- 2540 09b6 DF01      		movw r26,r30
- 2541 09b8 1D92      		st X+,__zero_reg__
- 2542 09ba 8A95      	        dec r24
- 2543 09bc 01F4      		brne .-6
- 2544               	.LM397:
- 2545 09be C801      		movw r24,r16
- 2546 09c0 0E94 0000 		call nrf24l01p_rx_basic
- 2547 09c4 8823      		tst r24
- 2548 09c6 01F0      		breq .L246
- 2549               	.LM398:
- 2550 09c8 8091 0000 		lds r24,nrf24l01p+26
- 2551 09cc F801      		movw r30,r16
- 2552 09ce E80F      		add r30,r24
- 2553 09d0 F11D      		adc r31,__zero_reg__
- 2554 09d2 8081      		ld r24,Z
- 2555 09d4 80FF      		sbrs r24,0
- 2556 09d6 00C0      		rjmp .L246
- 2557 09d8 8091 0000 		lds r24,nrf24l01p+24
- 2558 09dc F801      		movw r30,r16
- 2559 09de E80F      		add r30,r24
- 2560 09e0 F11D      		adc r31,__zero_reg__
- 2561 09e2 9091 0000 		lds r25,nrf24l01p+4
- 2562 09e6 8081      		ld r24,Z
- 2563 09e8 9817      		cp r25,r24
- 2564 09ea 01F4      		brne .L246
- 2565               	.LBB409:
- 2566               	.LBB410:
- 2567               	.LBB411:
- 2568               	.LBB412:
- 2569               	.LBB413:
- 2570               	.LBB414:
- 2571               	.LM399:
- 2572 09ec 8CED      		ldi r24,lo8(1500)
- 2573 09ee 95E0      		ldi r25,hi8(1500)
- 2574               	.LVL140:
- 2575               	/* #APP */
- 2576               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 2577 09f0 0197      		1: sbiw r24,1
- 2578 09f2 01F4      		brne 1b
- 2579               	 ;  0 "" 2
- 2580               	/* #NOAPP */
- 2581               	.LBE414:
- 2582               	.LBE413:
- 2583               	.LBE412:
- 2584               	.LBE411:
- 2585               	.LBE410:
- 2586               	.LBE409:
- 2587               	.LBB415:
- 2588               	.LBB416:
- 2589               	.LM400:
- 2590 09f4 8091 0000 		lds r24,nrf24l01p+25
- 2591               	.LVL141:
- 2592 09f8 F801      		movw r30,r16
- 2593 09fa E80F      		add r30,r24
- 2594 09fc F11D      		adc r31,__zero_reg__
- 2595 09fe 8081      		ld r24,Z
- 2596 0a00 8093 0000 		sts nrf24l01p+5,r24
- 2597               	.LBE416:
- 2598               	.LBE415:
- 2599               	.LM401:
- 2600 0a04 8091 0000 		lds r24,nrf24l01p+27
- 2601 0a08 F801      		movw r30,r16
- 2602 0a0a E80F      		add r30,r24
- 2603 0a0c F11D      		adc r31,__zero_reg__
- 2604 0a0e 8081      		ld r24,Z
- 2605 0a10 8093 0000 		sts nrf24l01p+15,r24
- 2606               	.LM402:
- 2607 0a14 8091 0000 		lds r24,nrf24l01p+29
- 2608 0a18 080F      		add r16,r24
- 2609 0a1a 111D      		adc r17,__zero_reg__
- 2610 0a1c F801      		movw r30,r16
- 2611 0a1e 8081      		ld r24,Z
- 2612 0a20 8093 0000 		sts nrf24l01p+19,r24
- 2613               	.LM403:
- 2614 0a24 CE01      		movw r24,r28
- 2615 0a26 0196      		adiw r24,1
- 2616 0a28 63E0      		ldi r22,lo8(3)
- 2617 0a2a 0E94 0000 		call nrf24l01p_tx_basic
- 2618 0a2e 81E0      		ldi r24,lo8(1)
- 2619               	.LVL142:
- 2620 0a30 00C0      		rjmp .L247
- 2621               	.LVL143:
- 2622               	.L246:
- 2623 0a32 80E0      		ldi r24,lo8(0)
- 2624               	.LVL144:
- 2625               	.L247:
- 2626               	.LVL145:
- 2627               	/* epilogue start */
- 2628               	.LM404:
- 2629 0a34 A096      		adiw r28,32
- 2630 0a36 0FB6      		in __tmp_reg__,__SREG__
- 2631 0a38 F894      		cli
- 2632 0a3a DEBF      		out __SP_H__,r29
- 2633 0a3c 0FBE      		out __SREG__,__tmp_reg__
- 2634 0a3e CDBF      		out __SP_L__,r28
- 2635 0a40 CF91      		pop r28
- 2636 0a42 DF91      		pop r29
- 2637 0a44 1F91      		pop r17
- 2638 0a46 0F91      		pop r16
- 2639               	.LVL146:
- 2640 0a48 0895      		ret
- 2641               	.LFE69:
- 2643               		.data
- 2644               	.LC0:
- 2645 0000 4143 4B30 		.string	"ACK00"
- 2645      3000 
- 2646               		.text
- 2647               	.global	nrf24l01p_init
- 2649               	nrf24l01p_init:
- 2650               	.LFB70:
- 2651               	.LM405:
- 2652 0a4a FF92      		push r15
- 2653 0a4c 0F93      		push r16
- 2654 0a4e 1F93      		push r17
- 2655               	/* prologue: function */
- 2656               	/* frame size = 0 */
- 2657               	.LM406:
- 2658 0a50 0E94 0000 		call nrf24l01p_struct_init
+ 2232 0820 83E0      		ldi r24,lo8(3)
+ 2233 0822 0E94 0000 		call nRF24L01P_Mode_Set
+ 2234               	.LM368:
+ 2235 0826 0E94 0000 		call nRF24L01P_Wait_Tx_Complete
+ 2236               	/* epilogue start */
+ 2237               	.LM369:
+ 2238 082a 1F91      		pop r17
+ 2239 082c 0F91      		pop r16
+ 2240               	.LVL112:
+ 2241 082e FF90      		pop r15
+ 2242               	.LVL113:
+ 2243 0830 0895      		ret
+ 2244               	.LFE66:
+ 2246               	.global	nRF24L01P_Rx_Basic
+ 2248               	nRF24L01P_Rx_Basic:
+ 2249               	.LFB67:
+ 2250               	.LM370:
+ 2251               	.LVL114:
+ 2252 0832 CF92      		push r12
+ 2253 0834 DF92      		push r13
+ 2254 0836 EF92      		push r14
+ 2255 0838 FF92      		push r15
+ 2256 083a 0F93      		push r16
+ 2257 083c 1F93      		push r17
+ 2258 083e CF93      		push r28
+ 2259 0840 DF93      		push r29
+ 2260               	/* prologue: function */
+ 2261               	/* frame size = 0 */
+ 2262 0842 EC01      		movw r28,r24
+ 2263               	.LBB386:
+ 2264               	.LBB387:
+ 2265               	.LM371:
+ 2266 0844 1092 0000 		sts nRF24L01P+32,__zero_reg__
+ 2267               	.LBE387:
+ 2268               	.LBE386:
+ 2269               	.LBB388:
+ 2270               	.LBB389:
+ 2271               	.LM372:
+ 2272 0848 1092 0000 		sts (nRF24L01P+8)+1,__zero_reg__
+ 2273 084c 1092 0000 		sts nRF24L01P+8,__zero_reg__
+ 2274               	.LBE389:
+ 2275               	.LBE388:
+ 2276               	.LBB390:
+ 2277               	.LBB391:
+ 2278               	.LBB392:
+ 2279               	.LBB393:
+ 2280               	.LBB394:
+ 2281               	.LBB395:
+ 2282               	.LM373:
+ 2283 0850 7CE2      		ldi r23,lo8(300)
+ 2284 0852 C72E      		mov r12,r23
+ 2285 0854 71E0      		ldi r23,hi8(300)
+ 2286 0856 D72E      		mov r13,r23
+ 2287 0858 00C0      		rjmp .L240
+ 2288               	.LVL115:
+ 2289               	.L236:
+ 2290               	.LBE395:
+ 2291               	.LBE394:
+ 2292               	.LBE393:
+ 2293               	.LBE392:
+ 2294               	.LBE391:
+ 2295               	.LBE390:
+ 2296               	.LM374:
+ 2297 085a 0E94 0000 		call nRF24L01P_Rx_Buf_Not_Empty
+ 2298 085e 8823      		tst r24
+ 2299 0860 01F0      		breq .L234
+ 2300               	.LBB401:
+ 2301               	.LM375:
+ 2302 0862 CE01      		movw r24,r28
+ 2303 0864 0E94 0000 		call nRF24L01P_Read_Data_Rx_Buf
+ 2304               	.LM376:
+ 2305 0868 8091 0000 		lds r24,nRF24L01P+21
+ 2306 086c FE01      		movw r30,r28
+ 2307 086e E80F      		add r30,r24
+ 2308 0870 F11D      		adc r31,__zero_reg__
+ 2309               	.LM377:
+ 2310 0872 F080      		ld r15,Z
+ 2311               	.LVL116:
+ 2312 0874 EE24      		clr r14
+ 2313               	.LVL117:
+ 2314               	.LM378:
+ 2315 0876 8091 0000 		lds r24,nRF24L01P+22
+ 2316 087a FE01      		movw r30,r28
+ 2317 087c E80F      		add r30,r24
+ 2318 087e F11D      		adc r31,__zero_reg__
+ 2319 0880 0081      		ld r16,Z
+ 2320 0882 10E0      		ldi r17,lo8(0)
+ 2321               	.LVL118:
+ 2322 0884 0E29      		or r16,r14
+ 2323 0886 1F29      		or r17,r15
+ 2324               	.LVL119:
+ 2325               	.LM379:
+ 2326 0888 CE01      		movw r24,r28
+ 2327 088a 6091 0000 		lds r22,nRF24L01P+28
+ 2328 088e 0E94 0000 		call nRF24L01P_CRC_Block
+ 2329               	.LM380:
+ 2330 0892 0817      		cp r16,r24
+ 2331 0894 1907      		cpc r17,r25
+ 2332 0896 01F4      		brne .L240
+ 2333               	.LM381:
+ 2334 0898 8091 0000 		lds r24,nRF24L01P+27
+ 2335 089c FE01      		movw r30,r28
+ 2336 089e E80F      		add r30,r24
+ 2337 08a0 F11D      		adc r31,__zero_reg__
+ 2338 08a2 8081      		ld r24,Z
+ 2339 08a4 8093 0000 		sts nRF24L01P+16,r24
+ 2340               	.LM382:
+ 2341 08a8 8091 0000 		lds r24,nRF24L01P+29
+ 2342 08ac C80F      		add r28,r24
+ 2343 08ae D11D      		adc r29,__zero_reg__
+ 2344 08b0 8881      		ld r24,Y
+ 2345 08b2 8093 0000 		sts nRF24L01P+19,r24
+ 2346 08b6 81E0      		ldi r24,lo8(1)
+ 2347               	.LVL120:
+ 2348 08b8 00C0      		rjmp .L235
+ 2349               	.LVL121:
+ 2350               	.L234:
+ 2351               	.LBE401:
+ 2352               	.LBB402:
+ 2353               	.LBB400:
+ 2354               	.LBB399:
+ 2355               	.LBB398:
+ 2356               	.LBB397:
+ 2357               	.LBB396:
+ 2358               	.LM383:
+ 2359 08ba C601      		movw r24,r12
+ 2360               	.LVL122:
+ 2361               	/* #APP */
+ 2362               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 2363 08bc 0197      		1: sbiw r24,1
+ 2364 08be 01F4      		brne 1b
+ 2365               	 ;  0 "" 2
+ 2366               	/* #NOAPP */
+ 2367               	.LBE396:
+ 2368               	.LBE397:
+ 2369               	.LBE398:
+ 2370               	.LBE399:
+ 2371               	.LBE400:
+ 2372               	.LBE402:
+ 2373               	.LM384:
+ 2374 08c0 8091 0000 		lds r24,nRF24L01P+8
+ 2375 08c4 9091 0000 		lds r25,(nRF24L01P+8)+1
+ 2376               	.LVL123:
+ 2377 08c8 0196      		adiw r24,1
+ 2378 08ca 9093 0000 		sts (nRF24L01P+8)+1,r25
+ 2379 08ce 8093 0000 		sts nRF24L01P+8,r24
+ 2380               	.LVL124:
+ 2381               	.L240:
+ 2382               	.LM385:
+ 2383 08d2 2091 0000 		lds r18,nRF24L01P+8
+ 2384 08d6 3091 0000 		lds r19,(nRF24L01P+8)+1
+ 2385 08da 8091 0000 		lds r24,nRF24L01P+6
+ 2386 08de 9091 0000 		lds r25,(nRF24L01P+6)+1
+ 2387 08e2 2817      		cp r18,r24
+ 2388 08e4 3907      		cpc r19,r25
+ 2389 08e6 00F4      		brsh .+2
+ 2390 08e8 00C0      		rjmp .L236
+ 2391 08ea 80E0      		ldi r24,lo8(0)
+ 2392               	.LVL125:
+ 2393               	.L235:
+ 2394               	.LVL126:
+ 2395               	/* epilogue start */
+ 2396               	.LM386:
+ 2397 08ec DF91      		pop r29
+ 2398 08ee CF91      		pop r28
+ 2399               	.LVL127:
+ 2400 08f0 1F91      		pop r17
+ 2401               	.LVL128:
+ 2402 08f2 0F91      		pop r16
+ 2403               	.LVL129:
+ 2404 08f4 FF90      		pop r15
+ 2405 08f6 EF90      		pop r14
+ 2406 08f8 DF90      		pop r13
+ 2407 08fa CF90      		pop r12
+ 2408 08fc 0895      		ret
+ 2409               	.LFE67:
+ 2411               	.global	nRF24L01P_Tx_With_Ack
+ 2413               	nRF24L01P_Tx_With_Ack:
+ 2414               	.LFB68:
+ 2415               	.LM387:
+ 2416               	.LVL130:
+ 2417 08fe EF92      		push r14
+ 2418 0900 FF92      		push r15
+ 2419 0902 0F93      		push r16
+ 2420 0904 1F93      		push r17
+ 2421 0906 DF93      		push r29
+ 2422 0908 CF93      		push r28
+ 2423 090a CDB7      		in r28,__SP_L__
+ 2424 090c DEB7      		in r29,__SP_H__
+ 2425 090e A097      		sbiw r28,32
+ 2426 0910 0FB6      		in __tmp_reg__,__SREG__
+ 2427 0912 F894      		cli
+ 2428 0914 DEBF      		out __SP_H__,r29
+ 2429 0916 0FBE      		out __SREG__,__tmp_reg__
+ 2430 0918 CDBF      		out __SP_L__,r28
+ 2431               	/* prologue: function */
+ 2432               	/* frame size = 32 */
+ 2433               	.LBB403:
+ 2434               	.LBB404:
+ 2435               	.LM388:
+ 2436 091a E090 0000 		lds r14,nRF24L01P+6
+ 2437 091e F090 0000 		lds r15,(nRF24L01P+6)+1
+ 2438               	.LVL131:
+ 2439               	.LBE404:
+ 2440               	.LBE403:
+ 2441               	.LBB405:
+ 2442               	.LBB406:
+ 2443               	.LM389:
+ 2444 0922 25E0      		ldi r18,lo8(5)
+ 2445 0924 30E0      		ldi r19,hi8(5)
+ 2446 0926 3093 0000 		sts (nRF24L01P+6)+1,r19
+ 2447 092a 2093 0000 		sts nRF24L01P+6,r18
+ 2448               	.LBE406:
+ 2449               	.LBE405:
+ 2450               	.LM390:
+ 2451 092e 0E94 0000 		call nRF24L01P_Tx_Basic
+ 2452               	.LVL132:
+ 2453               	.LM391:
+ 2454 0932 8091 0000 		lds r24,nRF24L01P+18
+ 2455 0936 8823      		tst r24
+ 2456 0938 01F0      		breq .L242
+ 2457               	.LM392:
+ 2458 093a 8E01      		movw r16,r28
+ 2459 093c 0F5F      		subi r16,lo8(-(1))
+ 2460 093e 1F4F      		sbci r17,hi8(-(1))
+ 2461 0940 C801      		movw r24,r16
+ 2462 0942 0E94 0000 		call nRF24L01P_Rx_Basic
+ 2463 0946 8823      		tst r24
+ 2464 0948 01F0      		breq .L242
+ 2465               	.LM393:
+ 2466 094a 8091 0000 		lds r24,nRF24L01P+24
+ 2467 094e 080F      		add r16,r24
+ 2468 0950 111D      		adc r17,__zero_reg__
+ 2469 0952 9091 0000 		lds r25,nRF24L01P+4
+ 2470 0956 F801      		movw r30,r16
+ 2471 0958 8081      		ld r24,Z
+ 2472 095a 9817      		cp r25,r24
+ 2473 095c 01F4      		brne .L242
+ 2474 095e 81E0      		ldi r24,lo8(1)
+ 2475               	.LVL133:
+ 2476 0960 00C0      		rjmp .L243
+ 2477               	.LVL134:
+ 2478               	.L242:
+ 2479 0962 80E0      		ldi r24,lo8(0)
+ 2480               	.LVL135:
+ 2481               	.L243:
+ 2482               	.LBB407:
+ 2483               	.LBB408:
+ 2484               	.LM394:
+ 2485 0964 F092 0000 		sts (nRF24L01P+6)+1,r15
+ 2486 0968 E092 0000 		sts nRF24L01P+6,r14
+ 2487               	.LVL136:
+ 2488               	/* epilogue start */
+ 2489               	.LBE408:
+ 2490               	.LBE407:
+ 2491               	.LM395:
+ 2492 096c A096      		adiw r28,32
+ 2493 096e 0FB6      		in __tmp_reg__,__SREG__
+ 2494 0970 F894      		cli
+ 2495 0972 DEBF      		out __SP_H__,r29
+ 2496 0974 0FBE      		out __SREG__,__tmp_reg__
+ 2497 0976 CDBF      		out __SP_L__,r28
+ 2498 0978 CF91      		pop r28
+ 2499 097a DF91      		pop r29
+ 2500 097c 1F91      		pop r17
+ 2501 097e 0F91      		pop r16
+ 2502 0980 FF90      		pop r15
+ 2503 0982 EF90      		pop r14
+ 2504               	.LVL137:
+ 2505 0984 0895      		ret
+ 2506               	.LFE68:
+ 2508               	.global	nRF24L01P_Rx_With_Ack
+ 2510               	nRF24L01P_Rx_With_Ack:
+ 2511               	.LFB69:
+ 2512               	.LM396:
+ 2513               	.LVL138:
+ 2514 0986 0F93      		push r16
+ 2515 0988 1F93      		push r17
+ 2516 098a DF93      		push r29
+ 2517 098c CF93      		push r28
+ 2518 098e CDB7      		in r28,__SP_L__
+ 2519 0990 DEB7      		in r29,__SP_H__
+ 2520 0992 A097      		sbiw r28,32
+ 2521 0994 0FB6      		in __tmp_reg__,__SREG__
+ 2522 0996 F894      		cli
+ 2523 0998 DEBF      		out __SP_H__,r29
+ 2524 099a 0FBE      		out __SREG__,__tmp_reg__
+ 2525 099c CDBF      		out __SP_L__,r28
+ 2526               	/* prologue: function */
+ 2527               	/* frame size = 32 */
+ 2528 099e 8C01      		movw r16,r24
+ 2529               	.LM397:
+ 2530 09a0 8EE7      		ldi r24,lo8(8281726)
+ 2531 09a2 9EE5      		ldi r25,hi8(8281726)
+ 2532 09a4 AEE7      		ldi r26,hlo8(8281726)
+ 2533 09a6 B0E0      		ldi r27,hhi8(8281726)
+ 2534               	.LVL139:
+ 2535 09a8 8983      		std Y+1,r24
+ 2536 09aa 9A83      		std Y+2,r25
+ 2537 09ac AB83      		std Y+3,r26
+ 2538 09ae BC83      		std Y+4,r27
+ 2539 09b0 FE01      		movw r30,r28
+ 2540 09b2 3596      		adiw r30,5
+ 2541 09b4 8CE1      		ldi r24,lo8(28)
+ 2542 09b6 DF01      		movw r26,r30
+ 2543 09b8 1D92      		st X+,__zero_reg__
+ 2544 09ba 8A95      	        dec r24
+ 2545 09bc 01F4      		brne .-6
+ 2546               	.LM398:
+ 2547 09be C801      		movw r24,r16
+ 2548 09c0 0E94 0000 		call nRF24L01P_Rx_Basic
+ 2549 09c4 8823      		tst r24
+ 2550 09c6 01F0      		breq .L246
+ 2551               	.LM399:
+ 2552 09c8 8091 0000 		lds r24,nRF24L01P+26
+ 2553 09cc F801      		movw r30,r16
+ 2554 09ce E80F      		add r30,r24
+ 2555 09d0 F11D      		adc r31,__zero_reg__
+ 2556 09d2 8081      		ld r24,Z
+ 2557 09d4 80FF      		sbrs r24,0
+ 2558 09d6 00C0      		rjmp .L246
+ 2559 09d8 8091 0000 		lds r24,nRF24L01P+24
+ 2560 09dc F801      		movw r30,r16
+ 2561 09de E80F      		add r30,r24
+ 2562 09e0 F11D      		adc r31,__zero_reg__
+ 2563 09e2 9091 0000 		lds r25,nRF24L01P+4
+ 2564 09e6 8081      		ld r24,Z
+ 2565 09e8 9817      		cp r25,r24
+ 2566 09ea 01F4      		brne .L246
+ 2567               	.LBB409:
+ 2568               	.LBB410:
+ 2569               	.LBB411:
+ 2570               	.LBB412:
+ 2571               	.LBB413:
+ 2572               	.LBB414:
+ 2573               	.LM400:
+ 2574 09ec 8CED      		ldi r24,lo8(1500)
+ 2575 09ee 95E0      		ldi r25,hi8(1500)
+ 2576               	.LVL140:
+ 2577               	/* #APP */
+ 2578               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 2579 09f0 0197      		1: sbiw r24,1
+ 2580 09f2 01F4      		brne 1b
+ 2581               	 ;  0 "" 2
+ 2582               	/* #NOAPP */
+ 2583               	.LBE414:
+ 2584               	.LBE413:
+ 2585               	.LBE412:
+ 2586               	.LBE411:
+ 2587               	.LBE410:
+ 2588               	.LBE409:
+ 2589               	.LBB415:
+ 2590               	.LBB416:
+ 2591               	.LM401:
+ 2592 09f4 8091 0000 		lds r24,nRF24L01P+25
+ 2593               	.LVL141:
+ 2594 09f8 F801      		movw r30,r16
+ 2595 09fa E80F      		add r30,r24
+ 2596 09fc F11D      		adc r31,__zero_reg__
+ 2597 09fe 8081      		ld r24,Z
+ 2598 0a00 8093 0000 		sts nRF24L01P+5,r24
+ 2599               	.LBE416:
+ 2600               	.LBE415:
+ 2601               	.LM402:
+ 2602 0a04 8091 0000 		lds r24,nRF24L01P+27
+ 2603 0a08 F801      		movw r30,r16
+ 2604 0a0a E80F      		add r30,r24
+ 2605 0a0c F11D      		adc r31,__zero_reg__
+ 2606 0a0e 8081      		ld r24,Z
+ 2607 0a10 8093 0000 		sts nRF24L01P+15,r24
+ 2608               	.LM403:
+ 2609 0a14 8091 0000 		lds r24,nRF24L01P+29
+ 2610 0a18 080F      		add r16,r24
+ 2611 0a1a 111D      		adc r17,__zero_reg__
+ 2612 0a1c F801      		movw r30,r16
+ 2613 0a1e 8081      		ld r24,Z
+ 2614 0a20 8093 0000 		sts nRF24L01P+19,r24
+ 2615               	.LM404:
+ 2616 0a24 CE01      		movw r24,r28
+ 2617 0a26 0196      		adiw r24,1
+ 2618 0a28 63E0      		ldi r22,lo8(3)
+ 2619 0a2a 0E94 0000 		call nRF24L01P_Tx_Basic
+ 2620 0a2e 81E0      		ldi r24,lo8(1)
+ 2621               	.LVL142:
+ 2622 0a30 00C0      		rjmp .L247
+ 2623               	.LVL143:
+ 2624               	.L246:
+ 2625 0a32 80E0      		ldi r24,lo8(0)
+ 2626               	.LVL144:
+ 2627               	.L247:
+ 2628               	.LVL145:
+ 2629               	/* epilogue start */
+ 2630               	.LM405:
+ 2631 0a34 A096      		adiw r28,32
+ 2632 0a36 0FB6      		in __tmp_reg__,__SREG__
+ 2633 0a38 F894      		cli
+ 2634 0a3a DEBF      		out __SP_H__,r29
+ 2635 0a3c 0FBE      		out __SREG__,__tmp_reg__
+ 2636 0a3e CDBF      		out __SP_L__,r28
+ 2637 0a40 CF91      		pop r28
+ 2638 0a42 DF91      		pop r29
+ 2639 0a44 1F91      		pop r17
+ 2640 0a46 0F91      		pop r16
+ 2641               	.LVL146:
+ 2642 0a48 0895      		ret
+ 2643               	.LFE69:
+ 2645               		.data
+ 2646               	.LC0:
+ 2647 0000 4143 4B30 		.string	"ACK00"
+ 2647      3000 
+ 2648               		.text
+ 2649               	.global	nRF24L01P_Init
+ 2651               	nRF24L01P_Init:
+ 2652               	.LFB70:
+ 2653               	.LM406:
+ 2654 0a4a FF92      		push r15
+ 2655 0a4c 0F93      		push r16
+ 2656 0a4e 1F93      		push r17
+ 2657               	/* prologue: function */
+ 2658               	/* frame size = 0 */
  2659               	.LM407:
- 2660 0a54 0E94 0000 		call nrf24l01p_enable
+ 2660 0a50 0E94 0000 		call nRF24L01P_Struct_Init
  2661               	.LM408:
- 2662 0a58 00E0      		ldi r16,lo8(nrf24l01p+2)
- 2663 0a5a 10E0      		ldi r17,hi8(nrf24l01p+2)
- 2664 0a5c 1092 0000 		sts nrf24l01p+2,__zero_reg__
- 2665 0a60 80E0      		ldi r24,lo8(0)
- 2666 0a62 60E0      		ldi r22,lo8(0)
- 2667 0a64 A801      		movw r20,r16
- 2668 0a66 21E0      		ldi r18,lo8(1)
- 2669 0a68 0E94 0000 		call nrf24l01p_readwrite_register
- 2670               	.LM409:
- 2671 0a6c 1092 0000 		sts nrf24l01p+2,__zero_reg__
- 2672 0a70 81E0      		ldi r24,lo8(1)
- 2673 0a72 60E0      		ldi r22,lo8(0)
- 2674 0a74 A801      		movw r20,r16
- 2675 0a76 21E0      		ldi r18,lo8(1)
- 2676 0a78 0E94 0000 		call nrf24l01p_readwrite_register
- 2677               	.LM410:
- 2678 0a7c 83E0      		ldi r24,lo8(3)
- 2679 0a7e 8093 0000 		sts nrf24l01p+2,r24
- 2680 0a82 82E0      		ldi r24,lo8(2)
- 2681 0a84 60E0      		ldi r22,lo8(0)
- 2682 0a86 A801      		movw r20,r16
- 2683 0a88 21E0      		ldi r18,lo8(1)
- 2684 0a8a 0E94 0000 		call nrf24l01p_readwrite_register
- 2685               	.LM411:
- 2686 0a8e 81E0      		ldi r24,lo8(1)
- 2687 0a90 8093 0000 		sts nrf24l01p+2,r24
- 2688 0a94 83E0      		ldi r24,lo8(3)
- 2689 0a96 60E0      		ldi r22,lo8(0)
- 2690 0a98 A801      		movw r20,r16
- 2691 0a9a 21E0      		ldi r18,lo8(1)
- 2692 0a9c 0E94 0000 		call nrf24l01p_readwrite_register
- 2693               	.LM412:
- 2694 0aa0 1092 0000 		sts nrf24l01p+2,__zero_reg__
- 2695 0aa4 84E0      		ldi r24,lo8(4)
- 2696 0aa6 60E0      		ldi r22,lo8(0)
- 2697 0aa8 A801      		movw r20,r16
- 2698 0aaa 21E0      		ldi r18,lo8(1)
- 2699 0aac 0E94 0000 		call nrf24l01p_readwrite_register
- 2700               	.LM413:
- 2701 0ab0 82E0      		ldi r24,lo8(2)
- 2702 0ab2 8093 0000 		sts nrf24l01p+2,r24
- 2703 0ab6 85E0      		ldi r24,lo8(5)
- 2704 0ab8 60E0      		ldi r22,lo8(0)
- 2705 0aba A801      		movw r20,r16
- 2706 0abc 21E0      		ldi r18,lo8(1)
- 2707 0abe 0E94 0000 		call nrf24l01p_readwrite_register
- 2708               	.LM414:
- 2709 0ac2 86E2      		ldi r24,lo8(38)
- 2710 0ac4 8093 0000 		sts nrf24l01p+2,r24
- 2711 0ac8 86E0      		ldi r24,lo8(6)
- 2712 0aca 60E0      		ldi r22,lo8(0)
- 2713 0acc A801      		movw r20,r16
- 2714 0ace 21E0      		ldi r18,lo8(1)
- 2715 0ad0 0E94 0000 		call nrf24l01p_readwrite_register
- 2716               	.LM415:
- 2717 0ad4 80E7      		ldi r24,lo8(112)
- 2718 0ad6 8093 0000 		sts nrf24l01p+2,r24
- 2719 0ada 87E0      		ldi r24,lo8(7)
- 2720 0adc 60E0      		ldi r22,lo8(0)
- 2721 0ade A801      		movw r20,r16
- 2722 0ae0 21E0      		ldi r18,lo8(1)
- 2723 0ae2 0E94 0000 		call nrf24l01p_readwrite_register
- 2724               	.LM416:
- 2725 0ae6 E0E2      		ldi r30,lo8(32)
- 2726 0ae8 FE2E      		mov r15,r30
- 2727 0aea F092 0000 		sts nrf24l01p+2,r15
- 2728               	.LM417:
- 2729 0aee 81E1      		ldi r24,lo8(17)
- 2730 0af0 60E0      		ldi r22,lo8(0)
- 2731 0af2 A801      		movw r20,r16
- 2732 0af4 21E0      		ldi r18,lo8(1)
- 2733 0af6 0E94 0000 		call nrf24l01p_readwrite_register
- 2734               	.LM418:
- 2735 0afa F092 0000 		sts nrf24l01p+2,r15
+ 2662 0a54 0E94 0000 		call nRF24L01P_Enable
+ 2663               	.LM409:
+ 2664 0a58 00E0      		ldi r16,lo8(nRF24L01P+2)
+ 2665 0a5a 10E0      		ldi r17,hi8(nRF24L01P+2)
+ 2666 0a5c 1092 0000 		sts nRF24L01P+2,__zero_reg__
+ 2667 0a60 80E0      		ldi r24,lo8(0)
+ 2668 0a62 60E0      		ldi r22,lo8(0)
+ 2669 0a64 A801      		movw r20,r16
+ 2670 0a66 21E0      		ldi r18,lo8(1)
+ 2671 0a68 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2672               	.LM410:
+ 2673 0a6c 1092 0000 		sts nRF24L01P+2,__zero_reg__
+ 2674 0a70 81E0      		ldi r24,lo8(1)
+ 2675 0a72 60E0      		ldi r22,lo8(0)
+ 2676 0a74 A801      		movw r20,r16
+ 2677 0a76 21E0      		ldi r18,lo8(1)
+ 2678 0a78 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2679               	.LM411:
+ 2680 0a7c 83E0      		ldi r24,lo8(3)
+ 2681 0a7e 8093 0000 		sts nRF24L01P+2,r24
+ 2682 0a82 82E0      		ldi r24,lo8(2)
+ 2683 0a84 60E0      		ldi r22,lo8(0)
+ 2684 0a86 A801      		movw r20,r16
+ 2685 0a88 21E0      		ldi r18,lo8(1)
+ 2686 0a8a 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2687               	.LM412:
+ 2688 0a8e 81E0      		ldi r24,lo8(1)
+ 2689 0a90 8093 0000 		sts nRF24L01P+2,r24
+ 2690 0a94 83E0      		ldi r24,lo8(3)
+ 2691 0a96 60E0      		ldi r22,lo8(0)
+ 2692 0a98 A801      		movw r20,r16
+ 2693 0a9a 21E0      		ldi r18,lo8(1)
+ 2694 0a9c 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2695               	.LM413:
+ 2696 0aa0 1092 0000 		sts nRF24L01P+2,__zero_reg__
+ 2697 0aa4 84E0      		ldi r24,lo8(4)
+ 2698 0aa6 60E0      		ldi r22,lo8(0)
+ 2699 0aa8 A801      		movw r20,r16
+ 2700 0aaa 21E0      		ldi r18,lo8(1)
+ 2701 0aac 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2702               	.LM414:
+ 2703 0ab0 82E0      		ldi r24,lo8(2)
+ 2704 0ab2 8093 0000 		sts nRF24L01P+2,r24
+ 2705 0ab6 85E0      		ldi r24,lo8(5)
+ 2706 0ab8 60E0      		ldi r22,lo8(0)
+ 2707 0aba A801      		movw r20,r16
+ 2708 0abc 21E0      		ldi r18,lo8(1)
+ 2709 0abe 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2710               	.LM415:
+ 2711 0ac2 86E2      		ldi r24,lo8(38)
+ 2712 0ac4 8093 0000 		sts nRF24L01P+2,r24
+ 2713 0ac8 86E0      		ldi r24,lo8(6)
+ 2714 0aca 60E0      		ldi r22,lo8(0)
+ 2715 0acc A801      		movw r20,r16
+ 2716 0ace 21E0      		ldi r18,lo8(1)
+ 2717 0ad0 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2718               	.LM416:
+ 2719 0ad4 80E7      		ldi r24,lo8(112)
+ 2720 0ad6 8093 0000 		sts nRF24L01P+2,r24
+ 2721 0ada 87E0      		ldi r24,lo8(7)
+ 2722 0adc 60E0      		ldi r22,lo8(0)
+ 2723 0ade A801      		movw r20,r16
+ 2724 0ae0 21E0      		ldi r18,lo8(1)
+ 2725 0ae2 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2726               	.LM417:
+ 2727 0ae6 E0E2      		ldi r30,lo8(32)
+ 2728 0ae8 FE2E      		mov r15,r30
+ 2729 0aea F092 0000 		sts nRF24L01P+2,r15
+ 2730               	.LM418:
+ 2731 0aee 81E1      		ldi r24,lo8(17)
+ 2732 0af0 60E0      		ldi r22,lo8(0)
+ 2733 0af2 A801      		movw r20,r16
+ 2734 0af4 21E0      		ldi r18,lo8(1)
+ 2735 0af6 0E94 0000 		call nRF24L01P_ReadWrite_Register
  2736               	.LM419:
- 2737 0afe 82E1      		ldi r24,lo8(18)
- 2738 0b00 60E0      		ldi r22,lo8(0)
- 2739 0b02 A801      		movw r20,r16
- 2740 0b04 21E0      		ldi r18,lo8(1)
- 2741 0b06 0E94 0000 		call nrf24l01p_readwrite_register
- 2742               	.LM420:
- 2743 0b0a 1092 0000 		sts nrf24l01p+2,__zero_reg__
- 2744 0b0e 8CE1      		ldi r24,lo8(28)
- 2745 0b10 60E0      		ldi r22,lo8(0)
- 2746 0b12 A801      		movw r20,r16
- 2747 0b14 21E0      		ldi r18,lo8(1)
- 2748 0b16 0E94 0000 		call nrf24l01p_readwrite_register
- 2749               	.LM421:
- 2750 0b1a 1092 0000 		sts nrf24l01p+2,__zero_reg__
- 2751 0b1e 8DE1      		ldi r24,lo8(29)
- 2752 0b20 60E0      		ldi r22,lo8(0)
- 2753 0b22 A801      		movw r20,r16
- 2754 0b24 21E0      		ldi r18,lo8(1)
- 2755 0b26 0E94 0000 		call nrf24l01p_readwrite_register
- 2756               	.LM422:
- 2757 0b2a 00E0      		ldi r16,lo8(.LC0)
- 2758 0b2c 10E0      		ldi r17,hi8(.LC0)
- 2759 0b2e 80E1      		ldi r24,lo8(16)
- 2760 0b30 60E0      		ldi r22,lo8(0)
- 2761 0b32 A801      		movw r20,r16
- 2762 0b34 25E0      		ldi r18,lo8(5)
- 2763 0b36 0E94 0000 		call nrf24l01p_readwrite_register
- 2764               	.LM423:
- 2765 0b3a 8AE0      		ldi r24,lo8(10)
- 2766 0b3c 60E0      		ldi r22,lo8(0)
- 2767 0b3e A801      		movw r20,r16
- 2768 0b40 25E0      		ldi r18,lo8(5)
- 2769 0b42 0E94 0000 		call nrf24l01p_readwrite_register
- 2770               	.LM424:
- 2771 0b46 82E0      		ldi r24,lo8(2)
- 2772 0b48 0E94 0000 		call nrf24l01p_mode_set
- 2773               	/* epilogue start */
- 2774               	.LM425:
- 2775 0b4c 1F91      		pop r17
- 2776 0b4e 0F91      		pop r16
- 2777 0b50 FF90      		pop r15
- 2778 0b52 0895      		ret
- 2779               	.LFE70:
- 2781               		.comm nrf24l01p,43,1
- 3318               	.Letext0:
+ 2737 0afa F092 0000 		sts nRF24L01P+2,r15
+ 2738               	.LM420:
+ 2739 0afe 82E1      		ldi r24,lo8(18)
+ 2740 0b00 60E0      		ldi r22,lo8(0)
+ 2741 0b02 A801      		movw r20,r16
+ 2742 0b04 21E0      		ldi r18,lo8(1)
+ 2743 0b06 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2744               	.LM421:
+ 2745 0b0a 1092 0000 		sts nRF24L01P+2,__zero_reg__
+ 2746 0b0e 8CE1      		ldi r24,lo8(28)
+ 2747 0b10 60E0      		ldi r22,lo8(0)
+ 2748 0b12 A801      		movw r20,r16
+ 2749 0b14 21E0      		ldi r18,lo8(1)
+ 2750 0b16 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2751               	.LM422:
+ 2752 0b1a 1092 0000 		sts nRF24L01P+2,__zero_reg__
+ 2753 0b1e 8DE1      		ldi r24,lo8(29)
+ 2754 0b20 60E0      		ldi r22,lo8(0)
+ 2755 0b22 A801      		movw r20,r16
+ 2756 0b24 21E0      		ldi r18,lo8(1)
+ 2757 0b26 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2758               	.LM423:
+ 2759 0b2a 00E0      		ldi r16,lo8(.LC0)
+ 2760 0b2c 10E0      		ldi r17,hi8(.LC0)
+ 2761 0b2e 80E1      		ldi r24,lo8(16)
+ 2762 0b30 60E0      		ldi r22,lo8(0)
+ 2763 0b32 A801      		movw r20,r16
+ 2764 0b34 25E0      		ldi r18,lo8(5)
+ 2765 0b36 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2766               	.LM424:
+ 2767 0b3a 8AE0      		ldi r24,lo8(10)
+ 2768 0b3c 60E0      		ldi r22,lo8(0)
+ 2769 0b3e A801      		movw r20,r16
+ 2770 0b40 25E0      		ldi r18,lo8(5)
+ 2771 0b42 0E94 0000 		call nRF24L01P_ReadWrite_Register
+ 2772               	.LM425:
+ 2773 0b46 82E0      		ldi r24,lo8(2)
+ 2774 0b48 0E94 0000 		call nRF24L01P_Mode_Set
+ 2775               	/* epilogue start */
+ 2776               	.LM426:
+ 2777 0b4c 1F91      		pop r17
+ 2778 0b4e 0F91      		pop r16
+ 2779 0b50 FF90      		pop r15
+ 2780 0b52 0895      		ret
+ 2781               	.LFE70:
+ 2783               		.comm nRF24L01P,43,1
+ 3320               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 nrf24l01p.c
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:18     .text:00000000 nrf24l01p_struct_init
-                            *COM*:0000002b nrf24l01p
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:105    .text:000000a4 nrf24l01p_set_sck_dd
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:125    .text:000000b0 nrf24l01p_set_miso_dd
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:145    .text:000000bc nrf24l01p_set_mosi_dd
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:165    .text:000000c8 nrf24l01p_set_csn_dd
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:185    .text:000000d4 nrf24l01p_set_ce_dd
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:205    .text:000000e0 nrf24l01p_set_sck
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:225    .text:000000ec nrf24l01p_set_miso
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:245    .text:000000f8 nrf24l01p_set_mosi
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:265    .text:00000104 nrf24l01p_set_csn
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:285    .text:00000110 nrf24l01p_set_ce
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:305    .text:0000011c nrf24l01p_gpio_enable
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:361    .text:0000012e nrf24l01p_gpio_disable
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:433    .text:00000144 nrf24l01p_spi_enable
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:450    .text:0000014c nrf24l01p_spi_disable
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:466    .text:00000152 nrf24l01p_enable
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:492    .text:00000164 nrf24l01p_disable
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:516    .text:00000172 nrf24l01p_error_clear
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:530    .text:00000178 nrf24l01p_error_clear_ticks
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:545    .text:00000182 nrf24l01p_error_clear_buf
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:570    .text:00000192 nrf24l01p_error_clear_all
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:611    .text:000001ae nrf24l01p_error_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:626    .text:000001b4 nrf24l01p_error_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:639    .text:000001ba nrf24l01p_error_get_index
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:659    .text:000001c6 nrf24l01p_error_timeout
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:709    .text:000001f0 nrf24l01p_error_free
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:729    .text:00000200 nrf24l01p_crc
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:783    .text:0000022c nrf24l01p_crc_block
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:835    .text:0000025c nrf24l01p_spi_transfer
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:910    .text:0000028e nrf24l01p_readwrite_register
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1032   .text:00000314 nrf24l01p_read_modify_write_register
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1111   .text:00000380 nrf24l01p_flush_tx_buf
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1144   .text:0000039e nrf24l01p_flush_rx_buf
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1177   .text:000003bc nrf24l01p_write_data_tx_buf
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1212   .text:000003d8 nrf24l01p_read_data_rx_buf
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1247   .text:000003f4 nrf24l01p_tx_buf_empty
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1286   .text:00000426 nrf24l01p_rx_buf_not_empty
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1320   .text:0000044e nrf24l01p_wait_tx_complete
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1409   .text:000004a0 nrf24l01p_mode_set_deep_sleep
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1442   .text:000004c2 nrf24l01p_mode_set_sleep
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1485   .text:000004f0 nrf24l01p_mode_set_rx
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1530   .text:00000522 nrf24l01p_mode_set_tx
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1581   .text:00000556 nrf24l01p_mode_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1642   .text:0000058e nrf24l01p_mode_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1691   .text:000005c8 nrf24l01p_channel_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1730   .text:000005ee nrf24l01p_channel_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1761   .text:0000060e nrf24l01p_speed_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1812   .text:00000646 nrf24l01p_speed_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1878   .text:000006a0 nrf24l01p_tx_power_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:1966   .text:00000708 nrf24l01p_tx_power_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2000   .text:00000730 nrf24l01p_own_addr_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2015   .text:00000736 nrf24l01p_own_addr_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2028   .text:0000073c nrf24l01p_dest_addr_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2043   .text:00000742 nrf24l01p_dest_addr_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2056   .text:00000748 nrf24l01p_rxticks_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2072   .text:00000752 nrf24l01p_rxticks_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2086   .text:0000075c nrf24l01p_rx_timeout_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2102   .text:00000766 nrf24l01p_rx_timeout_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2116   .text:00000770 nrf24l01p_max_retransmission_set
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2132   .text:0000077a nrf24l01p_max_retransmission_get
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2146   .text:00000784 nrf24l01p_tx_basic
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2246   .text:00000832 nrf24l01p_rx_basic
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2411   .text:000008fe nrf24l01p_tx_with_ack
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2508   .text:00000986 nrf24l01p_rx_with_ack
-C:\Users\FARIDU~1\AppData\Local\Temp/cctm0b5c.s:2649   .text:00000a4a nrf24l01p_init
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:18     .text:00000000 nRF24L01P_Struct_Init
+                            *COM*:0000002b nRF24L01P
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:105    .text:000000a4 nRF24L01P_Set_SCK_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:125    .text:000000b0 nRF24L01P_Set_MISO_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:145    .text:000000bc nRF24L01P_Set_MOSI_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:165    .text:000000c8 nRF24L01P_Set_CSN_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:185    .text:000000d4 nRF24L01P_Set_CE_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:205    .text:000000e0 nRF24L01P_Set_SCK
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:225    .text:000000ec nRF24L01P_Set_MISO
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:245    .text:000000f8 nRF24L01P_Set_MOSI
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:265    .text:00000104 nRF24L01P_Set_CSN
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:285    .text:00000110 nRF24L01P_Set_CE
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:305    .text:0000011c nRF24L01P_GPIO_Enable
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:361    .text:0000012e nRF24L01P_GPIO_Disable
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:433    .text:00000144 nRF24L01P_SPI_Enable
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:453    .text:00000150 nRF24L01P_SPI_Disable
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:469    .text:00000156 nRF24L01P_Enable
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:497    .text:0000016a nRF24L01P_Disable
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:521    .text:00000178 nRF24L01P_Error_Clear
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:535    .text:0000017e nRF24L01P_Error_Clear_Ticks
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:550    .text:00000188 nRF24L01P_Error_Clear_Buf
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:575    .text:00000198 nRF24L01P_Error_Clear_All
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:616    .text:000001b4 nRF24L01P_Error_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:631    .text:000001ba nRF24L01P_Error_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:644    .text:000001c0 nRF24L01P_Error_Get_Index
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:664    .text:000001cc nRF24L01P_Error_Timeout
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:714    .text:000001f6 nRF24L01P_Error_Free
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:734    .text:00000206 nRF24L01P_CRC
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:788    .text:00000232 nRF24L01P_CRC_Block
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:840    .text:00000262 nRF24L01P_SPI_Transfer
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:915    .text:00000294 nRF24L01P_ReadWrite_Register
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1037   .text:0000031a nRF24L01P_ReadModifyWrite_Register
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1116   .text:00000386 nRF24L01P_Flush_Tx_Buf
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1149   .text:000003a4 nRF24L01P_Flush_Rx_Buf
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1182   .text:000003c2 nRF24L01P_Write_Data_Tx_Buf
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1217   .text:000003de nRF24L01P_Read_Data_Rx_Buf
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1252   .text:000003fa nRF24L01P_Tx_Buf_Empty
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1291   .text:0000042c nRF24L01P_Rx_Buf_Not_Empty
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1325   .text:00000454 nRF24L01P_Wait_Tx_Complete
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1414   .text:000004a6 nRF24L01P_Mode_Set_DeepSleep
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1447   .text:000004c8 nRF24L01P_Mode_Set_Sleep
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1490   .text:000004f6 nRF24L01P_Mode_Set_Rx
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1535   .text:00000528 nRF24L01P_Mode_Set_Tx
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1586   .text:0000055c nRF24L01P_Mode_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1647   .text:00000594 nRF24L01P_Mode_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1696   .text:000005ce nRF24L01P_Channel_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1735   .text:000005f4 nRF24L01P_Channel_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1766   .text:00000614 nRF24L01P_Speed_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1817   .text:0000064c nRF24L01P_Speed_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1883   .text:000006a6 nRF24L01P_Tx_Power_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1971   .text:0000070e nRF24L01P_Tx_Power_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2005   .text:00000736 nRF24L01P_Own_Addr_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2020   .text:0000073c nRF24L01P_Own_Addr_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2033   .text:00000742 nRF24L01P_Dest_Addr_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2048   .text:00000748 nRF24L01P_Dest_Addr_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2061   .text:0000074e nRF24L01P_RxTicks_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2077   .text:00000758 nRF24L01P_RxTicks_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2091   .text:00000762 nRF24L01P_RxTimeout_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2107   .text:0000076c nRF24L01P_RxTimeout_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2121   .text:00000776 nRF24L01P_MaxRetransmission_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2137   .text:00000780 nRF24L01P_MaxRetransmission_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2151   .text:0000078a nRF24L01P_Tx_Basic
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2248   .text:00000832 nRF24L01P_Rx_Basic
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2413   .text:000008fe nRF24L01P_Tx_With_Ack
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2510   .text:00000986 nRF24L01P_Rx_With_Ack
+C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2651   .text:00000a4a nRF24L01P_Init
 
 UNDEFINED SYMBOLS
 __do_copy_data

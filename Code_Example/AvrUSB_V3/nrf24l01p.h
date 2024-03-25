@@ -26,86 +26,92 @@
 #define  nRF24L01P_TX_ACK_RCV_TIMEOUT 5
 #define  nRF24L01P_RX_ACK_SEND_DELAY  500
 
-void     nrf24l01p_struct_init(void);
-void     nrf24l01p_set_sck_dd(uint8_t state);
-void     nrf24l01p_set_miso_dd(uint8_t state);
-void     nrf24l01p_set_mosi_dd(uint8_t state);
-void     nrf24l01p_set_csn_dd(uint8_t state);
-void     nrf24l01p_set_ce_dd(uint8_t state);
+void     nRF24L01P_Struct_Init(void);
+void     nRF24L01P_set_SCK_DD(uint8_t state);
+void     nRF24L01P_set_MISO_DD(uint8_t state);
+void     nRF24L01P_set_MOSI_DD(uint8_t state);
+void     nRF24L01P_set_CSN_DD(uint8_t state);
+void     nRF24L01P_set_CE_DD(uint8_t state);
 
-void     nrf24l01p_set_sck(uint8_t state);
-void     nrf24l01p_set_miso(uint8_t state);
-void     nrf24l01p_set_mosi(uint8_t state);
-void     nrf24l01p_set_csn(uint8_t state);
-void     nrf24l01p_set_ce(uint8_t state);
+void     nRF24L01P_set_SCK(uint8_t state);
+void     nRF24L01P_set_MISO(uint8_t state);
+void     nRF24L01P_set_MOSI(uint8_t state);
+void     nRF24L01P_set_CSN(uint8_t state);
+void     nRF24L01P_set_CE(uint8_t state);
 
-void     nrf24l01p_gpio_enable(void);
-void     nrf24l01p_gpio_disable(void);
-void     nrf24l01p_spi_enable(void);
-void     nrf24l01p_spi_disable(void);
-void     nrf24l01p_enable(void);
-void     nrf24l01p_disable(void);
+void     nRF24L01P_GPIO_Enable(void);
+void     nRF24L01P_GPIO_Disable(void);
+void     nRF24L01P_SPI_Enable(void);
+void     nRF24L01P_SPI_Disable(void);
+void     nRF24L01P_Enable(void);
+void     nRF24L01P_Disable(void);
 
-void     nrf24l01p_error_clear(void);
-void     nrf24l01p_error_clear_ticks(void);
-void     nrf24l01p_error_clear_buf(void);
-void     nrf24l01p_error_clear_all(void);
-void     nrf24l01p_error_set(uint8_t val);
-uint8_t  nrf24l01p_error_get(void);
-uint8_t  nrf24l01p_error_get_index(uint8_t index);
-uint8_t  nrf24l01p_error_timeout(uint16_t ticks);
-uint8_t  nrf24l01p_error_free(void);
+void     nRF24L01P_Error_Clear(void);
+void     nRF24L01P_Error_Clear_Ticks(void);
+void     nRF24L01P_Error_Clear_Buf(void);
+void     nRF24L01P_Error_Clear_All(void);
+void     nRF24L01P_Error_Set(uint8_t val);
+uint8_t  nRF24L01P_Error_Get(void);
+uint8_t  nRF24L01P_Error_Get_Index(uint8_t index);
+uint8_t  nRF24L01P_Error_Timeout(uint16_t ticks);
+uint8_t  nRF24L01P_Error_Free(void);
 
-uint16_t nrf24l01p_crc(uint16_t crc, uint8_t data);
-uint16_t nrf24l01p_crc_block(uint8_t *buf, uint8_t len);
-uint8_t  nrf24l01p_spi_transfer(uint8_t data);
+uint16_t nRF24L01P_CRC(uint16_t crc, uint8_t data);
+uint16_t nRF24L01P_CRC_Block(uint8_t *buf, uint8_t len);
 
-void     nrf24l01p_readwrite_register(uint8_t reg, uint8_t rw, uint8_t *data, uint8_t len);
-void     nrf24l01p_read_modify_write_register( uint8_t reg, uint8_t bit_pos, uint8_t bit_val );
+uint8_t  nRF24L01P_SPI_Transfer(uint8_t data);
 
-void     nrf24l01p_flush_tx_buf(void);
-void     nrf24l01p_flush_rx_buf(void);
-void     nrf24l01p_write_data_tx_buf(uint8_t *data);
-void     nrf24l01p_read_data_rx_buf(uint8_t *data);
+void     nRF24L01P_ReadWrite_Register(uint8_t reg, uint8_t rw, uint8_t *data, uint8_t len);
+void     nRF24L01P_ReadModifyWrite_Register( uint8_t reg, uint8_t bit_pos, uint8_t bit_val );
 
-uint8_t  nrf24l01p_tx_buf_empty(void);
-uint8_t  nrf24l01p_rx_buf_not_empty(void);
-uint8_t  nrf24l01p_wait_tx_complete(void);
+void     nRF24L01P_Flush_Tx_Buf(void);
+void     nRF24L01P_Flush_Rx_Buf(void);
 
-void     nrf24l01p_mode_set_deep_sleep(void);
-void     nrf24l01p_mode_set_sleep(void);
-void     nrf24l01p_mode_set_rx(void);
-void     nrf24l01p_mode_set_tx(void);
-void     nrf24l01p_mode_set(uint8_t mode);
-uint8_t  nrf24l01p_mode_get(void);
+void     nRF24L01P_Write_Data_Tx_Buf(uint8_t *data);
+void     nRF24L01P_Read_Data_Rx_Buf(uint8_t *data);
 
-void     nrf24l01p_channel_set(uint8_t channel);
-uint8_t  nrf24l01p_channel_get(void);
+uint8_t  nRF24L01P_Tx_Buf_Empty(void);
+uint8_t  nRF24L01P_Rx_Buf_Not_Empty(void);
+uint8_t  nRF24L01P_Wait_Tx_Complete(void);
 
-void     nrf24l01p_speed_set(uint8_t index);
-uint8_t  nrf24l01p_speed_get(void);
+void     nRF24L01P_Mode_Set_DeepSleep(void);
+void     nRF24L01P_Mode_Set_Sleep(void);
+void     nRF24L01P_Mode_Set_Rx(void);
+void     nRF24L01P_Mode_Set_Tx(void);
+void     nRF24L01P_Mode_Set(uint8_t Mode);
+uint8_t  nRF24L01P_Mode_Get(void);
 
-void     nrf24l01p_tx_power_set(uint8_t index);
-uint8_t  nrf24l01p_tx_power_get(void);
+void     nRF24L01P_Channel_Set(uint8_t channel);
+uint8_t  nRF24L01P_Channel_Get(void);
 
-void     nrf24l01p_own_addr_set(uint8_t addr);
-uint8_t  nrf24l01p_own_addr_get(void);
-void     nrf24l01p_dest_addr_set(uint8_t addr);
-uint8_t  nrf24l01p_dest_addr_get(void);
-void     nrf24l01p_rxticks_set(uint16_t val);
-uint16_t nrf24l01p_rxticks_get(void);
-void     nrf24l01p_rx_timeout_set(uint16_t val);
-uint16_t nrf24l01p_rx_timeout_get(void);
-void     nrf24l01p_max_retransmission_set(uint16_t val);
-uint16_t nrf24l01p_max_retransmission_get(void);
- 
-void     nrf24l01p_tx_basic(uint8_t *buf, uint8_t len);
-uint8_t  nrf24l01p_rx_basic(uint8_t *buf);
-uint8_t  nrf24l01p_tx_with_ack(uint8_t *buf, uint8_t len);
-uint8_t  nrf24l01p_rx_with_ack(uint8_t *buf);
+void     nRF24L01P_Speed_Set(uint8_t index);
+uint8_t  nRF24L01P_Speed_Get(void);
 
+void     nRF24L01P_Tx_Power_Set(uint8_t index);
+uint8_t  nRF24L01P_Tx_Power_Get(void);
 
-void     nrf24l01p_init(void);
+void     nRF24L01P_Own_Addr_Set(uint8_t addr);
+uint8_t  nRF24L01P_Own_Addr_Get(void);
+
+void     nRF24L01P_Dest_Addr_Set(uint8_t addr);
+uint8_t  nRF24L01P_Dest_Addr_Get(void);
+
+void     nRF24L01P_RxTicks_Set(uint16_t val);
+uint16_t nRF24L01P_RxTicks_Get(void);
+
+void     nRF24L01P_RxTimeout_Set(uint16_t val);
+uint16_t nRF24L01P_RxTimeout_Get(void);
+
+void     nRF24L01P_MaxRetransmission_Set(uint16_t val);
+uint16_t nRF24L01P_MaxRetransmission_Get(void);
+
+void     nRF24L01P_Tx_Basic(uint8_t *buf, uint8_t len);
+uint8_t  nRF24L01P_Rx_Basic(uint8_t *buf);
+
+uint8_t  nRF24L01P_Tx_With_Ack(uint8_t *buf, uint8_t len);
+uint8_t  nRF24L01P_Rx_With_Ack(uint8_t *buf);
+
+void     nRF24L01P_Init(void);
 
 
 

@@ -18,7 +18,7 @@ int main(void){
   DDRD&=~((1<<3)|(1<<2));
   PORTD|=(1<<3)|(1<<2);
   
-  nrf24l01p_init();
+  nRF24L01P_Init();
   Sleep_Init();
   Vsns_Init();
   led_init();
@@ -31,8 +31,8 @@ int main(void){
 		dataconv_dword_to_num(val, buf, 0);
 		buf[dataconv_dword_to_num_len()]='\r';
 		buf[dataconv_dword_to_num_len()+1]='\n';
-	    nrf24l01p_tx_basic(buf,dataconv_dword_to_num_len()+2);
-	    nrf24l01p_mode_set(0);
+	    nRF24L01P_Tx_Basic(buf,dataconv_dword_to_num_len()+2);
+	    nRF24L01P_Mode_Set(0);
 	    led_off();
 	    Deep_Sleep();
 		

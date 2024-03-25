@@ -9,8 +9,8 @@
 #define  VSNS_EN_PORT    PORTC
 #define  VSNS_EN_bp      0x01
 
-#define  VSNS_DUMMY_SMPL 0x04
-#define  VSNS_AVG_SMPL   0x08
+#define  VSNS_DUMMY_SMPL 0x02
+#define  VSNS_AVG_SMPL   0x04
 
 uint16_t vsns_cal_val=0;
 
