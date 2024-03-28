@@ -3,29 +3,29 @@ main.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000006  00800100  00001462  000014f6  2**0
+  0 .data         00000006  00800100  00001468  000014fc  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00001462  00000000  00000000  00000094  2**1
+  1 .text         00001468  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000032  00800106  00800106  000014fc  2**0
+  2 .bss          00000032  00800106  00800106  00001502  2**0
                   ALLOC
-  3 .debug_aranges 000000e0  00000000  00000000  000014fc  2**0
+  3 .debug_aranges 000000e0  00000000  00000000  00001502  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_pubnames 00000ac8  00000000  00000000  000015dc  2**0
+  4 .debug_pubnames 00000ac8  00000000  00000000  000015e2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00002180  00000000  00000000  000020a4  2**0
+  5 .debug_info   00002180  00000000  00000000  000020aa  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000007f8  00000000  00000000  00004224  2**0
+  6 .debug_abbrev 000007f8  00000000  00000000  0000422a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   0000194e  00000000  00000000  00004a1c  2**0
+  7 .debug_line   00001956  00000000  00000000  00004a22  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000700  00000000  00000000  0000636c  2**2
+  8 .debug_frame  00000700  00000000  00000000  00006378  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000baa  00000000  00000000  00006a6c  2**0
+  9 .debug_str    00000baa  00000000  00000000  00006a78  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000bf6  00000000  00000000  00007616  2**0
+ 10 .debug_loc    00000bf6  00000000  00000000  00007622  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000078  00000000  00000000  0000820c  2**0
+ 11 .debug_ranges 00000078  00000000  00000000  00008218  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -70,7 +70,7 @@ Disassembly of section .text:
       74:	11 e0       	ldi	r17, 0x01	; 1
       76:	a0 e0       	ldi	r26, 0x00	; 0
       78:	b1 e0       	ldi	r27, 0x01	; 1
-      7a:	e2 e6       	ldi	r30, 0x62	; 98
+      7a:	e8 e6       	ldi	r30, 0x68	; 104
       7c:	f4 e1       	ldi	r31, 0x14	; 20
       7e:	02 c0       	rjmp	.+4      	; 0x84 <.do_copy_data_start>
 
@@ -97,7 +97,7 @@ Disassembly of section .text:
       96:	b1 07       	cpc	r27, r17
       98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
       9a:	0e 94 53 00 	call	0xa6	; 0xa6 <main>
-      9e:	0c 94 2f 0a 	jmp	0x145e	; 0x145e <_exit>
+      9e:	0c 94 32 0a 	jmp	0x1464	; 0x1464 <_exit>
 
 000000a2 <__bad_interrupt>:
       a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -145,9 +145,9 @@ int main(void){
   Sleep_Init();
       da:	0e 94 c9 00 	call	0x192	; 0x192 <Sleep_Init>
   Vsns_Init();
-      de:	0e 94 fc 07 	call	0xff8	; 0xff8 <Vsns_Init>
+      de:	0e 94 ff 07 	call	0xffe	; 0xffe <Vsns_Init>
   led_init();
-      e2:	0e 94 cc 09 	call	0x1398	; 0x1398 <led_init>
+      e2:	0e 94 cf 09 	call	0x139e	; 0x139e <led_init>
   while(1){
 	    
 	    led_on();
@@ -168,16 +168,16 @@ int main(void){
       f8:	fd 1e       	adc	r15, r29
       fa:	8a e0       	ldi	r24, 0x0A	; 10
       fc:	d8 2e       	mov	r13, r24
-  Vsns_Init();
-  led_init();
+  CLKPR = (1<<CLKPS0);
+  sei();*/
   
   while(1){
 	    
 	    led_on();
-      fe:	0e 94 cf 09 	call	0x139e	; 0x139e <led_on>
+      fe:	0e 94 d2 09 	call	0x13a4	; 0x13a4 <led_on>
 		uint8_t buf[32];
 		uint16_t val=Vsns_V_Read();
-     102:	0e 94 fe 06 	call	0xdfc	; 0xdfc <Vsns_V_Read>
+     102:	0e 94 01 07 	call	0xe02	; 0xe02 <Vsns_V_Read>
 		dataconv_dword_to_num(val, buf, 0);
      106:	a0 e0       	ldi	r26, 0x00	; 0
      108:	b0 e0       	ldi	r27, 0x00	; 0
@@ -185,21 +185,21 @@ int main(void){
      10c:	cd 01       	movw	r24, r26
      10e:	a8 01       	movw	r20, r16
      110:	20 e0       	ldi	r18, 0x00	; 0
-     112:	0e 94 82 08 	call	0x1104	; 0x1104 <dataconv_dword_to_num>
+     112:	0e 94 85 08 	call	0x110a	; 0x110a <dataconv_dword_to_num>
 		buf[dataconv_dword_to_num_len()]='\r';
-     116:	0e 94 10 09 	call	0x1220	; 0x1220 <dataconv_dword_to_num_len>
+     116:	0e 94 13 09 	call	0x1226	; 0x1226 <dataconv_dword_to_num_len>
      11a:	f8 01       	movw	r30, r16
      11c:	e8 0f       	add	r30, r24
      11e:	f1 1d       	adc	r31, r1
      120:	c0 82       	st	Z, r12
 		buf[dataconv_dword_to_num_len()+1]='\n';
-     122:	0e 94 10 09 	call	0x1220	; 0x1220 <dataconv_dword_to_num_len>
+     122:	0e 94 13 09 	call	0x1226	; 0x1226 <dataconv_dword_to_num_len>
      126:	f7 01       	movw	r30, r14
      128:	e8 0f       	add	r30, r24
      12a:	f1 1d       	adc	r31, r1
      12c:	d0 82       	st	Z, r13
 	    nRF24L01P_Tx_Basic(buf,dataconv_dword_to_num_len()+2);
-     12e:	0e 94 10 09 	call	0x1220	; 0x1220 <dataconv_dword_to_num_len>
+     12e:	0e 94 13 09 	call	0x1226	; 0x1226 <dataconv_dword_to_num_len>
      132:	68 2f       	mov	r22, r24
      134:	6e 5f       	subi	r22, 0xFE	; 254
      136:	c8 01       	movw	r24, r16
@@ -208,7 +208,7 @@ int main(void){
      13c:	80 e0       	ldi	r24, 0x00	; 0
      13e:	0e 94 ba 03 	call	0x774	; 0x774 <nRF24L01P_Mode_Set>
 	    led_off();
-     142:	0e 94 d1 09 	call	0x13a2	; 0x13a2 <led_off>
+     142:	0e 94 d4 09 	call	0x13a8	; 0x13a8 <led_off>
 	    Deep_Sleep();
      146:	0e 94 a6 00 	call	0x14c	; 0x14c <Deep_Sleep>
      14a:	d9 cf       	rjmp	.-78     	; 0xfe <main+0x58>
@@ -2889,1335 +2889,1338 @@ void nRF24L01P_Init(void){
      d56:	a8 01       	movw	r20, r16
      d58:	25 e0       	ldi	r18, 0x05	; 5
      d5a:	0e 94 56 02 	call	0x4ac	; 0x4ac <nRF24L01P_ReadWrite_Register>
+  nRF24L01P_Speed_Set(0);
+     d5e:	80 e0       	ldi	r24, 0x00	; 0
+     d60:	0e 94 16 04 	call	0x82c	; 0x82c <nRF24L01P_Speed_Set>
   nRF24L01P_Mode_Set(2);
-     d5e:	82 e0       	ldi	r24, 0x02	; 2
-     d60:	0e 94 ba 03 	call	0x774	; 0x774 <nRF24L01P_Mode_Set>
+     d64:	82 e0       	ldi	r24, 0x02	; 2
+     d66:	0e 94 ba 03 	call	0x774	; 0x774 <nRF24L01P_Mode_Set>
 }
-     d64:	1f 91       	pop	r17
-     d66:	0f 91       	pop	r16
-     d68:	ff 90       	pop	r15
-     d6a:	08 95       	ret
+     d6a:	1f 91       	pop	r17
+     d6c:	0f 91       	pop	r16
+     d6e:	ff 90       	pop	r15
+     d70:	08 95       	ret
 
-00000d6c <Vsns_ADC_Reference_Internal>:
+00000d72 <Vsns_ADC_Reference_Internal>:
 #define  VSNS_AVG_SMPL   0x04
 
 uint16_t vsns_cal_val=0;
 
 void Vsns_ADC_Reference_Internal(void){
   ADMUX|=(1<<REFS0)|(1<<REFS1);
-     d6c:	ec e7       	ldi	r30, 0x7C	; 124
-     d6e:	f0 e0       	ldi	r31, 0x00	; 0
-     d70:	80 81       	ld	r24, Z
-     d72:	80 6c       	ori	r24, 0xC0	; 192
-     d74:	80 83       	st	Z, r24
+     d72:	ec e7       	ldi	r30, 0x7C	; 124
+     d74:	f0 e0       	ldi	r31, 0x00	; 0
+     d76:	80 81       	ld	r24, Z
+     d78:	80 6c       	ori	r24, 0xC0	; 192
+     d7a:	80 83       	st	Z, r24
 }
-     d76:	08 95       	ret
+     d7c:	08 95       	ret
 
-00000d78 <Vsns_ADC_Reference_Avcc>:
+00000d7e <Vsns_ADC_Reference_Avcc>:
 
 void Vsns_ADC_Reference_Avcc(void){
   ADMUX&=~(1<<REFS1);
-     d78:	ec e7       	ldi	r30, 0x7C	; 124
-     d7a:	f0 e0       	ldi	r31, 0x00	; 0
-     d7c:	80 81       	ld	r24, Z
-     d7e:	8f 77       	andi	r24, 0x7F	; 127
-     d80:	80 83       	st	Z, r24
-  ADMUX|=(1<<REFS0);
+     d7e:	ec e7       	ldi	r30, 0x7C	; 124
+     d80:	f0 e0       	ldi	r31, 0x00	; 0
      d82:	80 81       	ld	r24, Z
-     d84:	80 64       	ori	r24, 0x40	; 64
+     d84:	8f 77       	andi	r24, 0x7F	; 127
      d86:	80 83       	st	Z, r24
+  ADMUX|=(1<<REFS0);
+     d88:	80 81       	ld	r24, Z
+     d8a:	80 64       	ori	r24, 0x40	; 64
+     d8c:	80 83       	st	Z, r24
 }
-     d88:	08 95       	ret
+     d8e:	08 95       	ret
 
-00000d8a <Vsns_ADC_Enable>:
+00000d90 <Vsns_ADC_Enable>:
 
 void Vsns_ADC_Enable(void){
   ADCSRA|=(1<<ADEN); 
-     d8a:	ea e7       	ldi	r30, 0x7A	; 122
-     d8c:	f0 e0       	ldi	r31, 0x00	; 0
-     d8e:	80 81       	ld	r24, Z
-     d90:	80 68       	ori	r24, 0x80	; 128
-     d92:	80 83       	st	Z, r24
+     d90:	ea e7       	ldi	r30, 0x7A	; 122
+     d92:	f0 e0       	ldi	r31, 0x00	; 0
+     d94:	80 81       	ld	r24, Z
+     d96:	80 68       	ori	r24, 0x80	; 128
+     d98:	80 83       	st	Z, r24
 }
-     d94:	08 95       	ret
+     d9a:	08 95       	ret
 
-00000d96 <Vsns_ADC_Disable>:
+00000d9c <Vsns_ADC_Disable>:
 
 void Vsns_ADC_Disable(void){
   ADCSRA&=~(1<<ADEN);
-     d96:	ea e7       	ldi	r30, 0x7A	; 122
-     d98:	f0 e0       	ldi	r31, 0x00	; 0
-     d9a:	80 81       	ld	r24, Z
-     d9c:	8f 77       	andi	r24, 0x7F	; 127
-     d9e:	80 83       	st	Z, r24
+     d9c:	ea e7       	ldi	r30, 0x7A	; 122
+     d9e:	f0 e0       	ldi	r31, 0x00	; 0
+     da0:	80 81       	ld	r24, Z
+     da2:	8f 77       	andi	r24, 0x7F	; 127
+     da4:	80 83       	st	Z, r24
   ACSR|=(1<<ACD);
-     da0:	80 b7       	in	r24, 0x30	; 48
-     da2:	80 68       	ori	r24, 0x80	; 128
-     da4:	80 bf       	out	0x30, r24	; 48
+     da6:	80 b7       	in	r24, 0x30	; 48
+     da8:	80 68       	ori	r24, 0x80	; 128
+     daa:	80 bf       	out	0x30, r24	; 48
 }
-     da6:	08 95       	ret
+     dac:	08 95       	ret
 
-00000da8 <Vsns_ADC_Init>:
+00000dae <Vsns_ADC_Init>:
 
 void Vsns_ADC_Init(void){
   ADCSRA =(1<<ADPS1)|(1<<ADPS2);
-     da8:	ea e7       	ldi	r30, 0x7A	; 122
-     daa:	f0 e0       	ldi	r31, 0x00	; 0
-     dac:	86 e0       	ldi	r24, 0x06	; 6
-     dae:	80 83       	st	Z, r24
-  ADCSRA|=(1<<ADEN);
-     db0:	80 81       	ld	r24, Z
-     db2:	80 68       	ori	r24, 0x80	; 128
+     dae:	ea e7       	ldi	r30, 0x7A	; 122
+     db0:	f0 e0       	ldi	r31, 0x00	; 0
+     db2:	86 e0       	ldi	r24, 0x06	; 6
      db4:	80 83       	st	Z, r24
+  ADCSRA|=(1<<ADEN);
+     db6:	80 81       	ld	r24, Z
+     db8:	80 68       	ori	r24, 0x80	; 128
+     dba:	80 83       	st	Z, r24
 }
-     db6:	08 95       	ret
+     dbc:	08 95       	ret
 
-00000db8 <Vsns_ADC_Read>:
+00000dbe <Vsns_ADC_Read>:
 
 uint16_t Vsns_ADC_Read(uint8_t channel){
   uint8_t admux=(ADMUX & 0xC0);
-     db8:	90 91 7c 00 	lds	r25, 0x007C
-     dbc:	90 7c       	andi	r25, 0xC0	; 192
+     dbe:	90 91 7c 00 	lds	r25, 0x007C
+     dc2:	90 7c       	andi	r25, 0xC0	; 192
   admux|=channel;
-     dbe:	98 2b       	or	r25, r24
+     dc4:	98 2b       	or	r25, r24
   if(ADMUX!=admux){ADMUX=admux;}
-     dc0:	80 91 7c 00 	lds	r24, 0x007C
-     dc4:	89 17       	cp	r24, r25
-     dc6:	11 f0       	breq	.+4      	; 0xdcc <Vsns_ADC_Read+0x14>
-     dc8:	90 93 7c 00 	sts	0x007C, r25
+     dc6:	80 91 7c 00 	lds	r24, 0x007C
+     dca:	89 17       	cp	r24, r25
+     dcc:	11 f0       	breq	.+4      	; 0xdd2 <Vsns_ADC_Read+0x14>
+     dce:	90 93 7c 00 	sts	0x007C, r25
   ADCSRA|=(1<<ADSC);
-     dcc:	80 91 7a 00 	lds	r24, 0x007A
-     dd0:	80 64       	ori	r24, 0x40	; 64
-     dd2:	80 93 7a 00 	sts	0x007A, r24
+     dd2:	80 91 7a 00 	lds	r24, 0x007A
+     dd6:	80 64       	ori	r24, 0x40	; 64
+     dd8:	80 93 7a 00 	sts	0x007A, r24
   while(!(ADCSRA &(1<<ADIF)));
-     dd6:	80 91 7a 00 	lds	r24, 0x007A
-     dda:	84 ff       	sbrs	r24, 4
-     ddc:	fc cf       	rjmp	.-8      	; 0xdd6 <Vsns_ADC_Read+0x1e>
+     ddc:	80 91 7a 00 	lds	r24, 0x007A
+     de0:	84 ff       	sbrs	r24, 4
+     de2:	fc cf       	rjmp	.-8      	; 0xddc <Vsns_ADC_Read+0x1e>
   ADCSRA|=(1<<ADIF);
-     dde:	80 91 7a 00 	lds	r24, 0x007A
-     de2:	80 61       	ori	r24, 0x10	; 16
-     de4:	80 93 7a 00 	sts	0x007A, r24
+     de4:	80 91 7a 00 	lds	r24, 0x007A
+     de8:	80 61       	ori	r24, 0x10	; 16
+     dea:	80 93 7a 00 	sts	0x007A, r24
   return ADCW;
-     de8:	20 91 78 00 	lds	r18, 0x0078
-     dec:	30 91 79 00 	lds	r19, 0x0079
+     dee:	20 91 78 00 	lds	r18, 0x0078
+     df2:	30 91 79 00 	lds	r19, 0x0079
 }
-     df0:	c9 01       	movw	r24, r18
-     df2:	08 95       	ret
+     df6:	c9 01       	movw	r24, r18
+     df8:	08 95       	ret
 
-00000df4 <Vsns_PMOS_Enable>:
+00000dfa <Vsns_PMOS_Enable>:
 
 
 
 void Vsns_PMOS_Enable(void){
   VSNS_EN_PORT|=(1<<VSNS_EN_bp);
-     df4:	41 9a       	sbi	0x08, 1	; 8
+     dfa:	41 9a       	sbi	0x08, 1	; 8
 }
-     df6:	08 95       	ret
+     dfc:	08 95       	ret
 
-00000df8 <Vsns_PMOS_Disable>:
+00000dfe <Vsns_PMOS_Disable>:
 
 void Vsns_PMOS_Disable(void){
   VSNS_EN_PORT&=~(1<<VSNS_EN_bp);
-     df8:	41 98       	cbi	0x08, 1	; 8
+     dfe:	41 98       	cbi	0x08, 1	; 8
 }
-     dfa:	08 95       	ret
+     e00:	08 95       	ret
 
-00000dfc <Vsns_V_Read>:
+00000e02 <Vsns_V_Read>:
 
 uint16_t Vsns_V_Read(void){
-     dfc:	4f 92       	push	r4
-     dfe:	5f 92       	push	r5
-     e00:	6f 92       	push	r6
-     e02:	7f 92       	push	r7
-     e04:	8f 92       	push	r8
-     e06:	9f 92       	push	r9
-     e08:	af 92       	push	r10
-     e0a:	bf 92       	push	r11
-     e0c:	cf 92       	push	r12
-     e0e:	df 92       	push	r13
-     e10:	ef 92       	push	r14
-     e12:	ff 92       	push	r15
-     e14:	0f 93       	push	r16
-     e16:	1f 93       	push	r17
+     e02:	4f 92       	push	r4
+     e04:	5f 92       	push	r5
+     e06:	6f 92       	push	r6
+     e08:	7f 92       	push	r7
+     e0a:	8f 92       	push	r8
+     e0c:	9f 92       	push	r9
+     e0e:	af 92       	push	r10
+     e10:	bf 92       	push	r11
+     e12:	cf 92       	push	r12
+     e14:	df 92       	push	r13
+     e16:	ef 92       	push	r14
+     e18:	ff 92       	push	r15
+     e1a:	0f 93       	push	r16
+     e1c:	1f 93       	push	r17
 }
 
 
 
 void Vsns_PMOS_Enable(void){
   VSNS_EN_PORT|=(1<<VSNS_EN_bp);
-     e18:	41 9a       	sbi	0x08, 1	; 8
+     e1e:	41 9a       	sbi	0x08, 1	; 8
 #define  VSNS_AVG_SMPL   0x04
 
 uint16_t vsns_cal_val=0;
 
 void Vsns_ADC_Reference_Internal(void){
   ADMUX|=(1<<REFS0)|(1<<REFS1);
-     e1a:	ec e7       	ldi	r30, 0x7C	; 124
-     e1c:	f0 e0       	ldi	r31, 0x00	; 0
-     e1e:	80 81       	ld	r24, Z
-     e20:	80 6c       	ori	r24, 0xC0	; 192
-     e22:	80 83       	st	Z, r24
+     e20:	ec e7       	ldi	r30, 0x7C	; 124
+     e22:	f0 e0       	ldi	r31, 0x00	; 0
+     e24:	80 81       	ld	r24, Z
+     e26:	80 6c       	ori	r24, 0xC0	; 192
+     e28:	80 83       	st	Z, r24
   ADMUX&=~(1<<REFS1);
   ADMUX|=(1<<REFS0);
 }
 
 void Vsns_ADC_Enable(void){
   ADCSRA|=(1<<ADEN); 
-     e24:	4a e7       	ldi	r20, 0x7A	; 122
-     e26:	44 2e       	mov	r4, r20
-     e28:	51 2c       	mov	r5, r1
-     e2a:	f2 01       	movw	r30, r4
-     e2c:	80 81       	ld	r24, Z
-     e2e:	80 68       	ori	r24, 0x80	; 128
-     e30:	80 83       	st	Z, r24
+     e2a:	4a e7       	ldi	r20, 0x7A	; 122
+     e2c:	44 2e       	mov	r4, r20
+     e2e:	51 2c       	mov	r5, r1
+     e30:	f2 01       	movw	r30, r4
+     e32:	80 81       	ld	r24, Z
+     e34:	80 68       	ori	r24, 0x80	; 128
+     e36:	80 83       	st	Z, r24
   Vsns_PMOS_Enable();
   Vsns_ADC_Reference_Internal();
   Vsns_ADC_Enable();
   uint32_t temp=0;
   for(uint8_t i=0;i<VSNS_DUMMY_SMPL;i++){
     Vsns_ADC_Read(0x06);
-     e32:	86 e0       	ldi	r24, 0x06	; 6
-     e34:	0e 94 dc 06 	call	0xdb8	; 0xdb8 <Vsns_ADC_Read>
      e38:	86 e0       	ldi	r24, 0x06	; 6
-     e3a:	0e 94 dc 06 	call	0xdb8	; 0xdb8 <Vsns_ADC_Read>
+     e3a:	0e 94 df 06 	call	0xdbe	; 0xdbe <Vsns_ADC_Read>
+     e3e:	86 e0       	ldi	r24, 0x06	; 6
+     e40:	0e 94 df 06 	call	0xdbe	; 0xdbe <Vsns_ADC_Read>
   }
   for(uint8_t i=0;i<VSNS_AVG_SMPL;i++){
     temp+=Vsns_ADC_Read(0x06);
-     e3e:	86 e0       	ldi	r24, 0x06	; 6
-     e40:	0e 94 dc 06 	call	0xdb8	; 0xdb8 <Vsns_ADC_Read>
-     e44:	3c 01       	movw	r6, r24
-     e46:	86 e0       	ldi	r24, 0x06	; 6
-     e48:	0e 94 dc 06 	call	0xdb8	; 0xdb8 <Vsns_ADC_Read>
-     e4c:	7c 01       	movw	r14, r24
-     e4e:	86 e0       	ldi	r24, 0x06	; 6
-     e50:	0e 94 dc 06 	call	0xdb8	; 0xdb8 <Vsns_ADC_Read>
-     e54:	5c 01       	movw	r10, r24
-     e56:	cc 24       	eor	r12, r12
-     e58:	dd 24       	eor	r13, r13
-     e5a:	00 e0       	ldi	r16, 0x00	; 0
-     e5c:	10 e0       	ldi	r17, 0x00	; 0
-     e5e:	ae 0c       	add	r10, r14
-     e60:	bf 1c       	adc	r11, r15
-     e62:	c0 1e       	adc	r12, r16
-     e64:	d1 1e       	adc	r13, r17
-     e66:	88 24       	eor	r8, r8
-     e68:	99 24       	eor	r9, r9
-     e6a:	a6 0c       	add	r10, r6
-     e6c:	b7 1c       	adc	r11, r7
-     e6e:	c8 1c       	adc	r12, r8
-     e70:	d9 1c       	adc	r13, r9
-     e72:	86 e0       	ldi	r24, 0x06	; 6
-     e74:	0e 94 dc 06 	call	0xdb8	; 0xdb8 <Vsns_ADC_Read>
-     e78:	a0 e0       	ldi	r26, 0x00	; 0
-     e7a:	b0 e0       	ldi	r27, 0x00	; 0
-     e7c:	a8 0e       	add	r10, r24
-     e7e:	b9 1e       	adc	r11, r25
-     e80:	ca 1e       	adc	r12, r26
-     e82:	db 1e       	adc	r13, r27
+     e44:	86 e0       	ldi	r24, 0x06	; 6
+     e46:	0e 94 df 06 	call	0xdbe	; 0xdbe <Vsns_ADC_Read>
+     e4a:	3c 01       	movw	r6, r24
+     e4c:	86 e0       	ldi	r24, 0x06	; 6
+     e4e:	0e 94 df 06 	call	0xdbe	; 0xdbe <Vsns_ADC_Read>
+     e52:	7c 01       	movw	r14, r24
+     e54:	86 e0       	ldi	r24, 0x06	; 6
+     e56:	0e 94 df 06 	call	0xdbe	; 0xdbe <Vsns_ADC_Read>
+     e5a:	5c 01       	movw	r10, r24
+     e5c:	cc 24       	eor	r12, r12
+     e5e:	dd 24       	eor	r13, r13
+     e60:	00 e0       	ldi	r16, 0x00	; 0
+     e62:	10 e0       	ldi	r17, 0x00	; 0
+     e64:	ae 0c       	add	r10, r14
+     e66:	bf 1c       	adc	r11, r15
+     e68:	c0 1e       	adc	r12, r16
+     e6a:	d1 1e       	adc	r13, r17
+     e6c:	88 24       	eor	r8, r8
+     e6e:	99 24       	eor	r9, r9
+     e70:	a6 0c       	add	r10, r6
+     e72:	b7 1c       	adc	r11, r7
+     e74:	c8 1c       	adc	r12, r8
+     e76:	d9 1c       	adc	r13, r9
+     e78:	86 e0       	ldi	r24, 0x06	; 6
+     e7a:	0e 94 df 06 	call	0xdbe	; 0xdbe <Vsns_ADC_Read>
+     e7e:	a0 e0       	ldi	r26, 0x00	; 0
+     e80:	b0 e0       	ldi	r27, 0x00	; 0
+     e82:	a8 0e       	add	r10, r24
+     e84:	b9 1e       	adc	r11, r25
+     e86:	ca 1e       	adc	r12, r26
+     e88:	db 1e       	adc	r13, r27
 void Vsns_ADC_Enable(void){
   ADCSRA|=(1<<ADEN); 
 }
 
 void Vsns_ADC_Disable(void){
   ADCSRA&=~(1<<ADEN);
-     e84:	f2 01       	movw	r30, r4
-     e86:	80 81       	ld	r24, Z
-     e88:	8f 77       	andi	r24, 0x7F	; 127
-     e8a:	80 83       	st	Z, r24
+     e8a:	f2 01       	movw	r30, r4
+     e8c:	80 81       	ld	r24, Z
+     e8e:	8f 77       	andi	r24, 0x7F	; 127
+     e90:	80 83       	st	Z, r24
   ACSR|=(1<<ACD);
-     e8c:	80 b7       	in	r24, 0x30	; 48
-     e8e:	80 68       	ori	r24, 0x80	; 128
-     e90:	80 bf       	out	0x30, r24	; 48
+     e92:	80 b7       	in	r24, 0x30	; 48
+     e94:	80 68       	ori	r24, 0x80	; 128
+     e96:	80 bf       	out	0x30, r24	; 48
 void Vsns_PMOS_Enable(void){
   VSNS_EN_PORT|=(1<<VSNS_EN_bp);
 }
 
 void Vsns_PMOS_Disable(void){
   VSNS_EN_PORT&=~(1<<VSNS_EN_bp);
-     e92:	41 98       	cbi	0x08, 1	; 8
+     e98:	41 98       	cbi	0x08, 1	; 8
   for(uint8_t i=0;i<VSNS_AVG_SMPL;i++){
     temp+=Vsns_ADC_Read(0x06);
   }
   Vsns_ADC_Disable();
   Vsns_PMOS_Disable();
   temp/=VSNS_AVG_SMPL;
-     e94:	32 e0       	ldi	r19, 0x02	; 2
-     e96:	d6 94       	lsr	r13
-     e98:	c7 94       	ror	r12
-     e9a:	b7 94       	ror	r11
-     e9c:	a7 94       	ror	r10
-     e9e:	3a 95       	dec	r19
-     ea0:	d1 f7       	brne	.-12     	; 0xe96 <Vsns_V_Read+0x9a>
+     e9a:	32 e0       	ldi	r19, 0x02	; 2
+     e9c:	d6 94       	lsr	r13
+     e9e:	c7 94       	ror	r12
+     ea0:	b7 94       	ror	r11
+     ea2:	a7 94       	ror	r10
+     ea4:	3a 95       	dec	r19
+     ea6:	d1 f7       	brne	.-12     	; 0xe9c <Vsns_V_Read+0x9a>
   temp*=16;
-     ea2:	60 91 0a 01 	lds	r22, 0x010A
-     ea6:	70 91 0b 01 	lds	r23, 0x010B
-     eaa:	80 e0       	ldi	r24, 0x00	; 0
-     eac:	90 e0       	ldi	r25, 0x00	; 0
-     eae:	24 e0       	ldi	r18, 0x04	; 4
-     eb0:	66 0f       	add	r22, r22
-     eb2:	77 1f       	adc	r23, r23
-     eb4:	88 1f       	adc	r24, r24
-     eb6:	99 1f       	adc	r25, r25
-     eb8:	2a 95       	dec	r18
-     eba:	d1 f7       	brne	.-12     	; 0xeb0 <Vsns_V_Read+0xb4>
+     ea8:	60 91 0a 01 	lds	r22, 0x010A
+     eac:	70 91 0b 01 	lds	r23, 0x010B
+     eb0:	80 e0       	ldi	r24, 0x00	; 0
+     eb2:	90 e0       	ldi	r25, 0x00	; 0
+     eb4:	24 e0       	ldi	r18, 0x04	; 4
+     eb6:	66 0f       	add	r22, r22
+     eb8:	77 1f       	adc	r23, r23
+     eba:	88 1f       	adc	r24, r24
+     ebc:	99 1f       	adc	r25, r25
+     ebe:	2a 95       	dec	r18
+     ec0:	d1 f7       	brne	.-12     	; 0xeb6 <Vsns_V_Read+0xb4>
   temp*=Vsns_Get_Cal_Val();
-     ebc:	a6 01       	movw	r20, r12
-     ebe:	95 01       	movw	r18, r10
-     ec0:	0e 94 d3 09 	call	0x13a6	; 0x13a6 <__mulsi3>
-     ec4:	9b 01       	movw	r18, r22
-     ec6:	ac 01       	movw	r20, r24
-     ec8:	8a e0       	ldi	r24, 0x0A	; 10
-     eca:	56 95       	lsr	r21
-     ecc:	47 95       	ror	r20
-     ece:	37 95       	ror	r19
-     ed0:	27 95       	ror	r18
-     ed2:	8a 95       	dec	r24
-     ed4:	d1 f7       	brne	.-12     	; 0xeca <Vsns_V_Read+0xce>
+     ec2:	a6 01       	movw	r20, r12
+     ec4:	95 01       	movw	r18, r10
+     ec6:	0e 94 d6 09 	call	0x13ac	; 0x13ac <__mulsi3>
+     eca:	9b 01       	movw	r18, r22
+     ecc:	ac 01       	movw	r20, r24
+     ece:	8a e0       	ldi	r24, 0x0A	; 10
+     ed0:	56 95       	lsr	r21
+     ed2:	47 95       	ror	r20
+     ed4:	37 95       	ror	r19
+     ed6:	27 95       	ror	r18
+     ed8:	8a 95       	dec	r24
+     eda:	d1 f7       	brne	.-12     	; 0xed0 <Vsns_V_Read+0xce>
   temp/=1024;
   return (uint16_t)temp;
 }
-     ed6:	c9 01       	movw	r24, r18
-     ed8:	1f 91       	pop	r17
-     eda:	0f 91       	pop	r16
-     edc:	ff 90       	pop	r15
-     ede:	ef 90       	pop	r14
-     ee0:	df 90       	pop	r13
-     ee2:	cf 90       	pop	r12
-     ee4:	bf 90       	pop	r11
-     ee6:	af 90       	pop	r10
-     ee8:	9f 90       	pop	r9
-     eea:	8f 90       	pop	r8
-     eec:	7f 90       	pop	r7
-     eee:	6f 90       	pop	r6
-     ef0:	5f 90       	pop	r5
-     ef2:	4f 90       	pop	r4
-     ef4:	08 95       	ret
+     edc:	c9 01       	movw	r24, r18
+     ede:	1f 91       	pop	r17
+     ee0:	0f 91       	pop	r16
+     ee2:	ff 90       	pop	r15
+     ee4:	ef 90       	pop	r14
+     ee6:	df 90       	pop	r13
+     ee8:	cf 90       	pop	r12
+     eea:	bf 90       	pop	r11
+     eec:	af 90       	pop	r10
+     eee:	9f 90       	pop	r9
+     ef0:	8f 90       	pop	r8
+     ef2:	7f 90       	pop	r7
+     ef4:	6f 90       	pop	r6
+     ef6:	5f 90       	pop	r5
+     ef8:	4f 90       	pop	r4
+     efa:	08 95       	ret
 
-00000ef6 <Vsns_Calibrate_Iref>:
+00000efc <Vsns_Calibrate_Iref>:
 
 uint16_t Vsns_Calibrate_Iref(void){
-     ef6:	df 92       	push	r13
-     ef8:	ef 92       	push	r14
-     efa:	ff 92       	push	r15
-     efc:	0f 93       	push	r16
-     efe:	1f 93       	push	r17
+     efc:	df 92       	push	r13
+     efe:	ef 92       	push	r14
+     f00:	ff 92       	push	r15
+     f02:	0f 93       	push	r16
+     f04:	1f 93       	push	r17
 void Vsns_ADC_Reference_Internal(void){
   ADMUX|=(1<<REFS0)|(1<<REFS1);
 }
 
 void Vsns_ADC_Reference_Avcc(void){
   ADMUX&=~(1<<REFS1);
-     f00:	80 91 7c 00 	lds	r24, 0x007C
-     f04:	8f 77       	andi	r24, 0x7F	; 127
-     f06:	80 93 7c 00 	sts	0x007C, r24
+     f06:	80 91 7c 00 	lds	r24, 0x007C
+     f0a:	8f 77       	andi	r24, 0x7F	; 127
+     f0c:	80 93 7c 00 	sts	0x007C, r24
   ADMUX|=(1<<REFS0);
-     f0a:	80 91 7c 00 	lds	r24, 0x007C
-     f0e:	80 64       	ori	r24, 0x40	; 64
-     f10:	80 93 7c 00 	sts	0x007C, r24
+     f10:	80 91 7c 00 	lds	r24, 0x007C
+     f14:	80 64       	ori	r24, 0x40	; 64
+     f16:	80 93 7c 00 	sts	0x007C, r24
 }
 
 
 
 void Vsns_PMOS_Enable(void){
   VSNS_EN_PORT|=(1<<VSNS_EN_bp);
-     f14:	41 9a       	sbi	0x08, 1	; 8
+     f1a:	41 9a       	sbi	0x08, 1	; 8
   ADMUX&=~(1<<REFS1);
   ADMUX|=(1<<REFS0);
 }
 
 void Vsns_ADC_Enable(void){
   ADCSRA|=(1<<ADEN); 
-     f16:	80 91 7a 00 	lds	r24, 0x007A
-     f1a:	80 68       	ori	r24, 0x80	; 128
-     f1c:	80 93 7a 00 	sts	0x007A, r24
-     f20:	10 e0       	ldi	r17, 0x00	; 0
+     f1c:	80 91 7a 00 	lds	r24, 0x007A
+     f20:	80 68       	ori	r24, 0x80	; 128
+     f22:	80 93 7a 00 	sts	0x007A, r24
+     f26:	10 e0       	ldi	r17, 0x00	; 0
   Vsns_ADC_Reference_Avcc();
   Vsns_PMOS_Enable();
   Vsns_ADC_Enable();
   uint32_t temp=0;
   for(uint8_t i=0;i<16;i++){
     Vsns_ADC_Read(0x0E);
-     f22:	8e e0       	ldi	r24, 0x0E	; 14
-     f24:	0e 94 dc 06 	call	0xdb8	; 0xdb8 <Vsns_ADC_Read>
+     f28:	8e e0       	ldi	r24, 0x0E	; 14
+     f2a:	0e 94 df 06 	call	0xdbe	; 0xdbe <Vsns_ADC_Read>
 uint16_t Vsns_Calibrate_Iref(void){
   Vsns_ADC_Reference_Avcc();
   Vsns_PMOS_Enable();
   Vsns_ADC_Enable();
   uint32_t temp=0;
   for(uint8_t i=0;i<16;i++){
-     f28:	1f 5f       	subi	r17, 0xFF	; 255
-     f2a:	10 31       	cpi	r17, 0x10	; 16
-     f2c:	d1 f7       	brne	.-12     	; 0xf22 <Vsns_Calibrate_Iref+0x2c>
-     f2e:	ee 24       	eor	r14, r14
-     f30:	ff 24       	eor	r15, r15
-     f32:	87 01       	movw	r16, r14
-     f34:	dd 24       	eor	r13, r13
+     f2e:	1f 5f       	subi	r17, 0xFF	; 255
+     f30:	10 31       	cpi	r17, 0x10	; 16
+     f32:	d1 f7       	brne	.-12     	; 0xf28 <Vsns_Calibrate_Iref+0x2c>
+     f34:	ee 24       	eor	r14, r14
+     f36:	ff 24       	eor	r15, r15
+     f38:	87 01       	movw	r16, r14
+     f3a:	dd 24       	eor	r13, r13
     Vsns_ADC_Read(0x0E);
   }
   for(uint8_t i=0;i<32;i++){
     temp+=Vsns_ADC_Read(0x0E);
-     f36:	8e e0       	ldi	r24, 0x0E	; 14
-     f38:	0e 94 dc 06 	call	0xdb8	; 0xdb8 <Vsns_ADC_Read>
-     f3c:	a0 e0       	ldi	r26, 0x00	; 0
-     f3e:	b0 e0       	ldi	r27, 0x00	; 0
-     f40:	e8 0e       	add	r14, r24
-     f42:	f9 1e       	adc	r15, r25
-     f44:	0a 1f       	adc	r16, r26
-     f46:	1b 1f       	adc	r17, r27
+     f3c:	8e e0       	ldi	r24, 0x0E	; 14
+     f3e:	0e 94 df 06 	call	0xdbe	; 0xdbe <Vsns_ADC_Read>
+     f42:	a0 e0       	ldi	r26, 0x00	; 0
+     f44:	b0 e0       	ldi	r27, 0x00	; 0
+     f46:	e8 0e       	add	r14, r24
+     f48:	f9 1e       	adc	r15, r25
+     f4a:	0a 1f       	adc	r16, r26
+     f4c:	1b 1f       	adc	r17, r27
   Vsns_ADC_Enable();
   uint32_t temp=0;
   for(uint8_t i=0;i<16;i++){
     Vsns_ADC_Read(0x0E);
   }
   for(uint8_t i=0;i<32;i++){
-     f48:	d3 94       	inc	r13
-     f4a:	80 e2       	ldi	r24, 0x20	; 32
-     f4c:	d8 16       	cp	r13, r24
-     f4e:	99 f7       	brne	.-26     	; 0xf36 <Vsns_Calibrate_Iref+0x40>
+     f4e:	d3 94       	inc	r13
+     f50:	80 e2       	ldi	r24, 0x20	; 32
+     f52:	d8 16       	cp	r13, r24
+     f54:	99 f7       	brne	.-26     	; 0xf3c <Vsns_Calibrate_Iref+0x40>
 void Vsns_ADC_Enable(void){
   ADCSRA|=(1<<ADEN); 
 }
 
 void Vsns_ADC_Disable(void){
   ADCSRA&=~(1<<ADEN);
-     f50:	80 91 7a 00 	lds	r24, 0x007A
-     f54:	8f 77       	andi	r24, 0x7F	; 127
-     f56:	80 93 7a 00 	sts	0x007A, r24
+     f56:	80 91 7a 00 	lds	r24, 0x007A
+     f5a:	8f 77       	andi	r24, 0x7F	; 127
+     f5c:	80 93 7a 00 	sts	0x007A, r24
   ACSR|=(1<<ACD);
-     f5a:	80 b7       	in	r24, 0x30	; 48
-     f5c:	80 68       	ori	r24, 0x80	; 128
-     f5e:	80 bf       	out	0x30, r24	; 48
+     f60:	80 b7       	in	r24, 0x30	; 48
+     f62:	80 68       	ori	r24, 0x80	; 128
+     f64:	80 bf       	out	0x30, r24	; 48
 void Vsns_PMOS_Enable(void){
   VSNS_EN_PORT|=(1<<VSNS_EN_bp);
 }
 
 void Vsns_PMOS_Disable(void){
   VSNS_EN_PORT&=~(1<<VSNS_EN_bp);
-     f60:	41 98       	cbi	0x08, 1	; 8
+     f66:	41 98       	cbi	0x08, 1	; 8
   for(uint8_t i=0;i<32;i++){
     temp+=Vsns_ADC_Read(0x0E);
   }
   Vsns_ADC_Disable();
   Vsns_PMOS_Disable();
   temp/=32;
-     f62:	75 e0       	ldi	r23, 0x05	; 5
-     f64:	16 95       	lsr	r17
-     f66:	07 95       	ror	r16
-     f68:	f7 94       	ror	r15
-     f6a:	e7 94       	ror	r14
-     f6c:	7a 95       	dec	r23
-     f6e:	d1 f7       	brne	.-12     	; 0xf64 <Vsns_Calibrate_Iref+0x6e>
+     f68:	75 e0       	ldi	r23, 0x05	; 5
+     f6a:	16 95       	lsr	r17
+     f6c:	07 95       	ror	r16
+     f6e:	f7 94       	ror	r15
+     f70:	e7 94       	ror	r14
+     f72:	7a 95       	dec	r23
+     f74:	d1 f7       	brne	.-12     	; 0xf6a <Vsns_Calibrate_Iref+0x6e>
   temp*=3300;
-     f70:	c8 01       	movw	r24, r16
-     f72:	b7 01       	movw	r22, r14
-     f74:	24 ee       	ldi	r18, 0xE4	; 228
-     f76:	3c e0       	ldi	r19, 0x0C	; 12
-     f78:	40 e0       	ldi	r20, 0x00	; 0
-     f7a:	50 e0       	ldi	r21, 0x00	; 0
-     f7c:	0e 94 d3 09 	call	0x13a6	; 0x13a6 <__mulsi3>
-     f80:	9b 01       	movw	r18, r22
-     f82:	ac 01       	movw	r20, r24
-     f84:	6a e0       	ldi	r22, 0x0A	; 10
-     f86:	56 95       	lsr	r21
-     f88:	47 95       	ror	r20
-     f8a:	37 95       	ror	r19
-     f8c:	27 95       	ror	r18
-     f8e:	6a 95       	dec	r22
-     f90:	d1 f7       	brne	.-12     	; 0xf86 <Vsns_Calibrate_Iref+0x90>
+     f76:	c8 01       	movw	r24, r16
+     f78:	b7 01       	movw	r22, r14
+     f7a:	24 ee       	ldi	r18, 0xE4	; 228
+     f7c:	3c e0       	ldi	r19, 0x0C	; 12
+     f7e:	40 e0       	ldi	r20, 0x00	; 0
+     f80:	50 e0       	ldi	r21, 0x00	; 0
+     f82:	0e 94 d6 09 	call	0x13ac	; 0x13ac <__mulsi3>
+     f86:	9b 01       	movw	r18, r22
+     f88:	ac 01       	movw	r20, r24
+     f8a:	6a e0       	ldi	r22, 0x0A	; 10
+     f8c:	56 95       	lsr	r21
+     f8e:	47 95       	ror	r20
+     f90:	37 95       	ror	r19
+     f92:	27 95       	ror	r18
+     f94:	6a 95       	dec	r22
+     f96:	d1 f7       	brne	.-12     	; 0xf8c <Vsns_Calibrate_Iref+0x90>
   temp/=1024;
   return (uint16_t)temp;
 }
-     f92:	c9 01       	movw	r24, r18
-     f94:	1f 91       	pop	r17
-     f96:	0f 91       	pop	r16
-     f98:	ff 90       	pop	r15
-     f9a:	ef 90       	pop	r14
-     f9c:	df 90       	pop	r13
-     f9e:	08 95       	ret
+     f98:	c9 01       	movw	r24, r18
+     f9a:	1f 91       	pop	r17
+     f9c:	0f 91       	pop	r16
+     f9e:	ff 90       	pop	r15
+     fa0:	ef 90       	pop	r14
+     fa2:	df 90       	pop	r13
+     fa4:	08 95       	ret
 
-00000fa0 <Vsns_Get_Cal_Val>:
+00000fa6 <Vsns_Get_Cal_Val>:
   return vsns_cal_val;
 }
 
 uint16_t Vsns_Get_Cal_Val(void){
   return vsns_cal_val;
 }
-     fa0:	80 91 0a 01 	lds	r24, 0x010A
-     fa4:	90 91 0b 01 	lds	r25, 0x010B
-     fa8:	08 95       	ret
+     fa6:	80 91 0a 01 	lds	r24, 0x010A
+     faa:	90 91 0b 01 	lds	r25, 0x010B
+     fae:	08 95       	ret
 
-00000faa <Vsns_Calibrate>:
+00000fb0 <Vsns_Calibrate>:
   temp/=1024;
   return (uint16_t)temp;
 }
 
 uint16_t Vsns_Calibrate(void){
   if( EEPROM_Read_Dword(1020) != 0x01020304 ){
-     faa:	8c ef       	ldi	r24, 0xFC	; 252
-     fac:	93 e0       	ldi	r25, 0x03	; 3
-     fae:	0e 94 5f 09 	call	0x12be	; 0x12be <EEPROM_Read_Dword>
-     fb2:	64 50       	subi	r22, 0x04	; 4
-     fb4:	73 40       	sbci	r23, 0x03	; 3
-     fb6:	82 40       	sbci	r24, 0x02	; 2
-     fb8:	91 40       	sbci	r25, 0x01	; 1
-     fba:	a9 f0       	breq	.+42     	; 0xfe6 <Vsns_Calibrate+0x3c>
+     fb0:	8c ef       	ldi	r24, 0xFC	; 252
+     fb2:	93 e0       	ldi	r25, 0x03	; 3
+     fb4:	0e 94 62 09 	call	0x12c4	; 0x12c4 <EEPROM_Read_Dword>
+     fb8:	64 50       	subi	r22, 0x04	; 4
+     fba:	73 40       	sbci	r23, 0x03	; 3
+     fbc:	82 40       	sbci	r24, 0x02	; 2
+     fbe:	91 40       	sbci	r25, 0x01	; 1
+     fc0:	a9 f0       	breq	.+42     	; 0xfec <Vsns_Calibrate+0x3c>
     EEPROM_Erase_Region(1018,1019);
-     fbc:	8a ef       	ldi	r24, 0xFA	; 250
-     fbe:	93 e0       	ldi	r25, 0x03	; 3
-     fc0:	6b ef       	ldi	r22, 0xFB	; 251
-     fc2:	73 e0       	ldi	r23, 0x03	; 3
-     fc4:	0e 94 9e 09 	call	0x133c	; 0x133c <EEPROM_Erase_Region>
+     fc2:	8a ef       	ldi	r24, 0xFA	; 250
+     fc4:	93 e0       	ldi	r25, 0x03	; 3
+     fc6:	6b ef       	ldi	r22, 0xFB	; 251
+     fc8:	73 e0       	ldi	r23, 0x03	; 3
+     fca:	0e 94 a1 09 	call	0x1342	; 0x1342 <EEPROM_Erase_Region>
 	uint16_t temp = Vsns_Calibrate_Iref();
-     fc8:	0e 94 7b 07 	call	0xef6	; 0xef6 <Vsns_Calibrate_Iref>
-     fcc:	bc 01       	movw	r22, r24
+     fce:	0e 94 7e 07 	call	0xefc	; 0xefc <Vsns_Calibrate_Iref>
+     fd2:	bc 01       	movw	r22, r24
 	EEPROM_Write_Word(1018, temp);
-     fce:	8a ef       	ldi	r24, 0xFA	; 250
-     fd0:	93 e0       	ldi	r25, 0x03	; 3
-     fd2:	0e 94 4e 09 	call	0x129c	; 0x129c <EEPROM_Write_Word>
+     fd4:	8a ef       	ldi	r24, 0xFA	; 250
+     fd6:	93 e0       	ldi	r25, 0x03	; 3
+     fd8:	0e 94 51 09 	call	0x12a2	; 0x12a2 <EEPROM_Write_Word>
 	EEPROM_Write_Dword(1020, 0x01020304);
-     fd6:	8c ef       	ldi	r24, 0xFC	; 252
-     fd8:	93 e0       	ldi	r25, 0x03	; 3
-     fda:	44 e0       	ldi	r20, 0x04	; 4
-     fdc:	53 e0       	ldi	r21, 0x03	; 3
-     fde:	62 e0       	ldi	r22, 0x02	; 2
-     fe0:	71 e0       	ldi	r23, 0x01	; 1
-     fe2:	0e 94 82 09 	call	0x1304	; 0x1304 <EEPROM_Write_Dword>
+     fdc:	8c ef       	ldi	r24, 0xFC	; 252
+     fde:	93 e0       	ldi	r25, 0x03	; 3
+     fe0:	44 e0       	ldi	r20, 0x04	; 4
+     fe2:	53 e0       	ldi	r21, 0x03	; 3
+     fe4:	62 e0       	ldi	r22, 0x02	; 2
+     fe6:	71 e0       	ldi	r23, 0x01	; 1
+     fe8:	0e 94 85 09 	call	0x130a	; 0x130a <EEPROM_Write_Dword>
   }
   vsns_cal_val=EEPROM_Read_Word(1018);
-     fe6:	8a ef       	ldi	r24, 0xFA	; 250
-     fe8:	93 e0       	ldi	r25, 0x03	; 3
-     fea:	0e 94 37 09 	call	0x126e	; 0x126e <EEPROM_Read_Word>
-     fee:	80 93 0a 01 	sts	0x010A, r24
-     ff2:	90 93 0b 01 	sts	0x010B, r25
+     fec:	8a ef       	ldi	r24, 0xFA	; 250
+     fee:	93 e0       	ldi	r25, 0x03	; 3
+     ff0:	0e 94 3a 09 	call	0x1274	; 0x1274 <EEPROM_Read_Word>
+     ff4:	80 93 0a 01 	sts	0x010A, r24
+     ff8:	90 93 0b 01 	sts	0x010B, r25
   return vsns_cal_val;
 }
-     ff6:	08 95       	ret
+     ffc:	08 95       	ret
 
-00000ff8 <Vsns_Init>:
+00000ffe <Vsns_Init>:
 uint16_t Vsns_Get_Cal_Val(void){
   return vsns_cal_val;
 }
 
 void Vsns_Init(void){
   VSNS_EN_DDR |= (1<<VSNS_EN_bp);
-     ff8:	39 9a       	sbi	0x07, 1	; 7
+     ffe:	39 9a       	sbi	0x07, 1	; 7
   VSNS_EN_PORT&=~(1<<VSNS_EN_bp);
-     ffa:	41 98       	cbi	0x08, 1	; 8
+    1000:	41 98       	cbi	0x08, 1	; 8
 #define  VSNS_AVG_SMPL   0x04
 
 uint16_t vsns_cal_val=0;
 
 void Vsns_ADC_Reference_Internal(void){
   ADMUX|=(1<<REFS0)|(1<<REFS1);
-     ffc:	ec e7       	ldi	r30, 0x7C	; 124
-     ffe:	f0 e0       	ldi	r31, 0x00	; 0
-    1000:	80 81       	ld	r24, Z
-    1002:	80 6c       	ori	r24, 0xC0	; 192
-    1004:	80 83       	st	Z, r24
+    1002:	ec e7       	ldi	r30, 0x7C	; 124
+    1004:	f0 e0       	ldi	r31, 0x00	; 0
+    1006:	80 81       	ld	r24, Z
+    1008:	80 6c       	ori	r24, 0xC0	; 192
+    100a:	80 83       	st	Z, r24
   ADCSRA&=~(1<<ADEN);
   ACSR|=(1<<ACD);
 }
 
 void Vsns_ADC_Init(void){
   ADCSRA =(1<<ADPS1)|(1<<ADPS2);
-    1006:	ea e7       	ldi	r30, 0x7A	; 122
-    1008:	f0 e0       	ldi	r31, 0x00	; 0
-    100a:	86 e0       	ldi	r24, 0x06	; 6
-    100c:	80 83       	st	Z, r24
-  ADCSRA|=(1<<ADEN);
-    100e:	80 81       	ld	r24, Z
-    1010:	80 68       	ori	r24, 0x80	; 128
+    100c:	ea e7       	ldi	r30, 0x7A	; 122
+    100e:	f0 e0       	ldi	r31, 0x00	; 0
+    1010:	86 e0       	ldi	r24, 0x06	; 6
     1012:	80 83       	st	Z, r24
+  ADCSRA|=(1<<ADEN);
+    1014:	80 81       	ld	r24, Z
+    1016:	80 68       	ori	r24, 0x80	; 128
+    1018:	80 83       	st	Z, r24
 void Vsns_Init(void){
   VSNS_EN_DDR |= (1<<VSNS_EN_bp);
   VSNS_EN_PORT&=~(1<<VSNS_EN_bp);
   Vsns_ADC_Reference_Internal();
   Vsns_ADC_Init();
   Vsns_Calibrate();
-    1014:	0e 94 d5 07 	call	0xfaa	; 0xfaa <Vsns_Calibrate>
+    101a:	0e 94 d8 07 	call	0xfb0	; 0xfb0 <Vsns_Calibrate>
   Vsns_V_Read();
-    1018:	0e 94 fe 06 	call	0xdfc	; 0xdfc <Vsns_V_Read>
-    101c:	08 95       	ret
+    101e:	0e 94 01 07 	call	0xe02	; 0xe02 <Vsns_V_Read>
+    1022:	08 95       	ret
 
-0000101e <dataconv_nibble_to_hex_char>:
+00001024 <dataconv_nibble_to_hex_char>:
 #include <avr/io.h>
 #include <util/delay.h>
 
 uint8_t dataconv_data_len=0;
 
 uint8_t dataconv_nibble_to_hex_char(uint8_t val){
-    101e:	98 2f       	mov	r25, r24
+    1024:	98 2f       	mov	r25, r24
   uint8_t hex=0;
   if(val<=9){
-    1020:	8a 30       	cpi	r24, 0x0A	; 10
-    1022:	10 f4       	brcc	.+4      	; 0x1028 <dataconv_nibble_to_hex_char+0xa>
+    1026:	8a 30       	cpi	r24, 0x0A	; 10
+    1028:	10 f4       	brcc	.+4      	; 0x102e <dataconv_nibble_to_hex_char+0xa>
     hex = val+48;
-    1024:	80 5d       	subi	r24, 0xD0	; 208
-    1026:	08 95       	ret
+    102a:	80 5d       	subi	r24, 0xD0	; 208
+    102c:	08 95       	ret
   }else if(val>=10 && val<=15){
-    1028:	8a 50       	subi	r24, 0x0A	; 10
-    102a:	86 30       	cpi	r24, 0x06	; 6
-    102c:	10 f0       	brcs	.+4      	; 0x1032 <dataconv_nibble_to_hex_char+0x14>
-    102e:	80 e0       	ldi	r24, 0x00	; 0
-    1030:	08 95       	ret
+    102e:	8a 50       	subi	r24, 0x0A	; 10
+    1030:	86 30       	cpi	r24, 0x06	; 6
+    1032:	10 f0       	brcs	.+4      	; 0x1038 <dataconv_nibble_to_hex_char+0x14>
+    1034:	80 e0       	ldi	r24, 0x00	; 0
+    1036:	08 95       	ret
     hex = val+55;
-    1032:	89 2f       	mov	r24, r25
-    1034:	89 5c       	subi	r24, 0xC9	; 201
+    1038:	89 2f       	mov	r24, r25
+    103a:	89 5c       	subi	r24, 0xC9	; 201
   }
   return hex;
 }
-    1036:	08 95       	ret
+    103c:	08 95       	ret
 
-00001038 <dataconv_byte_to_hex_char>:
+0000103e <dataconv_byte_to_hex_char>:
 
 void dataconv_byte_to_hex_char(uint8_t val, uint8_t *array, uint8_t start){
-    1038:	df 92       	push	r13
-    103a:	ef 92       	push	r14
-    103c:	ff 92       	push	r15
-    103e:	0f 93       	push	r16
-    1040:	1f 93       	push	r17
-    1042:	d8 2e       	mov	r13, r24
-    1044:	7b 01       	movw	r14, r22
+    103e:	df 92       	push	r13
+    1040:	ef 92       	push	r14
+    1042:	ff 92       	push	r15
+    1044:	0f 93       	push	r16
+    1046:	1f 93       	push	r17
+    1048:	d8 2e       	mov	r13, r24
+    104a:	7b 01       	movw	r14, r22
   array[start]= dataconv_nibble_to_hex_char((val & 0xF0)>>4);
-    1046:	04 2f       	mov	r16, r20
-    1048:	10 e0       	ldi	r17, 0x00	; 0
-    104a:	82 95       	swap	r24
-    104c:	8f 70       	andi	r24, 0x0F	; 15
-    104e:	0e 94 0f 08 	call	0x101e	; 0x101e <dataconv_nibble_to_hex_char>
-    1052:	e0 0e       	add	r14, r16
-    1054:	f1 1e       	adc	r15, r17
-    1056:	f7 01       	movw	r30, r14
-    1058:	80 83       	st	Z, r24
+    104c:	04 2f       	mov	r16, r20
+    104e:	10 e0       	ldi	r17, 0x00	; 0
+    1050:	82 95       	swap	r24
+    1052:	8f 70       	andi	r24, 0x0F	; 15
+    1054:	0e 94 12 08 	call	0x1024	; 0x1024 <dataconv_nibble_to_hex_char>
+    1058:	e0 0e       	add	r14, r16
+    105a:	f1 1e       	adc	r15, r17
+    105c:	f7 01       	movw	r30, r14
+    105e:	80 83       	st	Z, r24
   array[start+1]= dataconv_nibble_to_hex_char(val & 0x0F);
-    105a:	8d 2d       	mov	r24, r13
-    105c:	8f 70       	andi	r24, 0x0F	; 15
-    105e:	0e 94 0f 08 	call	0x101e	; 0x101e <dataconv_nibble_to_hex_char>
-    1062:	f7 01       	movw	r30, r14
-    1064:	81 83       	std	Z+1, r24	; 0x01
+    1060:	8d 2d       	mov	r24, r13
+    1062:	8f 70       	andi	r24, 0x0F	; 15
+    1064:	0e 94 12 08 	call	0x1024	; 0x1024 <dataconv_nibble_to_hex_char>
+    1068:	f7 01       	movw	r30, r14
+    106a:	81 83       	std	Z+1, r24	; 0x01
 }
-    1066:	1f 91       	pop	r17
-    1068:	0f 91       	pop	r16
-    106a:	ff 90       	pop	r15
-    106c:	ef 90       	pop	r14
-    106e:	df 90       	pop	r13
-    1070:	08 95       	ret
+    106c:	1f 91       	pop	r17
+    106e:	0f 91       	pop	r16
+    1070:	ff 90       	pop	r15
+    1072:	ef 90       	pop	r14
+    1074:	df 90       	pop	r13
+    1076:	08 95       	ret
 
-00001072 <dataconv_word_to_hex_char>:
+00001078 <dataconv_word_to_hex_char>:
 
 void dataconv_word_to_hex_char(uint16_t val, uint8_t *array, uint8_t start){
-    1072:	ef 92       	push	r14
-    1074:	ff 92       	push	r15
-    1076:	0f 93       	push	r16
-    1078:	1f 93       	push	r17
-    107a:	08 2f       	mov	r16, r24
-    107c:	7b 01       	movw	r14, r22
-    107e:	14 2f       	mov	r17, r20
+    1078:	ef 92       	push	r14
+    107a:	ff 92       	push	r15
+    107c:	0f 93       	push	r16
+    107e:	1f 93       	push	r17
+    1080:	08 2f       	mov	r16, r24
+    1082:	7b 01       	movw	r14, r22
+    1084:	14 2f       	mov	r17, r20
   uint8_t msb = val >> 8;
   uint8_t lsb = val & 0xFF;
   dataconv_byte_to_hex_char(msb, array, start);
-    1080:	89 2f       	mov	r24, r25
-    1082:	0e 94 1c 08 	call	0x1038	; 0x1038 <dataconv_byte_to_hex_char>
+    1086:	89 2f       	mov	r24, r25
+    1088:	0e 94 1f 08 	call	0x103e	; 0x103e <dataconv_byte_to_hex_char>
   dataconv_byte_to_hex_char(lsb, array, start+2);
-    1086:	1e 5f       	subi	r17, 0xFE	; 254
-    1088:	80 2f       	mov	r24, r16
-    108a:	b7 01       	movw	r22, r14
-    108c:	41 2f       	mov	r20, r17
-    108e:	0e 94 1c 08 	call	0x1038	; 0x1038 <dataconv_byte_to_hex_char>
+    108c:	1e 5f       	subi	r17, 0xFE	; 254
+    108e:	80 2f       	mov	r24, r16
+    1090:	b7 01       	movw	r22, r14
+    1092:	41 2f       	mov	r20, r17
+    1094:	0e 94 1f 08 	call	0x103e	; 0x103e <dataconv_byte_to_hex_char>
 }
-    1092:	1f 91       	pop	r17
-    1094:	0f 91       	pop	r16
-    1096:	ff 90       	pop	r15
-    1098:	ef 90       	pop	r14
-    109a:	08 95       	ret
+    1098:	1f 91       	pop	r17
+    109a:	0f 91       	pop	r16
+    109c:	ff 90       	pop	r15
+    109e:	ef 90       	pop	r14
+    10a0:	08 95       	ret
 
-0000109c <dataconv_dword_to_hex_char>:
+000010a2 <dataconv_dword_to_hex_char>:
 
 void dataconv_dword_to_hex_char(uint32_t val, uint8_t *array, uint8_t start){
-    109c:	af 92       	push	r10
-    109e:	bf 92       	push	r11
-    10a0:	df 92       	push	r13
-    10a2:	ef 92       	push	r14
-    10a4:	ff 92       	push	r15
-    10a6:	0f 93       	push	r16
-    10a8:	1f 93       	push	r17
-    10aa:	7b 01       	movw	r14, r22
-    10ac:	8c 01       	movw	r16, r24
-    10ae:	5a 01       	movw	r10, r20
-    10b0:	d2 2e       	mov	r13, r18
+    10a2:	af 92       	push	r10
+    10a4:	bf 92       	push	r11
+    10a6:	df 92       	push	r13
+    10a8:	ef 92       	push	r14
+    10aa:	ff 92       	push	r15
+    10ac:	0f 93       	push	r16
+    10ae:	1f 93       	push	r17
+    10b0:	7b 01       	movw	r14, r22
+    10b2:	8c 01       	movw	r16, r24
+    10b4:	5a 01       	movw	r10, r20
+    10b6:	d2 2e       	mov	r13, r18
   uint16_t msword = val >> 16;
   uint16_t lsword = val & 0xFFFF;
   dataconv_word_to_hex_char(msword, array, start);
-    10b2:	c8 01       	movw	r24, r16
-    10b4:	aa 27       	eor	r26, r26
-    10b6:	bb 27       	eor	r27, r27
-    10b8:	ba 01       	movw	r22, r20
-    10ba:	42 2f       	mov	r20, r18
-    10bc:	0e 94 39 08 	call	0x1072	; 0x1072 <dataconv_word_to_hex_char>
+    10b8:	c8 01       	movw	r24, r16
+    10ba:	aa 27       	eor	r26, r26
+    10bc:	bb 27       	eor	r27, r27
+    10be:	ba 01       	movw	r22, r20
+    10c0:	42 2f       	mov	r20, r18
+    10c2:	0e 94 3c 08 	call	0x1078	; 0x1078 <dataconv_word_to_hex_char>
   dataconv_word_to_hex_char(lsword, array, start+4);
-    10c0:	84 e0       	ldi	r24, 0x04	; 4
-    10c2:	d8 0e       	add	r13, r24
-    10c4:	c7 01       	movw	r24, r14
-    10c6:	b5 01       	movw	r22, r10
-    10c8:	4d 2d       	mov	r20, r13
-    10ca:	0e 94 39 08 	call	0x1072	; 0x1072 <dataconv_word_to_hex_char>
+    10c6:	84 e0       	ldi	r24, 0x04	; 4
+    10c8:	d8 0e       	add	r13, r24
+    10ca:	c7 01       	movw	r24, r14
+    10cc:	b5 01       	movw	r22, r10
+    10ce:	4d 2d       	mov	r20, r13
+    10d0:	0e 94 3c 08 	call	0x1078	; 0x1078 <dataconv_word_to_hex_char>
 }
-    10ce:	1f 91       	pop	r17
-    10d0:	0f 91       	pop	r16
-    10d2:	ff 90       	pop	r15
-    10d4:	ef 90       	pop	r14
-    10d6:	df 90       	pop	r13
-    10d8:	bf 90       	pop	r11
-    10da:	af 90       	pop	r10
-    10dc:	08 95       	ret
+    10d4:	1f 91       	pop	r17
+    10d6:	0f 91       	pop	r16
+    10d8:	ff 90       	pop	r15
+    10da:	ef 90       	pop	r14
+    10dc:	df 90       	pop	r13
+    10de:	bf 90       	pop	r11
+    10e0:	af 90       	pop	r10
+    10e2:	08 95       	ret
 
-000010de <dataconv_dword_to_char>:
+000010e4 <dataconv_dword_to_char>:
 
 void dataconv_dword_to_char(uint32_t val, uint8_t *array, uint8_t start){
-    10de:	ef 92       	push	r14
-    10e0:	ff 92       	push	r15
-    10e2:	0f 93       	push	r16
-    10e4:	1f 93       	push	r17
-    10e6:	fa 01       	movw	r30, r20
+    10e4:	ef 92       	push	r14
+    10e6:	ff 92       	push	r15
+    10e8:	0f 93       	push	r16
+    10ea:	1f 93       	push	r17
+    10ec:	fa 01       	movw	r30, r20
   uint16_t msword = (val >> 16);
-    10e8:	7c 01       	movw	r14, r24
-    10ea:	00 27       	eor	r16, r16
-    10ec:	11 27       	eor	r17, r17
+    10ee:	7c 01       	movw	r14, r24
+    10f0:	00 27       	eor	r16, r16
+    10f2:	11 27       	eor	r17, r17
   uint16_t lsword = (val & 0xFFFF);
   array[start]    = (msword >> 8);
-    10ee:	e2 0f       	add	r30, r18
-    10f0:	f1 1d       	adc	r31, r1
-    10f2:	f0 82       	st	Z, r15
+    10f4:	e2 0f       	add	r30, r18
+    10f6:	f1 1d       	adc	r31, r1
+    10f8:	f0 82       	st	Z, r15
   array[start+1]  = (msword & 0xFF);
-    10f4:	e1 82       	std	Z+1, r14	; 0x01
+    10fa:	e1 82       	std	Z+1, r14	; 0x01
   array[start+2]  = (lsword >> 8);
-    10f6:	72 83       	std	Z+2, r23	; 0x02
+    10fc:	72 83       	std	Z+2, r23	; 0x02
   array[start+3]  = (lsword & 0xFF);
-    10f8:	63 83       	std	Z+3, r22	; 0x03
+    10fe:	63 83       	std	Z+3, r22	; 0x03
 }
-    10fa:	1f 91       	pop	r17
-    10fc:	0f 91       	pop	r16
-    10fe:	ff 90       	pop	r15
-    1100:	ef 90       	pop	r14
-    1102:	08 95       	ret
+    1100:	1f 91       	pop	r17
+    1102:	0f 91       	pop	r16
+    1104:	ff 90       	pop	r15
+    1106:	ef 90       	pop	r14
+    1108:	08 95       	ret
 
-00001104 <dataconv_dword_to_num>:
+0000110a <dataconv_dword_to_num>:
 
 void dataconv_dword_to_num(int32_t val, uint8_t *array, uint8_t start){
-    1104:	7f 92       	push	r7
-    1106:	8f 92       	push	r8
-    1108:	9f 92       	push	r9
-    110a:	af 92       	push	r10
-    110c:	bf 92       	push	r11
-    110e:	cf 92       	push	r12
-    1110:	df 92       	push	r13
-    1112:	ef 92       	push	r14
-    1114:	ff 92       	push	r15
-    1116:	0f 93       	push	r16
-    1118:	1f 93       	push	r17
-    111a:	df 93       	push	r29
-    111c:	cf 93       	push	r28
-    111e:	cd b7       	in	r28, 0x3d	; 61
-    1120:	de b7       	in	r29, 0x3e	; 62
-    1122:	2a 97       	sbiw	r28, 0x0a	; 10
-    1124:	0f b6       	in	r0, 0x3f	; 63
-    1126:	f8 94       	cli
-    1128:	de bf       	out	0x3e, r29	; 62
-    112a:	0f be       	out	0x3f, r0	; 63
-    112c:	cd bf       	out	0x3d, r28	; 61
-    112e:	6b 01       	movw	r12, r22
-    1130:	7c 01       	movw	r14, r24
-    1132:	5a 01       	movw	r10, r20
-    1134:	72 2e       	mov	r7, r18
+    110a:	7f 92       	push	r7
+    110c:	8f 92       	push	r8
+    110e:	9f 92       	push	r9
+    1110:	af 92       	push	r10
+    1112:	bf 92       	push	r11
+    1114:	cf 92       	push	r12
+    1116:	df 92       	push	r13
+    1118:	ef 92       	push	r14
+    111a:	ff 92       	push	r15
+    111c:	0f 93       	push	r16
+    111e:	1f 93       	push	r17
+    1120:	df 93       	push	r29
+    1122:	cf 93       	push	r28
+    1124:	cd b7       	in	r28, 0x3d	; 61
+    1126:	de b7       	in	r29, 0x3e	; 62
+    1128:	2a 97       	sbiw	r28, 0x0a	; 10
+    112a:	0f b6       	in	r0, 0x3f	; 63
+    112c:	f8 94       	cli
+    112e:	de bf       	out	0x3e, r29	; 62
+    1130:	0f be       	out	0x3f, r0	; 63
+    1132:	cd bf       	out	0x3d, r28	; 61
+    1134:	6b 01       	movw	r12, r22
+    1136:	7c 01       	movw	r14, r24
+    1138:	5a 01       	movw	r10, r20
+    113a:	72 2e       	mov	r7, r18
   uint8_t i=0, digits[8], total_digits=0, array_index=0;;
 
   if(val<0){
-    1136:	97 ff       	sbrs	r25, 7
-    1138:	0f c0       	rjmp	.+30     	; 0x1158 <dataconv_dword_to_num+0x54>
+    113c:	97 ff       	sbrs	r25, 7
+    113e:	0f c0       	rjmp	.+30     	; 0x115e <dataconv_dword_to_num+0x54>
     val=-val;
-    113a:	f0 94       	com	r15
-    113c:	e0 94       	com	r14
-    113e:	d0 94       	com	r13
-    1140:	c0 94       	com	r12
-    1142:	c1 1c       	adc	r12, r1
-    1144:	d1 1c       	adc	r13, r1
-    1146:	e1 1c       	adc	r14, r1
-    1148:	f1 1c       	adc	r15, r1
+    1140:	f0 94       	com	r15
+    1142:	e0 94       	com	r14
+    1144:	d0 94       	com	r13
+    1146:	c0 94       	com	r12
+    1148:	c1 1c       	adc	r12, r1
+    114a:	d1 1c       	adc	r13, r1
+    114c:	e1 1c       	adc	r14, r1
+    114e:	f1 1c       	adc	r15, r1
 	array[start]='-';
-    114a:	fa 01       	movw	r30, r20
-    114c:	e2 0f       	add	r30, r18
-    114e:	f1 1d       	adc	r31, r1
-    1150:	8d e2       	ldi	r24, 0x2D	; 45
-    1152:	80 83       	st	Z, r24
-    1154:	11 e0       	ldi	r17, 0x01	; 1
-    1156:	06 c0       	rjmp	.+12     	; 0x1164 <dataconv_dword_to_num+0x60>
+    1150:	fa 01       	movw	r30, r20
+    1152:	e2 0f       	add	r30, r18
+    1154:	f1 1d       	adc	r31, r1
+    1156:	8d e2       	ldi	r24, 0x2D	; 45
+    1158:	80 83       	st	Z, r24
+    115a:	11 e0       	ldi	r17, 0x01	; 1
+    115c:	06 c0       	rjmp	.+12     	; 0x116a <dataconv_dword_to_num+0x60>
 	array_index++;
   }
   
   if(val==0){
-    1158:	61 15       	cp	r22, r1
-    115a:	71 05       	cpc	r23, r1
-    115c:	81 05       	cpc	r24, r1
-    115e:	91 05       	cpc	r25, r1
-    1160:	39 f0       	breq	.+14     	; 0x1170 <dataconv_dword_to_num+0x6c>
-    1162:	10 e0       	ldi	r17, 0x00	; 0
-    1164:	00 e0       	ldi	r16, 0x00	; 0
+    115e:	61 15       	cp	r22, r1
+    1160:	71 05       	cpc	r23, r1
+    1162:	81 05       	cpc	r24, r1
+    1164:	91 05       	cpc	r25, r1
+    1166:	39 f0       	breq	.+14     	; 0x1176 <dataconv_dword_to_num+0x6c>
+    1168:	10 e0       	ldi	r17, 0x00	; 0
+    116a:	00 e0       	ldi	r16, 0x00	; 0
     digits[0]=0;
     total_digits=1;
   }else{
     while(val!=0){
       digits[i]=val%10;
-    1166:	4e 01       	movw	r8, r28
-    1168:	08 94       	sec
-    116a:	81 1c       	adc	r8, r1
-    116c:	91 1c       	adc	r9, r1
-    116e:	04 c0       	rjmp	.+8      	; 0x1178 <dataconv_dword_to_num+0x74>
+    116c:	4e 01       	movw	r8, r28
+    116e:	08 94       	sec
+    1170:	81 1c       	adc	r8, r1
+    1172:	91 1c       	adc	r9, r1
+    1174:	04 c0       	rjmp	.+8      	; 0x117e <dataconv_dword_to_num+0x74>
 	array[start]='-';
 	array_index++;
   }
   
   if(val==0){
     digits[0]=0;
-    1170:	19 82       	std	Y+1, r1	; 0x01
-    1172:	31 e0       	ldi	r19, 0x01	; 1
-    1174:	10 e0       	ldi	r17, 0x00	; 0
-    1176:	23 c0       	rjmp	.+70     	; 0x11be <dataconv_dword_to_num+0xba>
+    1176:	19 82       	std	Y+1, r1	; 0x01
+    1178:	31 e0       	ldi	r19, 0x01	; 1
+    117a:	10 e0       	ldi	r17, 0x00	; 0
+    117c:	23 c0       	rjmp	.+70     	; 0x11c4 <dataconv_dword_to_num+0xba>
     total_digits=1;
   }else{
     while(val!=0){
       digits[i]=val%10;
-    1178:	c4 01       	movw	r24, r8
-    117a:	80 0f       	add	r24, r16
-    117c:	91 1d       	adc	r25, r1
-    117e:	9a 87       	std	Y+10, r25	; 0x0a
-    1180:	89 87       	std	Y+9, r24	; 0x09
-    1182:	c7 01       	movw	r24, r14
-    1184:	b6 01       	movw	r22, r12
-    1186:	2a e0       	ldi	r18, 0x0A	; 10
-    1188:	30 e0       	ldi	r19, 0x00	; 0
-    118a:	40 e0       	ldi	r20, 0x00	; 0
-    118c:	50 e0       	ldi	r21, 0x00	; 0
-    118e:	0e 94 f2 09 	call	0x13e4	; 0x13e4 <__divmodsi4>
-    1192:	e9 85       	ldd	r30, Y+9	; 0x09
-    1194:	fa 85       	ldd	r31, Y+10	; 0x0a
-    1196:	60 83       	st	Z, r22
+    117e:	c4 01       	movw	r24, r8
+    1180:	80 0f       	add	r24, r16
+    1182:	91 1d       	adc	r25, r1
+    1184:	9a 87       	std	Y+10, r25	; 0x0a
+    1186:	89 87       	std	Y+9, r24	; 0x09
+    1188:	c7 01       	movw	r24, r14
+    118a:	b6 01       	movw	r22, r12
+    118c:	2a e0       	ldi	r18, 0x0A	; 10
+    118e:	30 e0       	ldi	r19, 0x00	; 0
+    1190:	40 e0       	ldi	r20, 0x00	; 0
+    1192:	50 e0       	ldi	r21, 0x00	; 0
+    1194:	0e 94 f5 09 	call	0x13ea	; 0x13ea <__divmodsi4>
+    1198:	e9 85       	ldd	r30, Y+9	; 0x09
+    119a:	fa 85       	ldd	r31, Y+10	; 0x0a
+    119c:	60 83       	st	Z, r22
       val/=10;
-    1198:	c7 01       	movw	r24, r14
-    119a:	b6 01       	movw	r22, r12
-    119c:	2a e0       	ldi	r18, 0x0A	; 10
-    119e:	30 e0       	ldi	r19, 0x00	; 0
-    11a0:	40 e0       	ldi	r20, 0x00	; 0
-    11a2:	50 e0       	ldi	r21, 0x00	; 0
-    11a4:	0e 94 f2 09 	call	0x13e4	; 0x13e4 <__divmodsi4>
-    11a8:	c9 01       	movw	r24, r18
-    11aa:	da 01       	movw	r26, r20
-    11ac:	6c 01       	movw	r12, r24
-    11ae:	7d 01       	movw	r14, r26
+    119e:	c7 01       	movw	r24, r14
+    11a0:	b6 01       	movw	r22, r12
+    11a2:	2a e0       	ldi	r18, 0x0A	; 10
+    11a4:	30 e0       	ldi	r19, 0x00	; 0
+    11a6:	40 e0       	ldi	r20, 0x00	; 0
+    11a8:	50 e0       	ldi	r21, 0x00	; 0
+    11aa:	0e 94 f5 09 	call	0x13ea	; 0x13ea <__divmodsi4>
+    11ae:	c9 01       	movw	r24, r18
+    11b0:	da 01       	movw	r26, r20
+    11b2:	6c 01       	movw	r12, r24
+    11b4:	7d 01       	movw	r14, r26
       i++;
-    11b0:	0f 5f       	subi	r16, 0xFF	; 255
+    11b6:	0f 5f       	subi	r16, 0xFF	; 255
   
   if(val==0){
     digits[0]=0;
     total_digits=1;
   }else{
     while(val!=0){
-    11b2:	c1 14       	cp	r12, r1
-    11b4:	d1 04       	cpc	r13, r1
-    11b6:	e1 04       	cpc	r14, r1
-    11b8:	f1 04       	cpc	r15, r1
-    11ba:	f1 f6       	brne	.-68     	; 0x1178 <dataconv_dword_to_num+0x74>
-    11bc:	30 2f       	mov	r19, r16
-    11be:	43 2f       	mov	r20, r19
-    11c0:	50 e0       	ldi	r21, 0x00	; 0
-    11c2:	91 2f       	mov	r25, r17
+    11b8:	c1 14       	cp	r12, r1
+    11ba:	d1 04       	cpc	r13, r1
+    11bc:	e1 04       	cpc	r14, r1
+    11be:	f1 04       	cpc	r15, r1
+    11c0:	f1 f6       	brne	.-68     	; 0x117e <dataconv_dword_to_num+0x74>
+    11c2:	30 2f       	mov	r19, r16
+    11c4:	43 2f       	mov	r20, r19
+    11c6:	50 e0       	ldi	r21, 0x00	; 0
+    11c8:	91 2f       	mov	r25, r17
   
   
   for(int k=total_digits; k>0; k--){
     uint8_t temp=k;
     temp-=1;
     temp=digits[temp];
-    11c4:	de 01       	movw	r26, r28
-    11c6:	11 96       	adiw	r26, 0x01	; 1
+    11ca:	de 01       	movw	r26, r28
+    11cc:	11 96       	adiw	r26, 0x01	; 1
     temp+=48;
 	array[start+array_index]=temp;
-    11c8:	67 2d       	mov	r22, r7
-    11ca:	70 e0       	ldi	r23, 0x00	; 0
-    11cc:	0c c0       	rjmp	.+24     	; 0x11e6 <dataconv_dword_to_num+0xe2>
+    11ce:	67 2d       	mov	r22, r7
+    11d0:	70 e0       	ldi	r23, 0x00	; 0
+    11d2:	0c c0       	rjmp	.+24     	; 0x11ec <dataconv_dword_to_num+0xe2>
   
   
   for(int k=total_digits; k>0; k--){
     uint8_t temp=k;
     temp-=1;
     temp=digits[temp];
-    11ce:	fd 01       	movw	r30, r26
-    11d0:	e4 0f       	add	r30, r20
-    11d2:	f1 1d       	adc	r31, r1
-    11d4:	80 81       	ld	r24, Z
+    11d4:	fd 01       	movw	r30, r26
+    11d6:	e4 0f       	add	r30, r20
+    11d8:	f1 1d       	adc	r31, r1
+    11da:	80 81       	ld	r24, Z
     temp+=48;
 	array[start+array_index]=temp;
-    11d6:	f5 01       	movw	r30, r10
-    11d8:	e9 0f       	add	r30, r25
-    11da:	f1 1d       	adc	r31, r1
-    11dc:	e6 0f       	add	r30, r22
-    11de:	f7 1f       	adc	r31, r23
-    11e0:	80 5d       	subi	r24, 0xD0	; 208
-    11e2:	80 83       	st	Z, r24
+    11dc:	f5 01       	movw	r30, r10
+    11de:	e9 0f       	add	r30, r25
+    11e0:	f1 1d       	adc	r31, r1
+    11e2:	e6 0f       	add	r30, r22
+    11e4:	f7 1f       	adc	r31, r23
+    11e6:	80 5d       	subi	r24, 0xD0	; 208
+    11e8:	80 83       	st	Z, r24
 	array_index++;
-    11e4:	9f 5f       	subi	r25, 0xFF	; 255
-    11e6:	41 50       	subi	r20, 0x01	; 1
-    11e8:	50 40       	sbci	r21, 0x00	; 0
+    11ea:	9f 5f       	subi	r25, 0xFF	; 255
+    11ec:	41 50       	subi	r20, 0x01	; 1
+    11ee:	50 40       	sbci	r21, 0x00	; 0
     }
 	total_digits=i;
   }
   
   
   for(int k=total_digits; k>0; k--){
-    11ea:	ff ef       	ldi	r31, 0xFF	; 255
-    11ec:	4f 3f       	cpi	r20, 0xFF	; 255
-    11ee:	5f 07       	cpc	r21, r31
-    11f0:	71 f7       	brne	.-36     	; 0x11ce <dataconv_dword_to_num+0xca>
+    11f0:	ff ef       	ldi	r31, 0xFF	; 255
+    11f2:	4f 3f       	cpi	r20, 0xFF	; 255
+    11f4:	5f 07       	cpc	r21, r31
+    11f6:	71 f7       	brne	.-36     	; 0x11d4 <dataconv_dword_to_num+0xca>
     temp=digits[temp];
     temp+=48;
 	array[start+array_index]=temp;
 	array_index++;
   }
   dataconv_data_len=array_index;
-    11f2:	13 0f       	add	r17, r19
-    11f4:	10 93 0c 01 	sts	0x010C, r17
+    11f8:	13 0f       	add	r17, r19
+    11fa:	10 93 0c 01 	sts	0x010C, r17
 }
-    11f8:	2a 96       	adiw	r28, 0x0a	; 10
-    11fa:	0f b6       	in	r0, 0x3f	; 63
-    11fc:	f8 94       	cli
-    11fe:	de bf       	out	0x3e, r29	; 62
-    1200:	0f be       	out	0x3f, r0	; 63
-    1202:	cd bf       	out	0x3d, r28	; 61
-    1204:	cf 91       	pop	r28
-    1206:	df 91       	pop	r29
-    1208:	1f 91       	pop	r17
-    120a:	0f 91       	pop	r16
-    120c:	ff 90       	pop	r15
-    120e:	ef 90       	pop	r14
-    1210:	df 90       	pop	r13
-    1212:	cf 90       	pop	r12
-    1214:	bf 90       	pop	r11
-    1216:	af 90       	pop	r10
-    1218:	9f 90       	pop	r9
-    121a:	8f 90       	pop	r8
-    121c:	7f 90       	pop	r7
-    121e:	08 95       	ret
+    11fe:	2a 96       	adiw	r28, 0x0a	; 10
+    1200:	0f b6       	in	r0, 0x3f	; 63
+    1202:	f8 94       	cli
+    1204:	de bf       	out	0x3e, r29	; 62
+    1206:	0f be       	out	0x3f, r0	; 63
+    1208:	cd bf       	out	0x3d, r28	; 61
+    120a:	cf 91       	pop	r28
+    120c:	df 91       	pop	r29
+    120e:	1f 91       	pop	r17
+    1210:	0f 91       	pop	r16
+    1212:	ff 90       	pop	r15
+    1214:	ef 90       	pop	r14
+    1216:	df 90       	pop	r13
+    1218:	cf 90       	pop	r12
+    121a:	bf 90       	pop	r11
+    121c:	af 90       	pop	r10
+    121e:	9f 90       	pop	r9
+    1220:	8f 90       	pop	r8
+    1222:	7f 90       	pop	r7
+    1224:	08 95       	ret
 
-00001220 <dataconv_dword_to_num_len>:
+00001226 <dataconv_dword_to_num_len>:
 
 uint8_t dataconv_dword_to_num_len(void){
   return dataconv_data_len;
 }
-    1220:	80 91 0c 01 	lds	r24, 0x010C
-    1224:	08 95       	ret
+    1226:	80 91 0c 01 	lds	r24, 0x010C
+    122a:	08 95       	ret
 
-00001226 <EEPROM_Read>:
+0000122c <EEPROM_Read>:
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
 uint8_t EEPROM_Read(uint16_t addr){
   cli();
-    1226:	f8 94       	cli
+    122c:	f8 94       	cli
   EEAR=addr;
-    1228:	92 bd       	out	0x22, r25	; 34
-    122a:	81 bd       	out	0x21, r24	; 33
+    122e:	92 bd       	out	0x22, r25	; 34
+    1230:	81 bd       	out	0x21, r24	; 33
   EECR|=(1<<EERE);
-    122c:	f8 9a       	sbi	0x1f, 0	; 31
+    1232:	f8 9a       	sbi	0x1f, 0	; 31
   while(EECR & (1<<EEPE));
-    122e:	f9 99       	sbic	0x1f, 1	; 31
-    1230:	fe cf       	rjmp	.-4      	; 0x122e <EEPROM_Read+0x8>
+    1234:	f9 99       	sbic	0x1f, 1	; 31
+    1236:	fe cf       	rjmp	.-4      	; 0x1234 <EEPROM_Read+0x8>
   sei();
-    1232:	78 94       	sei
+    1238:	78 94       	sei
   return EEDR;
-    1234:	80 b5       	in	r24, 0x20	; 32
+    123a:	80 b5       	in	r24, 0x20	; 32
 }
-    1236:	08 95       	ret
+    123c:	08 95       	ret
 
-00001238 <EEPROM_Write>:
+0000123e <EEPROM_Write>:
 
 void EEPROM_Write(uint16_t addr, uint8_t data){
-    1238:	1f 93       	push	r17
-    123a:	cf 93       	push	r28
-    123c:	df 93       	push	r29
-    123e:	ec 01       	movw	r28, r24
-    1240:	16 2f       	mov	r17, r22
+    123e:	1f 93       	push	r17
+    1240:	cf 93       	push	r28
+    1242:	df 93       	push	r29
+    1244:	ec 01       	movw	r28, r24
+    1246:	16 2f       	mov	r17, r22
   if(EEPROM_Read(addr)!=data){
-    1242:	0e 94 13 09 	call	0x1226	; 0x1226 <EEPROM_Read>
-    1246:	81 17       	cp	r24, r17
-    1248:	51 f0       	breq	.+20     	; 0x125e <EEPROM_Write+0x26>
+    1248:	0e 94 16 09 	call	0x122c	; 0x122c <EEPROM_Read>
+    124c:	81 17       	cp	r24, r17
+    124e:	51 f0       	breq	.+20     	; 0x1264 <EEPROM_Write+0x26>
     cli();
-    124a:	f8 94       	cli
+    1250:	f8 94       	cli
     EEAR=addr;
-    124c:	d2 bd       	out	0x22, r29	; 34
-    124e:	c1 bd       	out	0x21, r28	; 33
+    1252:	d2 bd       	out	0x22, r29	; 34
+    1254:	c1 bd       	out	0x21, r28	; 33
     EEDR=data;
-    1250:	10 bd       	out	0x20, r17	; 32
+    1256:	10 bd       	out	0x20, r17	; 32
     EECR=(1<<EEMPE);
-    1252:	84 e0       	ldi	r24, 0x04	; 4
-    1254:	8f bb       	out	0x1f, r24	; 31
+    1258:	84 e0       	ldi	r24, 0x04	; 4
+    125a:	8f bb       	out	0x1f, r24	; 31
     EECR|=(1<<EEPE);
-    1256:	f9 9a       	sbi	0x1f, 1	; 31
+    125c:	f9 9a       	sbi	0x1f, 1	; 31
     while(EECR & (1<<EEPE));
-    1258:	f9 99       	sbic	0x1f, 1	; 31
-    125a:	fe cf       	rjmp	.-4      	; 0x1258 <EEPROM_Write+0x20>
+    125e:	f9 99       	sbic	0x1f, 1	; 31
+    1260:	fe cf       	rjmp	.-4      	; 0x125e <EEPROM_Write+0x20>
     sei();
-    125c:	78 94       	sei
+    1262:	78 94       	sei
   }
 }
-    125e:	df 91       	pop	r29
-    1260:	cf 91       	pop	r28
-    1262:	1f 91       	pop	r17
-    1264:	08 95       	ret
+    1264:	df 91       	pop	r29
+    1266:	cf 91       	pop	r28
+    1268:	1f 91       	pop	r17
+    126a:	08 95       	ret
 
-00001266 <EEPROM_Erase>:
+0000126c <EEPROM_Erase>:
 
 void EEPROM_Erase(uint16_t addr){
   EEPROM_Write(addr, 0xFF);
-    1266:	6f ef       	ldi	r22, 0xFF	; 255
-    1268:	0e 94 1c 09 	call	0x1238	; 0x1238 <EEPROM_Write>
+    126c:	6f ef       	ldi	r22, 0xFF	; 255
+    126e:	0e 94 1f 09 	call	0x123e	; 0x123e <EEPROM_Write>
 }
-    126c:	08 95       	ret
+    1272:	08 95       	ret
 
-0000126e <EEPROM_Read_Word>:
+00001274 <EEPROM_Read_Word>:
 
 
 uint16_t EEPROM_Read_Word(uint16_t addr){
-    126e:	ef 92       	push	r14
-    1270:	ff 92       	push	r15
-    1272:	0f 93       	push	r16
-    1274:	1f 93       	push	r17
-    1276:	7c 01       	movw	r14, r24
+    1274:	ef 92       	push	r14
+    1276:	ff 92       	push	r15
+    1278:	0f 93       	push	r16
+    127a:	1f 93       	push	r17
+    127c:	7c 01       	movw	r14, r24
   uint16_t temp=EEPROM_Read(addr);
-    1278:	0e 94 13 09 	call	0x1226	; 0x1226 <EEPROM_Read>
+    127e:	0e 94 16 09 	call	0x122c	; 0x122c <EEPROM_Read>
   temp<<=8;
-    127c:	18 2f       	mov	r17, r24
-    127e:	00 e0       	ldi	r16, 0x00	; 0
+    1282:	18 2f       	mov	r17, r24
+    1284:	00 e0       	ldi	r16, 0x00	; 0
   temp|=EEPROM_Read(addr+1);
-    1280:	c7 01       	movw	r24, r14
-    1282:	01 96       	adiw	r24, 0x01	; 1
-    1284:	0e 94 13 09 	call	0x1226	; 0x1226 <EEPROM_Read>
-    1288:	28 2f       	mov	r18, r24
-    128a:	30 e0       	ldi	r19, 0x00	; 0
-    128c:	20 2b       	or	r18, r16
-    128e:	31 2b       	or	r19, r17
+    1286:	c7 01       	movw	r24, r14
+    1288:	01 96       	adiw	r24, 0x01	; 1
+    128a:	0e 94 16 09 	call	0x122c	; 0x122c <EEPROM_Read>
+    128e:	28 2f       	mov	r18, r24
+    1290:	30 e0       	ldi	r19, 0x00	; 0
+    1292:	20 2b       	or	r18, r16
+    1294:	31 2b       	or	r19, r17
   return temp;
 }
-    1290:	c9 01       	movw	r24, r18
-    1292:	1f 91       	pop	r17
-    1294:	0f 91       	pop	r16
-    1296:	ff 90       	pop	r15
-    1298:	ef 90       	pop	r14
-    129a:	08 95       	ret
+    1296:	c9 01       	movw	r24, r18
+    1298:	1f 91       	pop	r17
+    129a:	0f 91       	pop	r16
+    129c:	ff 90       	pop	r15
+    129e:	ef 90       	pop	r14
+    12a0:	08 95       	ret
 
-0000129c <EEPROM_Write_Word>:
+000012a2 <EEPROM_Write_Word>:
 
 void EEPROM_Write_Word(uint16_t addr, uint16_t data){
-    129c:	ff 92       	push	r15
-    129e:	0f 93       	push	r16
-    12a0:	1f 93       	push	r17
-    12a2:	8c 01       	movw	r16, r24
-    12a4:	f6 2e       	mov	r15, r22
-    12a6:	67 2f       	mov	r22, r23
+    12a2:	ff 92       	push	r15
+    12a4:	0f 93       	push	r16
+    12a6:	1f 93       	push	r17
+    12a8:	8c 01       	movw	r16, r24
+    12aa:	f6 2e       	mov	r15, r22
+    12ac:	67 2f       	mov	r22, r23
   EEPROM_Write( addr, (data>>8) & 0xFF );
-    12a8:	0e 94 1c 09 	call	0x1238	; 0x1238 <EEPROM_Write>
+    12ae:	0e 94 1f 09 	call	0x123e	; 0x123e <EEPROM_Write>
   EEPROM_Write( addr+1, data & 0xFF );
-    12ac:	c8 01       	movw	r24, r16
-    12ae:	01 96       	adiw	r24, 0x01	; 1
-    12b0:	6f 2d       	mov	r22, r15
-    12b2:	0e 94 1c 09 	call	0x1238	; 0x1238 <EEPROM_Write>
+    12b2:	c8 01       	movw	r24, r16
+    12b4:	01 96       	adiw	r24, 0x01	; 1
+    12b6:	6f 2d       	mov	r22, r15
+    12b8:	0e 94 1f 09 	call	0x123e	; 0x123e <EEPROM_Write>
 }
-    12b6:	1f 91       	pop	r17
-    12b8:	0f 91       	pop	r16
-    12ba:	ff 90       	pop	r15
-    12bc:	08 95       	ret
+    12bc:	1f 91       	pop	r17
+    12be:	0f 91       	pop	r16
+    12c0:	ff 90       	pop	r15
+    12c2:	08 95       	ret
 
-000012be <EEPROM_Read_Dword>:
+000012c4 <EEPROM_Read_Dword>:
 
 uint32_t EEPROM_Read_Dword(uint16_t addr){
-    12be:	cf 92       	push	r12
-    12c0:	df 92       	push	r13
-    12c2:	ef 92       	push	r14
-    12c4:	ff 92       	push	r15
-    12c6:	0f 93       	push	r16
-    12c8:	1f 93       	push	r17
-    12ca:	6c 01       	movw	r12, r24
+    12c4:	cf 92       	push	r12
+    12c6:	df 92       	push	r13
+    12c8:	ef 92       	push	r14
+    12ca:	ff 92       	push	r15
+    12cc:	0f 93       	push	r16
+    12ce:	1f 93       	push	r17
+    12d0:	6c 01       	movw	r12, r24
   uint32_t temp=EEPROM_Read_Word( addr );
-    12cc:	0e 94 37 09 	call	0x126e	; 0x126e <EEPROM_Read_Word>
-    12d0:	7c 01       	movw	r14, r24
-    12d2:	00 e0       	ldi	r16, 0x00	; 0
-    12d4:	10 e0       	ldi	r17, 0x00	; 0
+    12d2:	0e 94 3a 09 	call	0x1274	; 0x1274 <EEPROM_Read_Word>
+    12d6:	7c 01       	movw	r14, r24
+    12d8:	00 e0       	ldi	r16, 0x00	; 0
+    12da:	10 e0       	ldi	r17, 0x00	; 0
   temp<<=16;
-    12d6:	87 01       	movw	r16, r14
-    12d8:	ff 24       	eor	r15, r15
-    12da:	ee 24       	eor	r14, r14
+    12dc:	87 01       	movw	r16, r14
+    12de:	ff 24       	eor	r15, r15
+    12e0:	ee 24       	eor	r14, r14
   temp|=EEPROM_Read_Word( addr+2 );
-    12dc:	c6 01       	movw	r24, r12
-    12de:	02 96       	adiw	r24, 0x02	; 2
-    12e0:	0e 94 37 09 	call	0x126e	; 0x126e <EEPROM_Read_Word>
-    12e4:	9c 01       	movw	r18, r24
-    12e6:	40 e0       	ldi	r20, 0x00	; 0
-    12e8:	50 e0       	ldi	r21, 0x00	; 0
-    12ea:	2e 29       	or	r18, r14
-    12ec:	3f 29       	or	r19, r15
-    12ee:	40 2b       	or	r20, r16
-    12f0:	51 2b       	or	r21, r17
+    12e2:	c6 01       	movw	r24, r12
+    12e4:	02 96       	adiw	r24, 0x02	; 2
+    12e6:	0e 94 3a 09 	call	0x1274	; 0x1274 <EEPROM_Read_Word>
+    12ea:	9c 01       	movw	r18, r24
+    12ec:	40 e0       	ldi	r20, 0x00	; 0
+    12ee:	50 e0       	ldi	r21, 0x00	; 0
+    12f0:	2e 29       	or	r18, r14
+    12f2:	3f 29       	or	r19, r15
+    12f4:	40 2b       	or	r20, r16
+    12f6:	51 2b       	or	r21, r17
   return temp;
 }
-    12f2:	b9 01       	movw	r22, r18
-    12f4:	ca 01       	movw	r24, r20
-    12f6:	1f 91       	pop	r17
-    12f8:	0f 91       	pop	r16
-    12fa:	ff 90       	pop	r15
-    12fc:	ef 90       	pop	r14
-    12fe:	df 90       	pop	r13
-    1300:	cf 90       	pop	r12
-    1302:	08 95       	ret
+    12f8:	b9 01       	movw	r22, r18
+    12fa:	ca 01       	movw	r24, r20
+    12fc:	1f 91       	pop	r17
+    12fe:	0f 91       	pop	r16
+    1300:	ff 90       	pop	r15
+    1302:	ef 90       	pop	r14
+    1304:	df 90       	pop	r13
+    1306:	cf 90       	pop	r12
+    1308:	08 95       	ret
 
-00001304 <EEPROM_Write_Dword>:
+0000130a <EEPROM_Write_Dword>:
 
 void EEPROM_Write_Dword(uint16_t addr, uint32_t data){
-    1304:	cf 92       	push	r12
-    1306:	df 92       	push	r13
-    1308:	ef 92       	push	r14
-    130a:	ff 92       	push	r15
-    130c:	0f 93       	push	r16
-    130e:	1f 93       	push	r17
-    1310:	6c 01       	movw	r12, r24
-    1312:	7a 01       	movw	r14, r20
-    1314:	8b 01       	movw	r16, r22
+    130a:	cf 92       	push	r12
+    130c:	df 92       	push	r13
+    130e:	ef 92       	push	r14
+    1310:	ff 92       	push	r15
+    1312:	0f 93       	push	r16
+    1314:	1f 93       	push	r17
+    1316:	6c 01       	movw	r12, r24
+    1318:	7a 01       	movw	r14, r20
+    131a:	8b 01       	movw	r16, r22
   EEPROM_Write_Word( addr, (data>>16) & 0xFFFF);
-    1316:	9b 01       	movw	r18, r22
-    1318:	44 27       	eor	r20, r20
-    131a:	55 27       	eor	r21, r21
-    131c:	c6 01       	movw	r24, r12
-    131e:	b9 01       	movw	r22, r18
-    1320:	0e 94 4e 09 	call	0x129c	; 0x129c <EEPROM_Write_Word>
+    131c:	9b 01       	movw	r18, r22
+    131e:	44 27       	eor	r20, r20
+    1320:	55 27       	eor	r21, r21
+    1322:	c6 01       	movw	r24, r12
+    1324:	b9 01       	movw	r22, r18
+    1326:	0e 94 51 09 	call	0x12a2	; 0x12a2 <EEPROM_Write_Word>
   EEPROM_Write_Word( addr+2, (data & 0xFFFF));
-    1324:	c6 01       	movw	r24, r12
-    1326:	02 96       	adiw	r24, 0x02	; 2
-    1328:	b7 01       	movw	r22, r14
-    132a:	0e 94 4e 09 	call	0x129c	; 0x129c <EEPROM_Write_Word>
+    132a:	c6 01       	movw	r24, r12
+    132c:	02 96       	adiw	r24, 0x02	; 2
+    132e:	b7 01       	movw	r22, r14
+    1330:	0e 94 51 09 	call	0x12a2	; 0x12a2 <EEPROM_Write_Word>
 }
-    132e:	1f 91       	pop	r17
-    1330:	0f 91       	pop	r16
-    1332:	ff 90       	pop	r15
-    1334:	ef 90       	pop	r14
-    1336:	df 90       	pop	r13
-    1338:	cf 90       	pop	r12
-    133a:	08 95       	ret
+    1334:	1f 91       	pop	r17
+    1336:	0f 91       	pop	r16
+    1338:	ff 90       	pop	r15
+    133a:	ef 90       	pop	r14
+    133c:	df 90       	pop	r13
+    133e:	cf 90       	pop	r12
+    1340:	08 95       	ret
 
-0000133c <EEPROM_Erase_Region>:
+00001342 <EEPROM_Erase_Region>:
 
 void EEPROM_Erase_Region(uint16_t start_addr, uint16_t stop_addr){
-    133c:	0f 93       	push	r16
-    133e:	1f 93       	push	r17
-    1340:	cf 93       	push	r28
-    1342:	df 93       	push	r29
-    1344:	8b 01       	movw	r16, r22
-    1346:	ec 01       	movw	r28, r24
-    1348:	04 c0       	rjmp	.+8      	; 0x1352 <EEPROM_Erase_Region+0x16>
+    1342:	0f 93       	push	r16
+    1344:	1f 93       	push	r17
+    1346:	cf 93       	push	r28
+    1348:	df 93       	push	r29
+    134a:	8b 01       	movw	r16, r22
+    134c:	ec 01       	movw	r28, r24
+    134e:	04 c0       	rjmp	.+8      	; 0x1358 <EEPROM_Erase_Region+0x16>
   for(uint16_t i=start_addr;i<=stop_addr;i++){
 	EEPROM_Erase( i );
-    134a:	ce 01       	movw	r24, r28
-    134c:	0e 94 33 09 	call	0x1266	; 0x1266 <EEPROM_Erase>
+    1350:	ce 01       	movw	r24, r28
+    1352:	0e 94 36 09 	call	0x126c	; 0x126c <EEPROM_Erase>
   EEPROM_Write_Word( addr, (data>>16) & 0xFFFF);
   EEPROM_Write_Word( addr+2, (data & 0xFFFF));
 }
 
 void EEPROM_Erase_Region(uint16_t start_addr, uint16_t stop_addr){
   for(uint16_t i=start_addr;i<=stop_addr;i++){
-    1350:	21 96       	adiw	r28, 0x01	; 1
-    1352:	0c 17       	cp	r16, r28
-    1354:	1d 07       	cpc	r17, r29
-    1356:	c8 f7       	brcc	.-14     	; 0x134a <EEPROM_Erase_Region+0xe>
+    1356:	21 96       	adiw	r28, 0x01	; 1
+    1358:	0c 17       	cp	r16, r28
+    135a:	1d 07       	cpc	r17, r29
+    135c:	c8 f7       	brcc	.-14     	; 0x1350 <EEPROM_Erase_Region+0xe>
 	EEPROM_Erase( i );
   }
 }
-    1358:	df 91       	pop	r29
-    135a:	cf 91       	pop	r28
-    135c:	1f 91       	pop	r17
-    135e:	0f 91       	pop	r16
-    1360:	08 95       	ret
+    135e:	df 91       	pop	r29
+    1360:	cf 91       	pop	r28
+    1362:	1f 91       	pop	r17
+    1364:	0f 91       	pop	r16
+    1366:	08 95       	ret
 
-00001362 <EEPROM_Clear_Data_Space>:
+00001368 <EEPROM_Clear_Data_Space>:
 
 void EEPROM_Clear_Data_Space(void){
   if( EEPROM_Read_Dword(1020) != 0x01020304 ){
-    1362:	8c ef       	ldi	r24, 0xFC	; 252
-    1364:	93 e0       	ldi	r25, 0x03	; 3
-    1366:	0e 94 5f 09 	call	0x12be	; 0x12be <EEPROM_Read_Dword>
-    136a:	64 50       	subi	r22, 0x04	; 4
-    136c:	73 40       	sbci	r23, 0x03	; 3
-    136e:	82 40       	sbci	r24, 0x02	; 2
-    1370:	91 40       	sbci	r25, 0x01	; 1
-    1372:	71 f0       	breq	.+28     	; 0x1390 <EEPROM_Clear_Data_Space+0x2e>
+    1368:	8c ef       	ldi	r24, 0xFC	; 252
+    136a:	93 e0       	ldi	r25, 0x03	; 3
+    136c:	0e 94 62 09 	call	0x12c4	; 0x12c4 <EEPROM_Read_Dword>
+    1370:	64 50       	subi	r22, 0x04	; 4
+    1372:	73 40       	sbci	r23, 0x03	; 3
+    1374:	82 40       	sbci	r24, 0x02	; 2
+    1376:	91 40       	sbci	r25, 0x01	; 1
+    1378:	71 f0       	breq	.+28     	; 0x1396 <EEPROM_Clear_Data_Space+0x2e>
     EEPROM_Erase_Region(1018,1019);
-    1374:	8a ef       	ldi	r24, 0xFA	; 250
-    1376:	93 e0       	ldi	r25, 0x03	; 3
-    1378:	6b ef       	ldi	r22, 0xFB	; 251
-    137a:	73 e0       	ldi	r23, 0x03	; 3
-    137c:	0e 94 9e 09 	call	0x133c	; 0x133c <EEPROM_Erase_Region>
+    137a:	8a ef       	ldi	r24, 0xFA	; 250
+    137c:	93 e0       	ldi	r25, 0x03	; 3
+    137e:	6b ef       	ldi	r22, 0xFB	; 251
+    1380:	73 e0       	ldi	r23, 0x03	; 3
+    1382:	0e 94 a1 09 	call	0x1342	; 0x1342 <EEPROM_Erase_Region>
 	EEPROM_Write_Dword(1020, 0x01020304);
-    1380:	8c ef       	ldi	r24, 0xFC	; 252
-    1382:	93 e0       	ldi	r25, 0x03	; 3
-    1384:	44 e0       	ldi	r20, 0x04	; 4
-    1386:	53 e0       	ldi	r21, 0x03	; 3
-    1388:	62 e0       	ldi	r22, 0x02	; 2
-    138a:	71 e0       	ldi	r23, 0x01	; 1
-    138c:	0e 94 82 09 	call	0x1304	; 0x1304 <EEPROM_Write_Dword>
-    1390:	08 95       	ret
+    1386:	8c ef       	ldi	r24, 0xFC	; 252
+    1388:	93 e0       	ldi	r25, 0x03	; 3
+    138a:	44 e0       	ldi	r20, 0x04	; 4
+    138c:	53 e0       	ldi	r21, 0x03	; 3
+    138e:	62 e0       	ldi	r22, 0x02	; 2
+    1390:	71 e0       	ldi	r23, 0x01	; 1
+    1392:	0e 94 85 09 	call	0x130a	; 0x130a <EEPROM_Write_Dword>
+    1396:	08 95       	ret
 
-00001392 <EEPROM_Init>:
+00001398 <EEPROM_Init>:
   }
 }
 
 void EEPROM_Init(void){
   EEPROM_Clear_Data_Space();
-    1392:	0e 94 b1 09 	call	0x1362	; 0x1362 <EEPROM_Clear_Data_Space>
+    1398:	0e 94 b4 09 	call	0x1368	; 0x1368 <EEPROM_Clear_Data_Space>
 }
-    1396:	08 95       	ret
+    139c:	08 95       	ret
 
-00001398 <led_init>:
+0000139e <led_init>:
 #define  LED_bp   0x04
 
 
 
 void led_init(void){
   LED_DDR|=(1<<LED_bp);
-    1398:	54 9a       	sbi	0x0a, 4	; 10
+    139e:	54 9a       	sbi	0x0a, 4	; 10
   LED_PORT&=~(1<<LED_bp);
-    139a:	5c 98       	cbi	0x0b, 4	; 11
+    13a0:	5c 98       	cbi	0x0b, 4	; 11
 }
-    139c:	08 95       	ret
+    13a2:	08 95       	ret
 
-0000139e <led_on>:
+000013a4 <led_on>:
 
 void led_on(void){
   LED_PORT|=(1<<LED_bp);
-    139e:	5c 9a       	sbi	0x0b, 4	; 11
+    13a4:	5c 9a       	sbi	0x0b, 4	; 11
 }
-    13a0:	08 95       	ret
+    13a6:	08 95       	ret
 
-000013a2 <led_off>:
+000013a8 <led_off>:
 
 void led_off(void){
   LED_PORT&=~(1<<LED_bp);
-    13a2:	5c 98       	cbi	0x0b, 4	; 11
-    13a4:	08 95       	ret
+    13a8:	5c 98       	cbi	0x0b, 4	; 11
+    13aa:	08 95       	ret
 
-000013a6 <__mulsi3>:
-    13a6:	62 9f       	mul	r22, r18
-    13a8:	d0 01       	movw	r26, r0
-    13aa:	73 9f       	mul	r23, r19
-    13ac:	f0 01       	movw	r30, r0
-    13ae:	82 9f       	mul	r24, r18
-    13b0:	e0 0d       	add	r30, r0
-    13b2:	f1 1d       	adc	r31, r1
-    13b4:	64 9f       	mul	r22, r20
+000013ac <__mulsi3>:
+    13ac:	62 9f       	mul	r22, r18
+    13ae:	d0 01       	movw	r26, r0
+    13b0:	73 9f       	mul	r23, r19
+    13b2:	f0 01       	movw	r30, r0
+    13b4:	82 9f       	mul	r24, r18
     13b6:	e0 0d       	add	r30, r0
     13b8:	f1 1d       	adc	r31, r1
-    13ba:	92 9f       	mul	r25, r18
-    13bc:	f0 0d       	add	r31, r0
-    13be:	83 9f       	mul	r24, r19
-    13c0:	f0 0d       	add	r31, r0
-    13c2:	74 9f       	mul	r23, r20
-    13c4:	f0 0d       	add	r31, r0
-    13c6:	65 9f       	mul	r22, r21
-    13c8:	f0 0d       	add	r31, r0
-    13ca:	99 27       	eor	r25, r25
-    13cc:	72 9f       	mul	r23, r18
-    13ce:	b0 0d       	add	r27, r0
-    13d0:	e1 1d       	adc	r30, r1
-    13d2:	f9 1f       	adc	r31, r25
-    13d4:	63 9f       	mul	r22, r19
-    13d6:	b0 0d       	add	r27, r0
-    13d8:	e1 1d       	adc	r30, r1
-    13da:	f9 1f       	adc	r31, r25
-    13dc:	bd 01       	movw	r22, r26
-    13de:	cf 01       	movw	r24, r30
-    13e0:	11 24       	eor	r1, r1
-    13e2:	08 95       	ret
+    13ba:	64 9f       	mul	r22, r20
+    13bc:	e0 0d       	add	r30, r0
+    13be:	f1 1d       	adc	r31, r1
+    13c0:	92 9f       	mul	r25, r18
+    13c2:	f0 0d       	add	r31, r0
+    13c4:	83 9f       	mul	r24, r19
+    13c6:	f0 0d       	add	r31, r0
+    13c8:	74 9f       	mul	r23, r20
+    13ca:	f0 0d       	add	r31, r0
+    13cc:	65 9f       	mul	r22, r21
+    13ce:	f0 0d       	add	r31, r0
+    13d0:	99 27       	eor	r25, r25
+    13d2:	72 9f       	mul	r23, r18
+    13d4:	b0 0d       	add	r27, r0
+    13d6:	e1 1d       	adc	r30, r1
+    13d8:	f9 1f       	adc	r31, r25
+    13da:	63 9f       	mul	r22, r19
+    13dc:	b0 0d       	add	r27, r0
+    13de:	e1 1d       	adc	r30, r1
+    13e0:	f9 1f       	adc	r31, r25
+    13e2:	bd 01       	movw	r22, r26
+    13e4:	cf 01       	movw	r24, r30
+    13e6:	11 24       	eor	r1, r1
+    13e8:	08 95       	ret
 
-000013e4 <__divmodsi4>:
-    13e4:	97 fb       	bst	r25, 7
-    13e6:	09 2e       	mov	r0, r25
-    13e8:	05 26       	eor	r0, r21
-    13ea:	0e d0       	rcall	.+28     	; 0x1408 <__divmodsi4_neg1>
-    13ec:	57 fd       	sbrc	r21, 7
-    13ee:	04 d0       	rcall	.+8      	; 0x13f8 <__divmodsi4_neg2>
-    13f0:	14 d0       	rcall	.+40     	; 0x141a <__udivmodsi4>
-    13f2:	0a d0       	rcall	.+20     	; 0x1408 <__divmodsi4_neg1>
-    13f4:	00 1c       	adc	r0, r0
-    13f6:	38 f4       	brcc	.+14     	; 0x1406 <__divmodsi4_exit>
+000013ea <__divmodsi4>:
+    13ea:	97 fb       	bst	r25, 7
+    13ec:	09 2e       	mov	r0, r25
+    13ee:	05 26       	eor	r0, r21
+    13f0:	0e d0       	rcall	.+28     	; 0x140e <__divmodsi4_neg1>
+    13f2:	57 fd       	sbrc	r21, 7
+    13f4:	04 d0       	rcall	.+8      	; 0x13fe <__divmodsi4_neg2>
+    13f6:	14 d0       	rcall	.+40     	; 0x1420 <__udivmodsi4>
+    13f8:	0a d0       	rcall	.+20     	; 0x140e <__divmodsi4_neg1>
+    13fa:	00 1c       	adc	r0, r0
+    13fc:	38 f4       	brcc	.+14     	; 0x140c <__divmodsi4_exit>
 
-000013f8 <__divmodsi4_neg2>:
-    13f8:	50 95       	com	r21
-    13fa:	40 95       	com	r20
-    13fc:	30 95       	com	r19
-    13fe:	21 95       	neg	r18
-    1400:	3f 4f       	sbci	r19, 0xFF	; 255
-    1402:	4f 4f       	sbci	r20, 0xFF	; 255
-    1404:	5f 4f       	sbci	r21, 0xFF	; 255
+000013fe <__divmodsi4_neg2>:
+    13fe:	50 95       	com	r21
+    1400:	40 95       	com	r20
+    1402:	30 95       	com	r19
+    1404:	21 95       	neg	r18
+    1406:	3f 4f       	sbci	r19, 0xFF	; 255
+    1408:	4f 4f       	sbci	r20, 0xFF	; 255
+    140a:	5f 4f       	sbci	r21, 0xFF	; 255
 
-00001406 <__divmodsi4_exit>:
-    1406:	08 95       	ret
+0000140c <__divmodsi4_exit>:
+    140c:	08 95       	ret
 
-00001408 <__divmodsi4_neg1>:
-    1408:	f6 f7       	brtc	.-4      	; 0x1406 <__divmodsi4_exit>
-    140a:	90 95       	com	r25
-    140c:	80 95       	com	r24
-    140e:	70 95       	com	r23
-    1410:	61 95       	neg	r22
-    1412:	7f 4f       	sbci	r23, 0xFF	; 255
-    1414:	8f 4f       	sbci	r24, 0xFF	; 255
-    1416:	9f 4f       	sbci	r25, 0xFF	; 255
-    1418:	08 95       	ret
+0000140e <__divmodsi4_neg1>:
+    140e:	f6 f7       	brtc	.-4      	; 0x140c <__divmodsi4_exit>
+    1410:	90 95       	com	r25
+    1412:	80 95       	com	r24
+    1414:	70 95       	com	r23
+    1416:	61 95       	neg	r22
+    1418:	7f 4f       	sbci	r23, 0xFF	; 255
+    141a:	8f 4f       	sbci	r24, 0xFF	; 255
+    141c:	9f 4f       	sbci	r25, 0xFF	; 255
+    141e:	08 95       	ret
 
-0000141a <__udivmodsi4>:
-    141a:	a1 e2       	ldi	r26, 0x21	; 33
-    141c:	1a 2e       	mov	r1, r26
-    141e:	aa 1b       	sub	r26, r26
-    1420:	bb 1b       	sub	r27, r27
-    1422:	fd 01       	movw	r30, r26
-    1424:	0d c0       	rjmp	.+26     	; 0x1440 <__udivmodsi4_ep>
+00001420 <__udivmodsi4>:
+    1420:	a1 e2       	ldi	r26, 0x21	; 33
+    1422:	1a 2e       	mov	r1, r26
+    1424:	aa 1b       	sub	r26, r26
+    1426:	bb 1b       	sub	r27, r27
+    1428:	fd 01       	movw	r30, r26
+    142a:	0d c0       	rjmp	.+26     	; 0x1446 <__udivmodsi4_ep>
 
-00001426 <__udivmodsi4_loop>:
-    1426:	aa 1f       	adc	r26, r26
-    1428:	bb 1f       	adc	r27, r27
-    142a:	ee 1f       	adc	r30, r30
-    142c:	ff 1f       	adc	r31, r31
-    142e:	a2 17       	cp	r26, r18
-    1430:	b3 07       	cpc	r27, r19
-    1432:	e4 07       	cpc	r30, r20
-    1434:	f5 07       	cpc	r31, r21
-    1436:	20 f0       	brcs	.+8      	; 0x1440 <__udivmodsi4_ep>
-    1438:	a2 1b       	sub	r26, r18
-    143a:	b3 0b       	sbc	r27, r19
-    143c:	e4 0b       	sbc	r30, r20
-    143e:	f5 0b       	sbc	r31, r21
+0000142c <__udivmodsi4_loop>:
+    142c:	aa 1f       	adc	r26, r26
+    142e:	bb 1f       	adc	r27, r27
+    1430:	ee 1f       	adc	r30, r30
+    1432:	ff 1f       	adc	r31, r31
+    1434:	a2 17       	cp	r26, r18
+    1436:	b3 07       	cpc	r27, r19
+    1438:	e4 07       	cpc	r30, r20
+    143a:	f5 07       	cpc	r31, r21
+    143c:	20 f0       	brcs	.+8      	; 0x1446 <__udivmodsi4_ep>
+    143e:	a2 1b       	sub	r26, r18
+    1440:	b3 0b       	sbc	r27, r19
+    1442:	e4 0b       	sbc	r30, r20
+    1444:	f5 0b       	sbc	r31, r21
 
-00001440 <__udivmodsi4_ep>:
-    1440:	66 1f       	adc	r22, r22
-    1442:	77 1f       	adc	r23, r23
-    1444:	88 1f       	adc	r24, r24
-    1446:	99 1f       	adc	r25, r25
-    1448:	1a 94       	dec	r1
-    144a:	69 f7       	brne	.-38     	; 0x1426 <__udivmodsi4_loop>
-    144c:	60 95       	com	r22
-    144e:	70 95       	com	r23
-    1450:	80 95       	com	r24
-    1452:	90 95       	com	r25
-    1454:	9b 01       	movw	r18, r22
-    1456:	ac 01       	movw	r20, r24
-    1458:	bd 01       	movw	r22, r26
-    145a:	cf 01       	movw	r24, r30
-    145c:	08 95       	ret
+00001446 <__udivmodsi4_ep>:
+    1446:	66 1f       	adc	r22, r22
+    1448:	77 1f       	adc	r23, r23
+    144a:	88 1f       	adc	r24, r24
+    144c:	99 1f       	adc	r25, r25
+    144e:	1a 94       	dec	r1
+    1450:	69 f7       	brne	.-38     	; 0x142c <__udivmodsi4_loop>
+    1452:	60 95       	com	r22
+    1454:	70 95       	com	r23
+    1456:	80 95       	com	r24
+    1458:	90 95       	com	r25
+    145a:	9b 01       	movw	r18, r22
+    145c:	ac 01       	movw	r20, r24
+    145e:	bd 01       	movw	r22, r26
+    1460:	cf 01       	movw	r24, r30
+    1462:	08 95       	ret
 
-0000145e <_exit>:
-    145e:	f8 94       	cli
+00001464 <_exit>:
+    1464:	f8 94       	cli
 
-00001460 <__stop_program>:
-    1460:	ff cf       	rjmp	.-2      	; 0x1460 <__stop_program>
+00001466 <__stop_program>:
+    1466:	ff cf       	rjmp	.-2      	; 0x1466 <__stop_program>

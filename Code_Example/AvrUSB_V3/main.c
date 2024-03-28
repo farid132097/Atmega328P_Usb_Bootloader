@@ -23,6 +23,12 @@ int main(void){
   Vsns_Init();
   led_init();
   
+  //Prescale SysClk, 6MHz
+  /*cli();
+  CLKPR = (1<<CLKPCE);
+  CLKPR = (1<<CLKPS0);
+  sei();*/
+  
   while(1){
 	    
 	    led_on();

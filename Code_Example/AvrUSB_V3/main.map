@@ -135,7 +135,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1462
+.text           0x00000000     0x1468
  *(.vectors)
  .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vectors
@@ -225,7 +225,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000168                ADC_Disable
                 0x00000174                Analog_Comparator_Disable
                 0x0000017c                WDT_Get_Ticks
- .text          0x00000218      0xb54 nrf24l01p.o
+ .text          0x00000218      0xb5a nrf24l01p.o
                 0x00000c62                nRF24L01P_Init
                 0x0000082c                nRF24L01P_Speed_Set
                 0x000002e0                nRF24L01P_Set_CSN_DD
@@ -291,65 +291,65 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000532                nRF24L01P_ReadModifyWrite_Register
                 0x000004ac                nRF24L01P_ReadWrite_Register
                 0x00000612                nRF24L01P_Tx_Buf_Empty
- .text          0x00000d6c      0x2b2 vsns.o
-                0x00000d6c                Vsns_ADC_Reference_Internal
-                0x00000faa                Vsns_Calibrate
-                0x00000ef6                Vsns_Calibrate_Iref
-                0x00000db8                Vsns_ADC_Read
-                0x00000fa0                Vsns_Get_Cal_Val
-                0x00000d78                Vsns_ADC_Reference_Avcc
-                0x00000d8a                Vsns_ADC_Enable
-                0x00000da8                Vsns_ADC_Init
-                0x00000dfc                Vsns_V_Read
-                0x00000df8                Vsns_PMOS_Disable
-                0x00000ff8                Vsns_Init
-                0x00000d96                Vsns_ADC_Disable
-                0x00000df4                Vsns_PMOS_Enable
- .text          0x0000101e      0x208 dataconv.o
-                0x00001072                dataconv_word_to_hex_char
-                0x0000109c                dataconv_dword_to_hex_char
-                0x000010de                dataconv_dword_to_char
-                0x0000101e                dataconv_nibble_to_hex_char
-                0x00001220                dataconv_dword_to_num_len
-                0x00001104                dataconv_dword_to_num
-                0x00001038                dataconv_byte_to_hex_char
- .text          0x00001226      0x172 eeprom.o
-                0x00001226                EEPROM_Read
-                0x00001238                EEPROM_Write
-                0x0000126e                EEPROM_Read_Word
-                0x00001362                EEPROM_Clear_Data_Space
-                0x00001266                EEPROM_Erase
-                0x00001392                EEPROM_Init
-                0x00001304                EEPROM_Write_Dword
-                0x0000133c                EEPROM_Erase_Region
-                0x000012be                EEPROM_Read_Dword
-                0x0000129c                EEPROM_Write_Word
- .text          0x00001398        0xe led.o
-                0x0000139e                led_on
-                0x000013a2                led_off
-                0x00001398                led_init
- .text          0x000013a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .text          0x000013a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
- .text          0x000013a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text          0x000013a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text          0x000013a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text          0x000013a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x000013a6                . = ALIGN (0x2)
+ .text          0x00000d72      0x2b2 vsns.o
+                0x00000d72                Vsns_ADC_Reference_Internal
+                0x00000fb0                Vsns_Calibrate
+                0x00000efc                Vsns_Calibrate_Iref
+                0x00000dbe                Vsns_ADC_Read
+                0x00000fa6                Vsns_Get_Cal_Val
+                0x00000d7e                Vsns_ADC_Reference_Avcc
+                0x00000d90                Vsns_ADC_Enable
+                0x00000dae                Vsns_ADC_Init
+                0x00000e02                Vsns_V_Read
+                0x00000dfe                Vsns_PMOS_Disable
+                0x00000ffe                Vsns_Init
+                0x00000d9c                Vsns_ADC_Disable
+                0x00000dfa                Vsns_PMOS_Enable
+ .text          0x00001024      0x208 dataconv.o
+                0x00001078                dataconv_word_to_hex_char
+                0x000010a2                dataconv_dword_to_hex_char
+                0x000010e4                dataconv_dword_to_char
+                0x00001024                dataconv_nibble_to_hex_char
+                0x00001226                dataconv_dword_to_num_len
+                0x0000110a                dataconv_dword_to_num
+                0x0000103e                dataconv_byte_to_hex_char
+ .text          0x0000122c      0x172 eeprom.o
+                0x0000122c                EEPROM_Read
+                0x0000123e                EEPROM_Write
+                0x00001274                EEPROM_Read_Word
+                0x00001368                EEPROM_Clear_Data_Space
+                0x0000126c                EEPROM_Erase
+                0x00001398                EEPROM_Init
+                0x0000130a                EEPROM_Write_Dword
+                0x00001342                EEPROM_Erase_Region
+                0x000012c4                EEPROM_Read_Dword
+                0x000012a2                EEPROM_Write_Word
+ .text          0x0000139e        0xe led.o
+                0x000013a4                led_on
+                0x000013a8                led_off
+                0x0000139e                led_init
+ .text          0x000013ac        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .text          0x000013ac        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .text          0x000013ac        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x000013ac        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x000013ac        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text          0x000013ac        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x000013ac                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000013a6       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x000013a6                __mulsi3
- .text.libgcc   0x000013e4       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
-                0x000013e4                __divmodsi4
- .text.libgcc   0x0000141a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000141a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000141a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000141a       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x0000141a                __udivmodsi4
-                0x0000145e                . = ALIGN (0x2)
+ .text.libgcc   0x000013ac       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x000013ac                __mulsi3
+ .text.libgcc   0x000013ea       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                0x000013ea                __divmodsi4
+ .text.libgcc   0x00001420        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00001420        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00001420        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00001420       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001420                __udivmodsi4
+                0x00001464                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000145e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000145e                exit
-                0x0000145e                _exit
+ .fini9         0x00001464        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00001464                exit
+                0x00001464                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -368,11 +368,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000145e        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001464        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001462                _etext = .
+                0x00001468                _etext = .
 
-.data           0x00800100        0x6 load address 0x00001462
+.data           0x00800100        0x6 load address 0x00001468
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -422,8 +422,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  COMMON         0x0080010d       0x2b nrf24l01p.o
                 0x0080010d                nRF24L01P
                 0x00800138                PROVIDE (__bss_end, .)
-                0x00001462                __data_load_start = LOADADDR (.data)
-                0x00001468                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001468                __data_load_start = LOADADDR (.data)
+                0x0000146e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800138        0x0
                 0x00800138                PROVIDE (__noinit_start, .)
@@ -537,15 +537,15 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .debug_abbrev  0x00000707       0xb2 eeprom.o
  .debug_abbrev  0x000007b9       0x3f led.o
 
-.debug_line     0x00000000     0x194e
+.debug_line     0x00000000     0x1956
  *(.debug_line)
  .debug_line    0x00000000      0x129 main.o
  .debug_line    0x00000129      0x16f lowpower.o
- .debug_line    0x00000298      0xeff nrf24l01p.o
- .debug_line    0x00001197      0x310 vsns.o
- .debug_line    0x000014a7      0x1f5 dataconv.o
- .debug_line    0x0000169c      0x21b eeprom.o
- .debug_line    0x000018b7       0x97 led.o
+ .debug_line    0x00000298      0xf07 nrf24l01p.o
+ .debug_line    0x0000119f      0x310 vsns.o
+ .debug_line    0x000014af      0x1f5 dataconv.o
+ .debug_line    0x000016a4      0x21b eeprom.o
+ .debug_line    0x000018bf       0x97 led.o
 
 .debug_frame    0x00000000      0x700
  *(.debug_frame)

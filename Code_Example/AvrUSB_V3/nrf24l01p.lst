@@ -2635,91 +2635,94 @@
  2770 0b40 25E0      		ldi r18,lo8(5)
  2771 0b42 0E94 0000 		call nRF24L01P_ReadWrite_Register
  2772               	.LM425:
- 2773 0b46 82E0      		ldi r24,lo8(2)
- 2774 0b48 0E94 0000 		call nRF24L01P_Mode_Set
- 2775               	/* epilogue start */
- 2776               	.LM426:
- 2777 0b4c 1F91      		pop r17
- 2778 0b4e 0F91      		pop r16
- 2779 0b50 FF90      		pop r15
- 2780 0b52 0895      		ret
- 2781               	.LFE70:
- 2783               		.comm nRF24L01P,43,1
- 3320               	.Letext0:
+ 2773 0b46 80E0      		ldi r24,lo8(0)
+ 2774 0b48 0E94 0000 		call nRF24L01P_Speed_Set
+ 2775               	.LM426:
+ 2776 0b4c 82E0      		ldi r24,lo8(2)
+ 2777 0b4e 0E94 0000 		call nRF24L01P_Mode_Set
+ 2778               	/* epilogue start */
+ 2779               	.LM427:
+ 2780 0b52 1F91      		pop r17
+ 2781 0b54 0F91      		pop r16
+ 2782 0b56 FF90      		pop r15
+ 2783 0b58 0895      		ret
+ 2784               	.LFE70:
+ 2786               		.comm nRF24L01P,43,1
+ 3323               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 nrf24l01p.c
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2      *ABS*:0000003f __SREG__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:3      *ABS*:0000003e __SP_H__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:4      *ABS*:0000003d __SP_L__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:5      *ABS*:00000034 __CCP__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:18     .text:00000000 nRF24L01P_Struct_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2      *ABS*:0000003f __SREG__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:3      *ABS*:0000003e __SP_H__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:4      *ABS*:0000003d __SP_L__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:5      *ABS*:00000034 __CCP__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:18     .text:00000000 nRF24L01P_Struct_Init
                             *COM*:0000002b nRF24L01P
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:105    .text:000000a4 nRF24L01P_Set_SCK_DD
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:125    .text:000000b0 nRF24L01P_Set_MISO_DD
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:145    .text:000000bc nRF24L01P_Set_MOSI_DD
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:165    .text:000000c8 nRF24L01P_Set_CSN_DD
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:185    .text:000000d4 nRF24L01P_Set_CE_DD
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:205    .text:000000e0 nRF24L01P_Set_SCK
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:225    .text:000000ec nRF24L01P_Set_MISO
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:245    .text:000000f8 nRF24L01P_Set_MOSI
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:265    .text:00000104 nRF24L01P_Set_CSN
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:285    .text:00000110 nRF24L01P_Set_CE
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:305    .text:0000011c nRF24L01P_GPIO_Enable
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:361    .text:0000012e nRF24L01P_GPIO_Disable
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:433    .text:00000144 nRF24L01P_SPI_Enable
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:453    .text:00000150 nRF24L01P_SPI_Disable
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:469    .text:00000156 nRF24L01P_Enable
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:497    .text:0000016a nRF24L01P_Disable
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:521    .text:00000178 nRF24L01P_Error_Clear
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:535    .text:0000017e nRF24L01P_Error_Clear_Ticks
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:550    .text:00000188 nRF24L01P_Error_Clear_Buf
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:575    .text:00000198 nRF24L01P_Error_Clear_All
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:616    .text:000001b4 nRF24L01P_Error_Set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:631    .text:000001ba nRF24L01P_Error_Get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:644    .text:000001c0 nRF24L01P_Error_Get_Index
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:664    .text:000001cc nRF24L01P_Error_Timeout
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:714    .text:000001f6 nRF24L01P_Error_Free
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:734    .text:00000206 nRF24L01P_CRC
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:788    .text:00000232 nRF24L01P_CRC_Block
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:840    .text:00000262 nRF24L01P_SPI_Transfer
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:915    .text:00000294 nRF24L01P_ReadWrite_Register
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1037   .text:0000031a nRF24L01P_ReadModifyWrite_Register
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1116   .text:00000386 nRF24L01P_Flush_Tx_Buf
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1149   .text:000003a4 nRF24L01P_Flush_Rx_Buf
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1182   .text:000003c2 nRF24L01P_Write_Data_Tx_Buf
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1217   .text:000003de nRF24L01P_Read_Data_Rx_Buf
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1252   .text:000003fa nRF24L01P_Tx_Buf_Empty
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1291   .text:0000042c nRF24L01P_Rx_Buf_Not_Empty
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1325   .text:00000454 nRF24L01P_Wait_Tx_Complete
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1414   .text:000004a6 nRF24L01P_Mode_Set_DeepSleep
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1447   .text:000004c8 nRF24L01P_Mode_Set_Sleep
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1490   .text:000004f6 nRF24L01P_Mode_Set_Rx
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1535   .text:00000528 nRF24L01P_Mode_Set_Tx
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1586   .text:0000055c nRF24L01P_Mode_Set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1647   .text:00000594 nRF24L01P_Mode_Get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1696   .text:000005ce nRF24L01P_Channel_Set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1735   .text:000005f4 nRF24L01P_Channel_Get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1766   .text:00000614 nRF24L01P_Speed_Set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1817   .text:0000064c nRF24L01P_Speed_Get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1883   .text:000006a6 nRF24L01P_Tx_Power_Set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:1971   .text:0000070e nRF24L01P_Tx_Power_Get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2005   .text:00000736 nRF24L01P_Own_Addr_Set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2020   .text:0000073c nRF24L01P_Own_Addr_Get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2033   .text:00000742 nRF24L01P_Dest_Addr_Set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2048   .text:00000748 nRF24L01P_Dest_Addr_Get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2061   .text:0000074e nRF24L01P_RxTicks_Set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2077   .text:00000758 nRF24L01P_RxTicks_Get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2091   .text:00000762 nRF24L01P_RxTimeout_Set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2107   .text:0000076c nRF24L01P_RxTimeout_Get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2121   .text:00000776 nRF24L01P_MaxRetransmission_Set
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2137   .text:00000780 nRF24L01P_MaxRetransmission_Get
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2151   .text:0000078a nRF24L01P_Tx_Basic
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2248   .text:00000832 nRF24L01P_Rx_Basic
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2413   .text:000008fe nRF24L01P_Tx_With_Ack
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2510   .text:00000986 nRF24L01P_Rx_With_Ack
-C:\Users\FARIDU~1\AppData\Local\Temp/cc40CngS.s:2651   .text:00000a4a nRF24L01P_Init
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:105    .text:000000a4 nRF24L01P_Set_SCK_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:125    .text:000000b0 nRF24L01P_Set_MISO_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:145    .text:000000bc nRF24L01P_Set_MOSI_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:165    .text:000000c8 nRF24L01P_Set_CSN_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:185    .text:000000d4 nRF24L01P_Set_CE_DD
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:205    .text:000000e0 nRF24L01P_Set_SCK
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:225    .text:000000ec nRF24L01P_Set_MISO
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:245    .text:000000f8 nRF24L01P_Set_MOSI
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:265    .text:00000104 nRF24L01P_Set_CSN
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:285    .text:00000110 nRF24L01P_Set_CE
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:305    .text:0000011c nRF24L01P_GPIO_Enable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:361    .text:0000012e nRF24L01P_GPIO_Disable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:433    .text:00000144 nRF24L01P_SPI_Enable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:453    .text:00000150 nRF24L01P_SPI_Disable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:469    .text:00000156 nRF24L01P_Enable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:497    .text:0000016a nRF24L01P_Disable
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:521    .text:00000178 nRF24L01P_Error_Clear
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:535    .text:0000017e nRF24L01P_Error_Clear_Ticks
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:550    .text:00000188 nRF24L01P_Error_Clear_Buf
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:575    .text:00000198 nRF24L01P_Error_Clear_All
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:616    .text:000001b4 nRF24L01P_Error_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:631    .text:000001ba nRF24L01P_Error_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:644    .text:000001c0 nRF24L01P_Error_Get_Index
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:664    .text:000001cc nRF24L01P_Error_Timeout
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:714    .text:000001f6 nRF24L01P_Error_Free
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:734    .text:00000206 nRF24L01P_CRC
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:788    .text:00000232 nRF24L01P_CRC_Block
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:840    .text:00000262 nRF24L01P_SPI_Transfer
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:915    .text:00000294 nRF24L01P_ReadWrite_Register
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1037   .text:0000031a nRF24L01P_ReadModifyWrite_Register
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1116   .text:00000386 nRF24L01P_Flush_Tx_Buf
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1149   .text:000003a4 nRF24L01P_Flush_Rx_Buf
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1182   .text:000003c2 nRF24L01P_Write_Data_Tx_Buf
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1217   .text:000003de nRF24L01P_Read_Data_Rx_Buf
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1252   .text:000003fa nRF24L01P_Tx_Buf_Empty
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1291   .text:0000042c nRF24L01P_Rx_Buf_Not_Empty
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1325   .text:00000454 nRF24L01P_Wait_Tx_Complete
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1414   .text:000004a6 nRF24L01P_Mode_Set_DeepSleep
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1447   .text:000004c8 nRF24L01P_Mode_Set_Sleep
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1490   .text:000004f6 nRF24L01P_Mode_Set_Rx
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1535   .text:00000528 nRF24L01P_Mode_Set_Tx
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1586   .text:0000055c nRF24L01P_Mode_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1647   .text:00000594 nRF24L01P_Mode_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1696   .text:000005ce nRF24L01P_Channel_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1735   .text:000005f4 nRF24L01P_Channel_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1766   .text:00000614 nRF24L01P_Speed_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1817   .text:0000064c nRF24L01P_Speed_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1883   .text:000006a6 nRF24L01P_Tx_Power_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:1971   .text:0000070e nRF24L01P_Tx_Power_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2005   .text:00000736 nRF24L01P_Own_Addr_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2020   .text:0000073c nRF24L01P_Own_Addr_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2033   .text:00000742 nRF24L01P_Dest_Addr_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2048   .text:00000748 nRF24L01P_Dest_Addr_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2061   .text:0000074e nRF24L01P_RxTicks_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2077   .text:00000758 nRF24L01P_RxTicks_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2091   .text:00000762 nRF24L01P_RxTimeout_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2107   .text:0000076c nRF24L01P_RxTimeout_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2121   .text:00000776 nRF24L01P_MaxRetransmission_Set
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2137   .text:00000780 nRF24L01P_MaxRetransmission_Get
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2151   .text:0000078a nRF24L01P_Tx_Basic
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2248   .text:00000832 nRF24L01P_Rx_Basic
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2413   .text:000008fe nRF24L01P_Tx_With_Ack
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2510   .text:00000986 nRF24L01P_Rx_With_Ack
+C:\Users\FARIDU~1\AppData\Local\Temp/ccFl9zMm.s:2651   .text:00000a4a nRF24L01P_Init
 
 UNDEFINED SYMBOLS
 __do_copy_data

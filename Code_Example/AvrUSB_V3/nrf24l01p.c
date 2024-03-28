@@ -798,6 +798,7 @@ void nRF24L01P_Init(void){
   nRF24L01P.TempBuf[0] = 0x00;  nRF24L01P_ReadWrite_Register( 0x1D, 0, nRF24L01P.TempBuf, 1 );
   nRF24L01P_ReadWrite_Register( 0x10, 0, (uint8_t*)"ACK00", 5 );
   nRF24L01P_ReadWrite_Register( 0x0A, 0, (uint8_t*)"ACK00", 5 );
+  nRF24L01P_Speed_Set(0);
   nRF24L01P_Mode_Set(2);
 }
 
