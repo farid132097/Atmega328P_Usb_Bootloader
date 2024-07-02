@@ -1,0 +1,841 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                              debug.o (__udivmodsi4)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              spi.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+ISP_Buf             0x80              isp.o
+debug               0x2d              debug.o
+SPI                 0x19              spi.o
+ISP                 0xa               isp.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+LOAD main.o
+LOAD led.o
+LOAD spi.o
+LOAD isp.o
+LOAD debug.o
+LOAD dataconv.o
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libm.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x1ef6
+ *(.vectors)
+ .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x00000068      0x8a0 isp.o
+                0x00000068                firmware_data
+                0x00000908                . = ALIGN (0x2)
+                0x00000908                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000908        0x0 linker stubs
+ *(.trampolines*)
+                0x00000908                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000908                __ctors_start = .
+ *(.ctors)
+                0x00000908                __ctors_end = .
+                0x00000908                __dtors_start = .
+ *(.dtors)
+                0x00000908                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000908        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+                0x00000908                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000908        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000914       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000914                __do_copy_data
+ .init4         0x0000092a       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x0000092a                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000093a        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ *(.init9)
+ *(.text)
+ .text          0x00000942        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+                0x00000942                __vector_22
+                0x00000942                __vector_1
+                0x00000942                __vector_24
+                0x00000942                __vector_12
+                0x00000942                __bad_interrupt
+                0x00000942                __vector_6
+                0x00000942                __vector_3
+                0x00000942                __vector_23
+                0x00000942                __vector_25
+                0x00000942                __vector_11
+                0x00000942                __vector_13
+                0x00000942                __vector_17
+                0x00000942                __vector_19
+                0x00000942                __vector_7
+                0x00000942                __vector_4
+                0x00000942                __vector_9
+                0x00000942                __vector_2
+                0x00000942                __vector_21
+                0x00000942                __vector_15
+                0x00000942                __vector_8
+                0x00000942                __vector_14
+                0x00000942                __vector_10
+                0x00000942                __vector_18
+                0x00000942                __vector_20
+ .text          0x00000946      0x218 main.o
+                0x00000946                main
+ .text          0x00000b5e       0x40 led.o
+                0x00000b5e                LED_Init
+                0x00000b8e                LED_Toggle
+                0x00000b6c                LED_Get_State
+                0x00000b7e                LED_Set_State
+                0x00000b68                LED_Off
+                0x00000b64                LED_On
+ .text          0x00000b9e      0x37c spi.o
+                0x00000c34                SPI_SCK_Set_Output_State
+                0x00000e14                SPI_SW_Delay_Half_Bit
+                0x00000f14                SPI_Get_Ticks
+                0x00000c30                SPI_SCK_Output
+                0x00000c5c                SPI_MISO_Get_State
+                0x00000cdc                SPI_Delay_Init
+                0x00000f0e                SPI_Get_Error
+                0x00000ef6                SPI_Init_Clock
+                0x00000c8e                SPI_RESET_Set_Output_State
+                0x00000c44                SPI_MISO_Input
+                0x00000c76                SPI_MOSI_Set_Output_State
+                0x00000c48                SPI_MISO_Output
+                0x00000ca8                SPI_Reset_State
+                0x00000c4c                SPI_MISO_Set_Output_State
+                0x00000d76                SPI_Set_SCK_Frequency_SW
+                0x00000cb8                SPI_GPIO_Init
+                0x00000c72                SPI_MOSI_Output
+                0x00000cf6                SPI_Set_SCK_Frequency_HW
+                0x00000c9e                SPI_Reset_Set_Input_Pull_Up
+                0x00000c8a                SPI_RESET_Output
+                0x00000c6e                SPI_MOSI_Input
+                0x00000c86                SPI_RESET_Input
+                0x00000e44                SPI_Transceive_SW
+                0x00000de4                SPI_Config_Register
+                0x00000df4                SPI_SW_Delay_Bit
+                0x00000c2c                SPI_SCK_Input
+                0x00000ebe                SPI_Transceive
+                0x00000e38                SPI_Transceive_HW
+                0x00000b9e                SPI_Struct_Init
+                0x00000edc                SPI_Init
+ .text          0x00000f1a      0x752 isp.o
+                0x00001460                ISP_Read_Device_LFUSE
+                0x000014be                ISP_Read_Device_Signature
+                0x000013ca                ISP_Write_Verify_Device_EFUSE
+                0x00000f5a                ISP_Init
+                0x00001448                ISP_Overwrite_HFUSE
+                0x000011c6                ISP_Write_Auto
+                0x00001088                ISP_Read_Flash_Word
+                0x00000fac                ISP_Get_Data_Buffer
+                0x0000100e                ISP_Wait_Till_MCU_Busy
+                0x000013ea                ISP_Read_Device_HFUSE
+                0x000014a6                ISP_Overwrite_LFUSE
+                0x00000fec                ISP_Get_Lock_Byte
+                0x00001294                ISP_Chip_Erase
+                0x000012fe                ISP_Write_Device_HFUSE
+                0x0000136c                ISP_Write_Verify_Device_LBITS
+                0x00001346                ISP_Read_Device_LBITS
+                0x00000f1a                ISP_Struct_Init
+                0x0000102c                ISP_Read_PGM
+                0x000015ba                ISP_Reset_MCU
+                0x0000138c                ISP_Overwrite_LBITS
+                0x000012b6                ISP_Write_Device_LBITS
+                0x00001322                ISP_Write_Device_LFUSE
+                0x00001188                ISP_Write_PGM_Page
+                0x00000f44                ISP_Flush_Buffer
+                0x0000125e                ISP_Write_EEPROM
+                0x00001486                ISP_Write_Verify_Device_LFUSE
+                0x00000fc8                ISP_Get_Device_Signature
+                0x00000fe6                ISP_Get_Fuse_Extended_Byte
+                0x00000fbc                ISP_Get_Device_SCK_Setting
+                0x0000159e                ISP_Reset_Disable
+                0x00001166                ISP_Load_PGM_Page
+                0x0000122c                ISP_Read_EEPROM
+                0x00000ff2                ISP_Read_MCU_Busy
+                0x00000f86                ISP_Load_Buffer_With_Offset
+                0x00000fc2                ISP_Get_Device_Loop_Counter
+                0x00000f74                ISP_Read_Progmem
+                0x000013a4                ISP_Read_Device_EFUSE
+                0x000012da                ISP_Write_Device_EFUSE
+                0x000010ac                ISP_Verify_Flash
+                0x000015fe                ISP_Enter_Programming_Mode
+                0x00001114                ISP_Load_PGM_Word
+                0x00001430                ISP_Overwrite_EFUSE
+                0x00001410                ISP_Write_Verify_Device_HFUSE
+                0x00001588                ISP_Read_Device_Parameters
+                0x00000fe0                ISP_Get_Fuse_High_Byte
+                0x00000fda                ISP_Get_Fuse_Low_Byte
+ .text          0x0000166c      0x6d2 debug.o
+                0x0000173e                debug_delay_index_1
+                0x00001b26                debug_tx_number_cm
+                0x00001a2c                debug_tx_text_cm
+                0x00001a36                debug_determine_digit_numbers
+                0x0000166c                debug_struct_init
+                0x000016e4                debug_timer_stop
+                0x00001c8c                debug_available_bytes_rx_buf
+                0x00001b34                debug_tx_number_hex_nl
+                0x00001c3a                debug_buf_get
+                0x0000180a                debug_rx_byte
+                0x00001c4c                debug_flush_buf
+                0x00001c46                debug_buf_index_get
+                0x00001b48                debug_tx_number_hex_cm
+                0x00001b56                debug_tx_parameter_nl
+                0x00001b1c                debug_tx_number_sp
+                0x00001a18                debug_tx_text_nl
+                0x00001700                debug_tx_set
+                0x00001c14                Debug_tx_parameter_hex_cm
+                0x000019f2                debug_tx_text
+                0x000016fc                debug_tx_low
+                0x000016ca                debug_timer_start
+                0x00001ba2                debug_tx_parameter_cm
+                0x00001868                debug_rx_byte_clear
+                0x00001730                debug_delay_index_0
+                0x00001ca0                __vector_5
+                0x00001ad6                debug_tx_number
+                0x0000186e                debug_rx_byte_set
+                0x00001928                debug_tx_bin
+                0x00001712                debug_delay
+                0x0000174c                debug_delay_index_2
+                0x000019e2                debug_tx_sp
+                0x00001c92                debug_init
+                0x000016ee                debug_gpio_init
+                0x00001a22                debug_tx_text_sp
+                0x000019d4                debug_tx_nl
+                0x000016f8                debug_tx_high
+                0x00001b12                debug_tx_number_nl
+                0x00001b7c                debug_tx_parameter_sp
+                0x00001bee                debug_tx_parameter_hex_sp
+                0x0000175a                debug_tx_byte
+                0x00001b3e                debug_tx_number_hex_sp
+                0x000019ea                debug_tx_cm
+                0x00001c66                debug_databsy_get
+                0x00001bc8                debug_tx_parameter_hex_nl
+                0x00001874                debug_tx_hex
+                0x00001c6c                debug_data_available_rx_buf
+                0x00001862                debug_rx_byte_get
+                0x000016a4                debug_timings_init
+                0x00001d1e                __vector_16
+                0x00001ab4                debug_tx_number_digits
+                0x0000170c                debug_rx_get
+ .text          0x00001d3e      0x170 dataconv.o
+                0x00001dbc                Data_Conv_Dword_To_Hex_Char
+                0x00001d92                Data_Conv_Word_To_Hex_Char
+                0x00001dfe                Data_Conv_Dword_To_Byte
+                0x00001e76                Data_Conv_Hex_Char_To_Word
+                0x00001d58                Data_Conv_Byte_To_Hex_Char
+                0x00001d3e                Data_Conv_Nibble_To_Hex_Char
+                0x00001e48                Data_Conv_Hex_Char_To_Byte
+                0x00001e24                Data_Conv_Hex_Char_To_Nibble
+ .text          0x00001eae        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x00001eae        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00001eae        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00001eae        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00001eae                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00001eae       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001eae                __udivmodsi4
+ .text.libgcc   0x00001ef2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00001ef2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00001ef2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00001ef2                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00001ef2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00001ef2                exit
+                0x00001ef2                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00001ef2        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00001ef6                _etext = .
+
+.data           0x00800100      0x2e6 load address 0x00001ef6
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ .data          0x00800100      0x2c6 main.o
+ .data          0x008003c6        0x0 led.o
+ .data          0x008003c6        0x0 spi.o
+ .data          0x008003c6        0xc isp.o
+ .data          0x008003d2       0x14 debug.o
+                0x008003d4                TIM0_BAUD_9600
+                0x008003da                TIM0_BAUD_19200
+                0x008003e0                TIM0_BAUD_38400
+ .data          0x008003e6        0x0 dataconv.o
+ .data          0x008003e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x008003e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x008003e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x008003e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x008003e6                . = ALIGN (0x2)
+                0x008003e6                _edata = .
+                0x008003e6                PROVIDE (__data_end, .)
+
+.bss            0x008003e6       0xd0
+                0x008003e6                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x008003e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ .bss           0x008003e6        0x0 main.o
+ .bss           0x008003e6        0x0 led.o
+ .bss           0x008003e6        0x0 spi.o
+ .bss           0x008003e6        0x0 isp.o
+ .bss           0x008003e6        0x0 debug.o
+ .bss           0x008003e6        0x0 dataconv.o
+ .bss           0x008003e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x008003e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x008003e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x008003e6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x008003e6       0x19 spi.o
+                0x008003e6                SPI
+ COMMON         0x008003ff       0x8a isp.o
+                0x008003ff                ISP_Buf
+                0x0080047f                ISP
+ COMMON         0x00800489       0x2d debug.o
+                0x00800489                debug
+                0x008004b6                PROVIDE (__bss_end, .)
+                0x00001ef6                __data_load_start = LOADADDR (.data)
+                0x000021dc                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008004b6        0x0
+                0x008004b6                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x008004b6                PROVIDE (__noinit_end, .)
+                0x008004b6                _end = .
+                0x008004b6                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0xc0
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main.o
+ .debug_aranges
+                0x00000020       0x20 led.o
+ .debug_aranges
+                0x00000040       0x20 spi.o
+ .debug_aranges
+                0x00000060       0x20 isp.o
+ .debug_aranges
+                0x00000080       0x20 debug.o
+ .debug_aranges
+                0x000000a0       0x20 dataconv.o
+
+.debug_pubnames
+                0x00000000      0xdc5
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x1b main.o
+ .debug_pubnames
+                0x0000001b       0x69 led.o
+ .debug_pubnames
+                0x00000084      0x2b6 spi.o
+ .debug_pubnames
+                0x0000033a      0x4c2 isp.o
+ .debug_pubnames
+                0x000007fc      0x4bd debug.o
+ .debug_pubnames
+                0x00000cb9      0x10c dataconv.o
+
+.debug_info     0x00000000     0x251d
+ *(.debug_info)
+ .debug_info    0x00000000      0x183 main.o
+ .debug_info    0x00000183      0x137 led.o
+ .debug_info    0x000002ba      0x6d8 spi.o
+ .debug_info    0x00000992      0xd8f isp.o
+ .debug_info    0x00001721      0xb1c debug.o
+ .debug_info    0x0000223d      0x2e0 dataconv.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0xaaa
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xf1 main.o
+ .debug_abbrev  0x000000f1       0xc7 led.o
+ .debug_abbrev  0x000001b8      0x274 spi.o
+ .debug_abbrev  0x0000042c      0x2fd isp.o
+ .debug_abbrev  0x00000729      0x295 debug.o
+ .debug_abbrev  0x000009be       0xec dataconv.o
+
+.debug_line     0x00000000     0x2143
+ *(.debug_line)
+ .debug_line    0x00000000      0x2f9 main.o
+ .debug_line    0x000002f9      0x136 led.o
+ .debug_line    0x0000042f      0x712 spi.o
+ .debug_line    0x00000b41      0xa61 isp.o
+ .debug_line    0x000015a2      0x9cc debug.o
+ .debug_line    0x00001f6e      0x1d5 dataconv.o
+
+.debug_frame    0x00000000      0x940
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x20 main.o
+ .debug_frame   0x00000020       0x70 led.o
+ .debug_frame   0x00000090      0x1f0 spi.o
+ .debug_frame   0x00000280      0x2f0 isp.o
+ .debug_frame   0x00000570      0x340 debug.o
+ .debug_frame   0x000008b0       0x90 dataconv.o
+
+.debug_str      0x00000000      0xe08
+ *(.debug_str)
+ .debug_str     0x00000000       0xf4 main.o
+                                0x128 (size before relaxing)
+ .debug_str     0x000000f4       0x9e led.o
+                                0x11f (size before relaxing)
+ .debug_str     0x00000192      0x27c spi.o
+                                0x3af (size before relaxing)
+ .debug_str     0x0000040e      0x4c6 isp.o
+                                0x60e (size before relaxing)
+ .debug_str     0x000008d4      0x432 debug.o
+                                0x536 (size before relaxing)
+ .debug_str     0x00000d06      0x102 dataconv.o
+                                0x1f3 (size before relaxing)
+
+.debug_loc      0x00000000     0x1111
+ *(.debug_loc)
+ .debug_loc     0x00000000       0xf2 main.o
+ .debug_loc     0x000000f2      0x1b9 spi.o
+ .debug_loc     0x000002ab      0x5c9 isp.o
+ .debug_loc     0x00000874      0x655 debug.o
+ .debug_loc     0x00000ec9      0x248 dataconv.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(main.elf elf32-avr)
+LOAD linker stubs
+
+.debug_ranges   0x00000000       0x90
+ .debug_ranges  0x00000000       0x48 main.o
+ .debug_ranges  0x00000048       0x48 debug.o
+
+Cross Reference Table
+
+Symbol                                            File
+Data_Conv_Byte_To_Hex_Char                        dataconv.o
+Data_Conv_Dword_To_Byte                           dataconv.o
+Data_Conv_Dword_To_Hex_Char                       dataconv.o
+Data_Conv_Hex_Char_To_Byte                        dataconv.o
+Data_Conv_Hex_Char_To_Nibble                      dataconv.o
+Data_Conv_Hex_Char_To_Word                        dataconv.o
+Data_Conv_Nibble_To_Hex_Char                      dataconv.o
+Data_Conv_Word_To_Hex_Char                        dataconv.o
+Debug_tx_parameter_hex_cm                         debug.o
+ISP                                               isp.o
+ISP_Buf                                           isp.o
+ISP_Chip_Erase                                    isp.o
+                                                  main.o
+ISP_Enter_Programming_Mode                        isp.o
+                                                  main.o
+ISP_Flush_Buffer                                  isp.o
+ISP_Get_Data_Buffer                               isp.o
+ISP_Get_Device_Loop_Counter                       isp.o
+ISP_Get_Device_SCK_Setting                        isp.o
+ISP_Get_Device_Signature                          isp.o
+                                                  main.o
+ISP_Get_Fuse_Extended_Byte                        isp.o
+                                                  main.o
+ISP_Get_Fuse_High_Byte                            isp.o
+                                                  main.o
+ISP_Get_Fuse_Low_Byte                             isp.o
+                                                  main.o
+ISP_Get_Lock_Byte                                 isp.o
+                                                  main.o
+ISP_Init                                          isp.o
+                                                  main.o
+ISP_Load_Buffer_With_Offset                       isp.o
+ISP_Load_PGM_Page                                 isp.o
+ISP_Load_PGM_Word                                 isp.o
+ISP_Overwrite_EFUSE                               isp.o
+ISP_Overwrite_HFUSE                               isp.o
+ISP_Overwrite_LBITS                               isp.o
+ISP_Overwrite_LFUSE                               isp.o
+ISP_Read_Device_EFUSE                             isp.o
+ISP_Read_Device_HFUSE                             isp.o
+ISP_Read_Device_LBITS                             isp.o
+ISP_Read_Device_LFUSE                             isp.o
+ISP_Read_Device_Parameters                        isp.o
+                                                  main.o
+ISP_Read_Device_Signature                         isp.o
+ISP_Read_EEPROM                                   isp.o
+ISP_Read_Flash_Word                               isp.o
+ISP_Read_MCU_Busy                                 isp.o
+ISP_Read_PGM                                      isp.o
+ISP_Read_Progmem                                  isp.o
+ISP_Reset_Disable                                 isp.o
+                                                  main.o
+ISP_Reset_MCU                                     isp.o
+ISP_Struct_Init                                   isp.o
+ISP_Verify_Flash                                  isp.o
+                                                  main.o
+ISP_Wait_Till_MCU_Busy                            isp.o
+ISP_Write_Auto                                    isp.o
+                                                  main.o
+ISP_Write_Device_EFUSE                            isp.o
+ISP_Write_Device_HFUSE                            isp.o
+ISP_Write_Device_LBITS                            isp.o
+ISP_Write_Device_LFUSE                            isp.o
+ISP_Write_EEPROM                                  isp.o
+ISP_Write_PGM_Page                                isp.o
+ISP_Write_Verify_Device_EFUSE                     isp.o
+ISP_Write_Verify_Device_HFUSE                     isp.o
+                                                  main.o
+ISP_Write_Verify_Device_LBITS                     isp.o
+                                                  main.o
+ISP_Write_Verify_Device_LFUSE                     isp.o
+                                                  main.o
+LED_Get_State                                     led.o
+LED_Init                                          led.o
+                                                  main.o
+LED_Off                                           led.o
+LED_On                                            led.o
+LED_Set_State                                     led.o
+LED_Toggle                                        led.o
+                                                  main.o
+SPI                                               spi.o
+SPI_Config_Register                               spi.o
+SPI_Delay_Init                                    spi.o
+SPI_GPIO_Init                                     spi.o
+SPI_Get_Error                                     spi.o
+SPI_Get_Ticks                                     spi.o
+SPI_Init                                          spi.o
+SPI_Init_Clock                                    spi.o
+                                                  isp.o
+SPI_MISO_Get_State                                spi.o
+SPI_MISO_Input                                    spi.o
+SPI_MISO_Output                                   spi.o
+SPI_MISO_Set_Output_State                         spi.o
+SPI_MOSI_Input                                    spi.o
+SPI_MOSI_Output                                   spi.o
+SPI_MOSI_Set_Output_State                         spi.o
+SPI_RESET_Input                                   spi.o
+SPI_RESET_Output                                  spi.o
+SPI_RESET_Set_Output_State                        spi.o
+                                                  isp.o
+SPI_Reset_Set_Input_Pull_Up                       spi.o
+SPI_Reset_State                                   spi.o
+                                                  isp.o
+SPI_SCK_Input                                     spi.o
+SPI_SCK_Output                                    spi.o
+SPI_SCK_Set_Output_State                          spi.o
+                                                  isp.o
+SPI_SW_Delay_Bit                                  spi.o
+SPI_SW_Delay_Half_Bit                             spi.o
+SPI_Set_SCK_Frequency_HW                          spi.o
+SPI_Set_SCK_Frequency_SW                          spi.o
+SPI_Struct_Init                                   spi.o
+SPI_Transceive                                    spi.o
+                                                  isp.o
+SPI_Transceive_HW                                 spi.o
+SPI_Transceive_SW                                 spi.o
+TIM0_BAUD_19200                                   debug.o
+TIM0_BAUD_38400                                   debug.o
+TIM0_BAUD_9600                                    debug.o
+__bad_interrupt                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__bss_end                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+__bss_start                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+__data_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+__data_load_start                                 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+__data_start                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+__do_clear_bss                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                                                  debug.o
+                                                  isp.o
+                                                  spi.o
+__do_copy_data                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                                                  debug.o
+                                                  isp.o
+                                                  main.o
+__heap_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__init                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__stack                                           c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__udivmodsi4                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                                                  debug.o
+__vector_1                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_10                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_11                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_12                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_13                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_14                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_15                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_16                                       debug.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_17                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_18                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_19                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_2                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_20                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_21                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_22                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_23                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_24                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_25                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_3                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_4                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_5                                        debug.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_6                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_7                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_8                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_9                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vector_default                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+__vectors                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+_exit                                             c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+debug                                             debug.o
+debug_available_bytes_rx_buf                      debug.o
+debug_buf_get                                     debug.o
+debug_buf_index_get                               debug.o
+debug_data_available_rx_buf                       debug.o
+debug_databsy_get                                 debug.o
+debug_delay                                       debug.o
+debug_delay_index_0                               debug.o
+debug_delay_index_1                               debug.o
+debug_delay_index_2                               debug.o
+debug_determine_digit_numbers                     debug.o
+debug_flush_buf                                   debug.o
+debug_gpio_init                                   debug.o
+debug_init                                        debug.o
+                                                  main.o
+debug_rx_byte                                     debug.o
+debug_rx_byte_clear                               debug.o
+debug_rx_byte_get                                 debug.o
+debug_rx_byte_set                                 debug.o
+debug_rx_get                                      debug.o
+debug_struct_init                                 debug.o
+debug_timer_start                                 debug.o
+debug_timer_stop                                  debug.o
+debug_timings_init                                debug.o
+debug_tx_bin                                      debug.o
+debug_tx_byte                                     debug.o
+debug_tx_cm                                       debug.o
+debug_tx_hex                                      debug.o
+debug_tx_high                                     debug.o
+debug_tx_low                                      debug.o
+debug_tx_nl                                       debug.o
+                                                  main.o
+debug_tx_number                                   debug.o
+debug_tx_number_cm                                debug.o
+debug_tx_number_digits                            debug.o
+debug_tx_number_hex_cm                            debug.o
+debug_tx_number_hex_nl                            debug.o
+                                                  main.o
+debug_tx_number_hex_sp                            debug.o
+debug_tx_number_nl                                debug.o
+debug_tx_number_sp                                debug.o
+debug_tx_parameter_cm                             debug.o
+debug_tx_parameter_hex_nl                         debug.o
+debug_tx_parameter_hex_sp                         debug.o
+debug_tx_parameter_nl                             debug.o
+debug_tx_parameter_sp                             debug.o
+debug_tx_set                                      debug.o
+debug_tx_sp                                       debug.o
+debug_tx_text                                     debug.o
+                                                  main.o
+debug_tx_text_cm                                  debug.o
+debug_tx_text_nl                                  debug.o
+                                                  main.o
+debug_tx_text_sp                                  debug.o
+exit                                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+firmware_data                                     isp.o
+main                                              main.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o

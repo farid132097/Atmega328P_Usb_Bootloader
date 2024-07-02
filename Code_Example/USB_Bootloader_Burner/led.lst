@@ -1,0 +1,135 @@
+   1               		.file	"led.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	LED_Init
+  18               	LED_Init:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 549A      		sbi 42-32,4
+  25               	.LM3:
+  26 0002 5C98      		cbi 43-32,4
+  27               	/* epilogue start */
+  28               	.LM4:
+  29 0004 0895      		ret
+  30               	.LFE6:
+  32               	.global	LED_On
+  34               	LED_On:
+  35               	.LFB7:
+  36               	.LM5:
+  37               	/* prologue: function */
+  38               	/* frame size = 0 */
+  39               	.LM6:
+  40 0006 5C9A      		sbi 43-32,4
+  41               	/* epilogue start */
+  42               	.LM7:
+  43 0008 0895      		ret
+  44               	.LFE7:
+  46               	.global	LED_Off
+  48               	LED_Off:
+  49               	.LFB8:
+  50               	.LM8:
+  51               	/* prologue: function */
+  52               	/* frame size = 0 */
+  53               	.LM9:
+  54 000a 5C98      		cbi 43-32,4
+  55               	/* epilogue start */
+  56               	.LM10:
+  57 000c 0895      		ret
+  58               	.LFE8:
+  60               	.global	LED_Get_State
+  62               	LED_Get_State:
+  63               	.LFB9:
+  64               	.LM11:
+  65               	/* prologue: function */
+  66               	/* frame size = 0 */
+  67               	.LM12:
+  68 000e 8BB1      		in r24,43-32
+  69 0010 90E0      		ldi r25,lo8(0)
+  70 0012 24E0      		ldi r18,4
+  71 0014 9695      	1:	lsr r25
+  72 0016 8795      		ror r24
+  73 0018 2A95      		dec r18
+  74 001a 01F4      		brne 1b
+  75               	.LM13:
+  76 001c 8170      		andi r24,lo8(1)
+  77               	/* epilogue start */
+  78 001e 0895      		ret
+  79               	.LFE9:
+  81               	.global	LED_Set_State
+  83               	LED_Set_State:
+  84               	.LFB10:
+  85               	.LM14:
+  86               	.LVL0:
+  87               	/* prologue: function */
+  88               	/* frame size = 0 */
+  89               	.LM15:
+  90 0020 8130      		cpi r24,lo8(1)
+  91 0022 01F4      		brne .L10
+  92               	.LBB8:
+  93               	.LBB9:
+  94               	.LM16:
+  95 0024 5C9A      		sbi 43-32,4
+  96 0026 0895      		ret
+  97               	.L10:
+  98               	.LBE9:
+  99               	.LBE8:
+ 100               	.LM17:
+ 101 0028 8823      		tst r24
+ 102 002a 01F4      		brne .L12
+ 103               	.LBB10:
+ 104               	.LBB11:
+ 105               	.LM18:
+ 106 002c 5C98      		cbi 43-32,4
+ 107               	.L12:
+ 108 002e 0895      		ret
+ 109               	.LBE11:
+ 110               	.LBE10:
+ 111               	.LFE10:
+ 113               	.global	LED_Toggle
+ 115               	LED_Toggle:
+ 116               	.LFB11:
+ 117               	.LM19:
+ 118               	/* prologue: function */
+ 119               	/* frame size = 0 */
+ 120               	.LBB12:
+ 121               	.LBB13:
+ 122               	.LM20:
+ 123 0030 5C9B      		sbis 43-32,4
+ 124 0032 00C0      		rjmp .L14
+ 125               	.LBE13:
+ 126               	.LBE12:
+ 127               	.LM21:
+ 128 0034 80E0      		ldi r24,lo8(0)
+ 129 0036 00C0      		rjmp .L17
+ 130               	.L14:
+ 131               	.LM22:
+ 132 0038 81E0      		ldi r24,lo8(1)
+ 133               	.L17:
+ 134 003a 0E94 0000 		call LED_Set_State
+ 135 003e 0895      		ret
+ 136               	.LFE11:
+ 202               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 led.c
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:2      *ABS*:0000003f __SREG__
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:3      *ABS*:0000003e __SP_H__
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:4      *ABS*:0000003d __SP_L__
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:5      *ABS*:00000034 __CCP__
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:18     .text:00000000 LED_Init
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:34     .text:00000006 LED_On
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:48     .text:0000000a LED_Off
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:62     .text:0000000e LED_Get_State
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:83     .text:00000020 LED_Set_State
+C:\Users\farid\AppData\Local\Temp/cchwRznH.s:115    .text:00000030 LED_Toggle
+
+NO UNDEFINED SYMBOLS

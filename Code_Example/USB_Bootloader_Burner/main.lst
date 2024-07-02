@@ -1,0 +1,542 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 4465 6275 		.string	"Debug Started"
+  18      6720 5374 
+  18      6172 7465 
+  18      6400 
+  19               	.LC1:
+  20 000e 5265 7365 		.string	"Reset Source : "
+  20      7420 536F 
+  20      7572 6365 
+  20      203A 2000 
+  21               	.LC2:
+  22 001e 5072 6F67 		.string	"Programming Mode Enabled"
+  22      7261 6D6D 
+  22      696E 6720 
+  22      4D6F 6465 
+  22      2045 6E61 
+  23               	.LC3:
+  24 0037 5461 7267 		.string	"Target State : "
+  24      6574 2053 
+  24      7461 7465 
+  24      203A 2000 
+  25               	.LC4:
+  26 0047 4675 7365 		.string	"Fuse Low     : "
+  26      204C 6F77 
+  26      2020 2020 
+  26      203A 2000 
+  27               	.LC5:
+  28 0057 4675 7365 		.string	"Fuse High    : "
+  28      2048 6967 
+  28      6820 2020 
+  28      203A 2000 
+  29               	.LC6:
+  30 0067 4675 7365 		.string	"Fuse Ext     : "
+  30      2045 7874 
+  30      2020 2020 
+  30      203A 2000 
+  31               	.LC7:
+  32 0077 4675 7365 		.string	"Fuse Lock    : "
+  32      204C 6F63 
+  32      6B20 2020 
+  32      203A 2000 
+  33               	.LC8:
+  34 0087 5461 7267 		.string	"Target State : Writing Fuse"
+  34      6574 2053 
+  34      7461 7465 
+  34      203A 2057 
+  34      7269 7469 
+  35               	.LC9:
+  36 00a3 5461 7267 		.string	"Target State : LFUSE Set 0xE2"
+  36      6574 2053 
+  36      7461 7465 
+  36      203A 204C 
+  36      4655 5345 
+  37               	.LC10:
+  38 00c1 5461 7267 		.string	"Target State : LFUSE Write Failed"
+  38      6574 2053 
+  38      7461 7465 
+  38      203A 204C 
+  38      4655 5345 
+  39               	.LC11:
+  40 00e3 5461 7267 		.string	"Target State : HFUSE Set 0xD0"
+  40      6574 2053 
+  40      7461 7465 
+  40      203A 2048 
+  40      4655 5345 
+  41               	.LC12:
+  42 0101 5461 7267 		.string	"Target State : HFUSE Write Failed"
+  42      6574 2053 
+  42      7461 7465 
+  42      203A 2048 
+  42      4655 5345 
+  43               	.LC13:
+  44 0123 5461 7267 		.string	"Target State : Chip Erasing"
+  44      6574 2053 
+  44      7461 7465 
+  44      203A 2043 
+  44      6869 7020 
+  45               	.LC14:
+  46 013f 5461 7267 		.string	"Target State : Chip Erased"
+  46      6574 2053 
+  46      7461 7465 
+  46      203A 2043 
+  46      6869 7020 
+  47               	.LC15:
+  48 015a 5461 7267 		.string	"Target State : Writing Flash"
+  48      6574 2053 
+  48      7461 7465 
+  48      203A 2057 
+  48      7269 7469 
+  49               	.LC16:
+  50 0177 5461 7267 		.string	"Target State : Flash Write Completed"
+  50      6574 2053 
+  50      7461 7465 
+  50      203A 2046 
+  50      6C61 7368 
+  51               	.LC17:
+  52 019c 5461 7267 		.string	"Target State : Verifying Flash"
+  52      6574 2053 
+  52      7461 7465 
+  52      203A 2056 
+  52      6572 6966 
+  53               	.LC18:
+  54 01bb 5461 7267 		.string	"Target State : Flash Verified"
+  54      6574 2053 
+  54      7461 7465 
+  54      203A 2046 
+  54      6C61 7368 
+  55               	.LC19:
+  56 01d9 5461 7267 		.string	"Target State : Flash Verification Failed"
+  56      6574 2053 
+  56      7461 7465 
+  56      203A 2046 
+  56      6C61 7368 
+  57               	.LC20:
+  58 0202 5461 7267 		.string	"Target State : LFUSE Set 0xFF"
+  58      6574 2053 
+  58      7461 7465 
+  58      203A 204C 
+  58      4655 5345 
+  59               	.LC21:
+  60 0220 5461 7267 		.string	"Target State : LBITS Set 0xCF"
+  60      6574 2053 
+  60      7461 7465 
+  60      203A 204C 
+  60      4249 5453 
+  61               	.LC22:
+  62 023e 5461 7267 		.string	"Target State : Write Successful"
+  62      6574 2053 
+  62      7461 7465 
+  62      203A 2057 
+  62      7269 7465 
+  63               	.LC23:
+  64 025e 5461 7267 		.string	"Target State : Exiting Programming Mode"
+  64      6574 2053 
+  64      7461 7465 
+  64      203A 2045 
+  64      7869 7469 
+  65               	.LC24:
+  66 0286 5461 7267 		.string	"Target State : LBITS Write Failed"
+  66      6574 2053 
+  66      7461 7465 
+  66      203A 204C 
+  66      4249 5453 
+  67               	.LC25:
+  68 02a8 5072 6F67 		.string	"Programming Mode Enter Failed"
+  68      7261 6D6D 
+  68      696E 6720 
+  68      4D6F 6465 
+  68      2045 6E74 
+  69               		.text
+  70               	.global	main
+  72               	main:
+  73               	.LFB6:
+  74               	.LM1:
+  75 0000 1F93      		push r17
+  76 0002 CF93      		push r28
+  77 0004 DF93      		push r29
+  78               	/* prologue: function */
+  79               	/* frame size = 0 */
+  80               	.LM2:
+  81 0006 0E94 0000 		call debug_init
+  82               	.LM3:
+  83 000a 80E0      		ldi r24,lo8(.LC0)
+  84 000c 90E0      		ldi r25,hi8(.LC0)
+  85 000e 0E94 0000 		call debug_tx_text_nl
+  86               	.LM4:
+  87 0012 80E0      		ldi r24,lo8(.LC1)
+  88 0014 90E0      		ldi r25,hi8(.LC1)
+  89 0016 0E94 0000 		call debug_tx_text
+  90               	.LM5:
+  91 001a 64B7      		in r22,84-32
+  92 001c 70E0      		ldi r23,lo8(0)
+  93 001e 80E0      		ldi r24,lo8(0)
+  94 0020 90E0      		ldi r25,hi8(0)
+  95 0022 0E94 0000 		call debug_tx_number_hex_nl
+  96               	.LM6:
+  97 0026 0E94 0000 		call debug_tx_nl
+  98               	.LM7:
+  99 002a 0E94 0000 		call ISP_Init
+ 100               	.LM8:
+ 101 002e 0E94 0000 		call LED_Init
+ 102               	.LM9:
+ 103 0032 0E94 0000 		call ISP_Enter_Programming_Mode
+ 104 0036 8823      		tst r24
+ 105 0038 01F4      		brne .+2
+ 106 003a 00C0      		rjmp .L2
+ 107               	.LM10:
+ 108 003c 80E0      		ldi r24,lo8(.LC2)
+ 109 003e 90E0      		ldi r25,hi8(.LC2)
+ 110 0040 0E94 0000 		call debug_tx_text_nl
+ 111               	.LM11:
+ 112 0044 0E94 0000 		call ISP_Read_Device_Parameters
+ 113               	.LM12:
+ 114 0048 80E0      		ldi r24,lo8(.LC3)
+ 115 004a 90E0      		ldi r25,hi8(.LC3)
+ 116 004c 0E94 0000 		call debug_tx_text
+ 117               	.LM13:
+ 118 0050 0E94 0000 		call ISP_Get_Device_Signature
+ 119 0054 0E94 0000 		call debug_tx_number_hex_nl
+ 120               	.LM14:
+ 121 0058 80E0      		ldi r24,lo8(.LC4)
+ 122 005a 90E0      		ldi r25,hi8(.LC4)
+ 123 005c 0E94 0000 		call debug_tx_text
+ 124               	.LM15:
+ 125 0060 0E94 0000 		call ISP_Get_Fuse_Low_Byte
+ 126 0064 90E0      		ldi r25,lo8(0)
+ 127 0066 A0E0      		ldi r26,lo8(0)
+ 128 0068 B0E0      		ldi r27,hi8(0)
+ 129 006a BC01      		movw r22,r24
+ 130 006c CD01      		movw r24,r26
+ 131 006e 0E94 0000 		call debug_tx_number_hex_nl
+ 132               	.LM16:
+ 133 0072 80E0      		ldi r24,lo8(.LC5)
+ 134 0074 90E0      		ldi r25,hi8(.LC5)
+ 135 0076 0E94 0000 		call debug_tx_text
+ 136               	.LM17:
+ 137 007a 0E94 0000 		call ISP_Get_Fuse_High_Byte
+ 138 007e 90E0      		ldi r25,lo8(0)
+ 139 0080 A0E0      		ldi r26,lo8(0)
+ 140 0082 B0E0      		ldi r27,hi8(0)
+ 141 0084 BC01      		movw r22,r24
+ 142 0086 CD01      		movw r24,r26
+ 143 0088 0E94 0000 		call debug_tx_number_hex_nl
+ 144               	.LM18:
+ 145 008c 80E0      		ldi r24,lo8(.LC6)
+ 146 008e 90E0      		ldi r25,hi8(.LC6)
+ 147 0090 0E94 0000 		call debug_tx_text
+ 148               	.LM19:
+ 149 0094 0E94 0000 		call ISP_Get_Fuse_Extended_Byte
+ 150 0098 90E0      		ldi r25,lo8(0)
+ 151 009a A0E0      		ldi r26,lo8(0)
+ 152 009c B0E0      		ldi r27,hi8(0)
+ 153 009e BC01      		movw r22,r24
+ 154 00a0 CD01      		movw r24,r26
+ 155 00a2 0E94 0000 		call debug_tx_number_hex_nl
+ 156               	.LM20:
+ 157 00a6 80E0      		ldi r24,lo8(.LC7)
+ 158 00a8 90E0      		ldi r25,hi8(.LC7)
+ 159 00aa 0E94 0000 		call debug_tx_text
+ 160               	.LM21:
+ 161 00ae 0E94 0000 		call ISP_Get_Lock_Byte
+ 162 00b2 90E0      		ldi r25,lo8(0)
+ 163 00b4 A0E0      		ldi r26,lo8(0)
+ 164 00b6 B0E0      		ldi r27,hi8(0)
+ 165 00b8 BC01      		movw r22,r24
+ 166 00ba CD01      		movw r24,r26
+ 167 00bc 0E94 0000 		call debug_tx_number_hex_nl
+ 168               	.LM22:
+ 169 00c0 0E94 0000 		call debug_tx_nl
+ 170               	.LM23:
+ 171 00c4 80E0      		ldi r24,lo8(.LC8)
+ 172 00c6 90E0      		ldi r25,hi8(.LC8)
+ 173 00c8 0E94 0000 		call debug_tx_text_nl
+ 174               	.LM24:
+ 175 00cc 82EE      		ldi r24,lo8(-30)
+ 176 00ce 0E94 0000 		call ISP_Write_Verify_Device_LFUSE
+ 177 00d2 8823      		tst r24
+ 178 00d4 01F0      		breq .L3
+ 179               	.LM25:
+ 180 00d6 80E0      		ldi r24,lo8(.LC9)
+ 181 00d8 90E0      		ldi r25,hi8(.LC9)
+ 182 00da 0E94 0000 		call debug_tx_text_nl
+ 183 00de 11E0      		ldi r17,lo8(1)
+ 184               	.LVL0:
+ 185 00e0 00C0      		rjmp .L4
+ 186               	.LVL1:
+ 187               	.L3:
+ 188               	.LM26:
+ 189 00e2 80E0      		ldi r24,lo8(.LC10)
+ 190 00e4 90E0      		ldi r25,hi8(.LC10)
+ 191 00e6 0E94 0000 		call debug_tx_text_nl
+ 192 00ea 10E0      		ldi r17,lo8(0)
+ 193               	.LVL2:
+ 194               	.L4:
+ 195               	.LM27:
+ 196 00ec 80ED      		ldi r24,lo8(-48)
+ 197 00ee 0E94 0000 		call ISP_Write_Verify_Device_HFUSE
+ 198 00f2 8823      		tst r24
+ 199 00f4 01F0      		breq .L5
+ 200               	.LM28:
+ 201 00f6 80E0      		ldi r24,lo8(.LC11)
+ 202 00f8 90E0      		ldi r25,hi8(.LC11)
+ 203 00fa 0E94 0000 		call debug_tx_text_nl
+ 204 00fe 00C0      		rjmp .L6
+ 205               	.L5:
+ 206               	.LM29:
+ 207 0100 80E0      		ldi r24,lo8(.LC12)
+ 208 0102 90E0      		ldi r25,hi8(.LC12)
+ 209 0104 0E94 0000 		call debug_tx_text_nl
+ 210 0108 10E0      		ldi r17,lo8(0)
+ 211               	.L6:
+ 212               	.LM30:
+ 213 010a 0E94 0000 		call ISP_Enter_Programming_Mode
+ 214 010e 8823      		tst r24
+ 215 0110 01F4      		brne .+2
+ 216 0112 00C0      		rjmp .L7
+ 217 0114 1130      		cpi r17,lo8(1)
+ 218 0116 01F0      		breq .+2
+ 219 0118 00C0      		rjmp .L7
+ 220               	.LM31:
+ 221 011a 0E94 0000 		call ISP_Read_Device_Parameters
+ 222               	.LM32:
+ 223 011e 0E94 0000 		call ISP_Get_Device_Signature
+ 224 0122 6F50      		subi r22,lo8(2004239)
+ 225 0124 7549      		sbci r23,hi8(2004239)
+ 226 0126 8E41      		sbci r24,hlo8(2004239)
+ 227 0128 9040      		sbci r25,hhi8(2004239)
+ 228 012a 01F0      		breq .+2
+ 229 012c 00C0      		rjmp .L7
+ 230               	.LM33:
+ 231 012e 80E0      		ldi r24,lo8(.LC13)
+ 232 0130 90E0      		ldi r25,hi8(.LC13)
+ 233 0132 0E94 0000 		call debug_tx_text_nl
+ 234               	.LM34:
+ 235 0136 0E94 0000 		call ISP_Chip_Erase
+ 236               	.LM35:
+ 237 013a 80E0      		ldi r24,lo8(.LC14)
+ 238 013c 90E0      		ldi r25,hi8(.LC14)
+ 239 013e 0E94 0000 		call debug_tx_text_nl
+ 240               	.LM36:
+ 241 0142 80E0      		ldi r24,lo8(.LC15)
+ 242 0144 90E0      		ldi r25,hi8(.LC15)
+ 243 0146 0E94 0000 		call debug_tx_text_nl
+ 244               	.LM37:
+ 245 014a 0E94 0000 		call ISP_Write_Auto
+ 246               	.LM38:
+ 247 014e 80E0      		ldi r24,lo8(.LC16)
+ 248 0150 90E0      		ldi r25,hi8(.LC16)
+ 249 0152 0E94 0000 		call debug_tx_text_nl
+ 250               	.LM39:
+ 251 0156 80E0      		ldi r24,lo8(.LC17)
+ 252 0158 90E0      		ldi r25,hi8(.LC17)
+ 253 015a 0E94 0000 		call debug_tx_text_nl
+ 254               	.LM40:
+ 255 015e 0E94 0000 		call ISP_Verify_Flash
+ 256 0162 8823      		tst r24
+ 257 0164 01F0      		breq .L8
+ 258               	.LM41:
+ 259 0166 80E0      		ldi r24,lo8(.LC18)
+ 260 0168 90E0      		ldi r25,hi8(.LC18)
+ 261 016a 0E94 0000 		call debug_tx_text_nl
+ 262               	.LM42:
+ 263 016e 8FEF      		ldi r24,lo8(-1)
+ 264 0170 0E94 0000 		call ISP_Write_Verify_Device_LFUSE
+ 265 0174 8823      		tst r24
+ 266 0176 01F4      		brne .L9
+ 267 0178 00C0      		rjmp .L28
+ 268               	.L8:
+ 269               	.LM43:
+ 270 017a 80E0      		ldi r24,lo8(.LC19)
+ 271 017c 90E0      		ldi r25,hi8(.LC19)
+ 272 017e 00C0      		rjmp .L27
+ 273               	.L9:
+ 274               	.LM44:
+ 275 0180 80E0      		ldi r24,lo8(.LC20)
+ 276 0182 90E0      		ldi r25,hi8(.LC20)
+ 277 0184 0E94 0000 		call debug_tx_text_nl
+ 278               	.LM45:
+ 279 0188 80ED      		ldi r24,lo8(-48)
+ 280 018a 0E94 0000 		call ISP_Write_Verify_Device_HFUSE
+ 281 018e 8823      		tst r24
+ 282 0190 01F4      		brne .L12
+ 283 0192 00C0      		rjmp .L29
+ 284               	.L28:
+ 285               	.LM46:
+ 286 0194 80E0      		ldi r24,lo8(.LC10)
+ 287 0196 90E0      		ldi r25,hi8(.LC10)
+ 288 0198 00C0      		rjmp .L27
+ 289               	.L12:
+ 290               	.LM47:
+ 291 019a 80E0      		ldi r24,lo8(.LC11)
+ 292 019c 90E0      		ldi r25,hi8(.LC11)
+ 293 019e 0E94 0000 		call debug_tx_text_nl
+ 294               	.LM48:
+ 295 01a2 8FEC      		ldi r24,lo8(-49)
+ 296 01a4 0E94 0000 		call ISP_Write_Verify_Device_LBITS
+ 297 01a8 8823      		tst r24
+ 298 01aa 01F4      		brne .L14
+ 299 01ac 00C0      		rjmp .L30
+ 300               	.L29:
+ 301               	.LM49:
+ 302 01ae 80E0      		ldi r24,lo8(.LC12)
+ 303 01b0 90E0      		ldi r25,hi8(.LC12)
+ 304 01b2 00C0      		rjmp .L27
+ 305               	.L14:
+ 306               	.LM50:
+ 307 01b4 80E0      		ldi r24,lo8(.LC21)
+ 308 01b6 90E0      		ldi r25,hi8(.LC21)
+ 309 01b8 0E94 0000 		call debug_tx_text_nl
+ 310               	.LM51:
+ 311 01bc 80E0      		ldi r24,lo8(.LC22)
+ 312 01be 90E0      		ldi r25,hi8(.LC22)
+ 313 01c0 0E94 0000 		call debug_tx_text_nl
+ 314               	.LM52:
+ 315 01c4 80E0      		ldi r24,lo8(.LC23)
+ 316 01c6 90E0      		ldi r25,hi8(.LC23)
+ 317 01c8 0E94 0000 		call debug_tx_text_nl
+ 318 01cc 11E0      		ldi r17,lo8(1)
+ 319               	.LVL3:
+ 320 01ce 00C0      		rjmp .L11
+ 321               	.LVL4:
+ 322               	.L30:
+ 323               	.LM53:
+ 324 01d0 80E0      		ldi r24,lo8(.LC24)
+ 325 01d2 90E0      		ldi r25,hi8(.LC24)
+ 326 01d4 00C0      		rjmp .L27
+ 327               	.LVL5:
+ 328               	.L2:
+ 329               	.LM54:
+ 330 01d6 80E0      		ldi r24,lo8(.LC25)
+ 331 01d8 90E0      		ldi r25,hi8(.LC25)
+ 332               	.LVL6:
+ 333               	.L27:
+ 334 01da 0E94 0000 		call debug_tx_text_nl
+ 335               	.L7:
+ 336 01de 10E0      		ldi r17,lo8(0)
+ 337               	.LVL7:
+ 338               	.L11:
+ 339               	.LM55:
+ 340 01e0 0E94 0000 		call debug_tx_nl
+ 341               	.LM56:
+ 342 01e4 0E94 0000 		call debug_tx_nl
+ 343               	.LM57:
+ 344 01e8 0E94 0000 		call ISP_Reset_Disable
+ 345               	.LBB18:
+ 346               	.LBB19:
+ 347               	.LBB20:
+ 348               	.LBB21:
+ 349               	.LM58:
+ 350 01ec CCE2      		ldi r28,lo8(300)
+ 351 01ee D1E0      		ldi r29,hi8(300)
+ 352               	.LVL8:
+ 353               	.L26:
+ 354               	.LBE21:
+ 355               	.LBE20:
+ 356               	.LBE19:
+ 357               	.LBE18:
+ 358               	.LM59:
+ 359 01f0 0E94 0000 		call LED_Toggle
+ 360               	.LVL9:
+ 361               	.LM60:
+ 362 01f4 1123      		tst r17
+ 363 01f6 01F0      		breq .L16
+ 364 01f8 88E8      		ldi r24,lo8(5000)
+ 365 01fa 93E1      		ldi r25,hi8(5000)
+ 366               	.LVL10:
+ 367               	.L17:
+ 368               	.LBB25:
+ 369               	.LBB24:
+ 370               	.LBB23:
+ 371               	.LBB22:
+ 372               	.LM61:
+ 373 01fc FE01      		movw r30,r28
+ 374               	.LVL11:
+ 375               	/* #APP */
+ 376               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 377 01fe 3197      		1: sbiw r30,1
+ 378 0200 01F4      		brne 1b
+ 379               	 ;  0 "" 2
+ 380               	/* #NOAPP */
+ 381               	.LBE22:
+ 382               	.LBE23:
+ 383               	.LM62:
+ 384 0202 0197      		sbiw r24,1
+ 385               	.LM63:
+ 386 0204 01F4      		brne .L17
+ 387 0206 00C0      		rjmp .L26
+ 388               	.LVL12:
+ 389               	.L16:
+ 390 0208 88EE      		ldi r24,lo8(1000)
+ 391 020a 93E0      		ldi r25,hi8(1000)
+ 392               	.LVL13:
+ 393               	.L19:
+ 394               	.LBE24:
+ 395               	.LBE25:
+ 396               	.LBB26:
+ 397               	.LBB27:
+ 398               	.LBB28:
+ 399               	.LBB29:
+ 400               	.LM64:
+ 401 020c FE01      		movw r30,r28
+ 402               	.LVL14:
+ 403               	/* #APP */
+ 404               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 405 020e 3197      		1: sbiw r30,1
+ 406 0210 01F4      		brne 1b
+ 407               	 ;  0 "" 2
+ 408               	/* #NOAPP */
+ 409               	.LBE29:
+ 410               	.LBE28:
+ 411               	.LM65:
+ 412 0212 0197      		sbiw r24,1
+ 413               	.LM66:
+ 414 0214 01F4      		brne .L19
+ 415 0216 00C0      		rjmp .L26
+ 416               	.LBE27:
+ 417               	.LBE26:
+ 418               	.LFE6:
+ 444               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\WALTON\AppData\Local\Temp/cckVZJIE.s:2      *ABS*:0000003f __SREG__
+C:\Users\WALTON\AppData\Local\Temp/cckVZJIE.s:3      *ABS*:0000003e __SP_H__
+C:\Users\WALTON\AppData\Local\Temp/cckVZJIE.s:4      *ABS*:0000003d __SP_L__
+C:\Users\WALTON\AppData\Local\Temp/cckVZJIE.s:5      *ABS*:00000034 __CCP__
+C:\Users\WALTON\AppData\Local\Temp/cckVZJIE.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\WALTON\AppData\Local\Temp/cckVZJIE.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\WALTON\AppData\Local\Temp/cckVZJIE.s:72     .text:00000000 main
+
+UNDEFINED SYMBOLS
+debug_init
+debug_tx_text_nl
+debug_tx_text
+debug_tx_number_hex_nl
+debug_tx_nl
+ISP_Init
+LED_Init
+ISP_Enter_Programming_Mode
+ISP_Read_Device_Parameters
+ISP_Get_Device_Signature
+ISP_Get_Fuse_Low_Byte
+ISP_Get_Fuse_High_Byte
+ISP_Get_Fuse_Extended_Byte
+ISP_Get_Lock_Byte
+ISP_Write_Verify_Device_LFUSE
+ISP_Write_Verify_Device_HFUSE
+ISP_Chip_Erase
+ISP_Write_Auto
+ISP_Verify_Flash
+ISP_Write_Verify_Device_LBITS
+ISP_Reset_Disable
+LED_Toggle
+__do_copy_data

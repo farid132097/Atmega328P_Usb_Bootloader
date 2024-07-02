@@ -1,0 +1,160 @@
+   1               		.file	"timer.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	Timer_Register_Reset
+  18               	Timer_Register_Reset:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 1092 8100 		sts 129,__zero_reg__
+  25               	.LM3:
+  26 0004 1092 8000 		sts 128,__zero_reg__
+  27               	.LM4:
+  28 0008 1092 8200 		sts 130,__zero_reg__
+  29               	.LM5:
+  30 000c 1092 6F00 		sts 111,__zero_reg__
+  31               	.LM6:
+  32 0010 16BA      		out 54-32,__zero_reg__
+  33               	.LM7:
+  34 0012 1092 8500 		sts (132)+1,__zero_reg__
+  35 0016 1092 8400 		sts 132,__zero_reg__
+  36               	.LM8:
+  37 001a 1092 8900 		sts (136)+1,__zero_reg__
+  38 001e 1092 8800 		sts 136,__zero_reg__
+  39               	.LM9:
+  40 0022 1092 8B00 		sts (138)+1,__zero_reg__
+  41 0026 1092 8A00 		sts 138,__zero_reg__
+  42               	/* epilogue start */
+  43               	.LM10:
+  44 002a 0895      		ret
+  45               	.LFE6:
+  47               	.global	Timer_Set_Prescaler
+  49               	Timer_Set_Prescaler:
+  50               	.LFB7:
+  51               	.LM11:
+  52               	.LVL0:
+  53               	/* prologue: function */
+  54               	/* frame size = 0 */
+  55               	.LM12:
+  56 002c 8823      		tst r24
+  57 002e 01F4      		brne .L4
+  58               	.LM13:
+  59 0030 81E0      		ldi r24,lo8(1)
+  60               	.LVL1:
+  61 0032 00C0      		rjmp .L11
+  62               	.LVL2:
+  63               	.L4:
+  64               	.LM14:
+  65 0034 8130      		cpi r24,lo8(1)
+  66 0036 01F4      		brne .L6
+  67               	.LM15:
+  68 0038 82E0      		ldi r24,lo8(2)
+  69               	.LVL3:
+  70 003a 00C0      		rjmp .L11
+  71               	.LVL4:
+  72               	.L6:
+  73               	.LM16:
+  74 003c 8230      		cpi r24,lo8(2)
+  75 003e 01F4      		brne .L7
+  76               	.LM17:
+  77 0040 83E0      		ldi r24,lo8(3)
+  78               	.LVL5:
+  79 0042 00C0      		rjmp .L11
+  80               	.LVL6:
+  81               	.L7:
+  82               	.LM18:
+  83 0044 8330      		cpi r24,lo8(3)
+  84 0046 01F4      		brne .L8
+  85               	.LM19:
+  86 0048 84E0      		ldi r24,lo8(4)
+  87               	.LVL7:
+  88 004a 00C0      		rjmp .L11
+  89               	.LVL8:
+  90               	.L8:
+  91               	.LM20:
+  92 004c 85E0      		ldi r24,lo8(5)
+  93               	.LVL9:
+  94               	.L11:
+  95 004e 8093 8100 		sts 129,r24
+  96 0052 0895      		ret
+  97               	.LFE7:
+  99               	.global	Timer_Delay_Cycles
+ 101               	Timer_Delay_Cycles:
+ 102               	.LFB8:
+ 103               	.LM21:
+ 104               	.LVL10:
+ 105               	/* prologue: function */
+ 106               	/* frame size = 0 */
+ 107 0054 9C01      		movw r18,r24
+ 108               	.LM22:
+ 109 0056 1092 8500 		sts (132)+1,__zero_reg__
+ 110 005a 1092 8400 		sts 132,__zero_reg__
+ 111               	.LVL11:
+ 112               	.L13:
+ 113               	.LM23:
+ 114 005e 8091 8400 		lds r24,132
+ 115 0062 9091 8500 		lds r25,(132)+1
+ 116 0066 8217      		cp r24,r18
+ 117 0068 9307      		cpc r25,r19
+ 118 006a 00F0      		brlo .L13
+ 119               	/* epilogue start */
+ 120               	.LM24:
+ 121 006c 0895      		ret
+ 122               	.LFE8:
+ 124               	.global	Timer_Enable
+ 126               	Timer_Enable:
+ 127               	.LFB9:
+ 128               	.LM25:
+ 129               	.LVL12:
+ 130 006e 1F93      		push r17
+ 131               	/* prologue: function */
+ 132               	/* frame size = 0 */
+ 133 0070 182F      		mov r17,r24
+ 134               	.LM26:
+ 135 0072 0E94 0000 		call Timer_Register_Reset
+ 136               	.LVL13:
+ 137               	.LM27:
+ 138 0076 812F      		mov r24,r17
+ 139 0078 0E94 0000 		call Timer_Set_Prescaler
+ 140               	/* epilogue start */
+ 141               	.LM28:
+ 142 007c 1F91      		pop r17
+ 143               	.LVL14:
+ 144 007e 0895      		ret
+ 145               	.LFE9:
+ 147               	.global	Timer_Init
+ 149               	Timer_Init:
+ 150               	.LFB10:
+ 151               	.LM29:
+ 152               	/* prologue: function */
+ 153               	/* frame size = 0 */
+ 154               	.LM30:
+ 155 0080 80E0      		ldi r24,lo8(0)
+ 156 0082 0E94 0000 		call Timer_Enable
+ 157               	/* epilogue start */
+ 158               	.LM31:
+ 159 0086 0895      		ret
+ 160               	.LFE10:
+ 218               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 timer.c
+C:\Users\farid\AppData\Local\Temp/cctAsH5x.s:2      *ABS*:0000003f __SREG__
+C:\Users\farid\AppData\Local\Temp/cctAsH5x.s:3      *ABS*:0000003e __SP_H__
+C:\Users\farid\AppData\Local\Temp/cctAsH5x.s:4      *ABS*:0000003d __SP_L__
+C:\Users\farid\AppData\Local\Temp/cctAsH5x.s:5      *ABS*:00000034 __CCP__
+C:\Users\farid\AppData\Local\Temp/cctAsH5x.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\farid\AppData\Local\Temp/cctAsH5x.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\farid\AppData\Local\Temp/cctAsH5x.s:18     .text:00000000 Timer_Register_Reset
+C:\Users\farid\AppData\Local\Temp/cctAsH5x.s:49     .text:0000002c Timer_Set_Prescaler
+C:\Users\farid\AppData\Local\Temp/cctAsH5x.s:101    .text:00000054 Timer_Delay_Cycles
+C:\Users\farid\AppData\Local\Temp/cctAsH5x.s:126    .text:0000006e Timer_Enable
+C:\Users\farid\AppData\Local\Temp/cctAsH5x.s:149    .text:00000080 Timer_Init
+
+NO UNDEFINED SYMBOLS

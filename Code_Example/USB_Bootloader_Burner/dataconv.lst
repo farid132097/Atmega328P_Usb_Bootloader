@@ -1,0 +1,344 @@
+   1               		.file	"dataconv.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	Data_Conv_Nibble_To_Hex_Char
+  18               	Data_Conv_Nibble_To_Hex_Char:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24 0000 982F      		mov r25,r24
+  25               	.LM2:
+  26 0002 8A30      		cpi r24,lo8(10)
+  27 0004 00F4      		brsh .L2
+  28               	.LM3:
+  29 0006 805D      		subi r24,lo8(-(48))
+  30               	.LVL1:
+  31 0008 0895      		ret
+  32               	.LVL2:
+  33               	.L2:
+  34               	.LM4:
+  35 000a 8A50      		subi r24,lo8(-(-10))
+  36               	.LVL3:
+  37 000c 8630      		cpi r24,lo8(6)
+  38 000e 00F0      		brlo .L4
+  39 0010 80E0      		ldi r24,lo8(0)
+  40               	.LVL4:
+  41 0012 0895      		ret
+  42               	.LVL5:
+  43               	.L4:
+  44               	.LM5:
+  45 0014 892F      		mov r24,r25
+  46               	.LVL6:
+  47 0016 895C      		subi r24,lo8(-(55))
+  48               	.LVL7:
+  49               	.LM6:
+  50 0018 0895      		ret
+  51               	.LFE6:
+  53               	.global	Data_Conv_Byte_To_Hex_Char
+  55               	Data_Conv_Byte_To_Hex_Char:
+  56               	.LFB7:
+  57               	.LM7:
+  58               	.LVL8:
+  59 001a DF92      		push r13
+  60 001c EF92      		push r14
+  61 001e FF92      		push r15
+  62 0020 0F93      		push r16
+  63 0022 1F93      		push r17
+  64               	/* prologue: function */
+  65               	/* frame size = 0 */
+  66 0024 D82E      		mov r13,r24
+  67 0026 7B01      		movw r14,r22
+  68               	.LM8:
+  69 0028 042F      		mov r16,r20
+  70 002a 10E0      		ldi r17,lo8(0)
+  71 002c 8295      		swap r24
+  72               	.LVL9:
+  73 002e 8F70      		andi r24,lo8(15)
+  74 0030 0E94 0000 		call Data_Conv_Nibble_To_Hex_Char
+  75               	.LVL10:
+  76 0034 E00E      		add r14,r16
+  77 0036 F11E      		adc r15,r17
+  78 0038 F701      		movw r30,r14
+  79 003a 8083      		st Z,r24
+  80               	.LM9:
+  81 003c 8D2D      		mov r24,r13
+  82 003e 8F70      		andi r24,lo8(15)
+  83 0040 0E94 0000 		call Data_Conv_Nibble_To_Hex_Char
+  84 0044 F701      		movw r30,r14
+  85 0046 8183      		std Z+1,r24
+  86               	/* epilogue start */
+  87               	.LM10:
+  88 0048 1F91      		pop r17
+  89 004a 0F91      		pop r16
+  90 004c FF90      		pop r15
+  91 004e EF90      		pop r14
+  92 0050 DF90      		pop r13
+  93               	.LVL11:
+  94 0052 0895      		ret
+  95               	.LFE7:
+  97               	.global	Data_Conv_Word_To_Hex_Char
+  99               	Data_Conv_Word_To_Hex_Char:
+ 100               	.LFB8:
+ 101               	.LM11:
+ 102               	.LVL12:
+ 103 0054 EF92      		push r14
+ 104 0056 FF92      		push r15
+ 105 0058 0F93      		push r16
+ 106 005a 1F93      		push r17
+ 107               	/* prologue: function */
+ 108               	/* frame size = 0 */
+ 109 005c 082F      		mov r16,r24
+ 110 005e 7B01      		movw r14,r22
+ 111 0060 142F      		mov r17,r20
+ 112               	.LM12:
+ 113 0062 892F      		mov r24,r25
+ 114               	.LVL13:
+ 115 0064 0E94 0000 		call Data_Conv_Byte_To_Hex_Char
+ 116               	.LVL14:
+ 117               	.LM13:
+ 118 0068 1E5F      		subi r17,lo8(-(2))
+ 119 006a 802F      		mov r24,r16
+ 120 006c B701      		movw r22,r14
+ 121 006e 412F      		mov r20,r17
+ 122 0070 0E94 0000 		call Data_Conv_Byte_To_Hex_Char
+ 123               	/* epilogue start */
+ 124               	.LM14:
+ 125 0074 1F91      		pop r17
+ 126               	.LVL15:
+ 127 0076 0F91      		pop r16
+ 128               	.LVL16:
+ 129 0078 FF90      		pop r15
+ 130 007a EF90      		pop r14
+ 131               	.LVL17:
+ 132 007c 0895      		ret
+ 133               	.LFE8:
+ 135               	.global	Data_Conv_Dword_To_Hex_Char
+ 137               	Data_Conv_Dword_To_Hex_Char:
+ 138               	.LFB9:
+ 139               	.LM15:
+ 140               	.LVL18:
+ 141 007e AF92      		push r10
+ 142 0080 BF92      		push r11
+ 143 0082 DF92      		push r13
+ 144 0084 EF92      		push r14
+ 145 0086 FF92      		push r15
+ 146 0088 0F93      		push r16
+ 147 008a 1F93      		push r17
+ 148               	/* prologue: function */
+ 149               	/* frame size = 0 */
+ 150 008c 7B01      		movw r14,r22
+ 151 008e 8C01      		movw r16,r24
+ 152 0090 5A01      		movw r10,r20
+ 153 0092 D22E      		mov r13,r18
+ 154               	.LM16:
+ 155 0094 C801      		movw r24,r16
+ 156 0096 AA27      		clr r26
+ 157 0098 BB27      		clr r27
+ 158 009a BA01      		movw r22,r20
+ 159               	.LVL19:
+ 160 009c 422F      		mov r20,r18
+ 161               	.LVL20:
+ 162 009e 0E94 0000 		call Data_Conv_Word_To_Hex_Char
+ 163               	.LVL21:
+ 164               	.LM17:
+ 165 00a2 84E0      		ldi r24,lo8(4)
+ 166 00a4 D80E      		add r13,r24
+ 167 00a6 C701      		movw r24,r14
+ 168 00a8 B501      		movw r22,r10
+ 169 00aa 4D2D      		mov r20,r13
+ 170 00ac 0E94 0000 		call Data_Conv_Word_To_Hex_Char
+ 171               	/* epilogue start */
+ 172               	.LM18:
+ 173 00b0 1F91      		pop r17
+ 174 00b2 0F91      		pop r16
+ 175 00b4 FF90      		pop r15
+ 176 00b6 EF90      		pop r14
+ 177               	.LVL22:
+ 178 00b8 DF90      		pop r13
+ 179               	.LVL23:
+ 180 00ba BF90      		pop r11
+ 181 00bc AF90      		pop r10
+ 182               	.LVL24:
+ 183 00be 0895      		ret
+ 184               	.LFE9:
+ 186               	.global	Data_Conv_Dword_To_Byte
+ 188               	Data_Conv_Dword_To_Byte:
+ 189               	.LFB10:
+ 190               	.LM19:
+ 191               	.LVL25:
+ 192 00c0 EF92      		push r14
+ 193 00c2 FF92      		push r15
+ 194 00c4 0F93      		push r16
+ 195 00c6 1F93      		push r17
+ 196               	/* prologue: function */
+ 197               	/* frame size = 0 */
+ 198 00c8 FA01      		movw r30,r20
+ 199               	.LM20:
+ 200 00ca 7C01      		movw r14,r24
+ 201 00cc 0027      		clr r16
+ 202 00ce 1127      		clr r17
+ 203               	.LM21:
+ 204 00d0 E20F      		add r30,r18
+ 205 00d2 F11D      		adc r31,__zero_reg__
+ 206 00d4 F082      		st Z,r15
+ 207               	.LM22:
+ 208 00d6 E182      		std Z+1,r14
+ 209               	.LM23:
+ 210 00d8 7283      		std Z+2,r23
+ 211               	.LVL26:
+ 212               	.LM24:
+ 213 00da 6383      		std Z+3,r22
+ 214               	/* epilogue start */
+ 215               	.LM25:
+ 216 00dc 1F91      		pop r17
+ 217 00de 0F91      		pop r16
+ 218 00e0 FF90      		pop r15
+ 219 00e2 EF90      		pop r14
+ 220 00e4 0895      		ret
+ 221               	.LFE10:
+ 223               	.global	Data_Conv_Hex_Char_To_Nibble
+ 225               	Data_Conv_Hex_Char_To_Nibble:
+ 226               	.LFB11:
+ 227               	.LM26:
+ 228               	.LVL27:
+ 229               	/* prologue: function */
+ 230               	/* frame size = 0 */
+ 231 00e6 982F      		mov r25,r24
+ 232               	.LM27:
+ 233 00e8 8053      		subi r24,lo8(-(-48))
+ 234               	.LVL28:
+ 235 00ea 8A30      		cpi r24,lo8(10)
+ 236 00ec 00F0      		brlo .L15
+ 237               	.LM28:
+ 238 00ee 8151      		subi r24,lo8(-(-17))
+ 239 00f0 8630      		cpi r24,lo8(6)
+ 240 00f2 00F4      		brsh .L16
+ 241               	.LM29:
+ 242 00f4 865F      		subi r24,lo8(-(10))
+ 243 00f6 0895      		ret
+ 244               	.L16:
+ 245               	.LM30:
+ 246 00f8 892F      		mov r24,r25
+ 247 00fa 8156      		subi r24,lo8(-(-97))
+ 248 00fc 8630      		cpi r24,lo8(6)
+ 249 00fe 00F0      		brlo .L17
+ 250 0100 8FE0      		ldi r24,lo8(15)
+ 251 0102 0895      		ret
+ 252               	.L17:
+ 253               	.LM31:
+ 254 0104 892F      		mov r24,r25
+ 255 0106 8755      		subi r24,lo8(-(-87))
+ 256               	.L15:
+ 257               	.LM32:
+ 258 0108 0895      		ret
+ 259               	.LFE11:
+ 261               	.global	Data_Conv_Hex_Char_To_Byte
+ 263               	Data_Conv_Hex_Char_To_Byte:
+ 264               	.LFB12:
+ 265               	.LM33:
+ 266               	.LVL29:
+ 267 010a FF92      		push r15
+ 268 010c 0F93      		push r16
+ 269 010e 1F93      		push r17
+ 270               	/* prologue: function */
+ 271               	/* frame size = 0 */
+ 272               	.LM34:
+ 273 0110 8C01      		movw r16,r24
+ 274 0112 060F      		add r16,r22
+ 275 0114 111D      		adc r17,__zero_reg__
+ 276 0116 F801      		movw r30,r16
+ 277 0118 8081      		ld r24,Z
+ 278               	.LVL30:
+ 279 011a 0E94 0000 		call Data_Conv_Hex_Char_To_Nibble
+ 280               	.LVL31:
+ 281               	.LM35:
+ 282 011e F82E      		mov r15,r24
+ 283               	.LVL32:
+ 284 0120 F294      		swap r15
+ 285 0122 40EF      		ldi r20,lo8(-16)
+ 286 0124 F422      		and r15,r20
+ 287               	.LM36:
+ 288 0126 F801      		movw r30,r16
+ 289 0128 8181      		ldd r24,Z+1
+ 290 012a 0E94 0000 		call Data_Conv_Hex_Char_To_Nibble
+ 291               	.LM37:
+ 292 012e 8F29      		or r24,r15
+ 293               	/* epilogue start */
+ 294 0130 1F91      		pop r17
+ 295 0132 0F91      		pop r16
+ 296 0134 FF90      		pop r15
+ 297               	.LVL33:
+ 298 0136 0895      		ret
+ 299               	.LFE12:
+ 301               	.global	Data_Conv_Hex_Char_To_Word
+ 303               	Data_Conv_Hex_Char_To_Word:
+ 304               	.LFB13:
+ 305               	.LM38:
+ 306               	.LVL34:
+ 307 0138 CF92      		push r12
+ 308 013a DF92      		push r13
+ 309 013c FF92      		push r15
+ 310 013e 0F93      		push r16
+ 311 0140 1F93      		push r17
+ 312               	/* prologue: function */
+ 313               	/* frame size = 0 */
+ 314 0142 6C01      		movw r12,r24
+ 315 0144 F62E      		mov r15,r22
+ 316               	.LM39:
+ 317 0146 0E94 0000 		call Data_Conv_Hex_Char_To_Byte
+ 318               	.LVL35:
+ 319               	.LM40:
+ 320 014a 182F      		mov r17,r24
+ 321               	.LVL36:
+ 322 014c 00E0      		ldi r16,lo8(0)
+ 323               	.LVL37:
+ 324               	.LM41:
+ 325 014e 82E0      		ldi r24,lo8(2)
+ 326 0150 F80E      		add r15,r24
+ 327 0152 C601      		movw r24,r12
+ 328 0154 6F2D      		mov r22,r15
+ 329 0156 0E94 0000 		call Data_Conv_Hex_Char_To_Byte
+ 330 015a 282F      		mov r18,r24
+ 331 015c 30E0      		ldi r19,lo8(0)
+ 332 015e 202B      		or r18,r16
+ 333 0160 312B      		or r19,r17
+ 334               	.LM42:
+ 335 0162 C901      		movw r24,r18
+ 336               	/* epilogue start */
+ 337 0164 1F91      		pop r17
+ 338               	.LVL38:
+ 339 0166 0F91      		pop r16
+ 340               	.LVL39:
+ 341 0168 FF90      		pop r15
+ 342               	.LVL40:
+ 343 016a DF90      		pop r13
+ 344 016c CF90      		pop r12
+ 345               	.LVL41:
+ 346 016e 0895      		ret
+ 347               	.LFE13:
+ 429               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 dataconv.c
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:2      *ABS*:0000003f __SREG__
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:3      *ABS*:0000003e __SP_H__
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:4      *ABS*:0000003d __SP_L__
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:5      *ABS*:00000034 __CCP__
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:18     .text:00000000 Data_Conv_Nibble_To_Hex_Char
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:55     .text:0000001a Data_Conv_Byte_To_Hex_Char
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:99     .text:00000054 Data_Conv_Word_To_Hex_Char
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:137    .text:0000007e Data_Conv_Dword_To_Hex_Char
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:188    .text:000000c0 Data_Conv_Dword_To_Byte
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:225    .text:000000e6 Data_Conv_Hex_Char_To_Nibble
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:263    .text:0000010a Data_Conv_Hex_Char_To_Byte
+C:\Users\farid\AppData\Local\Temp/ccRUGl98.s:303    .text:00000138 Data_Conv_Hex_Char_To_Word
+
+NO UNDEFINED SYMBOLS

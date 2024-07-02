@@ -1,0 +1,2917 @@
+   1               		.file	"isp.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	ISP_Struct_Init
+  18               	ISP_Struct_Init:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 1092 0000 		sts ISP,__zero_reg__
+  25 0004 1092 0000 		sts (ISP)+1,__zero_reg__
+  26 0008 1092 0000 		sts (ISP)+2,__zero_reg__
+  27 000c 1092 0000 		sts (ISP)+3,__zero_reg__
+  28               	.LM3:
+  29 0010 1092 0000 		sts ISP+4,__zero_reg__
+  30               	.LM4:
+  31 0014 1092 0000 		sts ISP+5,__zero_reg__
+  32               	.LM5:
+  33 0018 1092 0000 		sts ISP+6,__zero_reg__
+  34               	.LM6:
+  35 001c 1092 0000 		sts ISP+7,__zero_reg__
+  36               	.LM7:
+  37 0020 1092 0000 		sts ISP+8,__zero_reg__
+  38               	.LM8:
+  39 0024 1092 0000 		sts ISP+9,__zero_reg__
+  40               	/* epilogue start */
+  41               	.LM9:
+  42 0028 0895      		ret
+  43               	.LFE6:
+  45               	.global	ISP_Flush_Buffer
+  47               	ISP_Flush_Buffer:
+  48               	.LFB7:
+  49               	.LM10:
+  50               	/* prologue: function */
+  51               	/* frame size = 0 */
+  52               	.LM11:
+  53 002a E0E0      		ldi r30,lo8(ISP_Buf)
+  54 002c F0E0      		ldi r31,hi8(ISP_Buf)
+  55               	.LBB96:
+  56               	.LM12:
+  57 002e 8FEF      		ldi r24,lo8(255)
+  58 0030 90E0      		ldi r25,hi8(255)
+  59               	.L4:
+  60 0032 8193      		st Z+,r24
+  61 0034 9193      		st Z+,r25
+  62               	.LM13:
+  63 0036 20E0      		ldi r18,hi8(ISP_Buf+128)
+  64 0038 E030      		cpi r30,lo8(ISP_Buf+128)
+  65 003a F207      		cpc r31,r18
+  66 003c 01F4      		brne .L4
+  67               	/* epilogue start */
+  68               	.LBE96:
+  69               	.LM14:
+  70 003e 0895      		ret
+  71               	.LFE7:
+  73               	.global	ISP_Init
+  75               	ISP_Init:
+  76               	.LFB8:
+  77               	.LM15:
+  78               	/* prologue: function */
+  79               	/* frame size = 0 */
+  80               	.LM16:
+  81 0040 0E94 0000 		call ISP_Struct_Init
+  82 0044 E0E0      		ldi r30,lo8(ISP_Buf)
+  83 0046 F0E0      		ldi r31,hi8(ISP_Buf)
+  84               	.LBB97:
+  85               	.LBB98:
+  86               	.LBB99:
+  87               	.LM17:
+  88 0048 8FEF      		ldi r24,lo8(255)
+  89 004a 90E0      		ldi r25,hi8(255)
+  90               	.L8:
+  91 004c 8193      		st Z+,r24
+  92 004e 9193      		st Z+,r25
+  93               	.LM18:
+  94 0050 20E0      		ldi r18,hi8(ISP_Buf+128)
+  95 0052 E030      		cpi r30,lo8(ISP_Buf+128)
+  96 0054 F207      		cpc r31,r18
+  97 0056 01F4      		brne .L8
+  98               	/* epilogue start */
+  99               	.LBE99:
+ 100               	.LBE98:
+ 101               	.LBE97:
+ 102               	.LM19:
+ 103 0058 0895      		ret
+ 104               	.LFE8:
+ 106               	.global	ISP_Read_Progmem
+ 108               	ISP_Read_Progmem:
+ 109               	.LFB34:
+ 110               	.LM20:
+ 111               	.LVL0:
+ 112               	/* prologue: function */
+ 113               	/* frame size = 0 */
+ 114               	.LBB100:
+ 115               	.LM21:
+ 116 005a FC01      		movw r30,r24
+ 117               	.LVL1:
+ 118 005c EE0F      		lsl r30
+ 119 005e FF1F      		rol r31
+ 120               	.LVL2:
+ 121 0060 E050      		subi r30,lo8(-(firmware_data))
+ 122 0062 F040      		sbci r31,hi8(-(firmware_data))
+ 123               	/* #APP */
+ 124               	 ;  341 "isp.c" 1
+ 125 0064 2591      		lpm r18, Z+
+ 126 0066 3491      		lpm r19, Z
+ 127               		
+ 128               	 ;  0 "" 2
+ 129               	.LVL3:
+ 130               	/* #NOAPP */
+ 131               	.LBE100:
+ 132               	.LM22:
+ 133 0068 C901      		movw r24,r18
+ 134               	.LVL4:
+ 135               	/* epilogue start */
+ 136 006a 0895      		ret
+ 137               	.LFE34:
+ 139               	.global	ISP_Load_Buffer_With_Offset
+ 141               	ISP_Load_Buffer_With_Offset:
+ 142               	.LFB35:
+ 143               	.LM23:
+ 144               	.LVL5:
+ 145               	/* prologue: function */
+ 146               	/* frame size = 0 */
+ 147               	.LM24:
+ 148 006c 9C01      		movw r18,r24
+ 149 006e 220F      		lsl r18
+ 150 0070 331F      		rol r19
+ 151 0072 2050      		subi r18,lo8(-(firmware_data))
+ 152 0074 3040      		sbci r19,hi8(-(firmware_data))
+ 153 0076 A0E0      		ldi r26,lo8(ISP_Buf)
+ 154 0078 B0E0      		ldi r27,hi8(ISP_Buf)
+ 155               	.L14:
+ 156               	.LBB101:
+ 157               	.LBB102:
+ 158               	.LBB103:
+ 159               	.LBB104:
+ 160               	.LM25:
+ 161 007a F901      		movw r30,r18
+ 162               	.LVL6:
+ 163               	/* #APP */
+ 164               	 ;  341 "isp.c" 1
+ 165 007c 8591      		lpm r24, Z+
+ 166 007e 9491      		lpm r25, Z
+ 167               		
+ 168               	 ;  0 "" 2
+ 169               	.LVL7:
+ 170               	/* #NOAPP */
+ 171               	.LBE104:
+ 172               	.LBE103:
+ 173               	.LBE102:
+ 174               	.LM26:
+ 175 0080 8D93      		st X+,r24
+ 176 0082 9D93      		st X+,r25
+ 177 0084 2E5F      		subi r18,lo8(-(2))
+ 178 0086 3F4F      		sbci r19,hi8(-(2))
+ 179               	.LVL8:
+ 180               	.LM27:
+ 181 0088 F0E0      		ldi r31,hi8(ISP_Buf+128)
+ 182 008a A030      		cpi r26,lo8(ISP_Buf+128)
+ 183 008c BF07      		cpc r27,r31
+ 184 008e 01F4      		brne .L14
+ 185               	/* epilogue start */
+ 186               	.LBE101:
+ 187               	.LM28:
+ 188 0090 0895      		ret
+ 189               	.LFE35:
+ 191               	.global	ISP_Get_Data_Buffer
+ 193               	ISP_Get_Data_Buffer:
+ 194               	.LFB40:
+ 195               	.LM29:
+ 196               	.LVL9:
+ 197               	/* prologue: function */
+ 198               	/* frame size = 0 */
+ 199               	.LM30:
+ 200 0092 FC01      		movw r30,r24
+ 201 0094 EE0F      		lsl r30
+ 202 0096 FF1F      		rol r31
+ 203 0098 E050      		subi r30,lo8(-(ISP_Buf))
+ 204 009a F040      		sbci r31,hi8(-(ISP_Buf))
+ 205               	.LM31:
+ 206 009c 8081      		ld r24,Z
+ 207               	.LVL10:
+ 208 009e 9181      		ldd r25,Z+1
+ 209               	/* epilogue start */
+ 210 00a0 0895      		ret
+ 211               	.LFE40:
+ 213               	.global	ISP_Get_Device_SCK_Setting
+ 215               	ISP_Get_Device_SCK_Setting:
+ 216               	.LFB41:
+ 217               	.LM32:
+ 218               	/* prologue: function */
+ 219               	/* frame size = 0 */
+ 220               	.LM33:
+ 221 00a2 8091 0000 		lds r24,ISP+5
+ 222               	/* epilogue start */
+ 223 00a6 0895      		ret
+ 224               	.LFE41:
+ 226               	.global	ISP_Get_Device_Loop_Counter
+ 228               	ISP_Get_Device_Loop_Counter:
+ 229               	.LFB42:
+ 230               	.LM34:
+ 231               	/* prologue: function */
+ 232               	/* frame size = 0 */
+ 233               	.LM35:
+ 234 00a8 8091 0000 		lds r24,ISP+4
+ 235               	/* epilogue start */
+ 236 00ac 0895      		ret
+ 237               	.LFE42:
+ 239               	.global	ISP_Get_Device_Signature
+ 241               	ISP_Get_Device_Signature:
+ 242               	.LFB43:
+ 243               	.LM36:
+ 244               	/* prologue: function */
+ 245               	/* frame size = 0 */
+ 246               	.LM37:
+ 247 00ae 6091 0000 		lds r22,ISP
+ 248 00b2 7091 0000 		lds r23,ISP+1
+ 249               	.LM38:
+ 250 00b6 8091 0000 		lds r24,ISP+2
+ 251 00ba 9091 0000 		lds r25,ISP+3
+ 252               	/* epilogue start */
+ 253 00be 0895      		ret
+ 254               	.LFE43:
+ 256               	.global	ISP_Get_Fuse_Low_Byte
+ 258               	ISP_Get_Fuse_Low_Byte:
+ 259               	.LFB44:
+ 260               	.LM39:
+ 261               	/* prologue: function */
+ 262               	/* frame size = 0 */
+ 263               	.LM40:
+ 264 00c0 8091 0000 		lds r24,ISP+6
+ 265               	/* epilogue start */
+ 266 00c4 0895      		ret
+ 267               	.LFE44:
+ 269               	.global	ISP_Get_Fuse_High_Byte
+ 271               	ISP_Get_Fuse_High_Byte:
+ 272               	.LFB45:
+ 273               	.LM41:
+ 274               	/* prologue: function */
+ 275               	/* frame size = 0 */
+ 276               	.LM42:
+ 277 00c6 8091 0000 		lds r24,ISP+7
+ 278               	/* epilogue start */
+ 279 00ca 0895      		ret
+ 280               	.LFE45:
+ 282               	.global	ISP_Get_Fuse_Extended_Byte
+ 284               	ISP_Get_Fuse_Extended_Byte:
+ 285               	.LFB46:
+ 286               	.LM43:
+ 287               	/* prologue: function */
+ 288               	/* frame size = 0 */
+ 289               	.LM44:
+ 290 00cc 8091 0000 		lds r24,ISP+8
+ 291               	/* epilogue start */
+ 292 00d0 0895      		ret
+ 293               	.LFE46:
+ 295               	.global	ISP_Get_Lock_Byte
+ 297               	ISP_Get_Lock_Byte:
+ 298               	.LFB47:
+ 299               	.LM45:
+ 300               	/* prologue: function */
+ 301               	/* frame size = 0 */
+ 302               	.LM46:
+ 303 00d2 8091 0000 		lds r24,ISP+9
+ 304               	/* epilogue start */
+ 305 00d6 0895      		ret
+ 306               	.LFE47:
+ 308               	.global	ISP_Read_MCU_Busy
+ 310               	ISP_Read_MCU_Busy:
+ 311               	.LFB13:
+ 312               	.LM47:
+ 313               	/* prologue: function */
+ 314               	/* frame size = 0 */
+ 315               	.LM48:
+ 316 00d8 80EF      		ldi r24,lo8(-16)
+ 317 00da 0E94 0000 		call SPI_Transceive
+ 318               	.LM49:
+ 319 00de 80E0      		ldi r24,lo8(0)
+ 320 00e0 0E94 0000 		call SPI_Transceive
+ 321               	.LM50:
+ 322 00e4 80E0      		ldi r24,lo8(0)
+ 323 00e6 0E94 0000 		call SPI_Transceive
+ 324               	.LM51:
+ 325 00ea 80E0      		ldi r24,lo8(0)
+ 326 00ec 0E94 0000 		call SPI_Transceive
+ 327               	.LM52:
+ 328 00f0 8170      		andi r24,lo8(1)
+ 329               	/* epilogue start */
+ 330 00f2 0895      		ret
+ 331               	.LFE13:
+ 333               	.global	ISP_Wait_Till_MCU_Busy
+ 335               	ISP_Wait_Till_MCU_Busy:
+ 336               	.LFB14:
+ 337               	.LM53:
+ 338 00f4 CF93      		push r28
+ 339 00f6 DF93      		push r29
+ 340               	/* prologue: function */
+ 341               	/* frame size = 0 */
+ 342               	.LBB105:
+ 343               	.LBB106:
+ 344               	.LBB107:
+ 345               	.LBB108:
+ 346               	.LBB109:
+ 347               	.LBB110:
+ 348               	.LM54:
+ 349 00f8 CCE2      		ldi r28,lo8(300)
+ 350 00fa D1E0      		ldi r29,hi8(300)
+ 351 00fc 00C0      		rjmp .L36
+ 352               	.L37:
+ 353 00fe CE01      		movw r24,r28
+ 354               	.LVL11:
+ 355               	/* #APP */
+ 356               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 357 0100 0197      		1: sbiw r24,1
+ 358 0102 01F4      		brne 1b
+ 359               	 ;  0 "" 2
+ 360               	/* #NOAPP */
+ 361               	.L36:
+ 362               	.LBE110:
+ 363               	.LBE109:
+ 364               	.LBE108:
+ 365               	.LBE107:
+ 366               	.LBE106:
+ 367               	.LBE105:
+ 368               	.LM55:
+ 369 0104 0E94 0000 		call ISP_Read_MCU_Busy
+ 370               	.LVL12:
+ 371 0108 8823      		tst r24
+ 372 010a 01F4      		brne .L37
+ 373               	/* epilogue start */
+ 374               	.LM56:
+ 375 010c DF91      		pop r29
+ 376 010e CF91      		pop r28
+ 377 0110 0895      		ret
+ 378               	.LFE14:
+ 380               	.global	ISP_Read_PGM
+ 382               	ISP_Read_PGM:
+ 383               	.LFB37:
+ 384               	.LM57:
+ 385               	.LVL13:
+ 386 0112 FF92      		push r15
+ 387 0114 0F93      		push r16
+ 388 0116 1F93      		push r17
+ 389               	/* prologue: function */
+ 390               	/* frame size = 0 */
+ 391 0118 8C01      		movw r16,r24
+ 392               	.LVL14:
+ 393               	.LM58:
+ 394 011a 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 395               	.LM59:
+ 396 011e 88E2      		ldi r24,lo8(40)
+ 397 0120 0E94 0000 		call SPI_Transceive
+ 398               	.LM60:
+ 399 0124 812F      		mov r24,r17
+ 400               	.LVL15:
+ 401 0126 0E94 0000 		call SPI_Transceive
+ 402               	.LM61:
+ 403 012a 802F      		mov r24,r16
+ 404               	.LVL16:
+ 405 012c 0E94 0000 		call SPI_Transceive
+ 406               	.LM62:
+ 407 0130 80E0      		ldi r24,lo8(0)
+ 408 0132 0E94 0000 		call SPI_Transceive
+ 409 0136 F82E      		mov r15,r24
+ 410               	.LVL17:
+ 411               	.LM63:
+ 412 0138 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 413               	.LM64:
+ 414 013c 80E2      		ldi r24,lo8(32)
+ 415 013e 0E94 0000 		call SPI_Transceive
+ 416               	.LM65:
+ 417 0142 812F      		mov r24,r17
+ 418 0144 0E94 0000 		call SPI_Transceive
+ 419               	.LM66:
+ 420 0148 802F      		mov r24,r16
+ 421 014a 0E94 0000 		call SPI_Transceive
+ 422               	.LM67:
+ 423 014e 80E0      		ldi r24,lo8(0)
+ 424 0150 0E94 0000 		call SPI_Transceive
+ 425 0154 082F      		mov r16,r24
+ 426               	.LVL18:
+ 427               	.LM68:
+ 428 0156 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 429               	.LM69:
+ 430 015a 9F2D      		mov r25,r15
+ 431               	.LVL19:
+ 432 015c 80E0      		ldi r24,lo8(0)
+ 433               	.LVL20:
+ 434 015e 10E0      		ldi r17,lo8(0)
+ 435               	.LVL21:
+ 436 0160 082B      		or r16,r24
+ 437 0162 192B      		or r17,r25
+ 438               	.LVL22:
+ 439               	.LM70:
+ 440 0164 C801      		movw r24,r16
+ 441               	.LVL23:
+ 442               	/* epilogue start */
+ 443 0166 1F91      		pop r17
+ 444 0168 0F91      		pop r16
+ 445 016a FF90      		pop r15
+ 446               	.LVL24:
+ 447 016c 0895      		ret
+ 448               	.LFE37:
+ 450               	.global	ISP_Read_Flash_Word
+ 452               	ISP_Read_Flash_Word:
+ 453               	.LFB38:
+ 454               	.LM71:
+ 455               	.LVL25:
+ 456 016e 0F93      		push r16
+ 457 0170 1F93      		push r17
+ 458 0172 CF93      		push r28
+ 459 0174 DF93      		push r29
+ 460               	/* prologue: function */
+ 461               	/* frame size = 0 */
+ 462               	.LM72:
+ 463 0176 0E94 0000 		call ISP_Read_PGM
+ 464               	.LVL26:
+ 465               	.LM73:
+ 466 017a 182F      		mov r17,r24
+ 467               	.LVL27:
+ 468 017c 00E0      		ldi r16,lo8(0)
+ 469 017e C92F      		mov r28,r25
+ 470               	.LVL28:
+ 471 0180 D0E0      		ldi r29,lo8(0)
+ 472 0182 0C2B      		or r16,r28
+ 473 0184 1D2B      		or r17,r29
+ 474               	.LM74:
+ 475 0186 C801      		movw r24,r16
+ 476               	.LVL29:
+ 477               	/* epilogue start */
+ 478 0188 DF91      		pop r29
+ 479 018a CF91      		pop r28
+ 480 018c 1F91      		pop r17
+ 481 018e 0F91      		pop r16
+ 482 0190 0895      		ret
+ 483               	.LFE38:
+ 485               	.global	ISP_Verify_Flash
+ 487               	ISP_Verify_Flash:
+ 488               	.LFB39:
+ 489               	.LM75:
+ 490 0192 CF92      		push r12
+ 491 0194 DF92      		push r13
+ 492 0196 EF92      		push r14
+ 493 0198 FF92      		push r15
+ 494 019a 0F93      		push r16
+ 495 019c 1F93      		push r17
+ 496 019e CF93      		push r28
+ 497 01a0 DF93      		push r29
+ 498               	/* prologue: function */
+ 499               	/* frame size = 0 */
+ 500               	.LBB111:
+ 501               	.LBB112:
+ 502               	.LBB113:
+ 503               	.LM76:
+ 504 01a2 E0E0      		ldi r30,lo8(firmware_data)
+ 505 01a4 F0E0      		ldi r31,hi8(firmware_data)
+ 506               	.LVL30:
+ 507               	/* #APP */
+ 508               	 ;  341 "isp.c" 1
+ 509 01a6 E590      		lpm r14, Z+
+ 510 01a8 F490      		lpm r15, Z
+ 511               		
+ 512               	 ;  0 "" 2
+ 513               	.LVL31:
+ 514               	/* #NOAPP */
+ 515               	.LBE113:
+ 516               	.LBE112:
+ 517               	.LBE111:
+ 518               	.LM77:
+ 519 01aa F694      		lsr r15
+ 520 01ac E794      		ror r14
+ 521               	.LBB114:
+ 522               	.LBB115:
+ 523               	.LBB116:
+ 524               	.LM78:
+ 525 01ae E0E0      		ldi r30,lo8(firmware_data+6)
+ 526 01b0 F0E0      		ldi r31,hi8(firmware_data+6)
+ 527               	.LVL32:
+ 528               	/* #APP */
+ 529               	 ;  341 "isp.c" 1
+ 530 01b2 C590      		lpm r12, Z+
+ 531 01b4 D490      		lpm r13, Z
+ 532               		
+ 533               	 ;  0 "" 2
+ 534               	.LVL33:
+ 535               	/* #NOAPP */
+ 536 01b6 00E0      		ldi r16,lo8(firmware_data+32)
+ 537 01b8 10E0      		ldi r17,hi8(firmware_data+32)
+ 538 01ba C0E0      		ldi r28,lo8(0)
+ 539 01bc D0E0      		ldi r29,hi8(0)
+ 540               	.LVL34:
+ 541 01be 00C0      		rjmp .L44
+ 542               	.LVL35:
+ 543               	.L47:
+ 544               	.LBE116:
+ 545               	.LBE115:
+ 546               	.LBE114:
+ 547               	.LBB117:
+ 548               	.LM79:
+ 549 01c0 CE01      		movw r24,r28
+ 550 01c2 8E0D      		add r24,r14
+ 551 01c4 9F1D      		adc r25,r15
+ 552 01c6 0E94 0000 		call ISP_Read_Flash_Word
+ 553               	.LVL36:
+ 554               	.LBB118:
+ 555               	.LBB119:
+ 556               	.LBB120:
+ 557               	.LM80:
+ 558 01ca F801      		movw r30,r16
+ 559               	.LVL37:
+ 560               	/* #APP */
+ 561               	 ;  341 "isp.c" 1
+ 562 01cc 2591      		lpm r18, Z+
+ 563 01ce 3491      		lpm r19, Z
+ 564               		
+ 565               	 ;  0 "" 2
+ 566               	.LVL38:
+ 567               	/* #NOAPP */
+ 568 01d0 0E5F      		subi r16,lo8(-(2))
+ 569 01d2 1F4F      		sbci r17,hi8(-(2))
+ 570               	.LBE120:
+ 571               	.LBE119:
+ 572               	.LBE118:
+ 573               	.LM81:
+ 574 01d4 8217      		cp r24,r18
+ 575 01d6 9307      		cpc r25,r19
+ 576 01d8 01F0      		breq .L45
+ 577 01da 80E0      		ldi r24,lo8(0)
+ 578               	.LVL39:
+ 579 01dc 00C0      		rjmp .L46
+ 580               	.LVL40:
+ 581               	.L45:
+ 582               	.LM82:
+ 583 01de 2196      		adiw r28,1
+ 584               	.LVL41:
+ 585               	.L44:
+ 586 01e0 CC15      		cp r28,r12
+ 587 01e2 DD05      		cpc r29,r13
+ 588 01e4 00F0      		brlo .L47
+ 589 01e6 81E0      		ldi r24,lo8(1)
+ 590               	.LVL42:
+ 591               	.L46:
+ 592               	.LVL43:
+ 593               	/* epilogue start */
+ 594               	.LBE117:
+ 595               	.LM83:
+ 596 01e8 DF91      		pop r29
+ 597 01ea CF91      		pop r28
+ 598               	.LVL44:
+ 599 01ec 1F91      		pop r17
+ 600 01ee 0F91      		pop r16
+ 601 01f0 FF90      		pop r15
+ 602 01f2 EF90      		pop r14
+ 603               	.LVL45:
+ 604 01f4 DF90      		pop r13
+ 605 01f6 CF90      		pop r12
+ 606               	.LVL46:
+ 607 01f8 0895      		ret
+ 608               	.LFE39:
+ 610               	.global	ISP_Load_PGM_Word
+ 612               	ISP_Load_PGM_Word:
+ 613               	.LFB31:
+ 614               	.LM84:
+ 615               	.LVL47:
+ 616 01fa FF92      		push r15
+ 617 01fc 0F93      		push r16
+ 618 01fe 1F93      		push r17
+ 619               	/* prologue: function */
+ 620               	/* frame size = 0 */
+ 621 0200 182F      		mov r17,r24
+ 622 0202 F62E      		mov r15,r22
+ 623 0204 072F      		mov r16,r23
+ 624               	.LVL48:
+ 625               	.LM85:
+ 626 0206 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 627               	.LVL49:
+ 628               	.LM86:
+ 629 020a 80E4      		ldi r24,lo8(64)
+ 630 020c 0E94 0000 		call SPI_Transceive
+ 631               	.LM87:
+ 632 0210 80E0      		ldi r24,lo8(0)
+ 633 0212 0E94 0000 		call SPI_Transceive
+ 634               	.LM88:
+ 635 0216 1F73      		andi r17,lo8(63)
+ 636 0218 812F      		mov r24,r17
+ 637 021a 0E94 0000 		call SPI_Transceive
+ 638               	.LM89:
+ 639 021e 802F      		mov r24,r16
+ 640 0220 0E94 0000 		call SPI_Transceive
+ 641               	.LM90:
+ 642 0224 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 643               	.LM91:
+ 644 0228 88E4      		ldi r24,lo8(72)
+ 645 022a 0E94 0000 		call SPI_Transceive
+ 646               	.LM92:
+ 647 022e 80E0      		ldi r24,lo8(0)
+ 648 0230 0E94 0000 		call SPI_Transceive
+ 649               	.LM93:
+ 650 0234 812F      		mov r24,r17
+ 651 0236 0E94 0000 		call SPI_Transceive
+ 652               	.LM94:
+ 653 023a 8F2D      		mov r24,r15
+ 654 023c 0E94 0000 		call SPI_Transceive
+ 655               	.LM95:
+ 656 0240 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 657               	/* epilogue start */
+ 658               	.LM96:
+ 659 0244 1F91      		pop r17
+ 660 0246 0F91      		pop r16
+ 661               	.LVL50:
+ 662 0248 FF90      		pop r15
+ 663               	.LVL51:
+ 664 024a 0895      		ret
+ 665               	.LFE31:
+ 667               	.global	ISP_Load_PGM_Page
+ 669               	ISP_Load_PGM_Page:
+ 670               	.LFB32:
+ 671               	.LM97:
+ 672               	.LVL52:
+ 673 024c 1F93      		push r17
+ 674 024e CF93      		push r28
+ 675 0250 DF93      		push r29
+ 676               	/* prologue: function */
+ 677               	/* frame size = 0 */
+ 678               	.LM98:
+ 679 0252 EC01      		movw r28,r24
+ 680               	.LVL53:
+ 681 0254 10E0      		ldi r17,lo8(0)
+ 682               	.L52:
+ 683               	.LBB121:
+ 684               	.LM99:
+ 685 0256 6991      		ld r22,Y+
+ 686 0258 7991      		ld r23,Y+
+ 687 025a 812F      		mov r24,r17
+ 688 025c 0E94 0000 		call ISP_Load_PGM_Word
+ 689 0260 1F5F      		subi r17,lo8(-(1))
+ 690               	.LM100:
+ 691 0262 1034      		cpi r17,lo8(64)
+ 692 0264 01F4      		brne .L52
+ 693               	/* epilogue start */
+ 694               	.LBE121:
+ 695               	.LM101:
+ 696 0266 DF91      		pop r29
+ 697 0268 CF91      		pop r28
+ 698 026a 1F91      		pop r17
+ 699 026c 0895      		ret
+ 700               	.LFE32:
+ 702               	.global	ISP_Write_PGM_Page
+ 704               	ISP_Write_PGM_Page:
+ 705               	.LFB33:
+ 706               	.LM102:
+ 707               	.LVL54:
+ 708 026e 1F93      		push r17
+ 709               	/* prologue: function */
+ 710               	/* frame size = 0 */
+ 711 0270 182F      		mov r17,r24
+ 712 0272 CB01      		movw r24,r22
+ 713               	.LVL55:
+ 714               	.LM103:
+ 715 0274 0E94 0000 		call ISP_Load_PGM_Page
+ 716               	.LVL56:
+ 717               	.LM104:
+ 718 0278 8CE4      		ldi r24,lo8(76)
+ 719 027a 0E94 0000 		call SPI_Transceive
+ 720               	.LM105:
+ 721 027e 812F      		mov r24,r17
+ 722 0280 8695      		lsr r24
+ 723 0282 8695      		lsr r24
+ 724 0284 0E94 0000 		call SPI_Transceive
+ 725               	.LM106:
+ 726 0288 812F      		mov r24,r17
+ 727 028a 8295      		swap r24
+ 728 028c 880F      		lsl r24
+ 729 028e 880F      		lsl r24
+ 730 0290 807C      		andi r24,lo8(-64)
+ 731 0292 0E94 0000 		call SPI_Transceive
+ 732               	.LM107:
+ 733 0296 80E0      		ldi r24,lo8(0)
+ 734 0298 0E94 0000 		call SPI_Transceive
+ 735               	.LBB122:
+ 736               	.LBB123:
+ 737               	.LBB124:
+ 738               	.LBB125:
+ 739               	.LM108:
+ 740 029c 88E9      		ldi r24,lo8(15000)
+ 741 029e 9AE3      		ldi r25,hi8(15000)
+ 742               	.LVL57:
+ 743               	/* #APP */
+ 744               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 745 02a0 0197      		1: sbiw r24,1
+ 746 02a2 01F4      		brne 1b
+ 747               	 ;  0 "" 2
+ 748               	/* #NOAPP */
+ 749               	.LBE125:
+ 750               	.LBE124:
+ 751               	.LBE123:
+ 752               	.LBE122:
+ 753               	.LM109:
+ 754 02a4 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 755               	.LVL58:
+ 756               	/* epilogue start */
+ 757               	.LM110:
+ 758 02a8 1F91      		pop r17
+ 759               	.LVL59:
+ 760 02aa 0895      		ret
+ 761               	.LFE33:
+ 763               	.global	ISP_Write_Auto
+ 765               	ISP_Write_Auto:
+ 766               	.LFB36:
+ 767               	.LM111:
+ 768 02ac CF92      		push r12
+ 769 02ae DF92      		push r13
+ 770 02b0 EF92      		push r14
+ 771 02b2 FF92      		push r15
+ 772 02b4 0F93      		push r16
+ 773 02b6 1F93      		push r17
+ 774 02b8 CF93      		push r28
+ 775 02ba DF93      		push r29
+ 776               	/* prologue: function */
+ 777               	/* frame size = 0 */
+ 778               	.LBB126:
+ 779               	.LBB127:
+ 780               	.LBB128:
+ 781               	.LM112:
+ 782 02bc E0E0      		ldi r30,lo8(firmware_data)
+ 783 02be F0E0      		ldi r31,hi8(firmware_data)
+ 784               	.LVL60:
+ 785               	/* #APP */
+ 786               	 ;  341 "isp.c" 1
+ 787 02c0 E590      		lpm r14, Z+
+ 788 02c2 F490      		lpm r15, Z
+ 789               		
+ 790               	 ;  0 "" 2
+ 791               	.LVL61:
+ 792               	/* #NOAPP */
+ 793               	.LBE128:
+ 794               	.LBE127:
+ 795               	.LBE126:
+ 796               	.LM113:
+ 797 02c4 EE0C      		lsl r14
+ 798 02c6 EF2C      		mov r14,r15
+ 799 02c8 EE1C      		rol r14
+ 800 02ca FF08      		sbc r15,r15
+ 801 02cc F194      		neg r15
+ 802               	.LBB129:
+ 803               	.LBB130:
+ 804               	.LBB131:
+ 805               	.LM114:
+ 806 02ce E0E0      		ldi r30,lo8(firmware_data+10)
+ 807 02d0 F0E0      		ldi r31,hi8(firmware_data+10)
+ 808               	.LVL62:
+ 809               	/* #APP */
+ 810               	 ;  341 "isp.c" 1
+ 811 02d2 C590      		lpm r12, Z+
+ 812 02d4 D490      		lpm r13, Z
+ 813               		
+ 814               	 ;  0 "" 2
+ 815               	.LVL63:
+ 816               	/* #NOAPP */
+ 817 02d6 C0E0      		ldi r28,lo8(0)
+ 818 02d8 D0E0      		ldi r29,hi8(0)
+ 819               	.LVL64:
+ 820 02da 00E1      		ldi r16,lo8(16)
+ 821 02dc 10E0      		ldi r17,hi8(16)
+ 822 02de 00C0      		rjmp .L58
+ 823               	.L59:
+ 824               	.LBE131:
+ 825               	.LBE130:
+ 826               	.LBE129:
+ 827               	.LBB132:
+ 828               	.LM115:
+ 829 02e0 C801      		movw r24,r16
+ 830 02e2 0E94 0000 		call ISP_Load_Buffer_With_Offset
+ 831               	.LVL65:
+ 832               	.LM116:
+ 833 02e6 9E01      		movw r18,r28
+ 834 02e8 2E0D      		add r18,r14
+ 835 02ea 822F      		mov r24,r18
+ 836 02ec 60E0      		ldi r22,lo8(ISP_Buf)
+ 837 02ee 70E0      		ldi r23,hi8(ISP_Buf)
+ 838 02f0 0E94 0000 		call ISP_Write_PGM_Page
+ 839               	.LM117:
+ 840 02f4 2196      		adiw r28,1
+ 841 02f6 005C      		subi r16,lo8(-(64))
+ 842 02f8 1F4F      		sbci r17,hi8(-(64))
+ 843               	.LVL66:
+ 844               	.L58:
+ 845 02fa CC15      		cp r28,r12
+ 846 02fc DD05      		cpc r29,r13
+ 847 02fe 00F0      		brlo .L59
+ 848               	/* epilogue start */
+ 849               	.LBE132:
+ 850               	.LM118:
+ 851 0300 DF91      		pop r29
+ 852 0302 CF91      		pop r28
+ 853               	.LVL67:
+ 854 0304 1F91      		pop r17
+ 855 0306 0F91      		pop r16
+ 856 0308 FF90      		pop r15
+ 857 030a EF90      		pop r14
+ 858               	.LVL68:
+ 859 030c DF90      		pop r13
+ 860 030e CF90      		pop r12
+ 861               	.LVL69:
+ 862 0310 0895      		ret
+ 863               	.LFE36:
+ 865               	.global	ISP_Read_EEPROM
+ 867               	ISP_Read_EEPROM:
+ 868               	.LFB30:
+ 869               	.LM119:
+ 870               	.LVL70:
+ 871 0312 0F93      		push r16
+ 872 0314 1F93      		push r17
+ 873               	/* prologue: function */
+ 874               	/* frame size = 0 */
+ 875 0316 8C01      		movw r16,r24
+ 876               	.LVL71:
+ 877               	.LM120:
+ 878 0318 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 879               	.LM121:
+ 880 031c 80EA      		ldi r24,lo8(-96)
+ 881 031e 0E94 0000 		call SPI_Transceive
+ 882               	.LM122:
+ 883 0322 812F      		mov r24,r17
+ 884               	.LVL72:
+ 885 0324 8370      		andi r24,lo8(3)
+ 886 0326 0E94 0000 		call SPI_Transceive
+ 887               	.LM123:
+ 888 032a 802F      		mov r24,r16
+ 889               	.LVL73:
+ 890 032c 0E94 0000 		call SPI_Transceive
+ 891               	.LM124:
+ 892 0330 80E0      		ldi r24,lo8(0)
+ 893 0332 0E94 0000 		call SPI_Transceive
+ 894 0336 182F      		mov r17,r24
+ 895               	.LVL74:
+ 896               	.LM125:
+ 897 0338 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 898               	.LM126:
+ 899 033c 812F      		mov r24,r17
+ 900               	/* epilogue start */
+ 901 033e 1F91      		pop r17
+ 902               	.LVL75:
+ 903 0340 0F91      		pop r16
+ 904               	.LVL76:
+ 905 0342 0895      		ret
+ 906               	.LFE30:
+ 908               	.global	ISP_Write_EEPROM
+ 910               	ISP_Write_EEPROM:
+ 911               	.LFB29:
+ 912               	.LM127:
+ 913               	.LVL77:
+ 914 0344 FF92      		push r15
+ 915 0346 0F93      		push r16
+ 916 0348 1F93      		push r17
+ 917               	/* prologue: function */
+ 918               	/* frame size = 0 */
+ 919 034a 182F      		mov r17,r24
+ 920 034c 092F      		mov r16,r25
+ 921               	.LVL78:
+ 922 034e F62E      		mov r15,r22
+ 923               	.LM128:
+ 924 0350 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 925               	.LVL79:
+ 926               	.LM129:
+ 927 0354 80EC      		ldi r24,lo8(-64)
+ 928 0356 0E94 0000 		call SPI_Transceive
+ 929               	.LM130:
+ 930 035a 802F      		mov r24,r16
+ 931 035c 8370      		andi r24,lo8(3)
+ 932 035e 0E94 0000 		call SPI_Transceive
+ 933               	.LM131:
+ 934 0362 812F      		mov r24,r17
+ 935 0364 0E94 0000 		call SPI_Transceive
+ 936               	.LM132:
+ 937 0368 8F2D      		mov r24,r15
+ 938 036a 0E94 0000 		call SPI_Transceive
+ 939               	.LM133:
+ 940 036e 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 941               	/* epilogue start */
+ 942               	.LM134:
+ 943 0372 1F91      		pop r17
+ 944               	.LVL80:
+ 945 0374 0F91      		pop r16
+ 946               	.LVL81:
+ 947 0376 FF90      		pop r15
+ 948               	.LVL82:
+ 949 0378 0895      		ret
+ 950               	.LFE29:
+ 952               	.global	ISP_Chip_Erase
+ 954               	ISP_Chip_Erase:
+ 955               	.LFB28:
+ 956               	.LM135:
+ 957               	/* prologue: function */
+ 958               	/* frame size = 0 */
+ 959               	.LM136:
+ 960 037a 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 961               	.LM137:
+ 962 037e 8CEA      		ldi r24,lo8(-84)
+ 963 0380 0E94 0000 		call SPI_Transceive
+ 964               	.LM138:
+ 965 0384 80E8      		ldi r24,lo8(-128)
+ 966 0386 0E94 0000 		call SPI_Transceive
+ 967               	.LM139:
+ 968 038a 80E0      		ldi r24,lo8(0)
+ 969 038c 0E94 0000 		call SPI_Transceive
+ 970               	.LM140:
+ 971 0390 80E0      		ldi r24,lo8(0)
+ 972 0392 0E94 0000 		call SPI_Transceive
+ 973               	.LM141:
+ 974 0396 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 975               	/* epilogue start */
+ 976               	.LM142:
+ 977 039a 0895      		ret
+ 978               	.LFE28:
+ 980               	.global	ISP_Write_Device_LBITS
+ 982               	ISP_Write_Device_LBITS:
+ 983               	.LFB23:
+ 984               	.LM143:
+ 985               	.LVL83:
+ 986 039c 1F93      		push r17
+ 987               	/* prologue: function */
+ 988               	/* frame size = 0 */
+ 989 039e 182F      		mov r17,r24
+ 990               	.LM144:
+ 991 03a0 8CEA      		ldi r24,lo8(-84)
+ 992               	.LVL84:
+ 993 03a2 0E94 0000 		call SPI_Transceive
+ 994               	.LM145:
+ 995 03a6 80EE      		ldi r24,lo8(-32)
+ 996 03a8 0E94 0000 		call SPI_Transceive
+ 997               	.LM146:
+ 998 03ac 80E0      		ldi r24,lo8(0)
+ 999 03ae 0E94 0000 		call SPI_Transceive
+ 1000               	.LM147:
+ 1001 03b2 812F      		mov r24,r17
+ 1002 03b4 0E94 0000 		call SPI_Transceive
+ 1003               	.LM148:
+ 1004 03b8 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1005               	/* epilogue start */
+ 1006               	.LM149:
+ 1007 03bc 1F91      		pop r17
+ 1008               	.LVL85:
+ 1009 03be 0895      		ret
+ 1010               	.LFE23:
+ 1012               	.global	ISP_Write_Device_EFUSE
+ 1014               	ISP_Write_Device_EFUSE:
+ 1015               	.LFB22:
+ 1016               	.LM150:
+ 1017               	.LVL86:
+ 1018 03c0 1F93      		push r17
+ 1019               	/* prologue: function */
+ 1020               	/* frame size = 0 */
+ 1021 03c2 182F      		mov r17,r24
+ 1022               	.LM151:
+ 1023 03c4 8CEA      		ldi r24,lo8(-84)
+ 1024               	.LVL87:
+ 1025 03c6 0E94 0000 		call SPI_Transceive
+ 1026               	.LM152:
+ 1027 03ca 84EA      		ldi r24,lo8(-92)
+ 1028 03cc 0E94 0000 		call SPI_Transceive
+ 1029               	.LM153:
+ 1030 03d0 80E0      		ldi r24,lo8(0)
+ 1031 03d2 0E94 0000 		call SPI_Transceive
+ 1032               	.LM154:
+ 1033 03d6 812F      		mov r24,r17
+ 1034 03d8 0E94 0000 		call SPI_Transceive
+ 1035               	.LM155:
+ 1036 03dc 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1037               	/* epilogue start */
+ 1038               	.LM156:
+ 1039 03e0 1F91      		pop r17
+ 1040               	.LVL88:
+ 1041 03e2 0895      		ret
+ 1042               	.LFE22:
+ 1044               	.global	ISP_Write_Device_HFUSE
+ 1046               	ISP_Write_Device_HFUSE:
+ 1047               	.LFB21:
+ 1048               	.LM157:
+ 1049               	.LVL89:
+ 1050 03e4 1F93      		push r17
+ 1051               	/* prologue: function */
+ 1052               	/* frame size = 0 */
+ 1053 03e6 182F      		mov r17,r24
+ 1054               	.LM158:
+ 1055 03e8 8CEA      		ldi r24,lo8(-84)
+ 1056               	.LVL90:
+ 1057 03ea 0E94 0000 		call SPI_Transceive
+ 1058               	.LM159:
+ 1059 03ee 88EA      		ldi r24,lo8(-88)
+ 1060 03f0 0E94 0000 		call SPI_Transceive
+ 1061               	.LM160:
+ 1062 03f4 80E0      		ldi r24,lo8(0)
+ 1063 03f6 0E94 0000 		call SPI_Transceive
+ 1064               	.LM161:
+ 1065 03fa 812F      		mov r24,r17
+ 1066 03fc 0E94 0000 		call SPI_Transceive
+ 1067               	.LM162:
+ 1068 0400 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1069               	/* epilogue start */
+ 1070               	.LM163:
+ 1071 0404 1F91      		pop r17
+ 1072               	.LVL91:
+ 1073 0406 0895      		ret
+ 1074               	.LFE21:
+ 1076               	.global	ISP_Write_Device_LFUSE
+ 1078               	ISP_Write_Device_LFUSE:
+ 1079               	.LFB20:
+ 1080               	.LM164:
+ 1081               	.LVL92:
+ 1082 0408 1F93      		push r17
+ 1083               	/* prologue: function */
+ 1084               	/* frame size = 0 */
+ 1085 040a 182F      		mov r17,r24
+ 1086               	.LM165:
+ 1087 040c 8CEA      		ldi r24,lo8(-84)
+ 1088               	.LVL93:
+ 1089 040e 0E94 0000 		call SPI_Transceive
+ 1090               	.LM166:
+ 1091 0412 80EA      		ldi r24,lo8(-96)
+ 1092 0414 0E94 0000 		call SPI_Transceive
+ 1093               	.LM167:
+ 1094 0418 80E0      		ldi r24,lo8(0)
+ 1095 041a 0E94 0000 		call SPI_Transceive
+ 1096               	.LM168:
+ 1097 041e 812F      		mov r24,r17
+ 1098 0420 0E94 0000 		call SPI_Transceive
+ 1099               	.LM169:
+ 1100 0424 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1101               	/* epilogue start */
+ 1102               	.LM170:
+ 1103 0428 1F91      		pop r17
+ 1104               	.LVL94:
+ 1105 042a 0895      		ret
+ 1106               	.LFE20:
+ 1108               	.global	ISP_Read_Device_LBITS
+ 1110               	ISP_Read_Device_LBITS:
+ 1111               	.LFB18:
+ 1112               	.LM171:
+ 1113               	/* prologue: function */
+ 1114               	/* frame size = 0 */
+ 1115               	.LM172:
+ 1116 042c 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1117               	.LM173:
+ 1118 0430 1092 0000 		sts ISP+9,__zero_reg__
+ 1119               	.LM174:
+ 1120 0434 88E5      		ldi r24,lo8(88)
+ 1121 0436 0E94 0000 		call SPI_Transceive
+ 1122               	.LM175:
+ 1123 043a 80E0      		ldi r24,lo8(0)
+ 1124 043c 0E94 0000 		call SPI_Transceive
+ 1125               	.LM176:
+ 1126 0440 80E0      		ldi r24,lo8(0)
+ 1127 0442 0E94 0000 		call SPI_Transceive
+ 1128               	.LM177:
+ 1129 0446 80E0      		ldi r24,lo8(0)
+ 1130 0448 0E94 0000 		call SPI_Transceive
+ 1131 044c 8093 0000 		sts ISP+9,r24
+ 1132               	/* epilogue start */
+ 1133               	.LM178:
+ 1134 0450 0895      		ret
+ 1135               	.LFE18:
+ 1137               	.global	ISP_Write_Verify_Device_LBITS
+ 1139               	ISP_Write_Verify_Device_LBITS:
+ 1140               	.LFB27:
+ 1141               	.LM179:
+ 1142               	.LVL95:
+ 1143 0452 1F93      		push r17
+ 1144               	/* prologue: function */
+ 1145               	/* frame size = 0 */
+ 1146 0454 182F      		mov r17,r24
+ 1147               	.LM180:
+ 1148 0456 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1149               	.LVL96:
+ 1150               	.LM181:
+ 1151 045a 812F      		mov r24,r17
+ 1152 045c 0E94 0000 		call ISP_Write_Device_LBITS
+ 1153               	.LM182:
+ 1154 0460 0E94 0000 		call ISP_Read_Device_LBITS
+ 1155 0464 90E0      		ldi r25,lo8(0)
+ 1156 0466 8117      		cp r24,r17
+ 1157 0468 01F4      		brne .L78
+ 1158 046a 91E0      		ldi r25,lo8(1)
+ 1159               	.L78:
+ 1160               	.LM183:
+ 1161 046c 892F      		mov r24,r25
+ 1162               	/* epilogue start */
+ 1163 046e 1F91      		pop r17
+ 1164               	.LVL97:
+ 1165 0470 0895      		ret
+ 1166               	.LFE27:
+ 1168               	.global	ISP_Overwrite_LBITS
+ 1170               	ISP_Overwrite_LBITS:
+ 1171               	.LFB51:
+ 1172               	.LM184:
+ 1173               	/* prologue: function */
+ 1174               	/* frame size = 0 */
+ 1175               	.LM185:
+ 1176 0472 0E94 0000 		call ISP_Read_Device_LBITS
+ 1177 0476 8F3F      		cpi r24,lo8(-1)
+ 1178 0478 01F0      		breq .L81
+ 1179 047a 80E0      		ldi r24,lo8(0)
+ 1180               	.LVL98:
+ 1181 047c 0895      		ret
+ 1182               	.LVL99:
+ 1183               	.L81:
+ 1184               	.LM186:
+ 1185 047e 8FEC      		ldi r24,lo8(-49)
+ 1186 0480 0E94 0000 		call ISP_Write_Verify_Device_LBITS
+ 1187 0484 8111      		cpse r24,__zero_reg__
+ 1188 0486 81E0      		ldi r24,lo8(1)
+ 1189               	.L82:
+ 1190               	.LM187:
+ 1191 0488 0895      		ret
+ 1192               	.LFE51:
+ 1194               	.global	ISP_Read_Device_EFUSE
+ 1196               	ISP_Read_Device_EFUSE:
+ 1197               	.LFB17:
+ 1198               	.LM188:
+ 1199               	/* prologue: function */
+ 1200               	/* frame size = 0 */
+ 1201               	.LM189:
+ 1202 048a 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1203               	.LM190:
+ 1204 048e 1092 0000 		sts ISP+8,__zero_reg__
+ 1205               	.LM191:
+ 1206 0492 80E5      		ldi r24,lo8(80)
+ 1207 0494 0E94 0000 		call SPI_Transceive
+ 1208               	.LM192:
+ 1209 0498 88E0      		ldi r24,lo8(8)
+ 1210 049a 0E94 0000 		call SPI_Transceive
+ 1211               	.LM193:
+ 1212 049e 80E0      		ldi r24,lo8(0)
+ 1213 04a0 0E94 0000 		call SPI_Transceive
+ 1214               	.LM194:
+ 1215 04a4 80E0      		ldi r24,lo8(0)
+ 1216 04a6 0E94 0000 		call SPI_Transceive
+ 1217 04aa 8093 0000 		sts ISP+8,r24
+ 1218               	/* epilogue start */
+ 1219               	.LM195:
+ 1220 04ae 0895      		ret
+ 1221               	.LFE17:
+ 1223               	.global	ISP_Write_Verify_Device_EFUSE
+ 1225               	ISP_Write_Verify_Device_EFUSE:
+ 1226               	.LFB26:
+ 1227               	.LM196:
+ 1228               	.LVL100:
+ 1229 04b0 1F93      		push r17
+ 1230               	/* prologue: function */
+ 1231               	/* frame size = 0 */
+ 1232 04b2 182F      		mov r17,r24
+ 1233               	.LM197:
+ 1234 04b4 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1235               	.LVL101:
+ 1236               	.LM198:
+ 1237 04b8 812F      		mov r24,r17
+ 1238 04ba 0E94 0000 		call ISP_Write_Device_EFUSE
+ 1239               	.LM199:
+ 1240 04be 0E94 0000 		call ISP_Read_Device_EFUSE
+ 1241 04c2 90E0      		ldi r25,lo8(0)
+ 1242 04c4 8117      		cp r24,r17
+ 1243 04c6 01F4      		brne .L88
+ 1244 04c8 91E0      		ldi r25,lo8(1)
+ 1245               	.L88:
+ 1246               	.LM200:
+ 1247 04ca 892F      		mov r24,r25
+ 1248               	/* epilogue start */
+ 1249 04cc 1F91      		pop r17
+ 1250               	.LVL102:
+ 1251 04ce 0895      		ret
+ 1252               	.LFE26:
+ 1254               	.global	ISP_Read_Device_HFUSE
+ 1256               	ISP_Read_Device_HFUSE:
+ 1257               	.LFB16:
+ 1258               	.LM201:
+ 1259               	/* prologue: function */
+ 1260               	/* frame size = 0 */
+ 1261               	.LM202:
+ 1262 04d0 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1263               	.LM203:
+ 1264 04d4 1092 0000 		sts ISP+7,__zero_reg__
+ 1265               	.LM204:
+ 1266 04d8 88E5      		ldi r24,lo8(88)
+ 1267 04da 0E94 0000 		call SPI_Transceive
+ 1268               	.LM205:
+ 1269 04de 88E0      		ldi r24,lo8(8)
+ 1270 04e0 0E94 0000 		call SPI_Transceive
+ 1271               	.LM206:
+ 1272 04e4 80E0      		ldi r24,lo8(0)
+ 1273 04e6 0E94 0000 		call SPI_Transceive
+ 1274               	.LM207:
+ 1275 04ea 80E0      		ldi r24,lo8(0)
+ 1276 04ec 0E94 0000 		call SPI_Transceive
+ 1277 04f0 8093 0000 		sts ISP+7,r24
+ 1278               	/* epilogue start */
+ 1279               	.LM208:
+ 1280 04f4 0895      		ret
+ 1281               	.LFE16:
+ 1283               	.global	ISP_Write_Verify_Device_HFUSE
+ 1285               	ISP_Write_Verify_Device_HFUSE:
+ 1286               	.LFB25:
+ 1287               	.LM209:
+ 1288               	.LVL103:
+ 1289 04f6 1F93      		push r17
+ 1290               	/* prologue: function */
+ 1291               	/* frame size = 0 */
+ 1292 04f8 182F      		mov r17,r24
+ 1293               	.LM210:
+ 1294 04fa 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1295               	.LVL104:
+ 1296               	.LM211:
+ 1297 04fe 812F      		mov r24,r17
+ 1298 0500 0E94 0000 		call ISP_Write_Device_HFUSE
+ 1299               	.LM212:
+ 1300 0504 0E94 0000 		call ISP_Read_Device_HFUSE
+ 1301 0508 90E0      		ldi r25,lo8(0)
+ 1302 050a 8117      		cp r24,r17
+ 1303 050c 01F4      		brne .L93
+ 1304 050e 91E0      		ldi r25,lo8(1)
+ 1305               	.L93:
+ 1306               	.LM213:
+ 1307 0510 892F      		mov r24,r25
+ 1308               	/* epilogue start */
+ 1309 0512 1F91      		pop r17
+ 1310               	.LVL105:
+ 1311 0514 0895      		ret
+ 1312               	.LFE25:
+ 1314               	.global	ISP_Overwrite_EFUSE
+ 1316               	ISP_Overwrite_EFUSE:
+ 1317               	.LFB50:
+ 1318               	.LM214:
+ 1319               	/* prologue: function */
+ 1320               	/* frame size = 0 */
+ 1321               	.LM215:
+ 1322 0516 0E94 0000 		call ISP_Read_Device_EFUSE
+ 1323 051a 8F3F      		cpi r24,lo8(-1)
+ 1324 051c 01F0      		breq .L96
+ 1325 051e 80E0      		ldi r24,lo8(0)
+ 1326               	.LVL106:
+ 1327 0520 0895      		ret
+ 1328               	.LVL107:
+ 1329               	.L96:
+ 1330               	.LM216:
+ 1331 0522 8FEF      		ldi r24,lo8(-1)
+ 1332 0524 0E94 0000 		call ISP_Write_Verify_Device_HFUSE
+ 1333 0528 8111      		cpse r24,__zero_reg__
+ 1334 052a 81E0      		ldi r24,lo8(1)
+ 1335               	.L97:
+ 1336               	.LM217:
+ 1337 052c 0895      		ret
+ 1338               	.LFE50:
+ 1340               	.global	ISP_Overwrite_HFUSE
+ 1342               	ISP_Overwrite_HFUSE:
+ 1343               	.LFB49:
+ 1344               	.LM218:
+ 1345               	/* prologue: function */
+ 1346               	/* frame size = 0 */
+ 1347               	.LM219:
+ 1348 052e 0E94 0000 		call ISP_Read_Device_HFUSE
+ 1349 0532 893D      		cpi r24,lo8(-39)
+ 1350 0534 01F0      		breq .L101
+ 1351 0536 80E0      		ldi r24,lo8(0)
+ 1352               	.LVL108:
+ 1353 0538 0895      		ret
+ 1354               	.LVL109:
+ 1355               	.L101:
+ 1356               	.LM220:
+ 1357 053a 80ED      		ldi r24,lo8(-48)
+ 1358 053c 0E94 0000 		call ISP_Write_Verify_Device_HFUSE
+ 1359 0540 8111      		cpse r24,__zero_reg__
+ 1360 0542 81E0      		ldi r24,lo8(1)
+ 1361               	.L102:
+ 1362               	.LM221:
+ 1363 0544 0895      		ret
+ 1364               	.LFE49:
+ 1366               	.global	ISP_Read_Device_LFUSE
+ 1368               	ISP_Read_Device_LFUSE:
+ 1369               	.LFB15:
+ 1370               	.LM222:
+ 1371               	/* prologue: function */
+ 1372               	/* frame size = 0 */
+ 1373               	.LM223:
+ 1374 0546 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1375               	.LM224:
+ 1376 054a 1092 0000 		sts ISP+6,__zero_reg__
+ 1377               	.LM225:
+ 1378 054e 80E5      		ldi r24,lo8(80)
+ 1379 0550 0E94 0000 		call SPI_Transceive
+ 1380               	.LM226:
+ 1381 0554 80E0      		ldi r24,lo8(0)
+ 1382 0556 0E94 0000 		call SPI_Transceive
+ 1383               	.LM227:
+ 1384 055a 80E0      		ldi r24,lo8(0)
+ 1385 055c 0E94 0000 		call SPI_Transceive
+ 1386               	.LM228:
+ 1387 0560 80E0      		ldi r24,lo8(0)
+ 1388 0562 0E94 0000 		call SPI_Transceive
+ 1389 0566 8093 0000 		sts ISP+6,r24
+ 1390               	/* epilogue start */
+ 1391               	.LM229:
+ 1392 056a 0895      		ret
+ 1393               	.LFE15:
+ 1395               	.global	ISP_Write_Verify_Device_LFUSE
+ 1397               	ISP_Write_Verify_Device_LFUSE:
+ 1398               	.LFB24:
+ 1399               	.LM230:
+ 1400               	.LVL110:
+ 1401 056c 1F93      		push r17
+ 1402               	/* prologue: function */
+ 1403               	/* frame size = 0 */
+ 1404 056e 182F      		mov r17,r24
+ 1405               	.LM231:
+ 1406 0570 0E94 0000 		call ISP_Wait_Till_MCU_Busy
+ 1407               	.LVL111:
+ 1408               	.LM232:
+ 1409 0574 812F      		mov r24,r17
+ 1410 0576 0E94 0000 		call ISP_Write_Device_LFUSE
+ 1411               	.LM233:
+ 1412 057a 0E94 0000 		call ISP_Read_Device_LFUSE
+ 1413 057e 90E0      		ldi r25,lo8(0)
+ 1414 0580 8117      		cp r24,r17
+ 1415 0582 01F4      		brne .L108
+ 1416 0584 91E0      		ldi r25,lo8(1)
+ 1417               	.L108:
+ 1418               	.LM234:
+ 1419 0586 892F      		mov r24,r25
+ 1420               	/* epilogue start */
+ 1421 0588 1F91      		pop r17
+ 1422               	.LVL112:
+ 1423 058a 0895      		ret
+ 1424               	.LFE24:
+ 1426               	.global	ISP_Overwrite_LFUSE
+ 1428               	ISP_Overwrite_LFUSE:
+ 1429               	.LFB48:
+ 1430               	.LM235:
+ 1431               	/* prologue: function */
+ 1432               	/* frame size = 0 */
+ 1433               	.LM236:
+ 1434 058c 0E94 0000 		call ISP_Read_Device_LFUSE
+ 1435 0590 8236      		cpi r24,lo8(98)
+ 1436 0592 01F0      		breq .L111
+ 1437 0594 80E0      		ldi r24,lo8(0)
+ 1438               	.LVL113:
+ 1439 0596 0895      		ret
+ 1440               	.LVL114:
+ 1441               	.L111:
+ 1442               	.LM237:
+ 1443 0598 82EE      		ldi r24,lo8(-30)
+ 1444 059a 0E94 0000 		call ISP_Write_Verify_Device_LFUSE
+ 1445 059e 8111      		cpse r24,__zero_reg__
+ 1446 05a0 81E0      		ldi r24,lo8(1)
+ 1447               	.L112:
+ 1448               	.LM238:
+ 1449 05a2 0895      		ret
+ 1450               	.LFE48:
+ 1452               	.global	ISP_Read_Device_Signature
+ 1454               	ISP_Read_Device_Signature:
+ 1455               	.LFB12:
+ 1456               	.LM239:
+ 1457 05a4 EF92      		push r14
+ 1458 05a6 FF92      		push r15
+ 1459 05a8 1F93      		push r17
+ 1460 05aa DF93      		push r29
+ 1461 05ac CF93      		push r28
+ 1462 05ae CDB7      		in r28,__SP_L__
+ 1463 05b0 DEB7      		in r29,__SP_H__
+ 1464 05b2 2C97      		sbiw r28,12
+ 1465 05b4 0FB6      		in __tmp_reg__,__SREG__
+ 1466 05b6 F894      		cli
+ 1467 05b8 DEBF      		out __SP_H__,r29
+ 1468 05ba 0FBE      		out __SREG__,__tmp_reg__
+ 1469 05bc CDBF      		out __SP_L__,r28
+ 1470               	/* prologue: function */
+ 1471               	/* frame size = 12 */
+ 1472               	.LM240:
+ 1473 05be DE01      		movw r26,r28
+ 1474 05c0 1196      		adiw r26,1
+ 1475 05c2 E0E0      		ldi r30,lo8(C.1.1567)
+ 1476 05c4 F0E0      		ldi r31,hi8(C.1.1567)
+ 1477 05c6 8CE0      		ldi r24,lo8(12)
+ 1478               	.L116:
+ 1479 05c8 0190      		ld r0,Z+
+ 1480 05ca 0D92      		st X+,r0
+ 1481 05cc 8150      		subi r24,lo8(-(-1))
+ 1482 05ce 01F4      		brne .L116
+ 1483 05d0 7E01      		movw r14,r28
+ 1484 05d2 0894      		sec
+ 1485 05d4 E11C      		adc r14,__zero_reg__
+ 1486 05d6 F11C      		adc r15,__zero_reg__
+ 1487 05d8 10E0      		ldi r17,lo8(0)
+ 1488               	.LVL115:
+ 1489               	.L117:
+ 1490               	.LBB133:
+ 1491               	.LM241:
+ 1492 05da 80E3      		ldi r24,lo8(48)
+ 1493 05dc 0E94 0000 		call SPI_Transceive
+ 1494               	.LM242:
+ 1495 05e0 80E0      		ldi r24,lo8(0)
+ 1496 05e2 0E94 0000 		call SPI_Transceive
+ 1497               	.LM243:
+ 1498 05e6 812F      		mov r24,r17
+ 1499 05e8 0E94 0000 		call SPI_Transceive
+ 1500               	.LM244:
+ 1501 05ec 80E0      		ldi r24,lo8(0)
+ 1502 05ee 0E94 0000 		call SPI_Transceive
+ 1503 05f2 90E0      		ldi r25,lo8(0)
+ 1504 05f4 A0E0      		ldi r26,lo8(0)
+ 1505 05f6 B0E0      		ldi r27,hi8(0)
+ 1506 05f8 F701      		movw r30,r14
+ 1507 05fa 8193      		st Z+,r24
+ 1508 05fc 9193      		st Z+,r25
+ 1509 05fe A193      		st Z+,r26
+ 1510 0600 B193      		st Z+,r27
+ 1511 0602 7F01      		movw r14,r30
+ 1512               	.LM245:
+ 1513 0604 1F5F      		subi r17,lo8(-(1))
+ 1514 0606 1330      		cpi r17,lo8(3)
+ 1515 0608 01F4      		brne .L117
+ 1516               	.LBE133:
+ 1517               	.LM246:
+ 1518 060a 2981      		ldd r18,Y+1
+ 1519 060c 3A81      		ldd r19,Y+2
+ 1520 060e 4B81      		ldd r20,Y+3
+ 1521 0610 5C81      		ldd r21,Y+4
+ 1522 0612 542F      		mov r21,r20
+ 1523 0614 432F      		mov r20,r19
+ 1524 0616 322F      		mov r19,r18
+ 1525 0618 2227      		clr r18
+ 1526 061a 8D81      		ldd r24,Y+5
+ 1527 061c 9E81      		ldd r25,Y+6
+ 1528 061e AF81      		ldd r26,Y+7
+ 1529 0620 B885      		ldd r27,Y+8
+ 1530 0622 282B      		or r18,r24
+ 1531 0624 392B      		or r19,r25
+ 1532 0626 4A2B      		or r20,r26
+ 1533 0628 5B2B      		or r21,r27
+ 1534               	.LM247:
+ 1535 062a 542F      		mov r21,r20
+ 1536 062c 432F      		mov r20,r19
+ 1537 062e 322F      		mov r19,r18
+ 1538 0630 2227      		clr r18
+ 1539 0632 8985      		ldd r24,Y+9
+ 1540 0634 9A85      		ldd r25,Y+10
+ 1541 0636 AB85      		ldd r26,Y+11
+ 1542 0638 BC85      		ldd r27,Y+12
+ 1543 063a 282B      		or r18,r24
+ 1544 063c 392B      		or r19,r25
+ 1545 063e 4A2B      		or r20,r26
+ 1546 0640 5B2B      		or r21,r27
+ 1547 0642 2093 0000 		sts ISP,r18
+ 1548 0646 3093 0000 		sts (ISP)+1,r19
+ 1549 064a 4093 0000 		sts (ISP)+2,r20
+ 1550 064e 5093 0000 		sts (ISP)+3,r21
+ 1551               	.LM248:
+ 1552 0652 B901      		movw r22,r18
+ 1553 0654 CA01      		movw r24,r20
+ 1554               	/* epilogue start */
+ 1555 0656 2C96      		adiw r28,12
+ 1556 0658 0FB6      		in __tmp_reg__,__SREG__
+ 1557 065a F894      		cli
+ 1558 065c DEBF      		out __SP_H__,r29
+ 1559 065e 0FBE      		out __SREG__,__tmp_reg__
+ 1560 0660 CDBF      		out __SP_L__,r28
+ 1561 0662 CF91      		pop r28
+ 1562 0664 DF91      		pop r29
+ 1563 0666 1F91      		pop r17
+ 1564               	.LVL116:
+ 1565 0668 FF90      		pop r15
+ 1566 066a EF90      		pop r14
+ 1567 066c 0895      		ret
+ 1568               	.LFE12:
+ 1570               	.global	ISP_Read_Device_Parameters
+ 1572               	ISP_Read_Device_Parameters:
+ 1573               	.LFB19:
+ 1574               	.LM249:
+ 1575               	/* prologue: function */
+ 1576               	/* frame size = 0 */
+ 1577               	.LM250:
+ 1578 066e 0E94 0000 		call ISP_Read_Device_Signature
+ 1579               	.LM251:
+ 1580 0672 0E94 0000 		call ISP_Read_Device_LFUSE
+ 1581               	.LM252:
+ 1582 0676 0E94 0000 		call ISP_Read_Device_HFUSE
+ 1583               	.LM253:
+ 1584 067a 0E94 0000 		call ISP_Read_Device_EFUSE
+ 1585               	.LM254:
+ 1586 067e 0E94 0000 		call ISP_Read_Device_LBITS
+ 1587               	/* epilogue start */
+ 1588               	.LM255:
+ 1589 0682 0895      		ret
+ 1590               	.LFE19:
+ 1592               	.global	ISP_Reset_Disable
+ 1594               	ISP_Reset_Disable:
+ 1595               	.LFB10:
+ 1596               	.LM256:
+ 1597               	/* prologue: function */
+ 1598               	/* frame size = 0 */
+ 1599               	.LM257:
+ 1600 0684 0E94 0000 		call SPI_Reset_State
+ 1601               	.LBB134:
+ 1602               	.LBB135:
+ 1603               	.LBB136:
+ 1604               	.LBB137:
+ 1605               	.LBB138:
+ 1606               	.LBB139:
+ 1607               	.LM258:
+ 1608 0688 8CED      		ldi r24,lo8(1500)
+ 1609 068a 95E0      		ldi r25,hi8(1500)
+ 1610               	.LVL117:
+ 1611               	/* #APP */
+ 1612               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1613 068c 0197      		1: sbiw r24,1
+ 1614 068e 01F4      		brne 1b
+ 1615               	 ;  0 "" 2
+ 1616               	/* #NOAPP */
+ 1617               	.LBE139:
+ 1618               	.LBE138:
+ 1619               	.LBE137:
+ 1620               	.LBE136:
+ 1621               	.LBE135:
+ 1622               	.LBE134:
+ 1623               	.LM259:
+ 1624 0690 81E0      		ldi r24,lo8(1)
+ 1625               	.LVL118:
+ 1626 0692 0E94 0000 		call SPI_RESET_Set_Output_State
+ 1627               	.LBB140:
+ 1628               	.LBB141:
+ 1629               	.LBB142:
+ 1630               	.LBB143:
+ 1631               	.LM260:
+ 1632 0696 80E3      		ldi r24,lo8(30000)
+ 1633 0698 95E7      		ldi r25,hi8(30000)
+ 1634               	.LVL119:
+ 1635               	/* #APP */
+ 1636               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1637 069a 0197      		1: sbiw r24,1
+ 1638 069c 01F4      		brne 1b
+ 1639               	 ;  0 "" 2
+ 1640               	/* epilogue start */
+ 1641               	/* #NOAPP */
+ 1642               	.LBE143:
+ 1643               	.LBE142:
+ 1644               	.LBE141:
+ 1645               	.LBE140:
+ 1646               	.LM261:
+ 1647 069e 0895      		ret
+ 1648               	.LFE10:
+ 1650               	.global	ISP_Reset_MCU
+ 1652               	ISP_Reset_MCU:
+ 1653               	.LFB9:
+ 1654               	.LM262:
+ 1655 06a0 0F93      		push r16
+ 1656 06a2 1F93      		push r17
+ 1657               	/* prologue: function */
+ 1658               	/* frame size = 0 */
+ 1659               	.LM263:
+ 1660 06a4 80E0      		ldi r24,lo8(0)
+ 1661 06a6 0E94 0000 		call SPI_RESET_Set_Output_State
+ 1662               	.LM264:
+ 1663 06aa 80E0      		ldi r24,lo8(0)
+ 1664 06ac 0E94 0000 		call SPI_SCK_Set_Output_State
+ 1665               	.LBB144:
+ 1666               	.LBB145:
+ 1667               	.LBB146:
+ 1668               	.LBB147:
+ 1669               	.LBB148:
+ 1670               	.LBB149:
+ 1671               	.LM265:
+ 1672 06b0 0CED      		ldi r16,lo8(1500)
+ 1673 06b2 15E0      		ldi r17,hi8(1500)
+ 1674 06b4 C801      		movw r24,r16
+ 1675               	.LVL120:
+ 1676               	/* #APP */
+ 1677               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1678 06b6 0197      		1: sbiw r24,1
+ 1679 06b8 01F4      		brne 1b
+ 1680               	 ;  0 "" 2
+ 1681               	/* #NOAPP */
+ 1682               	.LBE149:
+ 1683               	.LBE148:
+ 1684               	.LBE147:
+ 1685               	.LBE146:
+ 1686               	.LBE145:
+ 1687               	.LBE144:
+ 1688               	.LM266:
+ 1689 06ba 81E0      		ldi r24,lo8(1)
+ 1690               	.LVL121:
+ 1691 06bc 0E94 0000 		call SPI_RESET_Set_Output_State
+ 1692               	.LBB150:
+ 1693               	.LBB151:
+ 1694               	.LBB152:
+ 1695               	.LBB153:
+ 1696               	.LBB154:
+ 1697               	.LBB155:
+ 1698               	.LM267:
+ 1699 06c0 C801      		movw r24,r16
+ 1700               	.LVL122:
+ 1701               	/* #APP */
+ 1702               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1703 06c2 0197      		1: sbiw r24,1
+ 1704 06c4 01F4      		brne 1b
+ 1705               	 ;  0 "" 2
+ 1706               	/* #NOAPP */
+ 1707               	.LBE155:
+ 1708               	.LBE154:
+ 1709               	.LBE153:
+ 1710               	.LBE152:
+ 1711               	.LBE151:
+ 1712               	.LBE150:
+ 1713               	.LM268:
+ 1714 06c6 80E0      		ldi r24,lo8(0)
+ 1715               	.LVL123:
+ 1716 06c8 0E94 0000 		call SPI_RESET_Set_Output_State
+ 1717 06cc 8CE2      		ldi r24,lo8(300)
+ 1718 06ce 91E0      		ldi r25,hi8(300)
+ 1719               	.LVL124:
+ 1720               	.LBB156:
+ 1721               	.LBB157:
+ 1722               	.LBB158:
+ 1723               	.LBB159:
+ 1724               	.LM269:
+ 1725 06d0 2CE2      		ldi r18,lo8(300)
+ 1726 06d2 31E0      		ldi r19,hi8(300)
+ 1727               	.L126:
+ 1728 06d4 F901      		movw r30,r18
+ 1729               	.LVL125:
+ 1730               	/* #APP */
+ 1731               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1732 06d6 3197      		1: sbiw r30,1
+ 1733 06d8 01F4      		brne 1b
+ 1734               	 ;  0 "" 2
+ 1735               	/* #NOAPP */
+ 1736               	.LBE159:
+ 1737               	.LBE158:
+ 1738               	.LM270:
+ 1739 06da 0197      		sbiw r24,1
+ 1740               	.LM271:
+ 1741 06dc 01F4      		brne .L126
+ 1742               	/* epilogue start */
+ 1743               	.LBE157:
+ 1744               	.LBE156:
+ 1745               	.LM272:
+ 1746 06de 1F91      		pop r17
+ 1747 06e0 0F91      		pop r16
+ 1748 06e2 0895      		ret
+ 1749               	.LFE9:
+ 1751               	.global	ISP_Enter_Programming_Mode
+ 1753               	ISP_Enter_Programming_Mode:
+ 1754               	.LFB11:
+ 1755               	.LM273:
+ 1756 06e4 EF92      		push r14
+ 1757 06e6 FF92      		push r15
+ 1758 06e8 0F93      		push r16
+ 1759 06ea 1F93      		push r17
+ 1760               	/* prologue: function */
+ 1761               	/* frame size = 0 */
+ 1762               	.LM274:
+ 1763 06ec FF24      		clr r15
+ 1764               	.LVL126:
+ 1765 06ee 00E0      		ldi r16,lo8(0)
+ 1766               	.LVL127:
+ 1767 06f0 10E0      		ldi r17,lo8(0)
+ 1768               	.LVL128:
+ 1769               	.L133:
+ 1770               	.LM275:
+ 1771 06f2 0E94 0000 		call ISP_Struct_Init
+ 1772               	.LM276:
+ 1773 06f6 812F      		mov r24,r17
+ 1774 06f8 0E94 0000 		call SPI_Init_Clock
+ 1775               	.LM277:
+ 1776 06fc 0E94 0000 		call ISP_Reset_MCU
+ 1777               	.LM278:
+ 1778 0700 8CEA      		ldi r24,lo8(-84)
+ 1779 0702 0E94 0000 		call SPI_Transceive
+ 1780               	.LM279:
+ 1781 0706 83E5      		ldi r24,lo8(83)
+ 1782 0708 0E94 0000 		call SPI_Transceive
+ 1783               	.LM280:
+ 1784 070c 80E0      		ldi r24,lo8(0)
+ 1785 070e 0E94 0000 		call SPI_Transceive
+ 1786 0712 E82E      		mov r14,r24
+ 1787               	.LM281:
+ 1788 0714 80E0      		ldi r24,lo8(0)
+ 1789 0716 0E94 0000 		call SPI_Transceive
+ 1790               	.LM282:
+ 1791 071a F394      		inc r15
+ 1792               	.LM283:
+ 1793 071c 1430      		cpi r17,lo8(4)
+ 1794 071e 00F4      		brsh .L130
+ 1795 0720 84E0      		ldi r24,lo8(4)
+ 1796 0722 8F15      		cp r24,r15
+ 1797 0724 00F4      		brsh .L130
+ 1798               	.LM284:
+ 1799 0726 1F5F      		subi r17,lo8(-(1))
+ 1800 0728 FF24      		clr r15
+ 1801               	.L130:
+ 1802               	.LM285:
+ 1803 072a 1093 0000 		sts ISP+5,r17
+ 1804               	.LM286:
+ 1805 072e 0F5F      		subi r16,lo8(-(1))
+ 1806               	.LM287:
+ 1807 0730 0531      		cpi r16,lo8(21)
+ 1808 0732 01F4      		brne .L131
+ 1809               	.LM288:
+ 1810 0734 1092 0000 		sts ISP+4,__zero_reg__
+ 1811 0738 80E0      		ldi r24,lo8(0)
+ 1812 073a 00C0      		rjmp .L132
+ 1813               	.L131:
+ 1814               	.LM289:
+ 1815 073c 0093 0000 		sts ISP+4,r16
+ 1816               	.LM290:
+ 1817 0740 83E5      		ldi r24,lo8(83)
+ 1818 0742 E816      		cp r14,r24
+ 1819 0744 01F4      		brne .L133
+ 1820 0746 81E0      		ldi r24,lo8(1)
+ 1821               	.L132:
+ 1822               	/* epilogue start */
+ 1823               	.LM291:
+ 1824 0748 1F91      		pop r17
+ 1825               	.LVL129:
+ 1826 074a 0F91      		pop r16
+ 1827               	.LVL130:
+ 1828 074c FF90      		pop r15
+ 1829               	.LVL131:
+ 1830 074e EF90      		pop r14
+ 1831               	.LVL132:
+ 1832 0750 0895      		ret
+ 1833               	.LFE11:
+ 1835               	.global	firmware_data
+ 1836               		.section	.progmem.data,"a",@progbits
+ 1839               	firmware_data:
+ 1840 0000 0070      		.word	28672
+ 1841 0002 8008      		.word	2176
+ 1842 0004 7808      		.word	2168
+ 1843 0006 4004      		.word	1088
+ 1844 0008 3C04      		.word	1084
+ 1845 000a 1100      		.word	17
+ 1846 000c 0000      		.word	0
+ 1847 000e 0000      		.word	0
+ 1848 0010 0000      		.word	0
+ 1849 0012 0000      		.word	0
+ 1850 0014 0000      		.word	0
+ 1851 0016 0000      		.word	0
+ 1852 0018 0000      		.word	0
+ 1853 001a 0000      		.word	0
+ 1854 001c 0000      		.word	0
+ 1855 001e 0000      		.word	0
+ 1856 0020 C05C      		.word	23744
+ 1857 0022 0000      		.word	0
+ 1858 0024 C08F      		.word	-28736
+ 1859 0026 0000      		.word	0
+ 1860 0028 C073      		.word	29632
+ 1861 002a 0000      		.word	0
+ 1862 002c C071      		.word	29120
+ 1863 002e 0000      		.word	0
+ 1864 0030 C06F      		.word	28608
+ 1865 0032 0000      		.word	0
+ 1866 0034 C06D      		.word	28096
+ 1867 0036 0000      		.word	0
+ 1868 0038 C06B      		.word	27584
+ 1869 003a 0000      		.word	0
+ 1870 003c C069      		.word	27072
+ 1871 003e 0000      		.word	0
+ 1872 0040 C067      		.word	26560
+ 1873 0042 0000      		.word	0
+ 1874 0044 C065      		.word	26048
+ 1875 0046 0000      		.word	0
+ 1876 0048 C063      		.word	25536
+ 1877 004a 0000      		.word	0
+ 1878 004c C061      		.word	25024
+ 1879 004e 0000      		.word	0
+ 1880 0050 C05F      		.word	24512
+ 1881 0052 0000      		.word	0
+ 1882 0054 C05D      		.word	24000
+ 1883 0056 0000      		.word	0
+ 1884 0058 C05B      		.word	23488
+ 1885 005a 0000      		.word	0
+ 1886 005c C059      		.word	22976
+ 1887 005e 0000      		.word	0
+ 1888 0060 C057      		.word	22464
+ 1889 0062 0000      		.word	0
+ 1890 0064 C055      		.word	21952
+ 1891 0066 0000      		.word	0
+ 1892 0068 C053      		.word	21440
+ 1893 006a 0000      		.word	0
+ 1894 006c C051      		.word	20928
+ 1895 006e 0000      		.word	0
+ 1896 0070 C04F      		.word	20416
+ 1897 0072 0000      		.word	0
+ 1898 0074 C04D      		.word	19904
+ 1899 0076 0000      		.word	0
+ 1900 0078 C04B      		.word	19392
+ 1901 007a 0000      		.word	0
+ 1902 007c C049      		.word	18880
+ 1903 007e 0000      		.word	0
+ 1904 0080 C047      		.word	18368
+ 1905 0082 0000      		.word	0
+ 1906 0084 C045      		.word	17856
+ 1907 0086 0000      		.word	0
+ 1908 0088 0304      		.word	1027
+ 1909 008a 0409      		.word	2308
+ 1910 008c 031C      		.word	7171
+ 1911 008e 0077      		.word	30464
+ 1912 0090 0077      		.word	30464
+ 1913 0092 0077      		.word	30464
+ 1914 0094 002E      		.word	11776
+ 1915 0096 0066      		.word	26112
+ 1916 0098 0069      		.word	26880
+ 1917 009a 0073      		.word	29440
+ 1918 009c 0063      		.word	25344
+ 1919 009e 0068      		.word	26624
+ 1920 00a0 006C      		.word	27648
+ 1921 00a2 002E      		.word	11776
+ 1922 00a4 0064      		.word	25600
+ 1923 00a6 0065      		.word	25856
+ 1924 00a8 030E      		.word	3587
+ 1925 00aa 0055      		.word	21760
+ 1926 00ac 0053      		.word	21248
+ 1927 00ae 0042      		.word	16896
+ 1928 00b0 0061      		.word	24832
+ 1929 00b2 0073      		.word	29440
+ 1930 00b4 0070      		.word	28672
+ 1931 00b6 0112      		.word	4609
+ 1932 00b8 0110      		.word	4097
+ 1933 00ba 00FF      		.word	-256
+ 1934 00bc 0800      		.word	8
+ 1935 00be 16C0      		.word	-16362
+ 1936 00c0 05DC      		.word	-9211
+ 1937 00c2 0102      		.word	513
+ 1938 00c4 0201      		.word	258
+ 1939 00c6 0100      		.word	1
+ 1940 00c8 0209      		.word	2306
+ 1941 00ca 0012      		.word	4608
+ 1942 00cc 0101      		.word	257
+ 1943 00ce 8000      		.word	128
+ 1944 00d0 0932      		.word	12809
+ 1945 00d2 0004      		.word	1024
+ 1946 00d4 0000      		.word	0
+ 1947 00d6 0000      		.word	0
+ 1948 00d8 0000      		.word	0
+ 1949 00da 2411      		.word	4388
+ 1950 00dc BE1F      		.word	8126
+ 1951 00de EFCF      		.word	-12305
+ 1952 00e0 E0D8      		.word	-10016
+ 1953 00e2 BFDE      		.word	-8513
+ 1954 00e4 BFCD      		.word	-12865
+ 1955 00e6 E011      		.word	4576
+ 1956 00e8 E0A0      		.word	-24352
+ 1957 00ea E0B1      		.word	-20000
+ 1958 00ec E6EE      		.word	-4378
+ 1959 00ee E7F8      		.word	-1817
+ 1960 00f0 C002      		.word	704
+ 1961 00f2 9005      		.word	1424
+ 1962 00f4 920D      		.word	3474
+ 1963 00f6 30A6      		.word	-22992
+ 1964 00f8 07B1      		.word	-20217
+ 1965 00fa F7D9      		.word	-9737
+ 1966 00fc E011      		.word	4576
+ 1967 00fe E0A6      		.word	-22816
+ 1968 0100 E0B1      		.word	-20000
+ 1969 0102 C001      		.word	448
+ 1970 0104 921D      		.word	7570
+ 1971 0106 33AD      		.word	-21197
+ 1972 0108 07B1      		.word	-20217
+ 1973 010a F7E1      		.word	-7689
+ 1974 010c D163      		.word	25553
+ 1975 010e C3BD      		.word	-16957
+ 1976 0110 CF87      		.word	-30769
+ 1977 0112 2FA8      		.word	-22481
+ 1978 0114 2FB9      		.word	-18129
+ 1979 0116 E080      		.word	-32544
+ 1980 0118 E090      		.word	-28448
+ 1981 011a E041      		.word	16864
+ 1982 011c EA50      		.word	20714
+ 1983 011e 9560      		.word	24725
+ 1984 0120 E030      		.word	12512
+ 1985 0122 C009      		.word	2496
+ 1986 0124 912D      		.word	11665
+ 1987 0126 2782      		.word	-32217
+ 1988 0128 9597      		.word	-26731
+ 1989 012a 9587      		.word	-30827
+ 1990 012c F010      		.word	4336
+ 1991 012e 2784      		.word	-31705
+ 1992 0130 2795      		.word	-27353
+ 1993 0132 5E30      		.word	12382
+ 1994 0134 F3C8      		.word	-14093
+ 1995 0136 5F6F      		.word	28511
+ 1996 0138 F3A8      		.word	-22285
+ 1997 013a 9508      		.word	2197
+ 1998 013c DFEA      		.word	-5409
+ 1999 013e 938D      		.word	-29293
+ 2000 0140 939D      		.word	-25197
+ 2001 0142 9508      		.word	2197
+ 2002 0144 93CF      		.word	-12397
+ 2003 0146 B7CF      		.word	-12361
+ 2004 0148 93CF      		.word	-12397
+ 2005 014a 95C3      		.word	-15467
+ 2006 014c 9B4B      		.word	19355
+ 2007 014e F7E9      		.word	-5641
+ 2008 0150 9B4B      		.word	19355
+ 2009 0152 C009      		.word	2496
+ 2010 0154 9B4B      		.word	19355
+ 2011 0156 C007      		.word	1984
+ 2012 0158 9B4B      		.word	19355
+ 2013 015a C005      		.word	1472
+ 2014 015c 9B4B      		.word	19355
+ 2015 015e C003      		.word	960
+ 2016 0160 9B4B      		.word	19355
+ 2017 0162 C001      		.word	448
+ 2018 0164 C0A1      		.word	-24128
+ 2019 0166 93DF      		.word	-8301
+ 2020 0168 91C0      		.word	-16239
+ 2021 016a 0120      		.word	8193
+ 2022 016c 27DD      		.word	-8921
+ 2023 016e 5DC9      		.word	-13987
+ 2024 0170 4FDE      		.word	-8625
+ 2025 0172 9B4B      		.word	19355
+ 2026 0174 C002      		.word	704
+ 2027 0176 91DF      		.word	-8303
+ 2028 0178 CFEB      		.word	-5169
+ 2029 017a 932F      		.word	12179
+ 2030 017c 930F      		.word	3987
+ 2031 017e 931F      		.word	8083
+ 2032 0180 B109      		.word	2481
+ 2033 0182 EF2F      		.word	12271
+ 2034 0184 FB03      		.word	1019
+ 2035 0186 F920      		.word	8441
+ 2036 0188 934F      		.word	20371
+ 2037 018a 933F      		.word	16275
+ 2038 018c B119      		.word	6577
+ 2039 018e EF4F      		.word	20463
+ 2040 0190 2701      		.word	295
+ 2041 0192 FB03      		.word	1019
+ 2042 0194 F921      		.word	8697
+ 2043 0196 E03B      		.word	15328
+ 2044 0198 C031      		.word	12736
+ 2045 019a 7F4E      		.word	20095
+ 2046 019c 2F01      		.word	303
+ 2047 019e B119      		.word	6577
+ 2048 01a0 6021      		.word	8544
+ 2049 01a2 C028      		.word	10432
+ 2050 01a4 2F10      		.word	4143
+ 2051 01a6 7F4D      		.word	19839
+ 2052 01a8 6022      		.word	8800
+ 2053 01aa 0000      		.word	0
+ 2054 01ac B109      		.word	2481
+ 2055 01ae C029      		.word	10688
+ 2056 01b0 7F4B      		.word	19327
+ 2057 01b2 6024      		.word	9312
+ 2058 01b4 2F01      		.word	303
+ 2059 01b6 0000      		.word	0
+ 2060 01b8 B119      		.word	6577
+ 2061 01ba C02B      		.word	11200
+ 2062 01bc B119      		.word	6577
+ 2063 01be 7F47      		.word	18303
+ 2064 01c0 6028      		.word	10336
+ 2065 01c2 C02A      		.word	10944
+ 2066 01c4 7E4F      		.word	20350
+ 2067 01c6 B109      		.word	2481
+ 2068 01c8 6120      		.word	8289
+ 2069 01ca C02C      		.word	11456
+ 2070 01cc 7D4F      		.word	20349
+ 2071 01ce B119      		.word	6577
+ 2072 01d0 6220      		.word	8290
+ 2073 01d2 C02F      		.word	12224
+ 2074 01d4 7B4F      		.word	20347
+ 2075 01d6 B109      		.word	2481
+ 2076 01d8 6420      		.word	8292
+ 2077 01da C032      		.word	12992
+ 2078 01dc 2742      		.word	16935
+ 2079 01de B109      		.word	2481
+ 2080 01e0 9349      		.word	18835
+ 2081 01e2 EF4F      		.word	20463
+ 2082 01e4 0000      		.word	0
+ 2083 01e6 2710      		.word	4135
+ 2084 01e8 FB13      		.word	5115
+ 2085 01ea F920      		.word	8441
+ 2086 01ec B119      		.word	6577
+ 2087 01ee 701C      		.word	7280
+ 2088 01f0 F1C9      		.word	-13839
+ 2089 01f2 7F29      		.word	10623
+ 2090 01f4 F291      		.word	-28174
+ 2091 01f6 2701      		.word	295
+ 2092 01f8 FB03      		.word	1019
+ 2093 01fa F921      		.word	8697
+ 2094 01fc B109      		.word	2481
+ 2095 01fe 7F23      		.word	9087
+ 2096 0200 F289      		.word	-30222
+ 2097 0202 5031      		.word	12624
+ 2098 0204 F158      		.word	22769
+ 2099 0206 2710      		.word	4135
+ 2100 0208 FB13      		.word	5115
+ 2101 020a F922      		.word	8953
+ 2102 020c B119      		.word	6577
+ 2103 020e 7E27      		.word	10110
+ 2104 0210 F279      		.word	31218
+ 2105 0212 2701      		.word	295
+ 2106 0214 FB03      		.word	1019
+ 2107 0216 F923      		.word	9209
+ 2108 0218 7C2F      		.word	12156
+ 2109 021a F281      		.word	-32270
+ 2110 021c B109      		.word	2481
+ 2111 021e 2710      		.word	4135
+ 2112 0220 FB13      		.word	5115
+ 2113 0222 F924      		.word	9465
+ 2114 0224 792F      		.word	12153
+ 2115 0226 F271      		.word	29170
+ 2116 0228 C000      		.word	192
+ 2117 022a B119      		.word	6577
+ 2118 022c 2701      		.word	295
+ 2119 022e FB03      		.word	1019
+ 2120 0230 F925      		.word	9721
+ 2121 0232 732F      		.word	12147
+ 2122 0234 F259      		.word	23026
+ 2123 0236 C000      		.word	192
+ 2124 0238 B109      		.word	2481
+ 2125 023a 2710      		.word	4135
+ 2126 023c FB13      		.word	5115
+ 2127 023e F926      		.word	9977
+ 2128 0240 3022      		.word	8752
+ 2129 0242 F240      		.word	16626
+ 2130 0244 C000      		.word	192
+ 2131 0246 B119      		.word	6577
+ 2132 0248 2701      		.word	295
+ 2133 024a FB03      		.word	1019
+ 2134 024c F927      		.word	10233
+ 2135 024e 3024      		.word	9264
+ 2136 0250 F628      		.word	10486
+ 2137 0252 774F      		.word	20343
+ 2138 0254 6820      		.word	8296
+ 2139 0256 B119      		.word	6577
+ 2140 0258 0000      		.word	0
+ 2141 025a CFF9      		.word	-1585
+ 2142 025c E011      		.word	4576
+ 2143 025e BB1C      		.word	7355
+ 2144 0260 2700      		.word	39
+ 2145 0262 C017      		.word	6080
+ 2146 0264 503B      		.word	15184
+ 2147 0266 9531      		.word	12693
+ 2148 0268 1BC3      		.word	-15589
+ 2149 026a 40D0      		.word	-12224
+ 2150 026c E011      		.word	4576
+ 2151 026e BB1C      		.word	7355
+ 2152 0270 8108      		.word	2177
+ 2153 0272 3C03      		.word	828
+ 2154 0274 F0E9      		.word	-5648
+ 2155 0276 340B      		.word	2868
+ 2156 0278 F0D9      		.word	-9744
+ 2157 027a 9120      		.word	8337
+ 2158 027c 011E      		.word	7681
+ 2159 027e 8119      		.word	6529
+ 2160 0280 0F11      		.word	4367
+ 2161 0282 1312      		.word	4627
+ 2162 0284 CFED      		.word	-4657
+ 2163 0286 3609      		.word	2358
+ 2164 0288 F141      		.word	16881
+ 2165 028a 320D      		.word	3378
+ 2166 028c F011      		.word	4592
+ 2167 028e 3E01      		.word	318
+ 2168 0290 F739      		.word	14839
+ 2169 0292 9300      		.word	147
+ 2170 0294 0125      		.word	9473
+ 2171 0296 913F      		.word	16273
+ 2172 0298 914F      		.word	20369
+ 2173 029a 911F      		.word	8081
+ 2174 029c 910F      		.word	3985
+ 2175 029e 912F      		.word	12177
+ 2176 02a0 91DF      		.word	-8303
+ 2177 02a2 B3CC      		.word	-13133
+ 2178 02a4 FDC0      		.word	-16131
+ 2179 02a6 CF51      		.word	20943
+ 2180 02a8 91CF      		.word	-12399
+ 2181 02aa BFCF      		.word	-12353
+ 2182 02ac 91CF      		.word	-12399
+ 2183 02ae 9518      		.word	6293
+ 2184 02b0 9120      		.word	8337
+ 2185 02b2 0125      		.word	9473
+ 2186 02b4 2322      		.word	8739
+ 2187 02b6 F379      		.word	31219
+ 2188 02b8 9110      		.word	4241
+ 2189 02ba 0123      		.word	8961
+ 2190 02bc 2311      		.word	4387
+ 2191 02be F511      		.word	4597
+ 2192 02c0 3034      		.word	13360
+ 2193 02c2 F112      		.word	4849
+ 2194 02c4 9330      		.word	12435
+ 2195 02c6 0123      		.word	8961
+ 2196 02c8 9320      		.word	8339
+ 2197 02ca 011F      		.word	7937
+ 2198 02cc 9110      		.word	4241
+ 2199 02ce 0120      		.word	8193
+ 2200 02d0 E03B      		.word	15328
+ 2201 02d2 1B31      		.word	12571
+ 2202 02d4 9330      		.word	12435
+ 2203 02d6 0120      		.word	8193
+ 2204 02d8 C017      		.word	6080
+ 2205 02da 9100      		.word	145
+ 2206 02dc 0123      		.word	8961
+ 2207 02de 3001      		.word	304
+ 2208 02e0 F48C      		.word	-29452
+ 2209 02e2 E50A      		.word	2789
+ 2210 02e4 9130      		.word	12433
+ 2211 02e6 0100      		.word	1
+ 2212 02e8 FD34      		.word	13565
+ 2213 02ea C010      		.word	4288
+ 2214 02ec 9300      		.word	147
+ 2215 02ee 0100      		.word	1
+ 2216 02f0 E1C3      		.word	-15391
+ 2217 02f2 E0D1      		.word	-11808
+ 2218 02f4 C00F      		.word	4032
+ 2219 02f6 9527      		.word	10133
+ 2220 02f8 F4A8      		.word	-22284
+ 2221 02fa 5051      		.word	20816
+ 2222 02fc F4A9      		.word	-22028
+ 2223 02fe 0F22      		.word	8719
+ 2224 0300 0000      		.word	0
+ 2225 0302 CFF9      		.word	-1585
+ 2226 0304 E54A      		.word	19173
+ 2227 0306 C003      		.word	960
+ 2228 0308 ED42      		.word	17133
+ 2229 030a C001      		.word	448
+ 2230 030c 2F43      		.word	17199
+ 2231 030e E1C4      		.word	-15135
+ 2232 0310 E0D0      		.word	-12064
+ 2233 0312 E032      		.word	13024
+ 2234 0314 B11A      		.word	6833
+ 2235 0316 601C      		.word	7264
+ 2236 0318 9A5B      		.word	23450
+ 2237 031a B91A      		.word	6841
+ 2238 031c B10B      		.word	2993
+ 2239 031e E420      		.word	8420
+ 2240 0320 E01C      		.word	7392
+ 2241 0322 935F      		.word	24467
+ 2242 0324 2701      		.word	295
+ 2243 0326 E056      		.word	22240
+ 2244 0328 B90B      		.word	3001
+ 2245 032a 9527      		.word	10133
+ 2246 032c F420      		.word	8436
+ 2247 032e 5051      		.word	20816
+ 2248 0330 F421      		.word	8692
+ 2249 0332 0F22      		.word	8719
+ 2250 0334 CFF9      		.word	-1585
+ 2251 0336 2701      		.word	295
+ 2252 0338 E056      		.word	22240
+ 2253 033a 0000      		.word	0
+ 2254 033c 5A3B      		.word	15194
+ 2255 033e B90B      		.word	3001
+ 2256 0340 F2D0      		.word	-12046
+ 2257 0342 9527      		.word	10133
+ 2258 0344 F428      		.word	10484
+ 2259 0346 5051      		.word	20816
+ 2260 0348 F429      		.word	10740
+ 2261 034a 0F22      		.word	8719
+ 2262 034c 0000      		.word	0
+ 2263 034e CFF9      		.word	-1585
+ 2264 0350 2701      		.word	295
+ 2265 0352 E056      		.word	22240
+ 2266 0354 9527      		.word	10133
+ 2267 0356 B90B      		.word	3001
+ 2268 0358 F420      		.word	8436
+ 2269 035a 5051      		.word	20816
+ 2270 035c F421      		.word	8692
+ 2271 035e 0F22      		.word	8719
+ 2272 0360 CFF9      		.word	-1585
+ 2273 0362 2701      		.word	295
+ 2274 0364 E056      		.word	22240
+ 2275 0366 9129      		.word	10641
+ 2276 0368 2333      		.word	13091
+ 2277 036a B90B      		.word	3001
+ 2278 036c F621      		.word	8694
+ 2279 036e 7F03      		.word	895
+ 2280 0370 9110      		.word	4241
+ 2281 0372 0124      		.word	9217
+ 2282 0374 0F11      		.word	4367
+ 2283 0376 51C6      		.word	-14767
+ 2284 0378 40D0      		.word	-12224
+ 2285 037a B90B      		.word	3001
+ 2286 037c F011      		.word	4592
+ 2287 037e 9310      		.word	4243
+ 2288 0380 011E      		.word	7681
+ 2289 0382 E011      		.word	4576
+ 2290 0384 BB1C      		.word	7355
+ 2291 0386 6008      		.word	2144
+ 2292 0388 B11A      		.word	6833
+ 2293 038a 7F13      		.word	4991
+ 2294 038c 2F40      		.word	16431
+ 2295 038e 7F43      		.word	17279
+ 2296 0390 915F      		.word	24465
+ 2297 0392 C000      		.word	192
+ 2298 0394 C000      		.word	192
+ 2299 0396 B90B      		.word	3001
+ 2300 0398 B91A      		.word	6841
+ 2301 039a B94B      		.word	19385
+ 2302 039c CF7C      		.word	31951
+ 2303 039e 985C      		.word	23704
+ 2304 03a0 9854      		.word	21656
+ 2305 03a2 B81B      		.word	7096
+ 2306 03a4 B81A      		.word	6840
+ 2307 03a6 94F8      		.word	-1900
+ 2308 03a8 BA1D      		.word	7610
+ 2309 03aa E6E9      		.word	-5658
+ 2310 03ac E0F0      		.word	-3872
+ 2311 03ae 8210      		.word	4226
+ 2312 03b0 E081      		.word	-32288
+ 2313 03b2 BF85      		.word	-31297
+ 2314 03b4 BE15      		.word	5566
+ 2315 03b6 9210      		.word	4242
+ 2316 03b8 0081      		.word	-32512
+ 2317 03ba 9210      		.word	4242
+ 2318 03bc 0085      		.word	-31488
+ 2319 03be 9210      		.word	4242
+ 2320 03c0 0084      		.word	-31744
+ 2321 03c2 9A53      		.word	21402
+ 2322 03c4 8210      		.word	4226
+ 2323 03c6 BA1D      		.word	7610
+ 2324 03c8 BA1C      		.word	7354
+ 2325 03ca 91E0      		.word	-8047
+ 2326 03cc 0111      		.word	4353
+ 2327 03ce 91F0      		.word	-3951
+ 2328 03d0 0112      		.word	4609
+ 2329 03d2 9509      		.word	2453
+ 2330 03d4 E188      		.word	-30495
+ 2331 03d6 B60F      		.word	4022
+ 2332 03d8 94F8      		.word	-1900
+ 2333 03da 9380      		.word	-32621
+ 2334 03dc 0060      		.word	24576
+ 2335 03de 9210      		.word	4242
+ 2336 03e0 0060      		.word	24576
+ 2337 03e2 BE0F      		.word	4030
+ 2338 03e4 9210      		.word	4242
+ 2339 03e6 0080      		.word	-32768
+ 2340 03e8 9210      		.word	4242
+ 2341 03ea 0081      		.word	-32512
+ 2342 03ec 9210      		.word	4242
+ 2343 03ee 0082      		.word	-32256
+ 2344 03f0 9210      		.word	4242
+ 2345 03f2 0089      		.word	-30464
+ 2346 03f4 9210      		.word	4242
+ 2347 03f6 0088      		.word	-30720
+ 2348 03f8 9210      		.word	4242
+ 2349 03fa 008B      		.word	-29952
+ 2350 03fc 9210      		.word	4242
+ 2351 03fe 008A      		.word	-30208
+ 2352 0400 9210      		.word	4242
+ 2353 0402 0087      		.word	-30976
+ 2354 0404 9210      		.word	4242
+ 2355 0406 0086      		.word	-31232
+ 2356 0408 9210      		.word	4242
+ 2357 040a 006F      		.word	28416
+ 2358 040c BA16      		.word	5818
+ 2359 040e E085      		.word	-31264
+ 2360 0410 9380      		.word	-32621
+ 2361 0412 0081      		.word	-32512
+ 2362 0414 9210      		.word	4242
+ 2363 0416 0085      		.word	-31488
+ 2364 0418 9210      		.word	4242
+ 2365 041a 0084      		.word	-31744
+ 2366 041c B784      		.word	-31561
+ 2367 041e 3088      		.word	-30672
+ 2368 0420 F409      		.word	2548
+ 2369 0422 C21C      		.word	7362
+ 2370 0424 BE14      		.word	5310
+ 2371 0426 E081      		.word	-32288
+ 2372 0428 BF85      		.word	-31297
+ 2373 042a E082      		.word	-32032
+ 2374 042c BF85      		.word	-31297
+ 2375 042e 9180      		.word	-32623
+ 2376 0430 0069      		.word	26880
+ 2377 0432 6082      		.word	-32160
+ 2378 0434 9380      		.word	-32621
+ 2379 0436 0069      		.word	26880
+ 2380 0438 9AE8      		.word	-5990
+ 2381 043a 9A53      		.word	21402
+ 2382 043c E020      		.word	8416
+ 2383 043e C005      		.word	1472
+ 2384 0440 95A8      		.word	-22379
+ 2385 0442 EB88      		.word	-30485
+ 2386 0444 E09B      		.word	-25632
+ 2387 0446 9701      		.word	407
+ 2388 0448 F7F1      		.word	-3593
+ 2389 044a 5021      		.word	8528
+ 2390 044c F7C9      		.word	-13833
+ 2391 044e 9853      		.word	21400
+ 2392 0450 9478      		.word	30868
+ 2393 0452 9210      		.word	4242
+ 2394 0454 0085      		.word	-31488
+ 2395 0456 9210      		.word	4242
+ 2396 0458 0084      		.word	-31744
+ 2397 045a 9A54      		.word	21658
+ 2398 045c 9A5C      		.word	23706
+ 2399 045e 24CC      		.word	-13276
+ 2400 0460 24DD      		.word	-8924
+ 2401 0462 9120      		.word	8337
+ 2402 0464 0123      		.word	8961
+ 2403 0466 5023      		.word	9040
+ 2404 0468 FD27      		.word	10237
+ 2405 046a C169      		.word	27073
+ 2406 046c 9180      		.word	-32623
+ 2407 046e 0120      		.word	8193
+ 2408 0470 E00C      		.word	3296
+ 2409 0472 E010      		.word	4320
+ 2410 0474 1B08      		.word	2075
+ 2411 0476 0911      		.word	4361
+ 2412 0478 5D09      		.word	2397
+ 2413 047a 4F1E      		.word	7759
+ 2414 047c 9180      		.word	-32623
+ 2415 047e 011F      		.word	7937
+ 2416 0480 328D      		.word	-29390
+ 2417 0482 F009      		.word	2544
+ 2418 0484 C0DD      		.word	-8768
+ 2419 0486 3028      		.word	10288
+ 2420 0488 F009      		.word	2544
+ 2421 048a C157      		.word	22465
+ 2422 048c EC83      		.word	-31764
+ 2423 048e 9380      		.word	-32621
+ 2424 0490 0113      		.word	4865
+ 2425 0492 E58A      		.word	-29979
+ 2426 0494 9380      		.word	-32621
+ 2427 0496 0100      		.word	1
+ 2428 0498 9210      		.word	4242
+ 2429 049a 010A      		.word	2561
+ 2430 049c 01D8      		.word	-10239
+ 2431 049e 913C      		.word	15505
+ 2432 04a0 2F83      		.word	-31953
+ 2433 04a2 7680      		.word	-32650
+ 2434 04a4 9611      		.word	4502
+ 2435 04a6 912C      		.word	11409
+ 2436 04a8 9711      		.word	4503
+ 2437 04aa 2388      		.word	-30685
+ 2438 04ac F409      		.word	2548
+ 2439 04ae C051      		.word	20928
+ 2440 04b0 E086      		.word	-31008
+ 2441 04b2 E091      		.word	-28192
+ 2442 04b4 9390      		.word	-28525
+ 2443 04b6 0122      		.word	8705
+ 2444 04b8 9380      		.word	-32621
+ 2445 04ba 0121      		.word	8449
+ 2446 04bc 3023      		.word	9008
+ 2447 04be F4F9      		.word	-1548
+ 2448 04c0 9613      		.word	5014
+ 2449 04c2 919C      		.word	-25455
+ 2450 04c4 9713      		.word	5015
+ 2451 04c6 9614      		.word	5270
+ 2452 04c8 918C      		.word	-29551
+ 2453 04ca 9714      		.word	5271
+ 2454 04cc 9612      		.word	4758
+ 2455 04ce 912C      		.word	11409
+ 2456 04d0 3320      		.word	8243
+ 2457 04d2 F439      		.word	14836
+ 2458 04d4 7083      		.word	-31888
+ 2459 04d6 2FE8      		.word	-6097
+ 2460 04d8 E0F0      		.word	-3872
+ 2461 04da 5FEE      		.word	-4513
+ 2462 04dc 4FFE      		.word	-433
+ 2463 04de 8180      		.word	-32639
+ 2464 04e0 C00A      		.word	2752
+ 2465 04e2 3A20      		.word	8250
+ 2466 04e4 F411      		.word	4596
+ 2467 04e6 D1BB      		.word	-17455
+ 2468 04e8 C006      		.word	1728
+ 2469 04ea 3C20      		.word	8252
+ 2470 04ec F419      		.word	6644
+ 2471 04ee 01F8      		.word	-2047
+ 2472 04f0 8165      		.word	25985
+ 2473 04f2 D1BD      		.word	-16943
+ 2474 04f4 E080      		.word	-32544
+ 2475 04f6 9380      		.word	-32621
+ 2476 04f8 0109      		.word	2305
+ 2477 04fa E094      		.word	-27424
+ 2478 04fc C093      		.word	-27712
+ 2479 04fe 3025      		.word	9520
+ 2480 0500 F411      		.word	4596
+ 2481 0502 E091      		.word	-28192
+ 2482 0504 C08F      		.word	-28736
+ 2483 0506 2F82      		.word	-32209
+ 2484 0508 5084      		.word	-31664
+ 2485 050a 3086      		.word	-31184
+ 2486 050c F4D8      		.word	-9996
+ 2487 050e 01D8      		.word	-10239
+ 2488 0510 9612      		.word	4758
+ 2489 0512 918D      		.word	-29295
+ 2490 0514 919C      		.word	-25455
+ 2491 0516 9713      		.word	5015
+ 2492 0518 9390      		.word	-28525
+ 2493 051a 010D      		.word	3329
+ 2494 051c 9380      		.word	-32621
+ 2495 051e 010C      		.word	3073
+ 2496 0520 3029      		.word	10544
+ 2497 0522 F0A9      		.word	-22032
+ 2498 0524 9616      		.word	5782
+ 2499 0526 919C      		.word	-25455
+ 2500 0528 9716      		.word	5783
+ 2501 052a 9390      		.word	-28525
+ 2502 052c 010E      		.word	3585
+ 2503 052e 9615      		.word	5526
+ 2504 0530 918C      		.word	-29551
+ 2505 0532 7082      		.word	-32144
+ 2506 0534 9380      		.word	-32621
+ 2507 0536 010F      		.word	3841
+ 2508 0538 9320      		.word	8339
+ 2509 053a 0110      		.word	4097
+ 2510 053c FD37      		.word	14333
+ 2511 053e C06D      		.word	28096
+ 2512 0540 EF2F      		.word	12271
+ 2513 0542 C06C      		.word	27840
+ 2514 0544 3022      		.word	8752
+ 2515 0546 F419      		.word	6644
+ 2516 0548 E081      		.word	-32288
+ 2517 054a 9380      		.word	-32621
+ 2518 054c 010B      		.word	2817
+ 2519 054e E090      		.word	-28448
+ 2520 0550 C069      		.word	27072
+ 2521 0552 01F8      		.word	-2047
+ 2522 0554 8182      		.word	-32127
+ 2523 0556 9210      		.word	4242
+ 2524 0558 011C      		.word	7169
+ 2525 055a 2322      		.word	8739
+ 2526 055c F431      		.word	12788
+ 2527 055e 9210      		.word	4242
+ 2528 0560 011D      		.word	7425
+ 2529 0562 E12C      		.word	11489
+ 2530 0564 E031      		.word	12768
+ 2531 0566 E092      		.word	-27936
+ 2532 0568 C053      		.word	21440
+ 2533 056a 3025      		.word	9520
+ 2534 056c F419      		.word	6644
+ 2535 056e 9380      		.word	-32621
+ 2536 0570 0124      		.word	9217
+ 2537 0572 C04B      		.word	19392
+ 2538 0574 3026      		.word	9776
+ 2539 0576 F5C9      		.word	-13835
+ 2540 0578 01D8      		.word	-10239
+ 2541 057a 9613      		.word	5014
+ 2542 057c 918C      		.word	-29551
+ 2543 057e 3081      		.word	-32464
+ 2544 0580 F419      		.word	6644
+ 2545 0582 E986      		.word	-30999
+ 2546 0584 E790      		.word	-28441
+ 2547 0586 C004      		.word	1216
+ 2548 0588 3082      		.word	-32208
+ 2549 058a F441      		.word	16884
+ 2550 058c EA88      		.word	-30486
+ 2551 058e E790      		.word	-28441
+ 2552 0590 9390      		.word	-28525
+ 2553 0592 0122      		.word	8705
+ 2554 0594 9380      		.word	-32621
+ 2555 0596 0121      		.word	8449
+ 2556 0598 E192      		.word	-27935
+ 2557 059a C023      		.word	9152
+ 2558 059c 3083      		.word	-31952
+ 2559 059e F501      		.word	501
+ 2560 05a0 01F8      		.word	-2047
+ 2561 05a2 8182      		.word	-32127
+ 2562 05a4 2388      		.word	-30685
+ 2563 05a6 F441      		.word	16884
+ 2564 05a8 E688      		.word	-30490
+ 2565 05aa E790      		.word	-28441
+ 2566 05ac 9390      		.word	-28525
+ 2567 05ae 0122      		.word	8705
+ 2568 05b0 9380      		.word	-32621
+ 2569 05b2 0121      		.word	8449
+ 2570 05b4 E094      		.word	-27424
+ 2571 05b6 C015      		.word	5568
+ 2572 05b8 3081      		.word	-32464
+ 2573 05ba F441      		.word	16884
+ 2574 05bc E68C      		.word	-29466
+ 2575 05be E790      		.word	-28441
+ 2576 05c0 9390      		.word	-28525
+ 2577 05c2 0122      		.word	8705
+ 2578 05c4 9380      		.word	-32621
+ 2579 05c6 0121      		.word	8449
+ 2580 05c8 E19C      		.word	-25375
+ 2581 05ca C00B      		.word	3008
+ 2582 05cc 3082      		.word	-32208
+ 2583 05ce F441      		.word	16884
+ 2584 05d0 E888      		.word	-30488
+ 2585 05d2 E790      		.word	-28441
+ 2586 05d4 9390      		.word	-28525
+ 2587 05d6 0122      		.word	8705
+ 2588 05d8 9380      		.word	-32621
+ 2589 05da 0121      		.word	8449
+ 2590 05dc E09E      		.word	-24864
+ 2591 05de C001      		.word	448
+ 2592 05e0 E090      		.word	-28448
+ 2593 05e2 E480      		.word	-32540
+ 2594 05e4 9380      		.word	-32621
+ 2595 05e6 010A      		.word	2561
+ 2596 05e8 C01D      		.word	7616
+ 2597 05ea 3028      		.word	10288
+ 2598 05ec F419      		.word	6644
+ 2599 05ee E226      		.word	9954
+ 2600 05f0 E031      		.word	12768
+ 2601 05f2 C009      		.word	2496
+ 2602 05f4 3029      		.word	10544
+ 2603 05f6 F419      		.word	6644
+ 2604 05f8 9380      		.word	-32621
+ 2605 05fa 0126      		.word	9729
+ 2606 05fc C006      		.word	1728
+ 2607 05fe 302A      		.word	10800
+ 2608 0600 F421      		.word	8692
+ 2609 0602 E12C      		.word	11489
+ 2610 0604 E031      		.word	12768
+ 2611 0606 E091      		.word	-28192
+ 2612 0608 C003      		.word	960
+ 2613 060a E12C      		.word	11489
+ 2614 060c E031      		.word	12768
+ 2615 060e E090      		.word	-28448
+ 2616 0610 9330      		.word	12435
+ 2617 0612 0122      		.word	8705
+ 2618 0614 9320      		.word	8339
+ 2619 0616 0121      		.word	8449
+ 2620 0618 C005      		.word	1472
+ 2621 061a 2F29      		.word	10543
+ 2622 061c E880      		.word	-32536
+ 2623 061e 9380      		.word	-32621
+ 2624 0620 010A      		.word	2561
+ 2625 0622 C00B      		.word	3008
+ 2626 0624 01D8      		.word	-10239
+ 2627 0626 9617      		.word	6038
+ 2628 0628 918C      		.word	-29551
+ 2629 062a 9717      		.word	6039
+ 2630 062c 2388      		.word	-30685
+ 2631 062e F421      		.word	8692
+ 2632 0630 9616      		.word	5782
+ 2633 0632 912C      		.word	11409
+ 2634 0634 1729      		.word	10519
+ 2635 0636 F008      		.word	2288
+ 2636 0638 2F29      		.word	10543
+ 2637 063a 9320      		.word	8339
+ 2638 063c 0101      		.word	257
+ 2639 063e C07D      		.word	32192
+ 2640 0640 9180      		.word	-32623
+ 2641 0642 010A      		.word	2561
+ 2642 0644 FF87      		.word	-30721
+ 2643 0646 C079      		.word	31168
+ 2644 0648 9210      		.word	4242
+ 2645 064a 0081      		.word	-32512
+ 2646 064c E081      		.word	-32288
+ 2647 064e E090      		.word	-28448
+ 2648 0650 9390      		.word	-28525
+ 2649 0652 0085      		.word	-31488
+ 2650 0654 9380      		.word	-32621
+ 2651 0656 0084      		.word	-31744
+ 2652 0658 9180      		.word	-32623
+ 2653 065a 010E      		.word	3585
+ 2654 065c 2EF2      		.word	-3538
+ 2655 065e 1782      		.word	-32233
+ 2656 0660 F408      		.word	2292
+ 2657 0662 2EF8      		.word	-2002
+ 2658 0664 198F      		.word	-28903
+ 2659 0666 9380      		.word	-32621
+ 2660 0668 010E      		.word	3585
+ 2661 066a 24EE      		.word	-4572
+ 2662 066c 2388      		.word	-30685
+ 2663 066e F411      		.word	4596
+ 2664 0670 24EE      		.word	-4572
+ 2665 0672 94E3      		.word	-7276
+ 2666 0674 9180      		.word	-32623
+ 2667 0676 0110      		.word	4097
+ 2668 0678 3087      		.word	-30928
+ 2669 067a F010      		.word	4336
+ 2670 067c 01E8      		.word	-6143
+ 2671 067e C014      		.word	5312
+ 2672 0680 9150      		.word	20625
+ 2673 0682 010F      		.word	3841
+ 2674 0684 91E0      		.word	-8047
+ 2675 0686 010C      		.word	3073
+ 2676 0688 91F0      		.word	-3951
+ 2677 068a 010D      		.word	3329
+ 2678 068c E040      		.word	16608
+ 2679 068e C04A      		.word	19136
+ 2680 0690 9180      		.word	-32623
+ 2681 0692 010C      		.word	3073
+ 2682 0694 9190      		.word	-28527
+ 2683 0696 010D      		.word	3329
+ 2684 0698 9601      		.word	406
+ 2685 069a 9390      		.word	-28525
+ 2686 069c 010D      		.word	3329
+ 2687 069e 9380      		.word	-32621
+ 2688 06a0 010C      		.word	3073
+ 2689 06a2 9701      		.word	407
+ 2690 06a4 9169      		.word	27025
+ 2691 06a6 D0E3      		.word	-7216
+ 2692 06a8 01FE      		.word	-511
+ 2693 06aa 1BE0      		.word	-8165
+ 2694 06ac 15EF      		.word	-4331
+ 2695 06ae F380      		.word	-32525
+ 2696 06b0 C040      		.word	16576
+ 2697 06b2 01CF      		.word	-12543
+ 2698 06b4 778F      		.word	-28809
+ 2699 06b6 7090      		.word	-28560
+ 2700 06b8 2B89      		.word	-30421
+ 2701 06ba F449      		.word	18932
+ 2702 06bc 94F8      		.word	-1900
+ 2703 06be E083      		.word	-31776
+ 2704 06c0 9380      		.word	-32621
+ 2705 06c2 0057      		.word	22272
+ 2706 06c4 95E8      		.word	-5995
+ 2707 06c6 9478      		.word	30868
+ 2708 06c8 B607      		.word	1974
+ 2709 06ca FC00      		.word	252
+ 2710 06cc CFFD      		.word	-561
+ 2711 06ce 5F4E      		.word	20063
+ 2712 06d0 94F8      		.word	-1900
+ 2713 06d2 01D8      		.word	-10239
+ 2714 06d4 918D      		.word	-29295
+ 2715 06d6 919D      		.word	-25199
+ 2716 06d8 018D      		.word	-29439
+ 2717 06da E021      		.word	8672
+ 2718 06dc 010C      		.word	3073
+ 2719 06de 9320      		.word	8339
+ 2720 06e0 0057      		.word	22272
+ 2721 06e2 95E8      		.word	-5995
+ 2722 06e4 2411      		.word	4388
+ 2723 06e6 9478      		.word	30868
+ 2724 06e8 019F      		.word	-24831
+ 2725 06ea 5F2E      		.word	11871
+ 2726 06ec 4F3F      		.word	16207
+ 2727 06ee 01C9      		.word	-14079
+ 2728 06f0 778F      		.word	-28809
+ 2729 06f2 7090      		.word	-28560
+ 2730 06f4 2B89      		.word	-30421
+ 2731 06f6 F031      		.word	12784
+ 2732 06f8 20EE      		.word	-4576
+ 2733 06fa F099      		.word	-26128
+ 2734 06fc 154F      		.word	20245
+ 2735 06fe F088      		.word	-30480
+ 2736 0700 2355      		.word	21795
+ 2737 0702 F079      		.word	31216
+ 2738 0704 94F8      		.word	-1900
+ 2739 0706 E085      		.word	-31264
+ 2740 0708 9380      		.word	-32621
+ 2741 070a 0057      		.word	22272
+ 2742 070c 95E8      		.word	-5995
+ 2743 070e 9478      		.word	30868
+ 2744 0710 B607      		.word	1974
+ 2745 0712 FC00      		.word	252
+ 2746 0714 CFFD      		.word	-561
+ 2747 0716 94F8      		.word	-1900
+ 2748 0718 E181      		.word	-32287
+ 2749 071a 9380      		.word	-32621
+ 2750 071c 0057      		.word	22272
+ 2751 071e 95E8      		.word	-5995
+ 2752 0720 9478      		.word	30868
+ 2753 0722 01F9      		.word	-1791
+ 2754 0724 154F      		.word	20245
+ 2755 0726 F408      		.word	2292
+ 2756 0728 CFC4      		.word	-15153
+ 2757 072a 93F0      		.word	-3949
+ 2758 072c 010D      		.word	3329
+ 2759 072e 93E0      		.word	-8045
+ 2760 0730 010C      		.word	3073
+ 2761 0732 20EE      		.word	-4576
+ 2762 0734 F011      		.word	4592
+ 2763 0736 9210      		.word	4242
+ 2764 0738 0101      		.word	257
+ 2765 073a 9210      		.word	4242
+ 2766 073c 0123      		.word	8961
+ 2767 073e 9180      		.word	-32623
+ 2768 0740 0100      		.word	1
+ 2769 0742 FF84      		.word	-31489
+ 2770 0744 C071      		.word	29120
+ 2771 0746 9180      		.word	-32623
+ 2772 0748 0101      		.word	257
+ 2773 074a 3F8F      		.word	-28865
+ 2774 074c F409      		.word	2548
+ 2775 074e C06C      		.word	27840
+ 2776 0750 2F18      		.word	6191
+ 2777 0752 3089      		.word	-30416
+ 2778 0754 F008      		.word	2288
+ 2779 0756 E018      		.word	6368
+ 2780 0758 1B81      		.word	-32485
+ 2781 075a 9380      		.word	-32621
+ 2782 075c 0101      		.word	257
+ 2783 075e 9180      		.word	-32623
+ 2784 0760 0113      		.word	4865
+ 2785 0762 E898      		.word	-26392
+ 2786 0764 2789      		.word	-30425
+ 2787 0766 9380      		.word	-32621
+ 2788 0768 0113      		.word	4865
+ 2789 076a 2311      		.word	4387
+ 2790 076c F409      		.word	2548
+ 2791 076e C04A      		.word	19136
+ 2792 0770 9180      		.word	-32623
+ 2793 0772 010A      		.word	2561
+ 2794 0774 FF87      		.word	-30721
+ 2795 0776 C02A      		.word	10944
+ 2796 0778 9180      		.word	-32623
+ 2797 077a 010E      		.word	3585
+ 2798 077c 1781      		.word	-32489
+ 2799 077e F408      		.word	2292
+ 2800 0780 2F18      		.word	6191
+ 2801 0782 1B81      		.word	-32485
+ 2802 0784 9380      		.word	-32621
+ 2803 0786 010E      		.word	3585
+ 2804 0788 9100      		.word	145
+ 2805 078a 0110      		.word	4097
+ 2806 078c E1C4      		.word	-15135
+ 2807 078e E0D1      		.word	-11808
+ 2808 0790 C015      		.word	5568
+ 2809 0792 91E0      		.word	-8047
+ 2810 0794 010C      		.word	3073
+ 2811 0796 91F0      		.word	-3951
+ 2812 0798 010D      		.word	3329
+ 2813 079a 3007      		.word	1840
+ 2814 079c F018      		.word	6384
+ 2815 079e 01CF      		.word	-12543
+ 2816 07a0 D05E      		.word	24272
+ 2817 07a2 C001      		.word	448
+ 2818 07a4 9184      		.word	-31599
+ 2819 07a6 8388      		.word	-30589
+ 2820 07a8 9621      		.word	8598
+ 2821 07aa 9180      		.word	-32623
+ 2822 07ac 010C      		.word	3073
+ 2823 07ae 9190      		.word	-28527
+ 2824 07b0 010D      		.word	3329
+ 2825 07b2 9601      		.word	406
+ 2826 07b4 9390      		.word	-28525
+ 2827 07b6 010D      		.word	3329
+ 2828 07b8 9380      		.word	-32621
+ 2829 07ba 010C      		.word	3073
+ 2830 07bc 2F81      		.word	-32465
+ 2831 07be E090      		.word	-28448
+ 2832 07c0 5E8C      		.word	-29602
+ 2833 07c2 4F9E      		.word	-25009
+ 2834 07c4 17C8      		.word	-14313
+ 2835 07c6 07D9      		.word	-9977
+ 2836 07c8 F721      		.word	8695
+ 2837 07ca C01A      		.word	6848
+ 2838 07cc 91E0      		.word	-8047
+ 2839 07ce 0121      		.word	8449
+ 2840 07d0 91F0      		.word	-3951
+ 2841 07d2 0122      		.word	8705
+ 2842 07d4 FF86      		.word	-30977
+ 2843 07d6 C009      		.word	2496
+ 2844 07d8 2F91      		.word	-28369
+ 2845 07da E1A4      		.word	-23327
+ 2846 07dc E0B1      		.word	-20000
+ 2847 07de 9184      		.word	-31599
+ 2848 07e0 938D      		.word	-29293
+ 2849 07e2 9631      		.word	12694
+ 2850 07e4 5091      		.word	-28336
+ 2851 07e6 F7D9      		.word	-9737
+ 2852 07e8 C007      		.word	1984
+ 2853 07ea 2F91      		.word	-28369
+ 2854 07ec E1A4      		.word	-23327
+ 2855 07ee E0B1      		.word	-20000
+ 2856 07f0 9181      		.word	-32367
+ 2857 07f2 938D      		.word	-29293
+ 2858 07f4 5091      		.word	-28336
+ 2859 07f6 F7E1      		.word	-7689
+ 2860 07f8 93F0      		.word	-3949
+ 2861 07fa 0122      		.word	8705
+ 2862 07fc 93E0      		.word	-8045
+ 2863 07fe 0121      		.word	8449
+ 2864 0800 3019      		.word	6448
+ 2865 0802 F460      		.word	24820
+ 2866 0804 E184      		.word	-31519
+ 2867 0806 E091      		.word	-28192
+ 2868 0808 2F61      		.word	24879
+ 2869 080a DC98      		.word	-26404
+ 2870 080c 2F61      		.word	24879
+ 2871 080e 5F6C      		.word	27743
+ 2872 0810 306C      		.word	27696
+ 2873 0812 F041      		.word	16880
+ 2874 0814 EF8F      		.word	-28689
+ 2875 0816 9380      		.word	-32621
+ 2876 0818 0101      		.word	257
+ 2877 081a C004      		.word	1216
+ 2878 081c EF8F      		.word	-28689
+ 2879 081e 9380      		.word	-32621
+ 2880 0820 0101      		.word	257
+ 2881 0822 E16E      		.word	28385
+ 2882 0824 9360      		.word	24723
+ 2883 0826 0100      		.word	1
+ 2884 0828 E194      		.word	-27423
+ 2885 082a B189      		.word	-30287
+ 2886 082c 708C      		.word	-29584
+ 2887 082e F431      		.word	12788
+ 2888 0830 5091      		.word	-28336
+ 2889 0832 F7D9      		.word	-9737
+ 2890 0834 9210      		.word	4242
+ 2891 0836 0124      		.word	9217
+ 2892 0838 9210      		.word	4242
+ 2893 083a 011E      		.word	7681
+ 2894 083c 9180      		.word	-32623
+ 2895 083e 010B      		.word	2817
+ 2896 0840 2388      		.word	-30685
+ 2897 0842 F021      		.word	8688
+ 2898 0844 94CA      		.word	-13676
+ 2899 0846 F411      		.word	4596
+ 2900 0848 94DA      		.word	-9580
+ 2901 084a F041      		.word	16880
+ 2902 084c 9180      		.word	-32623
+ 2903 084e 0084      		.word	-31744
+ 2904 0850 9190      		.word	-28527
+ 2905 0852 0085      		.word	-31488
+ 2906 0854 5680      		.word	-32682
+ 2907 0856 4E9A      		.word	-26034
+ 2908 0858 F408      		.word	2292
+ 2909 085a CE03      		.word	974
+ 2910 085c DDA0      		.word	-24355
+ 2911 085e 99F9      		.word	-1639
+ 2912 0860 CFFE      		.word	-305
+ 2913 0862 BD92      		.word	-27971
+ 2914 0864 BD81      		.word	-32323
+ 2915 0866 9AF8      		.word	-1894
+ 2916 0868 2799      		.word	-26329
+ 2917 086a B580      		.word	-32587
+ 2918 086c 9508      		.word	2197
+ 2919 086e 2F26      		.word	9775
+ 2920 0870 99F9      		.word	-1639
+ 2921 0872 CFFE      		.word	-305
+ 2922 0874 BA1F      		.word	8122
+ 2923 0876 BD92      		.word	-27971
+ 2924 0878 BD81      		.word	-32323
+ 2925 087a BD20      		.word	8381
+ 2926 087c B60F      		.word	4022
+ 2927 087e 94F8      		.word	-1900
+ 2928 0880 9AFA      		.word	-1382
+ 2929 0882 9AF9      		.word	-1638
+ 2930 0884 BE0F      		.word	4030
+ 2931 0886 9601      		.word	406
+ 2932 0888 9508      		.word	2197
+ 2933 088a 94F8      		.word	-1900
+ 2934 088c CFFF      		.word	-49
+ 2935 088e FF5A      		.word	23295
+ 2936 0890 951E      		.word	7829
+ 2937 0892 000F      		.word	3840
+ 2938 0894 0000      		.word	0
+ 2939 0896 0070      		.word	28672
+ 2940 0898 FFFF      		.word	-1
+ 2941 089a FFFF      		.word	-1
+ 2942 089c FFFF      		.word	-1
+ 2943 089e FFFF      		.word	-1
+ 2944               		.data
+ 2947               	C.1.1567:
+ 2948 0000 0000 0000 		.skip 12,0
+ 2948      0000 0000 
+ 2948      0000 0000 
+ 2949               		.comm ISP_Buf,128,1
+ 2950               		.comm ISP,10,1
+ 3335               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 isp.c
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:2      *ABS*:0000003f __SREG__
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:3      *ABS*:0000003e __SP_H__
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:4      *ABS*:0000003d __SP_L__
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:5      *ABS*:00000034 __CCP__
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:18     .text:00000000 ISP_Struct_Init
+                            *COM*:0000000a ISP
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:47     .text:0000002a ISP_Flush_Buffer
+                            *COM*:00000080 ISP_Buf
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:75     .text:00000040 ISP_Init
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:108    .text:0000005a ISP_Read_Progmem
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1839   .progmem.data:00000000 firmware_data
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:141    .text:0000006c ISP_Load_Buffer_With_Offset
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:193    .text:00000092 ISP_Get_Data_Buffer
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:215    .text:000000a2 ISP_Get_Device_SCK_Setting
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:228    .text:000000a8 ISP_Get_Device_Loop_Counter
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:241    .text:000000ae ISP_Get_Device_Signature
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:258    .text:000000c0 ISP_Get_Fuse_Low_Byte
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:271    .text:000000c6 ISP_Get_Fuse_High_Byte
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:284    .text:000000cc ISP_Get_Fuse_Extended_Byte
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:297    .text:000000d2 ISP_Get_Lock_Byte
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:310    .text:000000d8 ISP_Read_MCU_Busy
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:335    .text:000000f4 ISP_Wait_Till_MCU_Busy
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:382    .text:00000112 ISP_Read_PGM
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:452    .text:0000016e ISP_Read_Flash_Word
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:487    .text:00000192 ISP_Verify_Flash
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:612    .text:000001fa ISP_Load_PGM_Word
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:669    .text:0000024c ISP_Load_PGM_Page
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:704    .text:0000026e ISP_Write_PGM_Page
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:765    .text:000002ac ISP_Write_Auto
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:867    .text:00000312 ISP_Read_EEPROM
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:910    .text:00000344 ISP_Write_EEPROM
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:954    .text:0000037a ISP_Chip_Erase
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:982    .text:0000039c ISP_Write_Device_LBITS
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1014   .text:000003c0 ISP_Write_Device_EFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1046   .text:000003e4 ISP_Write_Device_HFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1078   .text:00000408 ISP_Write_Device_LFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1110   .text:0000042c ISP_Read_Device_LBITS
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1139   .text:00000452 ISP_Write_Verify_Device_LBITS
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1170   .text:00000472 ISP_Overwrite_LBITS
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1196   .text:0000048a ISP_Read_Device_EFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1225   .text:000004b0 ISP_Write_Verify_Device_EFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1256   .text:000004d0 ISP_Read_Device_HFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1285   .text:000004f6 ISP_Write_Verify_Device_HFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1316   .text:00000516 ISP_Overwrite_EFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1342   .text:0000052e ISP_Overwrite_HFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1368   .text:00000546 ISP_Read_Device_LFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1397   .text:0000056c ISP_Write_Verify_Device_LFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1428   .text:0000058c ISP_Overwrite_LFUSE
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1454   .text:000005a4 ISP_Read_Device_Signature
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:2947   .data:00000000 C.1.1567
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1572   .text:0000066e ISP_Read_Device_Parameters
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1594   .text:00000684 ISP_Reset_Disable
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1652   .text:000006a0 ISP_Reset_MCU
+C:\Users\WALTON\AppData\Local\Temp/ccEhwiBL.s:1753   .text:000006e4 ISP_Enter_Programming_Mode
+
+UNDEFINED SYMBOLS
+SPI_Transceive
+SPI_Reset_State
+SPI_RESET_Set_Output_State
+SPI_SCK_Set_Output_State
+SPI_Init_Clock
+__do_copy_data
+__do_clear_bss
